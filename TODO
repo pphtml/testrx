@@ -1,20 +1,18 @@
 - zradlo
-  - evidence podle idcka
-    - zabraneni vicenasobnymu pridavani
-    - odmazavani zradla
-  - vsude
+  - vsude viditelny - udelat statistiku kde jak pocitat viewport
   - zrani
-- heroku
-- github
-  - background tiling sprite
-  - hlava hada
-  - telo hada
+- viditelnost ostatnich hadu
+  - pohyb hada (rychlost zizaly podle fps)
+  - temata hadu
+- zobrazeni id sessny
+- automaticka detekce prohlizece, pro Firefox Canvas, pro IE?
+- info - lepsi formatovani
+
 
 - okraj sveta
   - brzda
 - zizala ma inicialni telo
 - zobrazit odpojeni od serveru
-- rychlost zizaly podle fps
 -------------------------------
 - animace otaceni podle klaves
 
@@ -34,4 +32,5 @@ https://wormate.io/
 https://codepen.io/iMax723/full/GpxvPe
 https://codepen.io/soulwire/pen/foktm
 https://codepen.io/isuttell/full/raxRaJ/
+https://zizaly.herokuapp.com/
 

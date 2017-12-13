@@ -11,7 +11,8 @@ import Communication from "./component/communication";
 
 PIXI.utils.skipHello();
 let stage = new Container(),
-    renderer = autoDetectRenderer(512, 512, {antialias: false, transparent: false, resolution: 1});
+    //renderer = autoDetectRenderer(512, 512, {antialias: false, transparent: false, resolution: 1});
+    renderer = new PIXI.CanvasRenderer(256, 256, {antialias: false, transparent: false, resolution: 1});
 renderer.view.style.position = "absolute";
 renderer.view.style.display = "block";
 renderer.autoResize = true;

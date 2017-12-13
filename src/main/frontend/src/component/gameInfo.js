@@ -7,8 +7,9 @@ class GameInfo {
         this.gameContext.gameInfo = this;
         this.message = new Text(
             "Hello Pixi!",
-            {fontFamily: "Arial", fontSize: 32, fill: "white"}
+            {fontFamily: "Audiowide, Arial", fontSize: 20, fill: "white"}
         );
+        // 'Audiowide', cursive;
         this.coordinates = {x: x, y: y};
         this.message.position.set(this.coordinates.x, this.coordinates.y);
         this.message.displayGroup = layers.npcLayer;
