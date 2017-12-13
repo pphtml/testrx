@@ -1,0 +1,44 @@
+{"frames": {
+
+"background2.png":
+{
+	"frame": {"x":0,"y":0,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"basic_head.png":
+{
+	"frame": {"x":0,"y":512,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"basic_tail.png":
+{
+	"frame": {"x":128,"y":512,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"glowing-dot2white.png":
+{
+	"frame": {"x":256,"y":512,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "sprites.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":768},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9e3e17f1be9e62f14b3c1c5615e64cfa:36416f824b0f73e1ae6032e04b2d0b5a:1eabdf11f75e3a4fe3147baf7b5be24b$"
+}
+}

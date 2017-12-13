@@ -1,0 +1,37 @@
+- zradlo
+  - evidence podle idcka
+    - zabraneni vicenasobnymu pridavani
+    - odmazavani zradla
+  - vsude
+  - zrani
+- heroku
+- github
+  - background tiling sprite
+  - hlava hada
+  - telo hada
+
+- okraj sveta
+  - brzda
+- zizala ma inicialni telo
+- zobrazit odpojeni od serveru
+- rychlost zizaly podle fps
+-------------------------------
+- animace otaceni podle klaves
+
+
+//Force canvas rendering like this:
+//var renderer = new PIXI.CanvasRenderer(256, 256);
+
+//Force WebGL rendering like this:
+//var renderer = new PIXI.WebGLRenderer(256, 256);
+
+
+
+http://pixijs.io/pixi-filters/tools/demo/
+https://stackoverflow.com/questions/37439468/how-to-draw-transparent-trails-using-pixi-js
+https://codepen.io/soulwire/pen/Ckzen
+https://wormate.io/
+https://codepen.io/iMax723/full/GpxvPe
+https://codepen.io/soulwire/pen/foktm
+https://codepen.io/isuttell/full/raxRaJ/
+
