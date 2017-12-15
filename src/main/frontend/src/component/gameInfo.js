@@ -7,10 +7,9 @@ class GameInfo {
         this.gameContext.gameInfo = this;
         this.message = new Text(
             "Hello Pixi!",
-            {fontFamily: "Audiowide", fontSize: 20, fill: "white"}
+            {fontFamily: "Lato", fontSize: 20, fill: "white"}
             //{fontFamily: "Audiowide, Arial", fontSize: 20, fill: "white"}
         );
-        // 'Audiowide', cursive;
         this.coordinates = {x: x, y: y};
         this.message.position.set(this.coordinates.x, this.coordinates.y);
         this.message.displayGroup = layers.npcLayer;
@@ -19,7 +18,6 @@ class GameInfo {
         this.gameContext.controls.keyActions.subscribe(event => {
             if (event.type == 'keydown' && event.code == 'KeyI') {
                 this.infoDisplayed = !this.infoDisplayed;
-                console.info(this.infoDisplayed);
             }
         });
 

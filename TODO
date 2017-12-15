@@ -10,7 +10,6 @@
   - pohyb hada (rychlost zizaly podle fps)
   - temata hadu
 - informace o verzi
-- font
 - vyzkouset jak dlouho vydrzi sesna na heroku
 
 
@@ -37,6 +36,7 @@ https://wormate.io/
 https://codepen.io/iMax723/full/GpxvPe
 https://codepen.io/soulwire/pen/foktm
 https://codepen.io/isuttell/full/raxRaJ/
+- font - https://codepen.io/Izaias/pen/ZbbLOJ
 https://zizaly.herokuapp.com/
 
 node/node node_modules/.bin/mocha --reporter spec

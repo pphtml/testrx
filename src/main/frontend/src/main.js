@@ -9,6 +9,27 @@ import Background from './component/background'
 import NPCS from './component/npcs'
 import Communication from "./component/communication";
 
+/*let WebFontConfig = {
+    custom: {
+        families: ["Abel", "Lato"],
+    },
+    active: function() {
+        // do something
+        console.info('ABC');
+        init();
+    }
+};*/
+
+(function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+})();
+
 PIXI.utils.skipHello();
 let stage = new Container(), forceCanvas = /.*Firefox.*/.test(navigator.userAgent);
 let renderOptions = {antialias: false, transparent: false, resolution: 1};

@@ -3,10 +3,19 @@ let expect = require("chai").expect;
 
 
 let distanceCheck = (path, distance) => {
+    var ok = true;
     for (var index = 0; index < path.length - 1; index++) {
         let left = path[index], right = path[index + 1];
-        console.info(`${JSON.stringify(left)}, ${JSON.stringify(right)}`);
+        let xDiff = Math.abs(left.x - right.x), yDiff = Math.abs(left.y - right.y);
+        let square = xDiff * xDiff + yDiff * yDiff;
+        let diff = Math.sqrt(square);
+        let distanceOk = Math.abs(diff - distance) < 0.0001;
+        if (!distanceOk) {
+            console.info(`${JSON.stringify(left)} -> ${JSON.stringify(right)}, diff: ${diff}`);
+            ok = false;
+        }
     }
+    return ok;
 };
 
 describe("Worm Movements", () => {
@@ -16,11 +25,14 @@ describe("Worm Movements", () => {
                 {x: 490.0, y: 100.0, rotation: 0},
                 {x: 480.0, y: 100.0, rotation: 0},
                 {x: 470.0, y: 100.0, rotation: 0},
-                {x: 470.0, y: 111.0, rotation: 0}
+                {x: 470.0, y: 110.0, rotation: 0}
             ];
 
             expect(distanceCheck(snakePath, 10.0)).to.equal(true);
-            //expect(blueHex).to.equal("0000ff");
+
+            let newPath = moveSnake(snakePath, angle, distance);
+
+            expect(distanceCheck(newPath, 10.0)).to.equal(true);
         });
     });
 });

@@ -1,7 +1,7 @@
 let expect = require("chai").expect;
 let converter = require("../src/app/converter");
 
-describe("Color Code Converter", () => {
+/*describe("Color Code Converter", () => {
     describe("RGB to Hex conversion", () => {
         it("converts the basic colors", () =>{
             var redHex   = converter.rgbToHex(255, 0, 0);
@@ -25,4 +25,4 @@ describe("Color Code Converter", () => {
             expect(blue).to.deep.equal([0, 0, 255]);
         });
     });
-});
+});*/
