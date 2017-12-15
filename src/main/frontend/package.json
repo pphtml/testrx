@@ -6,13 +6,18 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "dependencies": {
+    "chai": "^4.1.2",
+    "express": "^4.16.2",
     "lodash": "^4.17.4",
+    "mocha": "^4.0.1",
     "pixi-display": "^1.1.1",
     "pixi-filters": "^2.3.1",
     "pixi.js": "^4.6.1",
+    "request": "^2.83.0",
     "rxjs": "^5.5.5",
     "shortid": "^2.2.8",
     "vue": "^2.5.3",

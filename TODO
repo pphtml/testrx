@@ -1,3 +1,4 @@
+- font
 - zradlo
   - vsude viditelny - udelat statistiku kde jak pocitat viewport
   - zrani
@@ -33,4 +34,6 @@ https://codepen.io/iMax723/full/GpxvPe
 https://codepen.io/soulwire/pen/foktm
 https://codepen.io/isuttell/full/raxRaJ/
 https://zizaly.herokuapp.com/
+
+node/node node_modules/.bin/mocha --reporter spec
 
