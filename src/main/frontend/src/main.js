@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js' // for pixi-display import
 import 'pixi-display'
 import 'pixi-filters'
-import { Container, autoDetectRenderer, loader, DisplayList, DisplayGroup } from 'pixi.js'
+import { Container, autoDetectRenderer, CanvasRenderer, loader, DisplayList, DisplayGroup } from 'pixi.js'
 import Player from './component/player'
 import GameInfo from './component/gameInfo'
 import Controls from './component/controls'
@@ -10,9 +10,16 @@ import NPCS from './component/npcs'
 import Communication from "./component/communication";
 
 PIXI.utils.skipHello();
-let stage = new Container(),
-    //renderer = autoDetectRenderer(512, 512, {antialias: false, transparent: false, resolution: 1});
-    renderer = new PIXI.CanvasRenderer(256, 256, {antialias: false, transparent: false, resolution: 1});
+let stage = new Container(), forceCanvas = /.*Firefox.*/.test(navigator.userAgent);
+let renderOptions = {antialias: false, transparent: false, resolution: 1};
+//let rendererFc = forceCanvas ? CanvasRenderer : autoDetectRenderer;
+let renderer;
+if (forceCanvas) {
+    console.info(`Using canvas renderer...`);
+    renderer = new CanvasRenderer(256, 256, renderOptions);
+} else {
+    renderer = new autoDetectRenderer(256, 256, renderOptions);
+}
 renderer.view.style.position = "absolute";
 renderer.view.style.display = "block";
 renderer.autoResize = true;

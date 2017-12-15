@@ -1,13 +1,17 @@
-- font
+- automaticka detekce prohlizece, pro Firefox Canvas, pro IE?
+- bugfix - pocitani kliku mysi
+- zobrazeni id sessny
+- info - lepsi formatovani
+  - posledni stav zobrazeni v cookie
 - zradlo
   - vsude viditelny - udelat statistiku kde jak pocitat viewport
   - zrani
 - viditelnost ostatnich hadu
   - pohyb hada (rychlost zizaly podle fps)
   - temata hadu
-- zobrazeni id sessny
-- automaticka detekce prohlizece, pro Firefox Canvas, pro IE?
-- info - lepsi formatovani
+- informace o verzi
+- font
+- vyzkouset jak dlouho vydrzi sesna na heroku
 
 
 - okraj sveta

@@ -7,7 +7,8 @@ class GameInfo {
         this.gameContext.gameInfo = this;
         this.message = new Text(
             "Hello Pixi!",
-            {fontFamily: "Audiowide, Arial", fontSize: 20, fill: "white"}
+            {fontFamily: "Audiowide", fontSize: 20, fill: "white"}
+            //{fontFamily: "Audiowide, Arial", fontSize: 20, fill: "white"}
         );
         // 'Audiowide', cursive;
         this.coordinates = {x: x, y: y};
@@ -18,6 +19,7 @@ class GameInfo {
         this.gameContext.controls.keyActions.subscribe(event => {
             if (event.type == 'keydown' && event.code == 'KeyI') {
                 this.infoDisplayed = !this.infoDisplayed;
+                console.info(this.infoDisplayed);
             }
         });
 
