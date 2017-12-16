@@ -1,6 +1,7 @@
 let expect = require("chai").expect;
 //let converter = require("../src/app/converter");
-
+//let Worm = require('../src/component/worm');
+let moveSnake = require('../src/component/wormMovement').moveSnake;
 
 let distanceCheck = (path, distance) => {
     var ok = true;
@@ -27,12 +28,15 @@ describe("Worm Movements", () => {
                 {x: 470.0, y: 100.0, rotation: 0},
                 {x: 470.0, y: 110.0, rotation: 0}
             ];
+            //let angle = 0, distance = 10.0, moveDistance = 5.0;
+            let angle = Math.PI / 2, distance = 10.0, moveDistance = 10.0;
 
-            expect(distanceCheck(snakePath, 10.0)).to.equal(true);
+            expect(distanceCheck(snakePath, distance)).to.equal(true);
 
-            let newPath = moveSnake(snakePath, angle, distance);
+            let newPath = moveSnake(snakePath, angle, moveDistance, distance);
+            console.info(JSON.stringify(newPath));
 
-            expect(distanceCheck(newPath, 10.0)).to.equal(true);
+            expect(distanceCheck(newPath, distance)).to.equal(true);
         });
     });
 });
