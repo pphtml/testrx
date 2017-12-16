@@ -1,6 +1,7 @@
 - zradlo
+  - mazani zradla i bez EatenFood zpravy
   - grafika
-  - zrani
+  - zrani - animace
   - rust hada
   - vsude viditelny - udelat statistiku kde jak pocitat viewport
 - viditelnost ostatnich hadu
@@ -12,6 +13,7 @@
 - info - lepsi formatovani
   - posledni stav zobrazeni v cookie
 - vyzkouset jak dlouho vydrzi sesna na heroku
+- osetrit odpojeni od socketu (klient)
 
 
 - okraj sveta

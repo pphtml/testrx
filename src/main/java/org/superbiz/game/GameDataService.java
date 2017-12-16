@@ -7,6 +7,7 @@ import com.github.davidmoten.rtree.geometry.Circle;
 import com.github.davidmoten.rtree.geometry.Point;
 import com.github.davidmoten.rtree.geometry.Rectangle;
 import org.superbiz.game.msg.DotsUpdate;
+import org.superbiz.game.msg.EatenFood;
 import org.superbiz.game.msg.Message;
 import org.superbiz.game.msg.MessageBuilder;
 import rx.Observable;
@@ -91,21 +92,6 @@ public class GameDataService {
     }*/
 
     public DotsUpdate getDotsUpdate(Player player, Point position) {
-        if (position != null) {
-            Circle foodCircle = player.getEatingCircle(position);
-            Observable<Entry<Dot, Point>> foodSearch = dotTree.search(foodCircle);
-            foodSearch.forEach(food -> {
-                // logger.info(String.format("Food is at: %s", food.value()));
-                dotTree = dotTree.delete(food.value(), food.geometry());
-            });
-
-//            Observable<List<Dot>> foodObservable = foodSearch.map(entry -> entry.value()).toList().single();
-//            List<Dot> food = foodObservable.toBlocking().first();
-//            if (food.size() > 0) {
-//                logger.info(String.format("Food is: %s", food));
-//            }
-        }
-
         Rectangle viewport = player.getViewport(position);
         //logger.info(String.format("Viewport: %s", viewport));
         Observable<Entry<Dot, Point>> search = dotTree.search(viewport);
@@ -116,7 +102,14 @@ public class GameDataService {
 
     public void processMessage(Message message, Player player) {
         if (message.getPlayerMoved() != null) {
-            player.getObservablePosition().onNext(point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY()));
+            final Point position = point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY());
+            player.getObservablePosition().onNext(position);
+            EatenFood eatenFood = eatFood(player, position);
+            if (eatenFood.hasAnyFood()) {
+                String jsonMsg = MessageBuilder.create().setEatenFood(eatenFood).toJson();
+                //logger.info(String.format("TODO: %s", jsonMsg));
+                player.getWebSocket().send(jsonMsg);
+            }
         } else if (message.getResize() != null) {
             //player.getObservablePosition().onNext(point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY()));
             player.setViewSize(point(message.getResize().getWidth(), message.getResize().getHeight()));
@@ -127,6 +120,22 @@ public class GameDataService {
 
         } else {
             logger.info(String.format("%s",  message));
+        }
+    }
+
+    private EatenFood eatFood(Player player, Point position) {
+        if (position != null) {
+            List<Dot> result = new ArrayList<>();
+            Circle foodCircle = player.getEatingCircle(position);
+            Observable<Entry<Dot, Point>> foodSearch = dotTree.search(foodCircle);
+            foodSearch.forEach(food -> {
+                //logger.info(String.format("Food is at: %s", food.value()));
+                dotTree = dotTree.delete(food.value(), food.geometry());
+                result.add(food.value());
+            });
+            return new EatenFood(result);
+        } else {
+            return EatenFood.empty();
         }
     }
 

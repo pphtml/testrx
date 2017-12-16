@@ -62,6 +62,30 @@ class NPCS {
             (err) => console.log(err),
             () => console.log('complete')
         );
+
+        this.gameContext.communication.subject.filter(msg => msg.eatenFood).subscribe(
+            (msg) => this.eatPositions(msg.eatenFood.dots),
+            (err) => console.log(err),
+            () => console.log('complete')
+        );
+    }
+
+    eatPositions(positions) {
+        let removals = {};
+        positions.forEach(position => {
+            let key = `${position.x},${position.y}`;
+            removals[key] = position;
+        });
+
+        for (var i = this.container.children.length - 1; i >= 0; i--) {
+            let sprite = this.container.children[i];
+            let x = sprite.x, y = sprite.y;
+            let key = `${x},${y}`;
+            if (key in removals) {
+                delete this.dots[key];
+                this.container.removeChild(sprite);
+            }
+        }
     }
 
     addPositions(positions) {

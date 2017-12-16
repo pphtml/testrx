@@ -23,6 +23,8 @@ public class Message {
     private WorldInfo worldInfo;
     @JsonProperty(required = false)
     private DotsUpdate dotsUpdate;
+    @JsonProperty(required = false)
+    private EatenFood eatenFood;
 
     public Resize getResize() {
         return resize;
@@ -56,6 +58,14 @@ public class Message {
         this.dotsUpdate = dotsUpdate;
     }
 
+    public EatenFood getEatenFood() {
+        return eatenFood;
+    }
+
+    public void setEatenFood(EatenFood eatenFood) {
+        this.eatenFood = eatenFood;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Message{");
@@ -63,6 +73,7 @@ public class Message {
         sb.append(", playerMoved=").append(playerMoved);
         sb.append(", worldInfo=").append(worldInfo);
         sb.append(", dotsUpdate=").append(dotsUpdate);
+        sb.append(", eatenFood=").append(eatenFood);
         sb.append('}');
         return sb.toString();
     }
