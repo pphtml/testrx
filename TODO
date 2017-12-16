@@ -1,15 +1,16 @@
-- automaticka detekce prohlizece, pro Firefox Canvas, pro IE?
-- bugfix - pocitani kliku mysi
-- zobrazeni id sessny
-- info - lepsi formatovani
-  - posledni stav zobrazeni v cookie
 - zradlo
-  - vsude viditelny - udelat statistiku kde jak pocitat viewport
+  - grafika
   - zrani
+  - rust hada
+  - vsude viditelny - udelat statistiku kde jak pocitat viewport
 - viditelnost ostatnich hadu
   - pohyb hada (rychlost zizaly podle fps)
   - temata hadu
-- informace o verzi
+- bugfix - pocitani kliku mysi
+- zobrazeni male tabulky hracu
+  - zobrazeni id sessny
+- info - lepsi formatovani
+  - posledni stav zobrazeni v cookie
 - vyzkouset jak dlouho vydrzi sesna na heroku
 
 
@@ -19,6 +20,7 @@
 - zobrazit odpojeni od serveru
 -------------------------------
 - animace otaceni podle klaves
+- informace o verzi
 
 
 //Force canvas rendering like this:

@@ -3,9 +3,14 @@ import rx from 'rxjs'
 class Controls {
     constructor(gameContext) {
         this.gameContext = gameContext;
-        this.mouseDown = 0;
-        document.body.onmousedown = () => this.mouseDown++;
-        document.body.onmouseup = () => this.mouseDown--;
+        this.mouseDown = false;
+        /*document.body.onmousedown = () => this.mouseDown++;
+        document.body.onmouseup = () => this.mouseDown--;*/
+
+        let mouseDowns = rx.Observable.fromEvent(document, 'mousedown');
+        let mouseUps = rx.Observable.fromEvent(document, 'mouseup');
+        this.mouseActions = rx.Observable.merge(mouseDowns, mouseUps);
+
         let keyDowns = rx.Observable.fromEvent(document, 'keydown');
         let keyUps = rx.Observable.fromEvent(document, 'keyup');
         this.keyActions = rx.Observable.merge(keyDowns, keyUps);
@@ -17,6 +22,11 @@ class Controls {
         //.debounceTime(1000).subscribe(event => { this.resizedHandler(); });
 
         this.fpsSubject = new rx.Subject();
+
+        this.mouseActions.subscribe(event => {
+            //console.info(event);
+            this.mouseDown = event.buttons > 0;
+        });
     }
 
     resizedHandler() {
@@ -38,7 +48,7 @@ class Controls {
     }
 
     isMouseDown() {
-        return this.mouseDown > 0;
+        return this.mouseDown;
     }
 
     angle() {

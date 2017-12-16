@@ -3,6 +3,7 @@ package org.superbiz.game;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.davidmoten.rtree.Entry;
 import com.github.davidmoten.rtree.RTree;
+import com.github.davidmoten.rtree.geometry.Circle;
 import com.github.davidmoten.rtree.geometry.Point;
 import com.github.davidmoten.rtree.geometry.Rectangle;
 import org.superbiz.game.msg.DotsUpdate;
@@ -90,6 +91,21 @@ public class GameDataService {
     }*/
 
     public DotsUpdate getDotsUpdate(Player player, Point position) {
+        if (position != null) {
+            Circle foodCircle = player.getEatingCircle(position);
+            Observable<Entry<Dot, Point>> foodSearch = dotTree.search(foodCircle);
+            foodSearch.forEach(food -> {
+                // logger.info(String.format("Food is at: %s", food.value()));
+                dotTree = dotTree.delete(food.value(), food.geometry());
+            });
+
+//            Observable<List<Dot>> foodObservable = foodSearch.map(entry -> entry.value()).toList().single();
+//            List<Dot> food = foodObservable.toBlocking().first();
+//            if (food.size() > 0) {
+//                logger.info(String.format("Food is: %s", food));
+//            }
+        }
+
         Rectangle viewport = player.getViewport(position);
         //logger.info(String.format("Viewport: %s", viewport));
         Observable<Entry<Dot, Point>> search = dotTree.search(viewport);

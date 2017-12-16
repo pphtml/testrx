@@ -15,7 +15,7 @@ class Player extends Worm {
     }
 
     resize() {
-        this.container.position.set(this.gameContext.middle.x, this.gameContext.middle.y);
+        this.container.position.set(this.gameContext.middle.x - this.coordinates.x, this.gameContext.middle.y - this.coordinates.y);
     }
 
     update(askedAngle, elapsedTime) {

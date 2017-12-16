@@ -1,5 +1,6 @@
 package org.superbiz.game;
 
+import com.github.davidmoten.rtree.geometry.Circle;
 import com.github.davidmoten.rtree.geometry.Point;
 import com.github.davidmoten.rtree.geometry.Rectangle;
 import ratpack.func.Pair;
@@ -7,6 +8,7 @@ import ratpack.websocket.WebSocket;
 import rx.Observable;
 import rx.subjects.PublishSubject;
 
+import static com.github.davidmoten.rtree.geometry.Geometries.circle;
 import static com.github.davidmoten.rtree.geometry.Geometries.point;
 import static com.github.davidmoten.rtree.geometry.Geometries.rectangle;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
@@ -71,5 +73,9 @@ public class Player {
 
     public void setViewSize(Point viewSize) {
         this.viewSize = viewSize;
+    }
+
+    public Circle getEatingCircle(Point position) {
+        return circle(position.x(), position.y(), 50);
     }
 }
