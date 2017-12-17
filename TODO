@@ -16,6 +16,7 @@
 - vyzkouset jak dlouho vydrzi sesna na heroku
 - osetrit odpojeni od socketu (klient)
 - statistika rychlosti komunikace
+- es6 jako target platforma
 
 
 - okraj sveta
