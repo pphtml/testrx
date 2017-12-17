@@ -5,8 +5,9 @@
   - rust hada
   - vsude viditelny - udelat statistiku kde jak pocitat viewport
 - viditelnost ostatnich hadu
-  - pohyb hada (rychlost zizaly podle fps)
+  - informace o pohybu hadu -> vsem
   - temata hadu
+- pohyb hada - bude skrtit min
 - bugfix - pocitani kliku mysi
 - zobrazeni male tabulky hracu
   - zobrazeni id sessny
@@ -23,6 +24,7 @@
 -------------------------------
 - animace otaceni podle klaves
 - informace o verzi
+- informace o cookies - https://private.pricelessspecials.cz/mcr-web/register-account
 
 
 //Force canvas rendering like this:

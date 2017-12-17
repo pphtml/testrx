@@ -1,19 +1,17 @@
 package org.superbiz.game.msg;
 
-import java.util.Collection;
-
-public class PlayerMoved {
+public class Part {
     private double x;
     private double y;
-    private Collection<Part> path;
+    private double r;
 
-    public PlayerMoved(double x, double y, Collection<Part> path) {
+    public Part(double x, double y, double rotation) {
         this.x = x;
         this.y = y;
-        this.path = path;
+        this.r = rotation;
     }
 
-    public PlayerMoved() {
+    public Part() {
     }
 
     public double getX() {
@@ -32,11 +30,11 @@ public class PlayerMoved {
         this.y = y;
     }
 
-    public Collection<Part> getPath() {
-        return path;
+    public double getR() {
+        return r;
     }
 
-    public void setPath(Collection<Part> path) {
-        this.path = path;
+    public void setR(double r) {
+        this.r = r;
     }
 }
