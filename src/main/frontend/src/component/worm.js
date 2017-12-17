@@ -31,32 +31,19 @@ class Worm {
         }
     }
     spriteNameHead() {
-        return `${this.spriteName}_head.png`;
+        return `basic_head_${this.spriteName}.png`;
     }
 
     spriteNameTail() {
-        return `${this.spriteName}_tail.png`;
+        return `basic_tail_${this.spriteName}.png`;
     }
 
     head_sprite_factory = () => {
-        if (this.spriteName == 'basic_body') {
-            let head = new Sprite(resources["images/sprites.json"].textures['basic_head.png']);
-            head.scale.set(0.4, 0.4);
-            head.anchor.set(0.5, 0.5);
-            head.displayGroup = layers.headLayer;
-            return head;
-            /*let headContainer = new Container();
-            let head = new Sprite(resources["images/scene.json"].textures[`${this.spriteName}.png`]);
-            headContainer.addChild(head);
-            return headContainer;*/
-        } else {
-            let head = new Sprite(resources["images/scene.json"].textures[this.spriteNameHead()]);
-            head.scale.set(0.5, 0.5);
-            head.anchor.set(0.5, 0.5);
-            head.displayGroup = layers.headLayer;
-            return head;
-
-        }
+        let head = new Sprite(resources["images/sprites.json"].textures[this.spriteNameHead()]);
+        head.scale.set(0.4, 0.4);
+        head.anchor.set(0.5, 0.5);
+        head.displayGroup = layers.headLayer;
+        return head;
     }
 
 
@@ -65,19 +52,11 @@ class Worm {
     length = 32;*/
 
     tail_sprite_factory = () => {
-        if (this.spriteName == 'basic_body') {
-            let head = new Sprite(resources["images/sprites.json"].textures['basic_tail.png']);
-            head.anchor.set(0.5, 0.5);
-            head.scale.set(0.4, 0.4);
-            head.displayGroup = layers.tailLayer;
-            return head;
-        } else {
-            let sprite = new Sprite(resources["images/scene.json"].textures[this.spriteNameTail()]);
-            sprite.anchor.set(0.5, 0.5);
-            sprite.scale.set(0.5, 0.5);
-            sprite.displayGroup = layers.tailLayer;
-            return sprite;
-        }
+        let head = new Sprite(resources["images/sprites.json"].textures[this.spriteNameTail()]);
+        head.anchor.set(0.5, 0.5);
+        head.scale.set(0.4, 0.4);
+        head.displayGroup = layers.tailLayer;
+        return head;
     };
 
     update(askedAngle, elapsedTime) {

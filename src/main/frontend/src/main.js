@@ -74,8 +74,11 @@ function setup() {
     gameContext.controls.resizedHandler();
     let background = new Background(gameContext);
     gameContext.background = background;
-    //let player = new Player(gameContext, 'cow');
-    let player = new Player(gameContext, 'basic_body');
+
+    let colorIndex = Math.floor(Math.random() * 10);
+    let color = ['ble', 'blue', 'darkblue', 'darkgreen', 'darkred', 'green', 'lime', 'orange', 'purple', 'yellow'][colorIndex];
+
+    let player = new Player(gameContext, color);
     gameContext.player = player;
 
     stage.addChild(player.container);

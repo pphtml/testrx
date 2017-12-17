@@ -8,13 +8,14 @@
   - informace o pohybu hadu -> vsem
   - temata hadu
 - pohyb hada - bude skrtit min
-- bugfix - pocitani kliku mysi
+  - mezera taky zrychluje
 - zobrazeni male tabulky hracu
   - zobrazeni id sessny
 - info - lepsi formatovani
   - posledni stav zobrazeni v cookie
 - vyzkouset jak dlouho vydrzi sesna na heroku
 - osetrit odpojeni od socketu (klient)
+- statistika rychlosti komunikace
 
 
 - okraj sveta
