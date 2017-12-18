@@ -3,6 +3,7 @@ package org.superbiz.ws;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.superbiz.game.GameDataService;
 import org.superbiz.game.Player;
+import org.superbiz.game.SnakePositions;
 import org.superbiz.game.msg.Message;
 import org.superbiz.game.msg.MessageBuilder;
 import org.superbiz.game.msg.WorldInfo;
@@ -21,9 +22,20 @@ public class GameHandler implements Handler {
     private static final Logger logger = Logger.getLogger(GameHandler.class.getName());
 
     private final ObjectMapper mapper = new ObjectMapper();
+    private final SnakePositions snakePositions;
+
+    //@Inject
+    private GameDataService gameDataService;
 
     @Inject
-    private GameDataService gameDataService;
+    public GameHandler(GameDataService gameDataService, SnakePositions snakePositions) {
+        this.gameDataService = gameDataService;
+        this.snakePositions = snakePositions;
+        logger.info(String.format("STREAM: %s", gameDataService.getSnakeUpdate()));
+        gameDataService.getSnakeUpdate().subscribe(snakesUpdate -> {
+            events.onNext(MessageBuilder.create().setSnakesUpdate(snakesUpdate).toJson());
+        });
+    }
 
     // List of all currently connected clients
     private final Map<String, Player> players = new HashMap<>();
@@ -90,6 +102,8 @@ public class GameHandler implements Handler {
 //                Player player = players.get(playerId);
 
                 players.remove(playerId);
+                snakePositions.remove(playerId);
+                //gameDataService.remove(playerId);
 
                 Map<String, Object> event = new HashMap<>();
                 event.put("type", "clientdisconnect");

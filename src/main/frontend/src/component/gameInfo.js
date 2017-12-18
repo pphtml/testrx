@@ -8,7 +8,8 @@ class GameInfo {
         this.message = new Text(
             "Hello Pixi!",
             {fontFamily: "Lato", fontSize: 20, fill: "white"}
-            //{fontFamily: "Audiowide, Arial", fontSize: 20, fill: "white"}
+            //{fontFamily: "'Saira Extra Condensed'", fontSize: 24, fill: "white"}
+            //{fontFamily: "Arial", fontSize: 20, fill: "white"}
         );
         this.coordinates = {x: x, y: y};
         this.message.position.set(this.coordinates.x, this.coordinates.y);

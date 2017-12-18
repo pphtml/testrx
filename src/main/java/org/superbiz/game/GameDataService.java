@@ -6,10 +6,8 @@ import com.github.davidmoten.rtree.RTree;
 import com.github.davidmoten.rtree.geometry.Circle;
 import com.github.davidmoten.rtree.geometry.Point;
 import com.github.davidmoten.rtree.geometry.Rectangle;
-import org.superbiz.game.msg.DotsUpdate;
-import org.superbiz.game.msg.EatenFood;
-import org.superbiz.game.msg.Message;
-import org.superbiz.game.msg.MessageBuilder;
+import org.superbiz.game.msg.*;
+import ratpack.func.Pair;
 import rx.Observable;
 
 import javax.inject.Inject;
@@ -17,10 +15,14 @@ import java.util.*;
 import java.util.logging.Logger;
 
 import static com.github.davidmoten.rtree.geometry.Geometries.point;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class GameDataService {
     private final int radius;
     private final int powerRadius;
+    private final SnakePositions snakePositions;
+    private final Observable<String> snakesInterval;
+    private final Observable<SnakesUpdate> snakeUpdate;
     @Inject
     private Logger logger;
 
@@ -40,8 +42,9 @@ public class GameDataService {
     private RTree<Dot, Point> dotTree;
 
     @Inject
-    public GameDataService(WorldGeometry worldGeometry) {
+    public GameDataService(WorldGeometry worldGeometry, SnakePositions snakePositions) {
         this.worldGeometry = worldGeometry;
+        this.snakePositions = snakePositions;
          dotTree = RTree.maxChildren(5).create();
         //dotTree = dotTree.add("DAVE", point(10, 20))
 
@@ -57,6 +60,20 @@ public class GameDataService {
         this.levelCount = 4;
         this.random = new Random();
         this.generate(2000);
+
+        this.snakesInterval = Observable.interval(500, MILLISECONDS).map(x -> "S" + x);
+        //this.observablePosition.subscribe(this::onPositionChanged);
+        this.snakeUpdate = this.snakesInterval.withLatestFrom(snakePositions.getObservableSnakes(),
+                //(timer, snakesUpdate) -> Pair.of(this, snakesUpdate));
+                (timer, snakesUpdate) -> snakesUpdate);
+//
+//        this.snakeUpdate.subscribe(update -> {
+//            logger.info(String.format("%s", update));
+//        });
+    }
+
+    public Observable<SnakesUpdate> getSnakeUpdate() {
+        return snakeUpdate;
     }
 
     private void generate(int count) {
@@ -104,6 +121,9 @@ public class GameDataService {
         if (message.getPlayerMoved() != null) {
             final Point position = point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY());
             player.getObservablePosition().onNext(position);
+
+            snakePositions.update(player, message.getPlayerMoved());
+
             EatenFood eatenFood = eatFood(player, position);
             if (eatenFood.hasAnyFood()) {
                 String jsonMsg = MessageBuilder.create().setEatenFood(eatenFood).toJson();

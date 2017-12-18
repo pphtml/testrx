@@ -2,7 +2,7 @@ package org.superbiz.game.msg;
 
 public class MessageBuilder {
     private final Message message;
-    private EatenFood eatenFood;
+    //private EatenFood eatenFood;
 
     private MessageBuilder() {
         this.message = new Message();
@@ -27,6 +27,11 @@ public class MessageBuilder {
 
     public MessageBuilder setDotsUpdate(DotsUpdate dotsUpdate) {
         this.message.setDotsUpdate(dotsUpdate);
+        return this;
+    }
+
+    public MessageBuilder setSnakesUpdate(SnakesUpdate snakesUpdate) {
+        this.message.setSnakesUpdate(snakesUpdate);
         return this;
     }
 

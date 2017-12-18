@@ -25,6 +25,8 @@ public class Message {
     private DotsUpdate dotsUpdate;
     @JsonProperty(required = false)
     private EatenFood eatenFood;
+    @JsonProperty(required = false)
+    private SnakesUpdate snakesUpdate;
 
     public Resize getResize() {
         return resize;
@@ -66,6 +68,14 @@ public class Message {
         this.eatenFood = eatenFood;
     }
 
+    public SnakesUpdate getSnakesUpdate() {
+        return snakesUpdate;
+    }
+
+    public void setSnakesUpdate(SnakesUpdate snakesUpdate) {
+        this.snakesUpdate = snakesUpdate;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Message{");
@@ -74,6 +84,7 @@ public class Message {
         sb.append(", worldInfo=").append(worldInfo);
         sb.append(", dotsUpdate=").append(dotsUpdate);
         sb.append(", eatenFood=").append(eatenFood);
+        sb.append(", snakesUpdate=").append(snakesUpdate);
         sb.append('}');
         return sb.toString();
     }

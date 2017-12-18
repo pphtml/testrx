@@ -1,5 +1,6 @@
 package org.superbiz;
 
+import org.superbiz.game.SnakePositions;
 import org.superbiz.util.LoggingConfig;
 import org.superbiz.util.RxWebpackProcess;
 import org.superbiz.ws.GameHandler;
@@ -26,6 +27,7 @@ public class GusanosServer {
                         .findBaseDir())
                         //.sysProps()) // not needed
                 .registry(Guice.registry(bindings -> bindings
+                        .bind(SnakePositions.class)
                         .bind(GameHandler.class)))
 //                        .moduleConfig(ApplicationModule.class, bindings.getServerConfig().get("/user", ApplicationModule.Config.class))
 //                        .moduleConfig(HikariModule.class, getHikariConfig())

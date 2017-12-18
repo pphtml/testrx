@@ -71,17 +71,17 @@ class NPCS {
     }
 
     eatPositions(positions) {
-        let removals = {};
+        let removals = new Set();
         positions.forEach(position => {
             let key = `${position.x},${position.y}`;
-            removals[key] = position;
+            removals.add(key);
         });
 
         for (var i = this.container.children.length - 1; i >= 0; i--) {
             let sprite = this.container.children[i];
             let x = sprite.x, y = sprite.y;
             let key = `${x},${y}`;
-            if (key in removals) {
+            if (removals.has(key)) {
                 delete this.dots[key];
                 this.container.removeChild(sprite);
             }
@@ -111,22 +111,39 @@ class NPCS {
             }
         });
 
-        let left = this.gameContext.player.coordinates.x - this.gameContext.width / 2,
-            right = this.gameContext.player.coordinates.x + this.gameContext.width / 2,
-            top = this.gameContext.player.coordinates.y - this.gameContext.height / 2,
-            bottom = this.gameContext.player.coordinates.y + this.gameContext.height / 2;
+        // TODO melo by byt zbytecny
+        // let left = this.gameContext.player.coordinates.x - this.gameContext.width / 2,
+        //     right = this.gameContext.player.coordinates.x + this.gameContext.width / 2,
+        //     top = this.gameContext.player.coordinates.y - this.gameContext.height / 2,
+        //     bottom = this.gameContext.player.coordinates.y + this.gameContext.height / 2;
+        //
+        // for (var i = this.container.children.length - 1; i >= 0; i--) {
+        //     let sprite = this.container.children[i];
+        //     let x = sprite.x, y = sprite.y;
+        //
+        //     if (x < left || x > right || y < top || y > bottom) {
+        //         let key = `${x},${y}`;
+        //         delete this.dots[key];
+        //         this.container.removeChild(sprite);
+        //     }
+        // }
+        // console.info(`length: ${this.container.children.length}`);
 
-        for (var i = this.container.children.length - 1; i >= 0; i--) {
+        let viewPortDots = new Set();
+        positions.forEach(position => {
+            let key = `${position.x},${position.y}`;
+            viewPortDots.add(key);
+        });
+
+        for (let i = this.container.children.length - 1; i >= 0; i--) {
             let sprite = this.container.children[i];
             let x = sprite.x, y = sprite.y;
-
-            if (x < left || x > right || y < top || y > bottom) {
-                let key = `${x},${y}`;
+            let key = `${x},${y}`;
+            if (!viewPortDots.has(key)) {
                 delete this.dots[key];
                 this.container.removeChild(sprite);
             }
         }
-        // console.info(`length: ${this.container.children.length}`);
     }
 
     translateColor(color) {
