@@ -64,9 +64,7 @@ class NPCS {
         );
 
         this.gameContext.communication.subject.filter(msg => msg.eatenFood).subscribe(
-            (msg) => this.eatPositions(msg.eatenFood.dots),
-            (err) => console.log(err),
-            () => console.log('complete')
+            (msg) => this.eatPositions(msg.eatenFood.dots)
         );
     }
 
@@ -165,10 +163,8 @@ class NPCS {
     }
 
     update() {
-        //this.container.position.set(this.gameContext.player.coordinates.x, this.gameContext.player.coordinates.y);
-        let x = this.gameContext.middle.x - this.gameContext.player.coordinates.x;
-        let y = this.gameContext.middle.y - this.gameContext.player.coordinates.y;
-        this.container.position.set(x, y);
+        let middleCoordinates = this.gameContext.middleCoordinates();
+        this.container.position.set(middleCoordinates.x, middleCoordinates.y);
         //console.info(this.gameContext.player.coordinates.x, this.gameContext.player.coordinates.y);
     }
 }

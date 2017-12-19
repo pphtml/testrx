@@ -7,6 +7,7 @@ import GameInfo from './component/gameInfo'
 import Controls from './component/controls'
 import Background from './component/background'
 import NPCS from './component/npcs'
+import Worms from './component/worms'
 import Communication from "./component/communication";
 
 /*let WebFontConfig = {
@@ -51,7 +52,12 @@ let gameContext = {
     // height: window.innerHeight,
     // middle: { x: window.innerWidth / 2, y: window.innerHeight / 2 },
     stage: stage,
-    renderer: renderer
+    renderer: renderer,
+    middleCoordinates: function() {
+        let x = this.middle.x - this.player.coordinates.x;
+        let y = this.middle.y - this.player.coordinates.y;
+        return {x: x, y: y};
+    }
 };
 
 stage.displayList = new DisplayList(); // zOrder
@@ -84,6 +90,8 @@ function setup() {
     stage.addChild(player.container);
     let npcs = new NPCS(gameContext);
     stage.addChild(npcs.container);
+    let worms = new Worms(gameContext);
+    stage.addChild(worms.container);
 
     let gameInfo = new GameInfo(gameContext, 10, 10);
     stage.addChild(gameInfo.message);
@@ -111,6 +119,7 @@ function setup() {
         gameInfo.update(angle);
         background.update();
         npcs.update();
+        worms.update();
 
         renderer.render(stage);
 
