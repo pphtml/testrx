@@ -1,11 +1,12 @@
-- informace o threadu
 - zradlo
   - grafika
   - zrani - animace
   - rust hada
   - vsude viditelny - udelat statistiku kde jak pocitat viewport
 - viditelnost ostatnich hadu
-  - reakce na zpravu {"snakesUpdate":{"snakes":{"ryvbYiSMG":{"path":[{"x":-6674.13,"y":-8265.82,"r":5.89},{"x":-6692.58,"y":-8258.11,"r":5.89},{"x":-6711.03,"y":-8250.39,"r":5.89},{"x":-6729.48,"y":-8242.68,"r":5.89},{"x":-6747.94,"y":-8234.96,"r":5.89},{"x":-6766.39,"y":-8227.25,"r":5.89},{"x":-6784.84,"y":-8219.53,"r":5.89},{"x":-6803.29,"y":-8211.82,"r":5.89},{"x":-6821.75,"y":-8204.1,"r":5.89},{"x":-6840.2,"y":-8196.39,"r":5.89},{"x":-6858.65,"y":-8188.67,"r":5.89},{"x":-6877.1,"y":-8180.96,"r":5.89},{"x":-6895.55,"y":-8173.24,"r":5.89},{"x":-6914.0,"y":-8165.53,"r":5.89},{"x":-6932.46,"y":-8157.81,"r":5.89}],"skin":"red"}}}}
+  - informace o uhlu & rychlosti
+  - prokreslovani kdyz neprisel update
+
 - pohyb hada - bude skrtit min
   - mezera taky zrychluje
 - zobrazeni male tabulky hracu

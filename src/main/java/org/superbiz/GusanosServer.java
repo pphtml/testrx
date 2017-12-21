@@ -3,6 +3,7 @@ package org.superbiz;
 import org.superbiz.game.SnakePositions;
 import org.superbiz.util.LoggingConfig;
 import org.superbiz.util.RxWebpackProcess;
+import org.superbiz.util.ThreadDumpHandler;
 import org.superbiz.ws.GameHandler;
 import ratpack.guice.Guice;
 import ratpack.server.RatpackServer;
@@ -28,6 +29,7 @@ public class GusanosServer {
                         //.sysProps()) // not needed
                 .registry(Guice.registry(bindings -> bindings
                         .bind(SnakePositions.class)
+                        .bind(ThreadDumpHandler.class)
                         .bind(GameHandler.class)))
 //                        .moduleConfig(ApplicationModule.class, bindings.getServerConfig().get("/user", ApplicationModule.Config.class))
 //                        .moduleConfig(HikariModule.class, getHikariConfig())
@@ -55,6 +57,7 @@ public class GusanosServer {
 //                        })
 //                ))
                 .handlers(chain -> chain
+                                .get("dump", ThreadDumpHandler.class)
                                 .get("dot", GameHandler.class)
                                 .files(f -> f.dir("static"))
                                 .all(ctx -> ctx.render(ctx.file("static/index.html")))
