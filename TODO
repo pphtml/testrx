@@ -51,3 +51,5 @@ https://zizaly.herokuapp.com/
 https://gist.github.com/newyankeecodeshop/79f3e1348a09583faf62ed55b58d09d9 - es6 target
 
 node/node node_modules/.bin/mocha --reporter spec
+node/node node/node_modules/npm/bin/npm-cli.js run build
+

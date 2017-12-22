@@ -1,4 +1,5 @@
 import Worm from './worm'
+import now from 'moment'
 
 class Player extends Worm {
     constructor(gameContext, spriteName = 'cow') {
@@ -22,8 +23,16 @@ class Player extends Worm {
         this.updatePosition();
 
         this.gameContext.communication.subject.next(
-            JSON.stringify({playerMoved:{x:this.coordinates.x.toFixed(2), y:this.coordinates.y.toFixed(2),
-            path: this.path.map(p => { return {x: p.x.toFixed(2), y: p.y.toFixed(2), r: p.rotation.toFixed(2)}})}}));
+            JSON.stringify({
+                playerMoved: {
+                    x: this.coordinates.x.toFixed(2),
+                    y: this.coordinates.y.toFixed(2),
+                    path: this.path.map(p => {
+                        return {x: p.x.toFixed(2), y: p.y.toFixed(2), r: p.rotation.toFixed(2)}
+                    }),
+                    sent: now()
+                }
+            }));
     }
 }
 
