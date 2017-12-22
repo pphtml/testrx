@@ -1,5 +1,4 @@
 import Worm from './worm'
-import now from 'moment'
 
 class Player extends Worm {
     constructor(gameContext, spriteName = 'cow') {
@@ -30,7 +29,7 @@ class Player extends Worm {
                     path: this.path.map(p => {
                         return {x: p.x.toFixed(2), y: p.y.toFixed(2), r: p.rotation.toFixed(2)}
                     }),
-                    sent: now()
+                    sent: Date.now()
                 }
             }));
     }
