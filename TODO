@@ -16,7 +16,6 @@
 - vyzkouset jak dlouho vydrzi sesna na heroku
 - osetrit odpojeni od socketu (klient)
 - statistika rychlosti komunikace
-- es6 jako target platforma
 - poradne otestovat fonty
   - https://fonts.google.com/specimen/Saira+Extra+Condensed
   - https://fonts.google.com/specimen/Ranga
@@ -49,5 +48,6 @@ https://codepen.io/soulwire/pen/foktm
 https://codepen.io/isuttell/full/raxRaJ/
 - font - https://codepen.io/Izaias/pen/ZbbLOJ
 https://zizaly.herokuapp.com/
+https://gist.github.com/newyankeecodeshop/79f3e1348a09583faf62ed55b58d09d9 - es6 target
 
 node/node node_modules/.bin/mocha --reporter spec
