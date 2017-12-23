@@ -6,11 +6,13 @@ public class PlayerMoved {
     private double x;
     private double y;
     private Collection<Part> path;
+    private long sent;
 
-    public PlayerMoved(double x, double y, Collection<Part> path) {
+    public PlayerMoved(double x, double y, Collection<Part> path, long sent) {
         this.x = x;
         this.y = y;
         this.path = path;
+        this.sent = sent;
     }
 
     public PlayerMoved() {
@@ -38,5 +40,13 @@ public class PlayerMoved {
 
     public void setPath(Collection<Part> path) {
         this.path = path;
+    }
+
+    public long getSent() {
+        return sent;
+    }
+
+    public void setSent(long sent) {
+        this.sent = sent;
     }
 }
