@@ -64,7 +64,12 @@ class NPCS {
         );
 
         this.gameContext.communication.subject.filter(msg => msg.eatenFood).subscribe(
-            (msg) => this.eatPositions(msg.eatenFood.dots)
+            msg => {
+                const roundTrip = Date.now() - msg.eatenFood.timeInfo.initiated;
+                this.gameContext.gameInfo.roundTrip = roundTrip;
+                // console.info(`Eaten food, roundtrip: ${roundTrip}, processing: ${msg.eatenFood.timeInfo.processing}`);
+                this.eatPositions(msg.eatenFood.dots);
+            }
         );
     }
 

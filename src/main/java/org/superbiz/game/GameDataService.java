@@ -119,6 +119,7 @@ public class GameDataService {
 
     public void processMessage(Message message, Player player) {
         if (message.getPlayerMoved() != null) {
+            final long processingStart = System.nanoTime();
             final Point position = point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY());
             player.getObservablePosition().onNext(position);
 
@@ -126,8 +127,10 @@ public class GameDataService {
 
             EatenFood eatenFood = eatFood(player, position);
             if (eatenFood.hasAnyFood()) {
-                String jsonMsg = MessageBuilder.create().setEatenFood(eatenFood).toJson();
                 //logger.info(String.format("TODO: %s", jsonMsg));
+                final long processingEnd = System.nanoTime();
+                eatenFood.setTimeInfo(new TimeInfo(message.getPlayerMoved().getSent(), processingEnd - processingStart));
+                String jsonMsg = MessageBuilder.create().setEatenFood(eatenFood).toJson();
                 player.getWebSocket().send(jsonMsg);
             }
         } else if (message.getResize() != null) {
