@@ -13,7 +13,7 @@ exports.moveSnake = function(snakePath, angle, distance, partDistance) {
     let head = path[0];
     head.x += xStep;
     head.y += yStep;
-    head.rotation = angle;
+    head.r = angle;
 
     //console.info(JSON.stringify(path));
 
@@ -26,7 +26,7 @@ exports.moveSnake = function(snakePath, angle, distance, partDistance) {
         }
         current.x = previous.x - Math.cos(angleDiff) * partDistance;
         current.y = previous.y - Math.sin(angleDiff) * partDistance;
-        current.rotation = angleDiff;
+        current.r = angleDiff;
         //console.info(`angleDiff: ${angleDiff}, xDiff: ${xDiff}, yDiff: ${yDiff}`);
         //console.info(angleDiff);
 

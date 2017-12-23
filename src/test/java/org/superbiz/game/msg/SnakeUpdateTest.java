@@ -21,10 +21,10 @@ public class SnakeUpdateTest {
         Message message = new Message();
 
         final List<Part> pathA = Arrays.asList(new Part(10.6, 30.5, 3.14), new Part(10.8, 30.4, 1.67), new Part(10.1, 30.2, -3.14));
-        final SnakeInfo snakeInfoA = new SnakeInfo(pathA, "blue");
+        final SnakeInfo snakeInfoA = new SnakeInfo(pathA, "blue", 0.0, 10.0);
 
         final List<Part> pathB = Arrays.asList(new Part(10.7, 30.6, 4.14), new Part(10.8, 30.4, 1.67), new Part(10.1, 30.2, -3.14));
-        final SnakeInfo snakeInfoB = new SnakeInfo(pathB, "red");
+        final SnakeInfo snakeInfoB = new SnakeInfo(pathB, "red", 3.14, 20.0);
 
         final Map<String, SnakeInfo> snakes = new LinkedHashMap<>();
         snakes.put("snakeA", snakeInfoA);
@@ -34,7 +34,7 @@ public class SnakeUpdateTest {
 
         message.setSnakesUpdate(snakesUpdate);
         String json = message.toJson();
-        assertEquals("{\"snakesUpdate\":{\"snakes\":{\"snakeA\":{\"path\":[{\"x\":10.6,\"y\":30.5,\"r\":3.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}],\"skin\":\"blue\"},\"snakeB\":{\"path\":[{\"x\":10.7,\"y\":30.6,\"r\":4.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}],\"skin\":\"red\"}}}}", json);
+        assertEquals("{\"snakesUpdate\":{\"snakes\":{\"snakeA\":{\"path\":[{\"x\":10.6,\"y\":30.5,\"r\":3.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}],\"skin\":\"blue\",\"rotation\":0.0,\"speed\":10.0},\"snakeB\":{\"path\":[{\"x\":10.7,\"y\":30.6,\"r\":4.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}],\"skin\":\"red\",\"rotation\":3.14,\"speed\":20.0}}}}", json);
     }
 
     @Test

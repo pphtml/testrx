@@ -1,23 +1,25 @@
 import { Sprite, Container, loader } from 'pixi.js'
 import layers from './layers'
-import Controls from './controls'
 let moveSnake = require('./wormMovement').moveSnake;
 
 
 let resources = loader.resources;
 
 class Worm {
-    constructor(gameContext, spriteName) {
-        this.gameContext = gameContext;
-        this.coordinates = {x: undefined, y: undefined};
-        this.spriteName = spriteName;
+    constructor({skin, speed = 1.0, rotation = 0.0, path = []} = {}) {
+        // this.gameContext = gameContext;
+        this.coordinates = path.length == 0 ? {x: undefined, y: undefined} : {x: path[0].x, y: path[0].y};
+        this.spriteName = skin;
         //this.spriteHead = this.head_sprite_factory();
         //new Sprite(resources["images/scene.json"].textures[this.spriteNameHead()]);
-        this.lastAngle = 0.0;
+        this.angle = rotation;
         this.partDistance = 20.0;
-        this.path = [];
-        for (var index = 0; index < 15; index++) {
-            this.path.push({x: -this.partDistance * index, y: 0.0, rotation: 0});
+        this.path = path;
+        this.speed = speed;
+        if (this.path.length == 0) {
+            for (var index = 0; index < 15; index++) {
+                this.path.push({x: -this.partDistance * index, y: 0.0, r: 0});
+            }
         }
         this.container = new Container();
         this.sprites = [];
@@ -25,7 +27,7 @@ class Worm {
             let part = this.path[index];
             let sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
             sprite.position.set(part.x, part.y);
-            sprite.rotation = part.rotation;
+            sprite.rotation = part.r;
             this.container.addChild(sprite);
             this.sprites.push(sprite);
         }
@@ -59,13 +61,8 @@ class Worm {
         return head;
     };
 
-    update(askedAngle, elapsedTime) {
-        let baseSpeed = 1.0;
-        let speed = 5.0 * (this.gameContext.controls.isMouseDown() ? baseSpeed * 2 : baseSpeed); // * elapsedTime * 0.06;
-        let angle = Controls.computeAllowedAngle(askedAngle, this.lastAngle, elapsedTime, this.gameContext, baseSpeed, speed);
-        this.lastAngle = angle;
-
-        let newPath = moveSnake(this.path, angle, speed, this.partDistance);
+    update(elapsedTime) {
+        let newPath = moveSnake(this.path, this.angle, this.speed, this.partDistance);
         this.path = newPath.path;
 
         //console.info(this.path);
@@ -75,12 +72,9 @@ class Worm {
             let sprite = this.sprites[index];
             sprite.x = part.x;
             sprite.y = part.y;
-            sprite.rotation = part.rotation;
+            sprite.rotation = part.r;
             sprite.zOrder = index;
         }
-
-
-
     }
 }
 

@@ -16,10 +16,11 @@
   - posledni stav zobrazeni v cookie
 - vyzkouset jak dlouho vydrzi sesna na heroku
 - osetrit odpojeni od socketu (klient)
-- statistika rychlosti komunikace
 - poradne otestovat fonty
   - https://fonts.google.com/specimen/Saira+Extra+Condensed
   - https://fonts.google.com/specimen/Ranga
+- statistika pristupu
+  - zapis shutdownu
 
 
 - okraj sveta

@@ -7,6 +7,8 @@ public class PlayerMoved {
     private double y;
     private Collection<Part> path;
     private long sent;
+    private double rotation;
+    private double speed;
 
     public PlayerMoved(double x, double y, Collection<Part> path, long sent) {
         this.x = x;
@@ -48,5 +50,21 @@ public class PlayerMoved {
 
     public void setSent(long sent) {
         this.sent = sent;
+    }
+
+    public double getRotation() {
+        return rotation;
+    }
+
+    public void setRotation(double rotation) {
+        this.rotation = rotation;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 }

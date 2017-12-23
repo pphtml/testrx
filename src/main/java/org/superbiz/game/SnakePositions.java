@@ -38,7 +38,7 @@ public class SnakePositions {
 
     public void update(Player player, PlayerMoved playerMoved) {
         String skin = findSkin(player.getId());
-        SnakeInfo snakeInfo = new SnakeInfo(playerMoved.getPath(), skin);
+        SnakeInfo snakeInfo = new SnakeInfo(playerMoved.getPath(), skin, playerMoved.getRotation(), playerMoved.getSpeed());
         map.put(player.getId(), snakeInfo);
         observableSnakes.onNext(new SnakesUpdate(map));
     }

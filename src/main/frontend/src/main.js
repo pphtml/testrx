@@ -92,6 +92,7 @@ function setup() {
     stage.addChild(npcs.container);
     let worms = new Worms(gameContext);
     stage.addChild(worms.container);
+    worms.updateWorms({"HJlnnghGz":{"path":[{"x":29.85,"y":2.78,"r":0.11},{"x":9.9,"y":1.29,"r":0.07},{"x":-10.08,"y":0.53,"r":0.04},{"x":-30.08,"y":0.19,"r":0.02},{"x":-50.08,"y":0.07,"r":0.01},{"x":-70.08,"y":0.02,"r":0.0},{"x":-90.08,"y":0.01,"r":0.0},{"x":-110.08,"y":0.0,"r":0.0},{"x":-130.08,"y":0.0,"r":0.0},{"x":-150.08,"y":0.0,"r":0.0},{"x":-170.08,"y":0.0,"r":0.0},{"x":-190.08,"y":0.0,"r":0.0},{"x":-210.08,"y":0.0,"r":0.0},{"x":-230.08,"y":0.0,"r":0.0},{"x":-250.08,"y":0.0,"r":0.0}],"skin":"ble","rotation":0.0,"speed":5.0}});
 
     let gameInfo = new GameInfo(gameContext, 10, 10);
     stage.addChild(gameInfo.message);
@@ -119,7 +120,7 @@ function setup() {
         gameInfo.update(angle);
         background.update();
         npcs.update();
-        worms.update();
+        worms.update(elapsedTime);
 
         renderer.render(stage);
 

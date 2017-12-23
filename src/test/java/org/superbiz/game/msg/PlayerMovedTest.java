@@ -23,7 +23,7 @@ public class PlayerMovedTest {
         message.setPlayerMoved(new PlayerMoved(10.6, 30.5, path, 9876543210L));
         String json = message.toJson();
         //assertEquals("{\"playerMoved\":{\"x\":10.6,\"y\":30.5}}", json);
-        assertEquals("{\"playerMoved\":{\"x\":10.6,\"y\":30.5,\"path\":[{\"x\":10.6,\"y\":30.5,\"r\":3.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}]}}", json);
+        assertEquals("{\"playerMoved\":{\"x\":10.6,\"y\":30.5,\"path\":[{\"x\":10.6,\"y\":30.5,\"r\":3.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}],\"sent\":9876543210,\"rotation\":0.0,\"speed\":0.0}}", json);
     }
 
     @Test
