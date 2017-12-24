@@ -9,6 +9,7 @@
   - prokreslovani kdyz neprisel update
 
 - pohyb hada - bude skrtit min
+  - overit rychlost u firefoxu
   - mezera taky zrychluje
 - zobrazeni male tabulky hracu
   - zobrazeni id sessny
@@ -16,16 +17,12 @@
   - posledni stav zobrazeni v cookie
 - vyzkouset jak dlouho vydrzi sesna na heroku
 - osetrit odpojeni od socketu (klient)
-- poradne otestovat fonty
-  - https://fonts.google.com/specimen/Saira+Extra+Condensed
-  - https://fonts.google.com/specimen/Ranga
 - statistika pristupu
   - zapis shutdownu
 
 
 - okraj sveta
   - brzda
-- zizala ma inicialni telo
 - zobrazit odpojeni od serveru
 -------------------------------
 - animace otaceni podle klaves

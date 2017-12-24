@@ -1,5 +1,8 @@
 import { Text } from 'pixi.js'
 import layers from './layers'
+import FeatureMatrix from './featureMatrix'
+
+const featureMatrix = new FeatureMatrix();
 
 class GameInfo {
     constructor(gameContext, x, y) {
@@ -7,9 +10,9 @@ class GameInfo {
         this.gameContext.gameInfo = this;
         this.message = new Text(
             "Hello Pixi!",
-            {fontFamily: "Lato", fontSize: 20, fill: "white"}
-            //{fontFamily: "'Saira Extra Condensed'", fontSize: 24, fill: "white"}
-            //{fontFamily: "Arial", fontSize: 20, fill: "white"}
+            featureMatrix.googleFont ?
+            {fontFamily: "'Saira Extra Condensed'", fontSize: 24, fill: "white"} :
+            {fontFamily: "Arial", fontSize: 20, fill: "white"}
         );
         this.coordinates = {x: x, y: y};
         this.message.position.set(this.coordinates.x, this.coordinates.y);
