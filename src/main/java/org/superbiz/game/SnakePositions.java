@@ -1,9 +1,7 @@
 package org.superbiz.game;
 
 //import com.google.inject.Singleton;
-import org.superbiz.game.msg.PlayerMoved;
-import org.superbiz.game.msg.SnakeInfo;
-import org.superbiz.game.msg.SnakesUpdate;
+import org.superbiz.game.msg.*;
 import rx.subjects.PublishSubject;
 
 import javax.inject.Inject;
@@ -12,9 +10,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import static org.superbiz.game.msg.JSONMapper.getJSONMapper;
+
 @Singleton
 public class SnakePositions {
     //private static final Logger logger = Logger.getLogger(SnakePositions.class.getName());
+    private final JSONMapper mapper = getJSONMapper();
 
     @Inject
     Logger logger;
@@ -26,6 +27,18 @@ public class SnakePositions {
 //        observableSnakes.subscribe(a -> {
 //            logger.info(String.format("UPDATE SNAKES: %s", a));
 //        });
+        // {"snakesUpdate":{"snakes":{"snakeA":{"path":[{"x":10.6,"y":30.5,"r":3.14},{"x":10.8,"y":30.4,"r":1.67},{"x":10.1,"y":30.2,"r":-3.14}],"skin":"blue"},"snakeB":{"path":[{"x":10.7,"y":30.6,"r":4.14},{"x":10.8,"y":30.4,"r":1.67},{"x":10.1,"y":30.2,"r":-3.14}],"skin":"red"}}}}
+        //
+
+    //        try {
+    //            String json = "{\"path\":[{\"x\":29.85,\"y\":2.78,\"r\":0.11},{\"x\":9.9,\"y\":1.29,\"r\":0.07},{\"x\":-10.08,\"y\":0.53,\"r\":0.04},{\"x\":-30.08,\"y\":0.19,\"r\":0.02},{\"x\":-50.08,\"y\":0.07,\"r\":0.01},{\"x\":-70.08,\"y\":0.02,\"r\":0.0},{\"x\":-90.08,\"y\":0.01,\"r\":0.0},{\"x\":-110.08,\"y\":0.0,\"r\":0.0},{\"x\":-130.08,\"y\":0.0,\"r\":0.0},{\"x\":-150.08,\"y\":0.0,\"r\":0.0},{\"x\":-170.08,\"y\":0.0,\"r\":0.0},{\"x\":-190.08,\"y\":0.0,\"r\":0.0},{\"x\":-210.08,\"y\":0.0,\"r\":0.0},{\"x\":-230.08,\"y\":0.0,\"r\":0.0},{\"x\":-250.08,\"y\":0.0,\"r\":0.0}],\"skin\":\"red\",\"rotation\":0.0,\"speed\":0.25}";
+    //            SnakeInfo snakeInfo = mapper.reader().forType(SnakeInfo.class).readValue(json);
+    //            map.put("HJlnnghGz", snakeInfo);
+    //        } catch (IOException e) {
+    //            logger.log(Level.SEVERE, e.getMessage(), e);
+    //        }
+        //assertNotNull(message.getSnakesUpdate());
+
     }
 
     private final PublishSubject<SnakesUpdate> observableSnakes = PublishSubject.create();
@@ -37,14 +50,9 @@ public class SnakePositions {
     private Map<String, SnakeInfo> map = new LinkedHashMap<>();
 
     public void update(Player player, PlayerMoved playerMoved) {
-        String skin = findSkin(player.getId());
-        SnakeInfo snakeInfo = new SnakeInfo(playerMoved.getPath(), skin, playerMoved.getRotation(), playerMoved.getSpeed());
+        SnakeInfo snakeInfo = new SnakeInfo(playerMoved.getPath(), playerMoved.getSkin(), playerMoved.getRotation(), playerMoved.getSpeed());
         map.put(player.getId(), snakeInfo);
         observableSnakes.onNext(new SnakesUpdate(map));
-    }
-
-    private String findSkin(String id) {
-        return "red"; // TODO udelat mapu na skiny
     }
 
     public void remove(String playerId) {

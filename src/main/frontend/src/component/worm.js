@@ -6,38 +6,36 @@ let moveSnake = require('./wormMovement').moveSnake;
 let resources = loader.resources;
 
 class Worm {
-    constructor({skin, speed = 1.0, rotation = 0.0, path = []} = {}) {
-        // this.gameContext = gameContext;
+    constructor({skin, speed = 1.0, rotation = 0.0, path = [], id = 'noname', gameContext} = {}) {
         this.coordinates = path.length == 0 ? {x: undefined, y: undefined} : {x: path[0].x, y: path[0].y};
-        this.spriteName = skin;
-        //this.spriteHead = this.head_sprite_factory();
-        //new Sprite(resources["images/scene.json"].textures[this.spriteNameHead()]);
+        this.skin = skin;
         this.angle = rotation;
         this.partDistance = 20.0;
         this.path = path;
         this.speed = speed;
+        this.gameContext = gameContext;
+        this.id = id;
         if (this.path.length == 0) {
             for (var index = 0; index < 15; index++) {
                 this.path.push({x: -this.partDistance * index, y: 0.0, r: 0});
             }
         }
         this.container = new Container();
-        this.sprites = [];
-        for (var index = 0; index < this.path.length; index++) {
+        for (var index = this.path.length-1; index >= 0; index--) {
             let part = this.path[index];
             let sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
             sprite.position.set(part.x, part.y);
             sprite.rotation = part.r;
             this.container.addChild(sprite);
-            this.sprites.push(sprite);
+            //this.sprites.push(sprite);
         }
     }
     spriteNameHead() {
-        return `basic_head_${this.spriteName}.png`;
+        return `basic_head_${this.skin}.png`;
     }
 
     spriteNameTail() {
-        return `basic_tail_${this.spriteName}.png`;
+        return `basic_tail_${this.skin}.png`;
     }
 
     head_sprite_factory = () => {
@@ -45,13 +43,9 @@ class Worm {
         head.scale.set(0.4, 0.4);
         head.anchor.set(0.5, 0.5);
         head.displayGroup = layers.headLayer;
+        //head.displayGroup = layers.tailLayer; //layers.headLayer;
         return head;
     }
-
-
-/*    spritesTail = [];
-    path = [];
-    length = 32;*/
 
     tail_sprite_factory = () => {
         let head = new Sprite(resources["images/sprites.json"].textures[this.spriteNameTail()]);
@@ -62,19 +56,30 @@ class Worm {
     };
 
     update(elapsedTime) {
+        // if (this.gameContext.communication.commId != this.id) {
+        //     this.path[0].x = 0.0, this.path[0].y = 0.0;
+        //     //debugger;
+        // }
+
         let newPath = moveSnake(this.path, this.angle, this.speed, this.partDistance);
         this.path = newPath.path;
 
-        //console.info(this.path);
-
-        for (var index = 0; index < this.path.length; index++) {
-            let part = this.path[index];
-            let sprite = this.sprites[index];
-            sprite.x = part.x;
-            sprite.y = part.y;
+        for (let indexSprite=this.container.children.length-1, indexPath=0; indexSprite>=0; indexSprite--, indexPath++) {
+            //console.info(indexSprite, indexPath);
+            let part = this.path[indexPath];
+            let sprite = this.container.children[indexSprite];
+            sprite.position.set(part.x, part.y);
             sprite.rotation = part.r;
-            sprite.zOrder = index;
+            //sprite.zOrder = indexSprite;
         }
+    }
+
+    updateFromServer({speed = 1.0, rotation = 0.0, path = []} = {}) {
+        this.coordinates = {x: path[0].x, y: path[0].y};
+        this.angle = rotation;
+        //this.partDistance = 20.0;
+        this.path = path;
+        this.speed = speed;
     }
 }
 

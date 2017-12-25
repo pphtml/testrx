@@ -19,49 +19,37 @@ class Worms {
         // rectangle.alpha = 0.5;
         // this.container.addChild(rectangle);
 
-        // this.gameContext.communication.subject.filter(msg => msg.snakesUpdate).subscribe(
-        //     (msg) => this.updateWorms(msg.snakesUpdate.snakes)
-        // );
-    }
-
-    head_sprite_factory = () => {
-        let head = new Sprite(resources["images/sprites.json"].textures['basic_head_darkred.png']);
-        head.scale.set(0.4, 0.4);
-        head.anchor.set(0.5, 0.5);
-        head.displayGroup = layers.headLayer;
-        return head;
-    }
-
-    tail_sprite_factory = () => {
-        let head = new Sprite(resources["images/sprites.json"].textures['basic_tail_darkred.png']);
-        head.scale.set(0.4, 0.4);
-        head.anchor.set(0.5, 0.5);
-        head.displayGroup = layers.headLayer;
-        return head;
+        this.gameContext.communication.subject.filter(msg => msg.snakesUpdate).subscribe(
+            msg => this.updateWorms(msg.snakesUpdate.snakes)
+        );
     }
 
     updateWorms(worms) {
-        for (let i = this.container.children.length - 1; i >= 0; i--) {
-            let sprite = this.container.children[i];
-            this.container.removeChild(sprite);
-        }
+        // for (let i = this.container.children.length - 1; i >= 0; i--) {
+        //     let sprite = this.container.children[i];
+        //     this.container.removeChild(sprite);
+        // }
 
         //let that = this;
-        for (let id in worms) {
+        for (const [id, wormData] of Object.entries(worms)) {
             if (this.gameContext.communication.commId != id) {
-                let wormData = worms[id];
                 //console.info(`${id} -> ${JSON.stringify(wormData)}`);
                 let path = wormData.path;
                 let skin = wormData.skin;
                 let rotation = wormData.rotation;
                 let speed = wormData.speed;
 
-                //debugger;
-                let worm = new Worm({skin: skin, speed: speed, rotation: rotation, path: path});
-                this.map[id] = worm;
+                let existingWorm = this.map[id];
+                if (!existingWorm) {
+                    let worm = new Worm({skin: skin, speed: speed, rotation: rotation, path: path, id: id, gameContext: this.gameContext});
+                    this.map[id] = worm;
+                    this.container.addChild(worm.container);
+                } else {
+                    console.info(`updateFromServer ${path[0].x}, ${path[0].y}`);
+                    existingWorm.updateFromServer({speed: speed, rotation: rotation, path: path});
+                }
 
                 //console.info(worm);
-                this.container.addChild(worm.container);
 
 
                 // for (let index = path.length - 1; index >= 0; index--) {
@@ -74,16 +62,16 @@ class Worms {
                 //     sprite.rotation = part.r;
                 //     this.container.addChild(sprite);
                 //
-                //     let rectangle = new Graphics();
-                //     rectangle.beginFill(0x0033CC);
-                //     rectangle.lineStyle(4, 0xFF0000, 1);
-                //     rectangle.drawRect(0, 0, 96, 96);
-                //     rectangle.endFill();
-                //     rectangle.x = 0;
-                //     rectangle.y = 0;
-                //     rectangle.alpha = 0.5;
-                //     worm.container.addChild(rectangle);
 
+                // let rectangle = new Graphics();
+                // rectangle.beginFill(0x0033CC);
+                // rectangle.lineStyle(4, 0xFF0000, 1);
+                // rectangle.drawRect(0, 0, 96, 96);
+                // rectangle.endFill();
+                // rectangle.x = 0;
+                // rectangle.y = 0;
+                // rectangle.alpha = 0.5;
+                // this.container.addChild(rectangle);
 
 
                 //worm.container.addChild(sprite);

@@ -9,12 +9,14 @@ public class PlayerMoved {
     private long sent;
     private double rotation;
     private double speed;
+    private String skin;
 
-    public PlayerMoved(double x, double y, Collection<Part> path, long sent) {
+    public PlayerMoved(double x, double y, Collection<Part> path, long sent, String skin) {
         this.x = x;
         this.y = y;
         this.path = path;
         this.sent = sent;
+        this.skin = skin;
     }
 
     public PlayerMoved() {
@@ -66,5 +68,13 @@ public class PlayerMoved {
 
     public void setSpeed(double speed) {
         this.speed = speed;
+    }
+
+    public String getSkin() {
+        return skin;
+    }
+
+    public void setSkin(String skin) {
+        this.skin = skin;
     }
 }
