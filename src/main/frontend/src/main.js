@@ -68,13 +68,9 @@ stage.displayList = new DisplayList(); // zOrder
 document.body.appendChild(renderer.view);
 
 loader
-//    .add("images/scene.json")
     .add("images/sprites.json")
-//    .add("images/basic_head.png")
-//    .add("images/background2.png")
-//    .add("images/glowing-dot.png")
-//    .add("images/glowing-dot2.png")
-//    .add("images/glowing-dot2white.png")
+    .add("images/food.json")
+    .add("images/myfood.png")
     .load(setup);
 
 function setup() {

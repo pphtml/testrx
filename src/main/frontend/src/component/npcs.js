@@ -40,9 +40,9 @@ class NPCS {
         // circle.drawCircle(0, 0, 8);
         // circle.endFill();
         // //circle.filters = [this.glowFilter];
-        // circle.x = 256;
-        // circle.y = 112;
-        // circle.mask = null;
+        // circle.x = 0;
+        // circle.y = 0;
+        // //circle.mask = null;
         // this.container.addChild(circle);
         //
         // let circle2 = new Graphics();
@@ -96,7 +96,8 @@ class NPCS {
             let key = `${position.x},${position.y}`;
             if (!(key in this.dots)) {
                 //let dot = new Sprite(resources["images/glowing-dot2white.png"].texture);
-                let dot = new Sprite(resources["images/sprites.json"].textures['glowing-dot2white.png']);
+                const dot = new Sprite(resources['images/food.json'].textures['food2.png']);
+                //let dot = new Sprite(resources["images/sprites.json"].textures['glowing-dot2white.png']);
 
                 dot.x = position.x;
                 dot.y = position.y;

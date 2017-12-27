@@ -48,11 +48,11 @@ class Worm {
     }
 
     tail_sprite_factory = () => {
-        let head = new Sprite(resources["images/sprites.json"].textures[this.spriteNameTail()]);
-        head.anchor.set(0.5, 0.5);
-        head.scale.set(0.4, 0.4);
-        head.displayGroup = layers.tailLayer;
-        return head;
+        let tail = new Sprite(resources["images/sprites.json"].textures[this.spriteNameTail()]);
+        tail.anchor.set(0.5, 0.5);
+        tail.scale.set(0.4, 0.4);
+        tail.displayGroup = layers.tailLayer;
+        return tail;
     };
 
     update(elapsedTime) {
