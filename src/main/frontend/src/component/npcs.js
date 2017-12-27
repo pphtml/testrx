@@ -4,17 +4,18 @@ const rgbDimmer = require('../computation/rgbColor').rgbDimmer;
 let resources = loader.resources;
 
 const COLORS = [
-    0xffe7ff, // pink
-    0xffd8fc,
-    0xfaff98, // yellow
-    0xffee9b,
-    0xc2bfd6, // violet
-    0xe3d6fe,
-    0xffebba, // orange
-    0xc6e2a4, // greenish
-    0x7fffff, // blue
-    0xffffff, // white
-    0xffcad4 // mi
+    0xff0000,
+    0xffff00,
+    0xff00ff,
+    0x00ff00,
+    0x00ffff,
+    0x0000ff,
+    0x80ffff,
+    0xff80ff,
+    0xffff80,
+    0xffffff,
+    //0xffcad4
+    0xFF8C00 // orange
 ];
 
 const FLASHING_SPEED = 0.0117647;
@@ -122,21 +123,22 @@ class NPCS {
     }
 
     translateColor(color) {
-        var result;
-        switch(color) {
-            case 'red':
-                result = 0xff0000;
-                break;
-            case 'green':
-                result = 0x00ff00;
-                break;
-            case 'blue':
-                result = 0x0000ff;
-                break;
-            default:
-                result = 0xffffff;
-        }
-        return result;
+        // var result;
+        // switch(color) {
+        //     case 'red':
+        //         result = 0xff0000;
+        //         break;
+        //     case 'green':
+        //         result = 0x00ff00;
+        //         break;
+        //     case 'blue':
+        //         result = 0x0000ff;
+        //         break;
+        //     default:
+        //         result = 0xffffff;
+        // }
+        // return result;
+        return COLORS[color];
     }
 
     update() {

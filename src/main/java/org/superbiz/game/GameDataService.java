@@ -56,7 +56,7 @@ public class GameDataService {
         this.height = radius;
         this.widthDouble = radius * 2;
         this.heightDouble = radius * 2;
-        this.colorCount = Dot.Color.values().length;
+        this.colorCount = 11;
         this.levelCount = 4;
         this.random = new Random();
         this.generate(2000);
@@ -92,7 +92,7 @@ public class GameDataService {
             if (x * x + y * y > powerRadius) {
                 continue;
             }
-            Dot.Color color = Dot.Color.values()[random.nextInt(colorCount)];
+            int color = random.nextInt(colorCount);
             int level = random.nextInt(levelCount);
             dot = Dot.create(x, y, color, level);
             break;

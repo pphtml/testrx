@@ -17,16 +17,16 @@ public class DotsUpdateTest {
     @Test
     public void msgToJson() {
         Message message = new Message();
-        Collection<Dot> dots = Arrays.asList(Dot.create(30, 20, Dot.Color.blue, 3),
-                Dot.create(40, 30, Dot.Color.red, 4));
+        Collection<Dot> dots = Arrays.asList(Dot.create(30, 20, 3, 3),
+                Dot.create(40, 30, 4, 4));
         message.setDotsUpdate(new DotsUpdate(dots));
         String json = message.toJson();
-        assertEquals("{\"dotsUpdate\":{\"dots\":[{\"x\":30,\"y\":20,\"c\":\"blue\",\"l\":3},{\"x\":40,\"y\":30,\"c\":\"red\",\"l\":4}]}}", json);
+        assertEquals("{\"dotsUpdate\":{\"dots\":[{\"x\":30,\"y\":20,\"c\":3,\"l\":3},{\"x\":40,\"y\":30,\"c\":4,\"l\":4}]}}", json);
     }
 
     @Test
     public void jsonToMsg() throws IOException {
-        String json = "{\"dotsUpdate\":{\"dots\":[{\"x\":30,\"y\":20,\"c\":\"blue\",\"l\":3},{\"x\":40,\"y\":30,\"c\":\"red\",\"l\":4}]}}";
+        String json = "{\"dotsUpdate\":{\"dots\":[{\"x\":30,\"y\":20,\"c\":3,\"l\":3},{\"x\":40,\"y\":30,\"c\":4,\"l\":4}]}}";
         Message message = mapper.reader().forType(Message.class).readValue(json);
         assertNotNull(message.getDotsUpdate());
         Collection<Dot> dots = message.getDotsUpdate().getDots();

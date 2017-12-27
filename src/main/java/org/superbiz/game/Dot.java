@@ -8,10 +8,10 @@ import static com.github.davidmoten.rtree.geometry.Geometries.point;
 public class Dot {
     private int x;
     private int y;
-    private Color c;
+    private int c;
     private int l;
 
-    private Dot(int x, int y, Color c, int l) {
+    private Dot(int x, int y, int c, int l) {
         this.x = x;
         this.y = y;
         this.c = c;
@@ -40,7 +40,7 @@ public class Dot {
         return y;
     }
 
-    public Color getC() {
+    public int getC() {
         return c;
     }
 
@@ -48,7 +48,7 @@ public class Dot {
         return l;
     }
 
-    public static Dot create(int x, int y, Color c, int l) {
+    public static Dot create(int x, int y, int c, int l) {
         return new Dot(x, y, c, l);
     }
 
@@ -62,5 +62,5 @@ public class Dot {
         return point(x, y);
     }
 
-    public enum Color { red, green, blue }
+    //public enum Color { red, green, blue }
 }
