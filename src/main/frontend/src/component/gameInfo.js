@@ -61,21 +61,19 @@ class GameInfo {
         // circle.y = 100;
         // this.gameContext.stage.addChild(circle);
 
-        // this.tintDir = 10;
-        this.baseColor = 0x010000;
-        this.intensity = 130;
-
-        this.foodSprite = new Sprite(resources['images/myfood.png'].texture);
-        //let foodSprite = new Sprite(resources['images/food.json'].textures['food1.png']);
-        this.foodSprite.x = 64;
-        this.foodSprite.y = 64;
-        this.foodSprite.scale.set(0.1, 0.1);
-        this.foodSprite.tint = 0x800000;
-        this.foodSprite.blendMode = BLEND_MODES.ADD;
-        //foodSprite.blendMode = BLEND_MODES.ADD_NPM;
-        //foodSprite.blendMode = BLEND_MODES.SCREEN_NPM;
-
-        this.gameContext.stage.addChild(this.foodSprite);
+        // this.baseColor = 0x010000;
+        // this.intensity = 130;
+        //
+        // this.foodSprite = new Sprite(resources['images/myfood.png'].texture);
+        // //let foodSprite = new Sprite(resources['images/food.json'].textures['food1.png']);
+        // this.foodSprite.x = 64;
+        // this.foodSprite.y = 64;
+        // this.foodSprite.scale.set(0.1, 0.1);
+        // this.foodSprite.tint = 0x800000;
+        // this.foodSprite.blendMode = BLEND_MODES.ADD;
+        // //foodSprite.blendMode = BLEND_MODES.ADD_NPM;
+        // //foodSprite.blendMode = BLEND_MODES.SCREEN_NPM;
+        //this.gameContext.stage.addChild(this.foodSprite);
     }
 
     update(angle) {
@@ -84,14 +82,14 @@ class GameInfo {
         //this.message.text = `coordinates: ${JSON.stringify(player.coordinates)}, md: ${mouseDown}, d: ${infoDisplayed}`;
         this.message.visible = this.infoDisplayed;
 
-        if (this.intensity == 250) {
-            this.tintDir = -5;
-        } else if (this.intensity == 130) {
-            this.tintDir = 5;
-        }
-        this.intensity += this.tintDir;
-        let color = this.baseColor * this.intensity;
-        this.foodSprite.tint = color;
+        // if (this.intensity == 250) {
+        //     this.tintDir = -5;
+        // } else if (this.intensity == 130) {
+        //     this.tintDir = 5;
+        // }
+        // this.intensity += this.tintDir;
+        // let color = this.baseColor * this.intensity;
+        // this.foodSprite.tint = color;
     }
 }
 

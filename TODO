@@ -1,7 +1,10 @@
-- memory leak?
 - zradlo
   - grafika
-  - zrani - animace
+    - zvetsit set barev
+    - rotace kolem osy
+    - glow pozadi
+    - zrani - animace
+    - 4 skupiny velikosti zradla
   - rust hada
   - vsude viditelny - udelat statistiku kde jak pocitat viewport
 - tint
@@ -20,6 +23,7 @@
 - osetrit odpojeni od socketu (klient)
 - statistika pristupu
   - zapis shutdownu
+- memory leak?
 
 
 - okraj sveta
