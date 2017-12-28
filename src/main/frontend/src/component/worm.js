@@ -22,13 +22,31 @@ class Worm {
         }
         this.container = new Container();
         for (var index = this.path.length-1; index >= 0; index--) {
-            let part = this.path[index];
-            let sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
+            const part = this.path[index];
+            const sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
+            sprite.pathIndex = index;
             sprite.position.set(part.x, part.y);
             sprite.rotation = part.r;
+            sprite.tint = 0x802020;
             this.container.addChild(sprite);
             //this.sprites.push(sprite);
         }
+
+        const eyeLeft = new Sprite(resources['images/spritesheet.json'].textures['eye.png']);
+        eyeLeft.metaInf = 'eye';
+        eyeLeft.scale.set(0.4, 0.4);
+        eyeLeft.pivot.set(-5, 47);
+        eyeLeft.displayGroup = layers.tailLayer;
+        // eyeLeft.position.set(0, 0);
+        this.container.addChild(eyeLeft);
+
+        const eyeRight = new Sprite(resources['images/spritesheet.json'].textures['eye.png']);
+        eyeRight.metaInf = 'eye';
+        eyeRight.scale.set(0.4, 0.4);
+        eyeRight.pivot.set(-5, -4);
+        eyeRight.displayGroup = layers.tailLayer;
+        //eyeRight.position.set(0, 0);
+        this.container.addChild(eyeRight);
     }
     spriteNameHead() {
         return `basic_head_${this.skin}.png`;
@@ -39,16 +57,18 @@ class Worm {
     }
 
     head_sprite_factory = () => {
-        let head = new Sprite(resources["images/sprites.json"].textures[this.spriteNameHead()]);
+        const head = new Sprite(resources['images/spritesheet.json'].textures['tail-mod2-white.png']);
+        //let head = new Sprite(resources["images/sprites.json"].textures[this.spriteNameHead()]);
         head.scale.set(0.4, 0.4);
         head.anchor.set(0.5, 0.5);
-        head.displayGroup = layers.headLayer;
-        //head.displayGroup = layers.tailLayer; //layers.headLayer;
+        //head.displayGroup = layers.headLayer;
+        head.displayGroup = layers.tailLayer; //layers.headLayer;
         return head;
     }
 
     tail_sprite_factory = () => {
-        let tail = new Sprite(resources["images/sprites.json"].textures[this.spriteNameTail()]);
+        const tail = new Sprite(resources['images/spritesheet.json'].textures['tail-mod2-white.png']);
+        //let tail = new Sprite(resources["images/sprites.json"].textures[this.spriteNameTail()]);
         tail.anchor.set(0.5, 0.5);
         tail.scale.set(0.4, 0.4);
         tail.displayGroup = layers.tailLayer;
@@ -64,13 +84,20 @@ class Worm {
         let newPath = moveSnake(this.path, this.angle, this.speed, this.partDistance);
         this.path = newPath.path;
 
-        for (let indexSprite=this.container.children.length-1, indexPath=0; indexSprite>=0; indexSprite--, indexPath++) {
+        for (let indexSprite=this.container.children.length-1; indexSprite>=0; indexSprite--) {
             //console.info(indexSprite, indexPath);
-            let part = this.path[indexPath];
-            let sprite = this.container.children[indexSprite];
-            sprite.position.set(part.x, part.y);
-            sprite.rotation = part.r;
-            //sprite.zOrder = indexSprite;
+            const sprite = this.container.children[indexSprite];
+            //debugger;
+            if (sprite.hasOwnProperty('pathIndex')) {
+                const part = this.path[sprite.pathIndex];
+                sprite.position.set(part.x, part.y);
+                sprite.rotation = part.r;
+                //sprite.zOrder = indexSprite;
+            } else if (sprite.hasOwnProperty('metaInf')) {
+                const part = this.path[0];
+                sprite.position.set(part.x, part.y);
+                sprite.rotation = part.r;
+            }
         }
     }
 

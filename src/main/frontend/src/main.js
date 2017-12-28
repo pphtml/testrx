@@ -68,9 +68,14 @@ stage.displayList = new DisplayList(); // zOrder
 document.body.appendChild(renderer.view);
 
 loader
-    .add("images/sprites.json")
-    .add("images/food.json")
-    .add("images/myfood.png")
+    //.add("images/sprites.json")
+    .add('images/spritesheet.json')
+    // .add("images/myfood.png")
+    // .add("images/myfood-outer.png")
+    // .add("images/tail-basic-white.png")
+    // .add("images/tail-mod1-white.png")
+    // .add("images/tail-mod2-white.png")
+    // .add("images/eye.png")
     .load(setup);
 
 function setup() {
@@ -80,7 +85,7 @@ function setup() {
     let background = new Background(gameContext);
     gameContext.background = background;
 
-    let colorIndex = Math.floor(Math.random() * 10);
+    let colorIndex = 0; //Math.floor(Math.random() * 10);
     let color = ['ble', 'blue', 'darkblue', 'darkgreen', 'darkred', 'green', 'lime', 'orange', 'purple', 'yellow'][colorIndex];
 
     let player = new Player(gameContext, color);

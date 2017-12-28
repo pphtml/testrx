@@ -65,7 +65,6 @@ class GameInfo {
         // this.intensity = 130;
         //
         // this.foodSprite = new Sprite(resources['images/myfood.png'].texture);
-        // //let foodSprite = new Sprite(resources['images/food.json'].textures['food1.png']);
         // this.foodSprite.x = 64;
         // this.foodSprite.y = 64;
         // this.foodSprite.scale.set(0.1, 0.1);

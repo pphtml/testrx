@@ -37,17 +37,13 @@ public class GameDataService {
     private final ObjectMapper mapper = new ObjectMapper();
     private final WorldGeometry worldGeometry;
 
-
-    //private Map<String, Dot> dots = new HashMap<>();
     private RTree<Dot, Point> dotTree;
 
     @Inject
     public GameDataService(WorldGeometry worldGeometry, SnakePositions snakePositions) {
         this.worldGeometry = worldGeometry;
         this.snakePositions = snakePositions;
-         dotTree = RTree.maxChildren(5).create();
-        //dotTree = dotTree.add("DAVE", point(10, 20))
-
+        this.dotTree = RTree.maxChildren(5).create();
 
         this.radius = 3000;
         this.powerRadius = this.radius * this.radius;
@@ -59,7 +55,7 @@ public class GameDataService {
         this.colorCount = 11;
         this.levelCount = 4;
         this.random = new Random();
-        this.generate(2000);
+        this.generate(1000);
 
         this.snakesInterval = Observable.interval(100, MILLISECONDS).map(x -> "S" + x);
         //this.observablePosition.subscribe(this::onPositionChanged);

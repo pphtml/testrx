@@ -50,11 +50,11 @@ class NPCS {
         });
 
         for (let i = this.container.children.length - 1; i >= 0; i--) {
-            let sprite = this.container.children[i];
-            let x = sprite.x, y = sprite.y;
-            let key = `${x},${y}`;
-            if (removals.has(key)) {
-                delete this.dots[key];
+            const sprite = this.container.children[i];
+            // let x = sprite.x, y = sprite.y;
+            // let key = `${x},${y}`;
+            if (removals.has(sprite._key)) {
+                delete this.dots[sprite._key];
                 this.container.removeChild(sprite);
             }
         }
@@ -64,20 +64,41 @@ class NPCS {
         positions.forEach(position => {
             let key = `${position.x},${position.y}`;
             if (!(key in this.dots)) {
-                //let dot = new Sprite(resources["images/glowing-dot2white.png"].texture);
-                // const dot = new Sprite(resources['images/food.json'].textures['food2.png']);
-                const dot = new Sprite(resources['images/myfood.png'].texture);
-                //let dot = new Sprite(resources["images/sprites.json"].textures['glowing-dot2white.png']);
+                const color = this.translateColor(position.c);
 
+                // const circle = new Graphics();
+                // circle.beginFill(color);
+                // circle.drawCircle(0, 0, 48);
+                // circle.endFill();
+                // circle.position.set(position.x, position.y);
+                // circle.displayGroup = layers.npcLayer;
+                // circle._type = 'circle';
+                // circle._key = key;
+                // circle.alpha = 0.025;
+                // this.container.addChild(circle);
+                const outer = new Sprite(resources['images/spritesheet.json'].textures['myfood.png']);
+                outer._key = key;
+                outer._type = 'circle';
+                outer.position.set(position.x, position.y);
+                outer.anchor.set(0.5, 0.5);
+                outer.scale.set(0.4, 0.4);
+                outer.tint = color;
+                outer.alpha = 0.1;
+                // dot.intensity = (Math.random() * 0.5) + 0.5;
+                // dot.tintDir = [-FLASHING_SPEED, FLASHING_SPEED][Math.floor((Math.random() * 2))];
+                outer.blendMode = BLEND_MODES.ADD;
+                outer.displayGroup = layers.npcLayer;
+                this.container.addChild(outer);
+
+                const dot = new Sprite(resources['images/spritesheet.json'].textures['myfood.png']);
+                dot._key = key;
+                dot._type = 'dot';
                 dot.position.set(position.x, position.y);
                 dot.anchor.set(0.5, 0.5);
                 dot.scale.set(0.15, 0.15);
-                dot.baseColor = this.translateColor(position.c);
-                //dot.intensity = 130;
+                dot.baseColor = color;
                 dot.intensity = (Math.random() * 0.5) + 0.5;
                 dot.tintDir = [-FLASHING_SPEED, FLASHING_SPEED][Math.floor((Math.random() * 2))];
-                // dot.scale.set(0.5, 0.5);
-                //dot.tint = 0xff0000;
                 dot.blendMode = BLEND_MODES.ADD;
                 //dot.blendMode = BLEND_MODES.ADD_NPM;
                 //dot.blendMode = BLEND_MODES.SCREEN_NPM;
@@ -87,36 +108,19 @@ class NPCS {
             }
         });
 
-        // TODO melo by byt zbytecny
-        // let left = this.gameContext.player.coordinates.x - this.gameContext.width / 2,
-        //     right = this.gameContext.player.coordinates.x + this.gameContext.width / 2,
-        //     top = this.gameContext.player.coordinates.y - this.gameContext.height / 2,
-        //     bottom = this.gameContext.player.coordinates.y + this.gameContext.height / 2;
-        //
-        // for (var i = this.container.children.length - 1; i >= 0; i--) {
-        //     let sprite = this.container.children[i];
-        //     let x = sprite.x, y = sprite.y;
-        //
-        //     if (x < left || x > right || y < top || y > bottom) {
-        //         let key = `${x},${y}`;
-        //         delete this.dots[key];
-        //         this.container.removeChild(sprite);
-        //     }
-        // }
-        // console.info(`length: ${this.container.children.length}`);
-
-        let viewPortDots = new Set();
+        const viewPortDots = new Set();
         positions.forEach(position => {
-            let key = `${position.x},${position.y}`;
+            const key = `${position.x},${position.y}`;
             viewPortDots.add(key);
         });
 
         for (let i = this.container.children.length - 1; i >= 0; i--) {
-            let sprite = this.container.children[i];
-            let x = sprite.x, y = sprite.y;
-            let key = `${x},${y}`;
-            if (!viewPortDots.has(key)) {
-                delete this.dots[key];
+            const sprite = this.container.children[i];
+            // let x = sprite.x, y = sprite.y;
+            // let key = `${x},${y}`;
+            if (!viewPortDots.has(sprite._key)) {
+                //console.info('')
+                delete this.dots[sprite._key];
                 this.container.removeChild(sprite);
             }
         }
@@ -147,23 +151,15 @@ class NPCS {
 
         for (let i = this.container.children.length - 1; i >= 0; i--) {
             const dot = this.container.children[i];
-            dot.intensity += dot.tintDir;
-            if (dot.intensity >= 1.0) {
-                dot.tintDir = -FLASHING_SPEED;
-                //dot.intensity = 255;
-            } else if (dot.intensity <= 0.5) {
-                dot.tintDir = FLASHING_SPEED;
-                //dot.intensity = 130;
+            if (dot.hasOwnProperty('intensity')) {
+                dot.intensity += dot.tintDir;
+                if (dot.intensity >= 1.0) {
+                    dot.tintDir = -FLASHING_SPEED;
+                } else if (dot.intensity <= 0.5) {
+                    dot.tintDir = FLASHING_SPEED;
+                }
+                dot.tint = rgbDimmer(dot.baseColor, dot.intensity);
             }
-            dot.tint = rgbDimmer(dot.baseColor, dot.intensity);
-            // let color = this.baseColor * this.intensity;
-            // this.foodSprite.tint = color;
-            /*let x = dot.x, y = dot.y;
-            let key = `${x},${y}`;
-            if (!viewPortDots.has(key)) {
-                delete this.dots[key];
-                this.container.removeChild(dot);
-            }*/
         }
 
 
