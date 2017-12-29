@@ -1,7 +1,8 @@
 - zradlo
   - grafika
     - rotace kolem osy
-    - zrani - animace
+    - delkovy bonus
+    - zrani - ubirani
     - 4 skupiny velikosti zradla
   - rust hada
   - vsude viditelny - udelat statistiku kde jak pocitat viewport

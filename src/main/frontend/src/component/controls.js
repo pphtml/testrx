@@ -63,7 +63,7 @@ class Controls {
     }
 
     static computeAllowedAngle(askedAngle, lastAngle, time, gameContext, baseSpeed, speed) {
-        let allowedDiff = Math.PI / 2000 * time * speed / baseSpeed;
+        let allowedDiff = Math.PI / 4200 * time * speed / baseSpeed;
         let lower = lastAngle - allowedDiff;
         let upper = lastAngle + allowedDiff;
         //console.info(lower, upper, askedAngle);

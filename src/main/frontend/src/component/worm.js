@@ -5,8 +5,10 @@ let moveSnake = require('./wormMovement').moveSnake;
 
 let resources = loader.resources;
 
+const LENGTH_PER_PART = 10;
+
 class Worm {
-    constructor({skin, speed = 1.0, rotation = 0.0, path = [], id = 'noname', gameContext} = {}) {
+    constructor({skin, speed = 1.0, rotation = 0.0, path = [], id = 'noname', gameContext, length = 150} = {}) {
         this.coordinates = path.length == 0 ? {x: undefined, y: undefined} : {x: path[0].x, y: path[0].y};
         this.skinColor = skin;
         this.angle = rotation;
@@ -14,14 +16,15 @@ class Worm {
         this.path = path;
         this.speed = speed;
         this.gameContext = gameContext;
+        this.length = length;
         this.id = id;
         if (this.path.length == 0) {
-            for (var index = 0; index < 15; index++) {
+            for (let index = 0, lengthIndex = 1; lengthIndex <= this.length; index++, lengthIndex += LENGTH_PER_PART) {
                 this.path.push({x: -this.partDistance * index, y: 0.0, r: 0});
             }
         }
         this.container = new Container();
-        for (var index = this.path.length-1; index >= 0; index--) {
+        for (let index = this.path.length-1; index >= 0; index--) {
             const part = this.path[index];
             //const sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
             const sprite = this.sprite_factory();
@@ -91,6 +94,23 @@ class Worm {
         //     this.path[0].x = 0.0, this.path[0].y = 0.0;
         //     //debugger;
         // }
+        const missingParts = Math.floor(this.length / LENGTH_PER_PART) - this.path.length;
+        if (missingParts > 0) {
+            console.info(`nesedi delka -> musi se pridat ${missingParts}`);
+            const originalLength = this.path.length;
+            for (let index = 0; index < missingParts; index++) {
+                const endPart = this.path[this.path.length-1];
+                const part = JSON.parse(JSON.stringify(endPart));
+                this.path.push(part);
+
+                const sprite = this.sprite_factory();
+                sprite.pathIndex = index + originalLength;
+                sprite.position.set(part.x, part.y);
+                sprite.rotation = part.r;
+                sprite.tint = this.skinColor;
+                this.container.addChildAt(sprite, 0);
+            }
+        }
 
         let newPath = moveSnake(this.path, this.angle, this.speed, this.partDistance);
         this.path = newPath.path;

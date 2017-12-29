@@ -8,6 +8,14 @@ class Player extends Worm {
         this.gameContext = gameContext;
         this.coordinates = {x: 0, y: 0};
         this.resize();
+
+        this.gameContext.communication.subject.filter(msg => msg.eatenFood).subscribe(
+            msg => {
+                for (const dot of msg.eatenFood.dots) {
+                    this.length += (dot.l + 1);
+                }
+            }
+        );
     }
 
     updatePosition() {
