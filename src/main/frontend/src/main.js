@@ -34,6 +34,10 @@ const featureMatrix = new FeatureMatrix();
 //     s.parentNode.insertBefore(wf, s);
 // })();
 
+const COLORS = [894661, 15773325, 5698477, 10066394, 13414733, 12674379, 14893446, 10793534, 14813475, 8733555,
+    11047750, 2009991, 16019053, 4033523, 14338485];
+let color = COLORS[Math.floor(Math.random() * COLORS.length)];
+
 PIXI.utils.skipHello();
 let stage = new Container();
 let renderOptions = {antialias: false, transparent: false, resolution: 1};
@@ -85,8 +89,8 @@ function setup() {
     let background = new Background(gameContext);
     gameContext.background = background;
 
-    let colorIndex = 0; //Math.floor(Math.random() * 10);
-    let color = ['ble', 'blue', 'darkblue', 'darkgreen', 'darkred', 'green', 'lime', 'orange', 'purple', 'yellow'][colorIndex];
+    // let colorIndex = 0; //Math.floor(Math.random() * 10);
+    // let color = ['ble', 'blue', 'darkblue', 'darkgreen', 'darkred', 'green', 'lime', 'orange', 'purple', 'yellow'][colorIndex];
 
     let player = new Player(gameContext, color);
     gameContext.player = player;

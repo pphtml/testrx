@@ -38,7 +38,7 @@ class Player extends Worm {
                         return {x: p.x.toFixed(2), y: p.y.toFixed(2), r: p.r.toFixed(2)}
                     }),
                     sent: Date.now(),
-                    skin: this.skin,
+                    skin: `${this.skin}`,
                     speed: this.speed,
                     rotation: this.angle
                 }

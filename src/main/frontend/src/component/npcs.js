@@ -76,14 +76,14 @@ class NPCS {
                 // circle._key = key;
                 // circle.alpha = 0.025;
                 // this.container.addChild(circle);
-                const outer = new Sprite(resources['images/spritesheet.json'].textures['myfood.png']);
+                const outer = new Sprite(resources['images/spritesheet.json'].textures['myfood-outer.png']);
                 outer._key = key;
                 outer._type = 'circle';
                 outer.position.set(position.x, position.y);
                 outer.anchor.set(0.5, 0.5);
-                outer.scale.set(0.4, 0.4);
+                outer.scale.set(1.5, 1.5);
                 outer.tint = color;
-                outer.alpha = 0.1;
+                outer.alpha = 0.02;
                 // dot.intensity = (Math.random() * 0.5) + 0.5;
                 // dot.tintDir = [-FLASHING_SPEED, FLASHING_SPEED][Math.floor((Math.random() * 2))];
                 outer.blendMode = BLEND_MODES.ADD;

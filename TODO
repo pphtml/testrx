@@ -1,14 +1,12 @@
 - zradlo
   - grafika
-    - zvetsit set barev
     - rotace kolem osy
-    - glow pozadi
     - zrani - animace
     - 4 skupiny velikosti zradla
   - rust hada
   - vsude viditelny - udelat statistiku kde jak pocitat viewport
-- tint
 - viditelnost ostatnich hadu
+  - otestovat
   - informace o uhlu & rychlosti
   - prokreslovani kdyz neprisel update
 
@@ -56,4 +54,5 @@ https://gist.github.com/newyankeecodeshop/79f3e1348a09583faf62ed55b58d09d9 - es6
 
 node/node node_modules/.bin/mocha --reporter spec
 node/node node/node_modules/npm/bin/npm-cli.js run build
+node index.js --padding 2 ~/Documents/ZizalyGrafika/TextureSource2/*.png
 

@@ -8,7 +8,7 @@ let resources = loader.resources;
 class Worm {
     constructor({skin, speed = 1.0, rotation = 0.0, path = [], id = 'noname', gameContext} = {}) {
         this.coordinates = path.length == 0 ? {x: undefined, y: undefined} : {x: path[0].x, y: path[0].y};
-        this.skin = skin;
+        this.skinColor = skin;
         this.angle = rotation;
         this.partDistance = 20.0;
         this.path = path;
@@ -23,11 +23,13 @@ class Worm {
         this.container = new Container();
         for (var index = this.path.length-1; index >= 0; index--) {
             const part = this.path[index];
-            const sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
+            //const sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
+            const sprite = this.sprite_factory();
             sprite.pathIndex = index;
             sprite.position.set(part.x, part.y);
             sprite.rotation = part.r;
-            sprite.tint = 0x802020;
+            sprite.tint = this.skinColor;
+            //sprite.tint = 0x802020;
             this.container.addChild(sprite);
             //this.sprites.push(sprite);
         }
@@ -48,31 +50,40 @@ class Worm {
         //eyeRight.position.set(0, 0);
         this.container.addChild(eyeRight);
     }
-    spriteNameHead() {
-        return `basic_head_${this.skin}.png`;
-    }
+    // spriteNameHead() {
+    //     return `basic_head_${this.skin}.png`;
+    // }
+    //
+    // spriteNameTail() {
+    //     return `basic_tail_${this.skin}.png`;
+    // }
 
-    spriteNameTail() {
-        return `basic_tail_${this.skin}.png`;
-    }
+    // head_sprite_factory = () => {
+    //     const head = new Sprite(resources['images/spritesheet.json'].textures['tail-mod2-white.png']);
+    //     //let head = new Sprite(resources["images/sprites.json"].textures[this.spriteNameHead()]);
+    //     head.scale.set(0.4, 0.4);
+    //     head.anchor.set(0.5, 0.5);
+    //     //head.displayGroup = layers.headLayer;
+    //     head.displayGroup = layers.tailLayer; //layers.headLayer;
+    //     return head;
+    // }
+    //
+    // tail_sprite_factory = () => {
+    //     const tail = new Sprite(resources['images/spritesheet.json'].textures['tail-mod2-white.png']);
+    //     //let tail = new Sprite(resources["images/sprites.json"].textures[this.spriteNameTail()]);
+    //     tail.anchor.set(0.5, 0.5);
+    //     tail.scale.set(0.4, 0.4);
+    //     tail.displayGroup = layers.tailLayer;
+    //     return tail;
+    // };
 
-    head_sprite_factory = () => {
-        const head = new Sprite(resources['images/spritesheet.json'].textures['tail-mod2-white.png']);
-        //let head = new Sprite(resources["images/sprites.json"].textures[this.spriteNameHead()]);
-        head.scale.set(0.4, 0.4);
-        head.anchor.set(0.5, 0.5);
-        //head.displayGroup = layers.headLayer;
-        head.displayGroup = layers.tailLayer; //layers.headLayer;
-        return head;
-    }
-
-    tail_sprite_factory = () => {
-        const tail = new Sprite(resources['images/spritesheet.json'].textures['tail-mod2-white.png']);
+    sprite_factory = () => {
+        const sprite = new Sprite(resources['images/spritesheet.json'].textures['tail-mod2-white.png']);
         //let tail = new Sprite(resources["images/sprites.json"].textures[this.spriteNameTail()]);
-        tail.anchor.set(0.5, 0.5);
-        tail.scale.set(0.4, 0.4);
-        tail.displayGroup = layers.tailLayer;
-        return tail;
+        sprite.anchor.set(0.5, 0.5);
+        sprite.scale.set(0.4, 0.4);
+        sprite.displayGroup = layers.tailLayer;
+        return sprite;
     };
 
     update(elapsedTime) {
