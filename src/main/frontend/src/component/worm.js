@@ -96,7 +96,7 @@ class Worm {
         // }
         const missingParts = Math.floor(this.length / LENGTH_PER_PART) - this.path.length;
         if (missingParts > 0) {
-            console.info(`nesedi delka -> musi se pridat ${missingParts}`);
+            //console.info(`nesedi delka -> musi se pridat ${missingParts}`);
             const originalLength = this.path.length;
             for (let index = 0; index < missingParts; index++) {
                 const endPart = this.path[this.path.length-1];

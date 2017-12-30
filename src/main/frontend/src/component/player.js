@@ -14,6 +14,8 @@ class Player extends Worm {
                 for (const dot of msg.eatenFood.dots) {
                     this.length += (dot.l + 1);
                 }
+
+                this.gameContext.controls.scoreUpdateSubject.next({id: this.id, length: this.length, currentPlayer: true, type: 'update'});
             }
         );
     }

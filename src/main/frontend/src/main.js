@@ -64,7 +64,8 @@ let gameContext = {
         let x = this.middle.x - this.player.coordinates.x;
         let y = this.middle.y - this.player.coordinates.y;
         return {x: x, y: y};
-    }
+    },
+    featureMatrix
 };
 
 stage.displayList = new DisplayList(); // zOrder
@@ -103,7 +104,9 @@ function setup() {
     //worms.updateWorms({"HJlnnghGz":{"path":[{"x":29.85,"y":2.78,"r":0.11},{"x":9.9,"y":1.29,"r":0.07},{"x":-10.08,"y":0.53,"r":0.04},{"x":-30.08,"y":0.19,"r":0.02},{"x":-50.08,"y":0.07,"r":0.01},{"x":-70.08,"y":0.02,"r":0.0},{"x":-90.08,"y":0.01,"r":0.0},{"x":-110.08,"y":0.0,"r":0.0},{"x":-130.08,"y":0.0,"r":0.0},{"x":-150.08,"y":0.0,"r":0.0},{"x":-170.08,"y":0.0,"r":0.0},{"x":-190.08,"y":0.0,"r":0.0},{"x":-210.08,"y":0.0,"r":0.0},{"x":-230.08,"y":0.0,"r":0.0},{"x":-250.08,"y":0.0,"r":0.0}],"skin":"ble","rotation":0.0,"speed":0.05}});
 
     let gameInfo = new GameInfo(gameContext, 10, 10);
-    stage.addChild(gameInfo.message);
+    stage.addChild(gameInfo.container);
+
+    gameContext.controls.scoreUpdateSubject.next({id: player.id, length: player.length, currentPlayer: true, type: 'new'});
 
     // var numFramesToAverage = 16;
     // var frameTimeHistory = [];

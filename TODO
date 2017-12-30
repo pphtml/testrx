@@ -15,7 +15,10 @@
   - overit rychlost u firefoxu
   - mezera taky zrychluje
 - zobrazeni male tabulky hracu
-  - zobrazeni id sessny
+  - zobrazeni poradoveho cisla
+  - trideni podle score
+  - zobrazovani do 10. mista
+  - zobrazovani currentPlayer
 - info - lepsi formatovani
   - posledni stav zobrazeni v cookie
 - vyzkouset jak dlouho vydrzi sesna na heroku
@@ -25,6 +28,7 @@
 - memory leak?
 
 
+- poladit fonty
 - okraj sveta
   - brzda
 - zobrazit odpojeni od serveru

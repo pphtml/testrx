@@ -22,6 +22,7 @@ class Controls {
         //.debounceTime(1000).subscribe(event => { this.resizedHandler(); });
 
         this.fpsSubject = new rx.Subject();
+        this.scoreUpdateSubject = new rx.Subject();
 
         this.mouseActions.subscribe(event => {
             //console.info(event);
@@ -41,6 +42,10 @@ class Controls {
 
         if (this.gameContext.player) {
             this.gameContext.player.resize();
+        }
+
+        if (this.gameContext.gameInfo) {
+            this.gameContext.gameInfo.resize();
         }
 
         this.gameContext.communication.subject.next(JSON.stringify({ resize:
