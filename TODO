@@ -60,4 +60,7 @@ https://gist.github.com/newyankeecodeshop/79f3e1348a09583faf62ed55b58d09d9 - es6
 node/node node_modules/.bin/mocha --reporter spec
 node/node node/node_modules/npm/bin/npm-cli.js run build
 node index.js --padding 2 ~/Documents/ZizalyGrafika/TextureSource2/*.png
+protoc -I=src/main/java/org/superbiz/game/proto --java_out=src/main/java messages.proto
+protoc -I=src/main/java/org/superbiz/game/proto --js_out=import_style=commonjs,binary:src/main/frontend/src/proto messages.proto
 
+protoc -I=src/main/java/org/superbiz/game/proto --js_out=library=myproto_libs,binary:src/main/frontend/src/proto messages.proto

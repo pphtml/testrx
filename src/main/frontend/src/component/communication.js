@@ -13,7 +13,33 @@ class Communication {
         let originalUrlChunk = /http(s?:\/\/.*?\/)/g.exec(window.location.href)[1];
         let wsUrl = `ws${originalUrlChunk}dot?id=${this.commId}`;
         // console.info(wsUrl);
-        this.subject = rx.Observable.webSocket(wsUrl);
+        // debugger;
+        this.subject = rx.Observable.webSocket(wsUrl).map(ble => {
+            debugger;
+            return ble;
+        });
+        //this.subject = new rx.Subject(); // DUMMY TODO vyhodit
+
+
+        // this.socket = new WebSocket(wsUrl);
+        // //this.socket.binaryType = 'blob';
+        // this.socket.binaryType = "arraybuffer";
+        // this.socket.onopen = function() {
+        //     //send(ctx);
+        //     console.info('on send');
+        // }
+        // this.socket.onmessage = function(msg){
+        //     console.info('on message');
+        //     //var bytes = Array.prototype.slice.call(msg.data, 0);
+        //     //var message = proto.Message.decode(msg.data);
+        //     //debugger;
+        //     let message = proto.Message.deserializeBinary(msg.data);
+        //     let worldInfo = message.getWorldinfo();
+        //     console.log(message);
+        //     debugger;
+        // };
+
+
         // subject.subscribe(
         //     (msg) => console.log('message received: ' + JSON.stringify(msg)),
         //     (err) => console.log(err),

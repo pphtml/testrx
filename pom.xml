@@ -148,6 +148,12 @@
             <version>0.8.0.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+
         <!--<dependency>-->
             <!--<groupId>org.jooq</groupId>-->
             <!--<artifactId>jooq</artifactId>-->

@@ -1,15 +1,23 @@
 package org.superbiz.ws;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufUtil;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelPipeline;
 import org.superbiz.game.GameDataService;
 import org.superbiz.game.Player;
 import org.superbiz.game.SnakePositions;
 import org.superbiz.game.msg.Message;
 import org.superbiz.game.msg.MessageBuilder;
 import org.superbiz.game.msg.WorldInfo;
+import org.superbiz.game.proto.Msg;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
+import ratpack.server.ServerConfig;
 import ratpack.websocket.*;
+import ratpack.websocket.internal.MyWebSocketEngine;
+import ratpack.websocket.internal.WebSocketEngine;
 import rx.Subscription;
 import rx.subjects.PublishSubject;
 
@@ -48,10 +56,17 @@ public class GameHandler implements Handler {
 
     @Override
     public void handle(Context ctx) {
-        WebSockets.websocket(ctx, new WebSocketHandler<String>() {
+        ChannelPipeline pipeline = ctx.getDirectChannelAccess().getChannel().pipeline();
+
+        MyWebSocketEngine.connect(ctx, "/", ctx.get(ServerConfig.class).getMaxContentLength(), //handler);
+
+
+        /*WebSockets.websocket(ctx,*/ new WebSocketHandler<ByteBuf>() {
 
             @Override
-            public String onOpen(WebSocket webSocket) throws Exception {
+            public ByteBuf onOpen(WebSocket webSocket) throws Exception {
+                ChannelPipeline pipeline = ctx.getDirectChannelAccess().getChannel().pipeline();
+
                 String playerId = ctx.getRequest().getQueryParams().get("id");
 
                 logger.info(String.format("Websocket opened for player: %s", playerId));
@@ -79,8 +94,23 @@ public class GameHandler implements Handler {
 //                    logger.info(data);
 //                    webSocket.send(data);
 
-                    String jsonMsg = MessageBuilder.create().setWorldInfo(new WorldInfo(3000)).toJson();
-                    webSocket.send(jsonMsg);
+                    Msg.WorldInfo.Builder worldInfo = Msg.WorldInfo.newBuilder().setRadius(3000);
+                    byte[] msgBytes = Msg.Message.newBuilder().setWorldInfo(worldInfo).build().toByteArray();
+                    webSocket.send(Unpooled.wrappedBuffer(msgBytes));
+
+//                    webSocket.send(new String(msgBytes, "ASCII"));
+                    //ByteBuf byteBuf = Unpooled.wrappedBuffer(msgBytes);
+
+//                    ByteBuf byteBuf = Unpooled.directBuffer(20);
+//                    byteBuf.writeLong(Long.MAX_VALUE);
+//                    webSocket.send(byteBuf);
+
+//                    String jsonMsg = MessageBuilder.create().setWorldInfo(new WorldInfo(3000)).toJson();
+//                    webSocket.send(jsonMsg);
+
+//                    ByteBuf byteBuf = Unpooled.directBuffer(5000);
+//                    ByteBufUtil.writeUtf8(byteBuf, jsonMsg);
+//                    webSocket.send(byteBuf);
 
 
 //                    Map<String, Object> clientConnectEvent = new HashMap<>();
@@ -93,11 +123,11 @@ public class GameHandler implements Handler {
                     logger.info(String.format("Client %s subscribed to event stream", playerId));
                 }
 
-                return null;
+                return Unpooled.wrappedBuffer("abcdef".getBytes());
             }
 
             @Override
-            public void onClose(WebSocketClose<String> close) throws Exception {
+            public void onClose(WebSocketClose<ByteBuf> close) throws Exception {
                 String playerId = ctx.getRequest().getQueryParams().get("id");
 //                Player player = players.get(playerId);
 
@@ -117,7 +147,7 @@ public class GameHandler implements Handler {
             }
 
             @Override
-            public void onMessage(WebSocketMessage<String> frame) {
+            public void onMessage(WebSocketMessage<ByteBuf> frame) {
                 String playerId = ctx.getRequest().getQueryParams().get("id");
                 Player player = players.get(playerId);
                 if (player == null) {

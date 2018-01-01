@@ -11,15 +11,19 @@ class Background {
         this.gameContext = gameContext;
         this.sprite = undefined;
         this.initSprite(this.gameContext.width, this.gameContext.height);
-        this.gameContext.communication.subject.filter(msg => msg.worldInfo).pluck('worldInfo').subscribe(worldInfo => {
-            let circle = new Graphics();
-            circle.lineStyle(4, 0x006600, 1);
-            circle.drawCircle(0, 0, worldInfo.radius);
-            circle.endFill();
-            circle.displayGroup = layers.borderLayer;
-            this.circle = circle;
-            this.gameContext.stage.addChild(this.circle);
-        });
+        // this.gameContext.communication.subject.subscribe(worldInfo => {
+        //     console.info(worldInfo);
+        //     debugger;
+        // });
+        // this.gameContext.communication.subject.filter(msg => msg.worldInfo).pluck('worldInfo').subscribe(worldInfo => {
+        //     let circle = new Graphics();
+        //     circle.lineStyle(4, 0x006600, 1);
+        //     circle.drawCircle(0, 0, worldInfo.radius);
+        //     circle.endFill();
+        //     circle.displayGroup = layers.borderLayer;
+        //     this.circle = circle;
+        //     this.gameContext.stage.addChild(this.circle);
+        // });
     }
 
     initSprite(width, height) {

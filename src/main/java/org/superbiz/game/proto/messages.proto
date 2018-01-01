@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+//package proto;
+
+option java_package = "org.superbiz.game.proto";
+option java_outer_classname = "Msg";
+
+//private double x;
+//private double y;
+//private Collection<Part> path;
+//private long sent;
+//private double rotation;
+//private double speed;
+//private String skin;
+
+message Message {
+    PlayerMoved playerMoved = 1;
+    WorldInfo worldInfo = 2;
+}
+
+message WorldInfo {
+    int32 radius = 1;
+}
+
+message PlayerMoved {
+    float x = 1;
+    float y = 2;
+    float rotation = 3;
+    float speed = 4;
+    string skin = 5;
+    repeated Part parts = 6;
+    int64 sent = 7;
+
+//    enum PhoneType {
+//        MOBILE = 0;
+//        HOME = 1;
+//        WORK = 2;
+//    }
+
+    message Part {
+        float x = 1;
+        float y = 2;
+        float r = 3;
+    }
+
+}
+
+//message AddressBook {
+//    repeated Person people = 1;
+//}

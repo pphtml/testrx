@@ -17,7 +17,9 @@ public class PlayerMovedTest {
 
     @Test
     public void msgToJson() {
-        List<Part> path = Arrays.asList(new Part(10.6, 30.5, 3.14), new Part(10.8, 30.4, 1.67), new Part(10.1, 30.2, -3.14));
+        List<Part> path = Arrays.asList(new Part(10.6f, 30.5f, 3.14f),
+                new Part(10.8f, 30.4f, 1.67f),
+                new Part(10.1f, 30.2f, -3.14f));
 
         Message message = new Message();
         message.setPlayerMoved(new PlayerMoved(10.6, 30.5, path, 9876543210L, "blue"));

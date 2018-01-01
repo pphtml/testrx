@@ -20,10 +20,16 @@ public class SnakeUpdateTest {
     public void msgToJson() {
         Message message = new Message();
 
-        final List<Part> pathA = Arrays.asList(new Part(10.6, 30.5, 3.14), new Part(10.8, 30.4, 1.67), new Part(10.1, 30.2, -3.14));
+        final List<Part> pathA = Arrays.asList(
+                new Part(10.6f, 30.5f, 3.14f),
+                new Part(10.8f, 30.4f, 1.67f),
+                new Part(10.1f, 30.2f, -3.14f));
         final SnakeInfo snakeInfoA = new SnakeInfo(pathA, "blue", 0.0, 10.0);
 
-        final List<Part> pathB = Arrays.asList(new Part(10.7, 30.6, 4.14), new Part(10.8, 30.4, 1.67), new Part(10.1, 30.2, -3.14));
+        final List<Part> pathB = Arrays.asList(
+                new Part(10.7f, 30.6f, 4.14f),
+                new Part(10.8f, 30.4f, 1.67f),
+                new Part(10.1f, 30.2f, -3.14f));
         final SnakeInfo snakeInfoB = new SnakeInfo(pathB, "red", 3.14, 20.0);
 
         final Map<String, SnakeInfo> snakes = new LinkedHashMap<>();
