@@ -48,8 +48,19 @@ class Controls {
             this.gameContext.gameInfo.resize();
         }
 
-        this.gameContext.communication.subject.next(JSON.stringify({ resize:
-            {width: this.gameContext.width, height: this.gameContext.height}}));
+        let resize = new proto.Resize();
+        resize.setWidth(this.gameContext.width);
+        resize.setHeight(this.gameContext.height);
+        let message = new proto.Message();
+        message.setResize(resize);
+        let bytes = message.serializeBinary();
+        //this.gameContext.communication.socket.send(bytes);
+        this.gameContext.communication.subject.next(bytes);
+
+        // var message2 = MyMessage.deserializeBinary(bytes);
+        //
+        // this.gameContext.communication.subject.next(JSON.stringify({ resize:
+        //     {width: this.gameContext.width, height: this.gameContext.height}}));
     }
 
     isMouseDown() {

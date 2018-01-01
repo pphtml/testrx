@@ -14,10 +14,15 @@ class Communication {
         let wsUrl = `ws${originalUrlChunk}dot?id=${this.commId}`;
         // console.info(wsUrl);
         // debugger;
-        this.subject = rx.Observable.webSocket(wsUrl).map(ble => {
-            debugger;
-            return ble;
-        });
+        // let zz = rx;
+        // let z1 = rx.Observable;
+        // let z2 = rx.Observable.webSocket;
+        // this.subject = rx.Observable.webSocket(wsUrl);
+        this.subject = rx.Observable.webSocket({url: wsUrl, binaryType: 'arraybuffer'});
+        this.subject.resultSelector = e => {
+            const message = proto.Message.deserializeBinary(e.data);
+            return message;
+        };
         //this.subject = new rx.Subject(); // DUMMY TODO vyhodit
 
 
@@ -26,7 +31,7 @@ class Communication {
         // this.socket.binaryType = "arraybuffer";
         // this.socket.onopen = function() {
         //     //send(ctx);
-        //     console.info('on send');
+        //     console.info('on open');
         // }
         // this.socket.onmessage = function(msg){
         //     console.info('on message');

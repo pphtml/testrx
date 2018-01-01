@@ -43,6 +43,71 @@ public final class Msg {
      * <code>.WorldInfo worldInfo = 2;</code>
      */
     org.superbiz.game.proto.Msg.WorldInfoOrBuilder getWorldInfoOrBuilder();
+
+    /**
+     * <code>.Resize resize = 3;</code>
+     */
+    boolean hasResize();
+    /**
+     * <code>.Resize resize = 3;</code>
+     */
+    org.superbiz.game.proto.Msg.Resize getResize();
+    /**
+     * <code>.Resize resize = 3;</code>
+     */
+    org.superbiz.game.proto.Msg.ResizeOrBuilder getResizeOrBuilder();
+
+    /**
+     * <code>.DotsUpdate dotsUpdate = 4;</code>
+     */
+    boolean hasDotsUpdate();
+    /**
+     * <code>.DotsUpdate dotsUpdate = 4;</code>
+     */
+    org.superbiz.game.proto.Msg.DotsUpdate getDotsUpdate();
+    /**
+     * <code>.DotsUpdate dotsUpdate = 4;</code>
+     */
+    org.superbiz.game.proto.Msg.DotsUpdateOrBuilder getDotsUpdateOrBuilder();
+
+    /**
+     * <code>.EatenFood eatenFood = 5;</code>
+     */
+    boolean hasEatenFood();
+    /**
+     * <code>.EatenFood eatenFood = 5;</code>
+     */
+    org.superbiz.game.proto.Msg.EatenFood getEatenFood();
+    /**
+     * <code>.EatenFood eatenFood = 5;</code>
+     */
+    org.superbiz.game.proto.Msg.EatenFoodOrBuilder getEatenFoodOrBuilder();
+
+    /**
+     * <code>.SnakesUpdate snakesUpdate = 6;</code>
+     */
+    boolean hasSnakesUpdate();
+    /**
+     * <code>.SnakesUpdate snakesUpdate = 6;</code>
+     */
+    org.superbiz.game.proto.Msg.SnakesUpdate getSnakesUpdate();
+    /**
+     * <code>.SnakesUpdate snakesUpdate = 6;</code>
+     */
+    org.superbiz.game.proto.Msg.SnakesUpdateOrBuilder getSnakesUpdateOrBuilder();
+
+    /**
+     * <code>.ClientDisconnect clientDisconnect = 7;</code>
+     */
+    boolean hasClientDisconnect();
+    /**
+     * <code>.ClientDisconnect clientDisconnect = 7;</code>
+     */
+    org.superbiz.game.proto.Msg.ClientDisconnect getClientDisconnect();
+    /**
+     * <code>.ClientDisconnect clientDisconnect = 7;</code>
+     */
+    org.superbiz.game.proto.Msg.ClientDisconnectOrBuilder getClientDisconnectOrBuilder();
   }
   /**
    * Protobuf type {@code Message}
@@ -116,6 +181,71 @@ public final class Msg {
 
               break;
             }
+            case 26: {
+              org.superbiz.game.proto.Msg.Resize.Builder subBuilder = null;
+              if (resize_ != null) {
+                subBuilder = resize_.toBuilder();
+              }
+              resize_ = input.readMessage(org.superbiz.game.proto.Msg.Resize.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(resize_);
+                resize_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              org.superbiz.game.proto.Msg.DotsUpdate.Builder subBuilder = null;
+              if (dotsUpdate_ != null) {
+                subBuilder = dotsUpdate_.toBuilder();
+              }
+              dotsUpdate_ = input.readMessage(org.superbiz.game.proto.Msg.DotsUpdate.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(dotsUpdate_);
+                dotsUpdate_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              org.superbiz.game.proto.Msg.EatenFood.Builder subBuilder = null;
+              if (eatenFood_ != null) {
+                subBuilder = eatenFood_.toBuilder();
+              }
+              eatenFood_ = input.readMessage(org.superbiz.game.proto.Msg.EatenFood.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(eatenFood_);
+                eatenFood_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              org.superbiz.game.proto.Msg.SnakesUpdate.Builder subBuilder = null;
+              if (snakesUpdate_ != null) {
+                subBuilder = snakesUpdate_.toBuilder();
+              }
+              snakesUpdate_ = input.readMessage(org.superbiz.game.proto.Msg.SnakesUpdate.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(snakesUpdate_);
+                snakesUpdate_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 58: {
+              org.superbiz.game.proto.Msg.ClientDisconnect.Builder subBuilder = null;
+              if (clientDisconnect_ != null) {
+                subBuilder = clientDisconnect_.toBuilder();
+              }
+              clientDisconnect_ = input.readMessage(org.superbiz.game.proto.Msg.ClientDisconnect.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(clientDisconnect_);
+                clientDisconnect_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -182,6 +312,111 @@ public final class Msg {
       return getWorldInfo();
     }
 
+    public static final int RESIZE_FIELD_NUMBER = 3;
+    private org.superbiz.game.proto.Msg.Resize resize_;
+    /**
+     * <code>.Resize resize = 3;</code>
+     */
+    public boolean hasResize() {
+      return resize_ != null;
+    }
+    /**
+     * <code>.Resize resize = 3;</code>
+     */
+    public org.superbiz.game.proto.Msg.Resize getResize() {
+      return resize_ == null ? org.superbiz.game.proto.Msg.Resize.getDefaultInstance() : resize_;
+    }
+    /**
+     * <code>.Resize resize = 3;</code>
+     */
+    public org.superbiz.game.proto.Msg.ResizeOrBuilder getResizeOrBuilder() {
+      return getResize();
+    }
+
+    public static final int DOTSUPDATE_FIELD_NUMBER = 4;
+    private org.superbiz.game.proto.Msg.DotsUpdate dotsUpdate_;
+    /**
+     * <code>.DotsUpdate dotsUpdate = 4;</code>
+     */
+    public boolean hasDotsUpdate() {
+      return dotsUpdate_ != null;
+    }
+    /**
+     * <code>.DotsUpdate dotsUpdate = 4;</code>
+     */
+    public org.superbiz.game.proto.Msg.DotsUpdate getDotsUpdate() {
+      return dotsUpdate_ == null ? org.superbiz.game.proto.Msg.DotsUpdate.getDefaultInstance() : dotsUpdate_;
+    }
+    /**
+     * <code>.DotsUpdate dotsUpdate = 4;</code>
+     */
+    public org.superbiz.game.proto.Msg.DotsUpdateOrBuilder getDotsUpdateOrBuilder() {
+      return getDotsUpdate();
+    }
+
+    public static final int EATENFOOD_FIELD_NUMBER = 5;
+    private org.superbiz.game.proto.Msg.EatenFood eatenFood_;
+    /**
+     * <code>.EatenFood eatenFood = 5;</code>
+     */
+    public boolean hasEatenFood() {
+      return eatenFood_ != null;
+    }
+    /**
+     * <code>.EatenFood eatenFood = 5;</code>
+     */
+    public org.superbiz.game.proto.Msg.EatenFood getEatenFood() {
+      return eatenFood_ == null ? org.superbiz.game.proto.Msg.EatenFood.getDefaultInstance() : eatenFood_;
+    }
+    /**
+     * <code>.EatenFood eatenFood = 5;</code>
+     */
+    public org.superbiz.game.proto.Msg.EatenFoodOrBuilder getEatenFoodOrBuilder() {
+      return getEatenFood();
+    }
+
+    public static final int SNAKESUPDATE_FIELD_NUMBER = 6;
+    private org.superbiz.game.proto.Msg.SnakesUpdate snakesUpdate_;
+    /**
+     * <code>.SnakesUpdate snakesUpdate = 6;</code>
+     */
+    public boolean hasSnakesUpdate() {
+      return snakesUpdate_ != null;
+    }
+    /**
+     * <code>.SnakesUpdate snakesUpdate = 6;</code>
+     */
+    public org.superbiz.game.proto.Msg.SnakesUpdate getSnakesUpdate() {
+      return snakesUpdate_ == null ? org.superbiz.game.proto.Msg.SnakesUpdate.getDefaultInstance() : snakesUpdate_;
+    }
+    /**
+     * <code>.SnakesUpdate snakesUpdate = 6;</code>
+     */
+    public org.superbiz.game.proto.Msg.SnakesUpdateOrBuilder getSnakesUpdateOrBuilder() {
+      return getSnakesUpdate();
+    }
+
+    public static final int CLIENTDISCONNECT_FIELD_NUMBER = 7;
+    private org.superbiz.game.proto.Msg.ClientDisconnect clientDisconnect_;
+    /**
+     * <code>.ClientDisconnect clientDisconnect = 7;</code>
+     */
+    public boolean hasClientDisconnect() {
+      return clientDisconnect_ != null;
+    }
+    /**
+     * <code>.ClientDisconnect clientDisconnect = 7;</code>
+     */
+    public org.superbiz.game.proto.Msg.ClientDisconnect getClientDisconnect() {
+      return clientDisconnect_ == null ? org.superbiz.game.proto.Msg.ClientDisconnect.getDefaultInstance() : clientDisconnect_;
+    }
+    /**
+     * <code>.ClientDisconnect clientDisconnect = 7;</code>
+     */
+    public org.superbiz.game.proto.Msg.ClientDisconnectOrBuilder getClientDisconnectOrBuilder() {
+      return getClientDisconnect();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -200,6 +435,21 @@ public final class Msg {
       if (worldInfo_ != null) {
         output.writeMessage(2, getWorldInfo());
       }
+      if (resize_ != null) {
+        output.writeMessage(3, getResize());
+      }
+      if (dotsUpdate_ != null) {
+        output.writeMessage(4, getDotsUpdate());
+      }
+      if (eatenFood_ != null) {
+        output.writeMessage(5, getEatenFood());
+      }
+      if (snakesUpdate_ != null) {
+        output.writeMessage(6, getSnakesUpdate());
+      }
+      if (clientDisconnect_ != null) {
+        output.writeMessage(7, getClientDisconnect());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -215,6 +465,26 @@ public final class Msg {
       if (worldInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getWorldInfo());
+      }
+      if (resize_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getResize());
+      }
+      if (dotsUpdate_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getDotsUpdate());
+      }
+      if (eatenFood_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getEatenFood());
+      }
+      if (snakesUpdate_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getSnakesUpdate());
+      }
+      if (clientDisconnect_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getClientDisconnect());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -242,6 +512,31 @@ public final class Msg {
         result = result && getWorldInfo()
             .equals(other.getWorldInfo());
       }
+      result = result && (hasResize() == other.hasResize());
+      if (hasResize()) {
+        result = result && getResize()
+            .equals(other.getResize());
+      }
+      result = result && (hasDotsUpdate() == other.hasDotsUpdate());
+      if (hasDotsUpdate()) {
+        result = result && getDotsUpdate()
+            .equals(other.getDotsUpdate());
+      }
+      result = result && (hasEatenFood() == other.hasEatenFood());
+      if (hasEatenFood()) {
+        result = result && getEatenFood()
+            .equals(other.getEatenFood());
+      }
+      result = result && (hasSnakesUpdate() == other.hasSnakesUpdate());
+      if (hasSnakesUpdate()) {
+        result = result && getSnakesUpdate()
+            .equals(other.getSnakesUpdate());
+      }
+      result = result && (hasClientDisconnect() == other.hasClientDisconnect());
+      if (hasClientDisconnect()) {
+        result = result && getClientDisconnect()
+            .equals(other.getClientDisconnect());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -260,6 +555,26 @@ public final class Msg {
       if (hasWorldInfo()) {
         hash = (37 * hash) + WORLDINFO_FIELD_NUMBER;
         hash = (53 * hash) + getWorldInfo().hashCode();
+      }
+      if (hasResize()) {
+        hash = (37 * hash) + RESIZE_FIELD_NUMBER;
+        hash = (53 * hash) + getResize().hashCode();
+      }
+      if (hasDotsUpdate()) {
+        hash = (37 * hash) + DOTSUPDATE_FIELD_NUMBER;
+        hash = (53 * hash) + getDotsUpdate().hashCode();
+      }
+      if (hasEatenFood()) {
+        hash = (37 * hash) + EATENFOOD_FIELD_NUMBER;
+        hash = (53 * hash) + getEatenFood().hashCode();
+      }
+      if (hasSnakesUpdate()) {
+        hash = (37 * hash) + SNAKESUPDATE_FIELD_NUMBER;
+        hash = (53 * hash) + getSnakesUpdate().hashCode();
+      }
+      if (hasClientDisconnect()) {
+        hash = (37 * hash) + CLIENTDISCONNECT_FIELD_NUMBER;
+        hash = (53 * hash) + getClientDisconnect().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -402,6 +717,36 @@ public final class Msg {
           worldInfo_ = null;
           worldInfoBuilder_ = null;
         }
+        if (resizeBuilder_ == null) {
+          resize_ = null;
+        } else {
+          resize_ = null;
+          resizeBuilder_ = null;
+        }
+        if (dotsUpdateBuilder_ == null) {
+          dotsUpdate_ = null;
+        } else {
+          dotsUpdate_ = null;
+          dotsUpdateBuilder_ = null;
+        }
+        if (eatenFoodBuilder_ == null) {
+          eatenFood_ = null;
+        } else {
+          eatenFood_ = null;
+          eatenFoodBuilder_ = null;
+        }
+        if (snakesUpdateBuilder_ == null) {
+          snakesUpdate_ = null;
+        } else {
+          snakesUpdate_ = null;
+          snakesUpdateBuilder_ = null;
+        }
+        if (clientDisconnectBuilder_ == null) {
+          clientDisconnect_ = null;
+        } else {
+          clientDisconnect_ = null;
+          clientDisconnectBuilder_ = null;
+        }
         return this;
       }
 
@@ -433,6 +778,31 @@ public final class Msg {
           result.worldInfo_ = worldInfo_;
         } else {
           result.worldInfo_ = worldInfoBuilder_.build();
+        }
+        if (resizeBuilder_ == null) {
+          result.resize_ = resize_;
+        } else {
+          result.resize_ = resizeBuilder_.build();
+        }
+        if (dotsUpdateBuilder_ == null) {
+          result.dotsUpdate_ = dotsUpdate_;
+        } else {
+          result.dotsUpdate_ = dotsUpdateBuilder_.build();
+        }
+        if (eatenFoodBuilder_ == null) {
+          result.eatenFood_ = eatenFood_;
+        } else {
+          result.eatenFood_ = eatenFoodBuilder_.build();
+        }
+        if (snakesUpdateBuilder_ == null) {
+          result.snakesUpdate_ = snakesUpdate_;
+        } else {
+          result.snakesUpdate_ = snakesUpdateBuilder_.build();
+        }
+        if (clientDisconnectBuilder_ == null) {
+          result.clientDisconnect_ = clientDisconnect_;
+        } else {
+          result.clientDisconnect_ = clientDisconnectBuilder_.build();
         }
         onBuilt();
         return result;
@@ -480,6 +850,21 @@ public final class Msg {
         }
         if (other.hasWorldInfo()) {
           mergeWorldInfo(other.getWorldInfo());
+        }
+        if (other.hasResize()) {
+          mergeResize(other.getResize());
+        }
+        if (other.hasDotsUpdate()) {
+          mergeDotsUpdate(other.getDotsUpdate());
+        }
+        if (other.hasEatenFood()) {
+          mergeEatenFood(other.getEatenFood());
+        }
+        if (other.hasSnakesUpdate()) {
+          mergeSnakesUpdate(other.getSnakesUpdate());
+        }
+        if (other.hasClientDisconnect()) {
+          mergeClientDisconnect(other.getClientDisconnect());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -740,6 +1125,591 @@ public final class Msg {
           worldInfo_ = null;
         }
         return worldInfoBuilder_;
+      }
+
+      private org.superbiz.game.proto.Msg.Resize resize_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.Resize, org.superbiz.game.proto.Msg.Resize.Builder, org.superbiz.game.proto.Msg.ResizeOrBuilder> resizeBuilder_;
+      /**
+       * <code>.Resize resize = 3;</code>
+       */
+      public boolean hasResize() {
+        return resizeBuilder_ != null || resize_ != null;
+      }
+      /**
+       * <code>.Resize resize = 3;</code>
+       */
+      public org.superbiz.game.proto.Msg.Resize getResize() {
+        if (resizeBuilder_ == null) {
+          return resize_ == null ? org.superbiz.game.proto.Msg.Resize.getDefaultInstance() : resize_;
+        } else {
+          return resizeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Resize resize = 3;</code>
+       */
+      public Builder setResize(org.superbiz.game.proto.Msg.Resize value) {
+        if (resizeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          resize_ = value;
+          onChanged();
+        } else {
+          resizeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Resize resize = 3;</code>
+       */
+      public Builder setResize(
+          org.superbiz.game.proto.Msg.Resize.Builder builderForValue) {
+        if (resizeBuilder_ == null) {
+          resize_ = builderForValue.build();
+          onChanged();
+        } else {
+          resizeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Resize resize = 3;</code>
+       */
+      public Builder mergeResize(org.superbiz.game.proto.Msg.Resize value) {
+        if (resizeBuilder_ == null) {
+          if (resize_ != null) {
+            resize_ =
+              org.superbiz.game.proto.Msg.Resize.newBuilder(resize_).mergeFrom(value).buildPartial();
+          } else {
+            resize_ = value;
+          }
+          onChanged();
+        } else {
+          resizeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Resize resize = 3;</code>
+       */
+      public Builder clearResize() {
+        if (resizeBuilder_ == null) {
+          resize_ = null;
+          onChanged();
+        } else {
+          resize_ = null;
+          resizeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Resize resize = 3;</code>
+       */
+      public org.superbiz.game.proto.Msg.Resize.Builder getResizeBuilder() {
+        
+        onChanged();
+        return getResizeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Resize resize = 3;</code>
+       */
+      public org.superbiz.game.proto.Msg.ResizeOrBuilder getResizeOrBuilder() {
+        if (resizeBuilder_ != null) {
+          return resizeBuilder_.getMessageOrBuilder();
+        } else {
+          return resize_ == null ?
+              org.superbiz.game.proto.Msg.Resize.getDefaultInstance() : resize_;
+        }
+      }
+      /**
+       * <code>.Resize resize = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.Resize, org.superbiz.game.proto.Msg.Resize.Builder, org.superbiz.game.proto.Msg.ResizeOrBuilder> 
+          getResizeFieldBuilder() {
+        if (resizeBuilder_ == null) {
+          resizeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.superbiz.game.proto.Msg.Resize, org.superbiz.game.proto.Msg.Resize.Builder, org.superbiz.game.proto.Msg.ResizeOrBuilder>(
+                  getResize(),
+                  getParentForChildren(),
+                  isClean());
+          resize_ = null;
+        }
+        return resizeBuilder_;
+      }
+
+      private org.superbiz.game.proto.Msg.DotsUpdate dotsUpdate_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.DotsUpdate, org.superbiz.game.proto.Msg.DotsUpdate.Builder, org.superbiz.game.proto.Msg.DotsUpdateOrBuilder> dotsUpdateBuilder_;
+      /**
+       * <code>.DotsUpdate dotsUpdate = 4;</code>
+       */
+      public boolean hasDotsUpdate() {
+        return dotsUpdateBuilder_ != null || dotsUpdate_ != null;
+      }
+      /**
+       * <code>.DotsUpdate dotsUpdate = 4;</code>
+       */
+      public org.superbiz.game.proto.Msg.DotsUpdate getDotsUpdate() {
+        if (dotsUpdateBuilder_ == null) {
+          return dotsUpdate_ == null ? org.superbiz.game.proto.Msg.DotsUpdate.getDefaultInstance() : dotsUpdate_;
+        } else {
+          return dotsUpdateBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.DotsUpdate dotsUpdate = 4;</code>
+       */
+      public Builder setDotsUpdate(org.superbiz.game.proto.Msg.DotsUpdate value) {
+        if (dotsUpdateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          dotsUpdate_ = value;
+          onChanged();
+        } else {
+          dotsUpdateBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.DotsUpdate dotsUpdate = 4;</code>
+       */
+      public Builder setDotsUpdate(
+          org.superbiz.game.proto.Msg.DotsUpdate.Builder builderForValue) {
+        if (dotsUpdateBuilder_ == null) {
+          dotsUpdate_ = builderForValue.build();
+          onChanged();
+        } else {
+          dotsUpdateBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.DotsUpdate dotsUpdate = 4;</code>
+       */
+      public Builder mergeDotsUpdate(org.superbiz.game.proto.Msg.DotsUpdate value) {
+        if (dotsUpdateBuilder_ == null) {
+          if (dotsUpdate_ != null) {
+            dotsUpdate_ =
+              org.superbiz.game.proto.Msg.DotsUpdate.newBuilder(dotsUpdate_).mergeFrom(value).buildPartial();
+          } else {
+            dotsUpdate_ = value;
+          }
+          onChanged();
+        } else {
+          dotsUpdateBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.DotsUpdate dotsUpdate = 4;</code>
+       */
+      public Builder clearDotsUpdate() {
+        if (dotsUpdateBuilder_ == null) {
+          dotsUpdate_ = null;
+          onChanged();
+        } else {
+          dotsUpdate_ = null;
+          dotsUpdateBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.DotsUpdate dotsUpdate = 4;</code>
+       */
+      public org.superbiz.game.proto.Msg.DotsUpdate.Builder getDotsUpdateBuilder() {
+        
+        onChanged();
+        return getDotsUpdateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.DotsUpdate dotsUpdate = 4;</code>
+       */
+      public org.superbiz.game.proto.Msg.DotsUpdateOrBuilder getDotsUpdateOrBuilder() {
+        if (dotsUpdateBuilder_ != null) {
+          return dotsUpdateBuilder_.getMessageOrBuilder();
+        } else {
+          return dotsUpdate_ == null ?
+              org.superbiz.game.proto.Msg.DotsUpdate.getDefaultInstance() : dotsUpdate_;
+        }
+      }
+      /**
+       * <code>.DotsUpdate dotsUpdate = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.DotsUpdate, org.superbiz.game.proto.Msg.DotsUpdate.Builder, org.superbiz.game.proto.Msg.DotsUpdateOrBuilder> 
+          getDotsUpdateFieldBuilder() {
+        if (dotsUpdateBuilder_ == null) {
+          dotsUpdateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.superbiz.game.proto.Msg.DotsUpdate, org.superbiz.game.proto.Msg.DotsUpdate.Builder, org.superbiz.game.proto.Msg.DotsUpdateOrBuilder>(
+                  getDotsUpdate(),
+                  getParentForChildren(),
+                  isClean());
+          dotsUpdate_ = null;
+        }
+        return dotsUpdateBuilder_;
+      }
+
+      private org.superbiz.game.proto.Msg.EatenFood eatenFood_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.EatenFood, org.superbiz.game.proto.Msg.EatenFood.Builder, org.superbiz.game.proto.Msg.EatenFoodOrBuilder> eatenFoodBuilder_;
+      /**
+       * <code>.EatenFood eatenFood = 5;</code>
+       */
+      public boolean hasEatenFood() {
+        return eatenFoodBuilder_ != null || eatenFood_ != null;
+      }
+      /**
+       * <code>.EatenFood eatenFood = 5;</code>
+       */
+      public org.superbiz.game.proto.Msg.EatenFood getEatenFood() {
+        if (eatenFoodBuilder_ == null) {
+          return eatenFood_ == null ? org.superbiz.game.proto.Msg.EatenFood.getDefaultInstance() : eatenFood_;
+        } else {
+          return eatenFoodBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.EatenFood eatenFood = 5;</code>
+       */
+      public Builder setEatenFood(org.superbiz.game.proto.Msg.EatenFood value) {
+        if (eatenFoodBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          eatenFood_ = value;
+          onChanged();
+        } else {
+          eatenFoodBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.EatenFood eatenFood = 5;</code>
+       */
+      public Builder setEatenFood(
+          org.superbiz.game.proto.Msg.EatenFood.Builder builderForValue) {
+        if (eatenFoodBuilder_ == null) {
+          eatenFood_ = builderForValue.build();
+          onChanged();
+        } else {
+          eatenFoodBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.EatenFood eatenFood = 5;</code>
+       */
+      public Builder mergeEatenFood(org.superbiz.game.proto.Msg.EatenFood value) {
+        if (eatenFoodBuilder_ == null) {
+          if (eatenFood_ != null) {
+            eatenFood_ =
+              org.superbiz.game.proto.Msg.EatenFood.newBuilder(eatenFood_).mergeFrom(value).buildPartial();
+          } else {
+            eatenFood_ = value;
+          }
+          onChanged();
+        } else {
+          eatenFoodBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.EatenFood eatenFood = 5;</code>
+       */
+      public Builder clearEatenFood() {
+        if (eatenFoodBuilder_ == null) {
+          eatenFood_ = null;
+          onChanged();
+        } else {
+          eatenFood_ = null;
+          eatenFoodBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.EatenFood eatenFood = 5;</code>
+       */
+      public org.superbiz.game.proto.Msg.EatenFood.Builder getEatenFoodBuilder() {
+        
+        onChanged();
+        return getEatenFoodFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.EatenFood eatenFood = 5;</code>
+       */
+      public org.superbiz.game.proto.Msg.EatenFoodOrBuilder getEatenFoodOrBuilder() {
+        if (eatenFoodBuilder_ != null) {
+          return eatenFoodBuilder_.getMessageOrBuilder();
+        } else {
+          return eatenFood_ == null ?
+              org.superbiz.game.proto.Msg.EatenFood.getDefaultInstance() : eatenFood_;
+        }
+      }
+      /**
+       * <code>.EatenFood eatenFood = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.EatenFood, org.superbiz.game.proto.Msg.EatenFood.Builder, org.superbiz.game.proto.Msg.EatenFoodOrBuilder> 
+          getEatenFoodFieldBuilder() {
+        if (eatenFoodBuilder_ == null) {
+          eatenFoodBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.superbiz.game.proto.Msg.EatenFood, org.superbiz.game.proto.Msg.EatenFood.Builder, org.superbiz.game.proto.Msg.EatenFoodOrBuilder>(
+                  getEatenFood(),
+                  getParentForChildren(),
+                  isClean());
+          eatenFood_ = null;
+        }
+        return eatenFoodBuilder_;
+      }
+
+      private org.superbiz.game.proto.Msg.SnakesUpdate snakesUpdate_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.SnakesUpdate, org.superbiz.game.proto.Msg.SnakesUpdate.Builder, org.superbiz.game.proto.Msg.SnakesUpdateOrBuilder> snakesUpdateBuilder_;
+      /**
+       * <code>.SnakesUpdate snakesUpdate = 6;</code>
+       */
+      public boolean hasSnakesUpdate() {
+        return snakesUpdateBuilder_ != null || snakesUpdate_ != null;
+      }
+      /**
+       * <code>.SnakesUpdate snakesUpdate = 6;</code>
+       */
+      public org.superbiz.game.proto.Msg.SnakesUpdate getSnakesUpdate() {
+        if (snakesUpdateBuilder_ == null) {
+          return snakesUpdate_ == null ? org.superbiz.game.proto.Msg.SnakesUpdate.getDefaultInstance() : snakesUpdate_;
+        } else {
+          return snakesUpdateBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.SnakesUpdate snakesUpdate = 6;</code>
+       */
+      public Builder setSnakesUpdate(org.superbiz.game.proto.Msg.SnakesUpdate value) {
+        if (snakesUpdateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          snakesUpdate_ = value;
+          onChanged();
+        } else {
+          snakesUpdateBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.SnakesUpdate snakesUpdate = 6;</code>
+       */
+      public Builder setSnakesUpdate(
+          org.superbiz.game.proto.Msg.SnakesUpdate.Builder builderForValue) {
+        if (snakesUpdateBuilder_ == null) {
+          snakesUpdate_ = builderForValue.build();
+          onChanged();
+        } else {
+          snakesUpdateBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.SnakesUpdate snakesUpdate = 6;</code>
+       */
+      public Builder mergeSnakesUpdate(org.superbiz.game.proto.Msg.SnakesUpdate value) {
+        if (snakesUpdateBuilder_ == null) {
+          if (snakesUpdate_ != null) {
+            snakesUpdate_ =
+              org.superbiz.game.proto.Msg.SnakesUpdate.newBuilder(snakesUpdate_).mergeFrom(value).buildPartial();
+          } else {
+            snakesUpdate_ = value;
+          }
+          onChanged();
+        } else {
+          snakesUpdateBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.SnakesUpdate snakesUpdate = 6;</code>
+       */
+      public Builder clearSnakesUpdate() {
+        if (snakesUpdateBuilder_ == null) {
+          snakesUpdate_ = null;
+          onChanged();
+        } else {
+          snakesUpdate_ = null;
+          snakesUpdateBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.SnakesUpdate snakesUpdate = 6;</code>
+       */
+      public org.superbiz.game.proto.Msg.SnakesUpdate.Builder getSnakesUpdateBuilder() {
+        
+        onChanged();
+        return getSnakesUpdateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.SnakesUpdate snakesUpdate = 6;</code>
+       */
+      public org.superbiz.game.proto.Msg.SnakesUpdateOrBuilder getSnakesUpdateOrBuilder() {
+        if (snakesUpdateBuilder_ != null) {
+          return snakesUpdateBuilder_.getMessageOrBuilder();
+        } else {
+          return snakesUpdate_ == null ?
+              org.superbiz.game.proto.Msg.SnakesUpdate.getDefaultInstance() : snakesUpdate_;
+        }
+      }
+      /**
+       * <code>.SnakesUpdate snakesUpdate = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.SnakesUpdate, org.superbiz.game.proto.Msg.SnakesUpdate.Builder, org.superbiz.game.proto.Msg.SnakesUpdateOrBuilder> 
+          getSnakesUpdateFieldBuilder() {
+        if (snakesUpdateBuilder_ == null) {
+          snakesUpdateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.superbiz.game.proto.Msg.SnakesUpdate, org.superbiz.game.proto.Msg.SnakesUpdate.Builder, org.superbiz.game.proto.Msg.SnakesUpdateOrBuilder>(
+                  getSnakesUpdate(),
+                  getParentForChildren(),
+                  isClean());
+          snakesUpdate_ = null;
+        }
+        return snakesUpdateBuilder_;
+      }
+
+      private org.superbiz.game.proto.Msg.ClientDisconnect clientDisconnect_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.ClientDisconnect, org.superbiz.game.proto.Msg.ClientDisconnect.Builder, org.superbiz.game.proto.Msg.ClientDisconnectOrBuilder> clientDisconnectBuilder_;
+      /**
+       * <code>.ClientDisconnect clientDisconnect = 7;</code>
+       */
+      public boolean hasClientDisconnect() {
+        return clientDisconnectBuilder_ != null || clientDisconnect_ != null;
+      }
+      /**
+       * <code>.ClientDisconnect clientDisconnect = 7;</code>
+       */
+      public org.superbiz.game.proto.Msg.ClientDisconnect getClientDisconnect() {
+        if (clientDisconnectBuilder_ == null) {
+          return clientDisconnect_ == null ? org.superbiz.game.proto.Msg.ClientDisconnect.getDefaultInstance() : clientDisconnect_;
+        } else {
+          return clientDisconnectBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.ClientDisconnect clientDisconnect = 7;</code>
+       */
+      public Builder setClientDisconnect(org.superbiz.game.proto.Msg.ClientDisconnect value) {
+        if (clientDisconnectBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          clientDisconnect_ = value;
+          onChanged();
+        } else {
+          clientDisconnectBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.ClientDisconnect clientDisconnect = 7;</code>
+       */
+      public Builder setClientDisconnect(
+          org.superbiz.game.proto.Msg.ClientDisconnect.Builder builderForValue) {
+        if (clientDisconnectBuilder_ == null) {
+          clientDisconnect_ = builderForValue.build();
+          onChanged();
+        } else {
+          clientDisconnectBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.ClientDisconnect clientDisconnect = 7;</code>
+       */
+      public Builder mergeClientDisconnect(org.superbiz.game.proto.Msg.ClientDisconnect value) {
+        if (clientDisconnectBuilder_ == null) {
+          if (clientDisconnect_ != null) {
+            clientDisconnect_ =
+              org.superbiz.game.proto.Msg.ClientDisconnect.newBuilder(clientDisconnect_).mergeFrom(value).buildPartial();
+          } else {
+            clientDisconnect_ = value;
+          }
+          onChanged();
+        } else {
+          clientDisconnectBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.ClientDisconnect clientDisconnect = 7;</code>
+       */
+      public Builder clearClientDisconnect() {
+        if (clientDisconnectBuilder_ == null) {
+          clientDisconnect_ = null;
+          onChanged();
+        } else {
+          clientDisconnect_ = null;
+          clientDisconnectBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.ClientDisconnect clientDisconnect = 7;</code>
+       */
+      public org.superbiz.game.proto.Msg.ClientDisconnect.Builder getClientDisconnectBuilder() {
+        
+        onChanged();
+        return getClientDisconnectFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.ClientDisconnect clientDisconnect = 7;</code>
+       */
+      public org.superbiz.game.proto.Msg.ClientDisconnectOrBuilder getClientDisconnectOrBuilder() {
+        if (clientDisconnectBuilder_ != null) {
+          return clientDisconnectBuilder_.getMessageOrBuilder();
+        } else {
+          return clientDisconnect_ == null ?
+              org.superbiz.game.proto.Msg.ClientDisconnect.getDefaultInstance() : clientDisconnect_;
+        }
+      }
+      /**
+       * <code>.ClientDisconnect clientDisconnect = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.ClientDisconnect, org.superbiz.game.proto.Msg.ClientDisconnect.Builder, org.superbiz.game.proto.Msg.ClientDisconnectOrBuilder> 
+          getClientDisconnectFieldBuilder() {
+        if (clientDisconnectBuilder_ == null) {
+          clientDisconnectBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.superbiz.game.proto.Msg.ClientDisconnect, org.superbiz.game.proto.Msg.ClientDisconnect.Builder, org.superbiz.game.proto.Msg.ClientDisconnectOrBuilder>(
+                  getClientDisconnect(),
+                  getParentForChildren(),
+                  isClean());
+          clientDisconnect_ = null;
+        }
+        return clientDisconnectBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1241,6 +2211,2166 @@ public final class Msg {
 
   }
 
+  public interface DotOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Dot)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>float x = 1;</code>
+     */
+    float getX();
+
+    /**
+     * <code>float y = 2;</code>
+     */
+    float getY();
+
+    /**
+     * <code>int32 color = 3;</code>
+     */
+    int getColor();
+
+    /**
+     * <code>int32 size = 4;</code>
+     */
+    int getSize();
+  }
+  /**
+   * Protobuf type {@code Dot}
+   */
+  public  static final class Dot extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Dot)
+      DotOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Dot.newBuilder() to construct.
+    private Dot(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Dot() {
+      x_ = 0F;
+      y_ = 0F;
+      color_ = 0;
+      size_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Dot(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 13: {
+
+              x_ = input.readFloat();
+              break;
+            }
+            case 21: {
+
+              y_ = input.readFloat();
+              break;
+            }
+            case 24: {
+
+              color_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              size_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.superbiz.game.proto.Msg.internal_static_Dot_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.superbiz.game.proto.Msg.internal_static_Dot_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.superbiz.game.proto.Msg.Dot.class, org.superbiz.game.proto.Msg.Dot.Builder.class);
+    }
+
+    public static final int X_FIELD_NUMBER = 1;
+    private float x_;
+    /**
+     * <code>float x = 1;</code>
+     */
+    public float getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 2;
+    private float y_;
+    /**
+     * <code>float y = 2;</code>
+     */
+    public float getY() {
+      return y_;
+    }
+
+    public static final int COLOR_FIELD_NUMBER = 3;
+    private int color_;
+    /**
+     * <code>int32 color = 3;</code>
+     */
+    public int getColor() {
+      return color_;
+    }
+
+    public static final int SIZE_FIELD_NUMBER = 4;
+    private int size_;
+    /**
+     * <code>int32 size = 4;</code>
+     */
+    public int getSize() {
+      return size_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (x_ != 0F) {
+        output.writeFloat(1, x_);
+      }
+      if (y_ != 0F) {
+        output.writeFloat(2, y_);
+      }
+      if (color_ != 0) {
+        output.writeInt32(3, color_);
+      }
+      if (size_ != 0) {
+        output.writeInt32(4, size_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (x_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(1, x_);
+      }
+      if (y_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(2, y_);
+      }
+      if (color_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, color_);
+      }
+      if (size_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, size_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.superbiz.game.proto.Msg.Dot)) {
+        return super.equals(obj);
+      }
+      org.superbiz.game.proto.Msg.Dot other = (org.superbiz.game.proto.Msg.Dot) obj;
+
+      boolean result = true;
+      result = result && (
+          java.lang.Float.floatToIntBits(getX())
+          == java.lang.Float.floatToIntBits(
+              other.getX()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getY())
+          == java.lang.Float.floatToIntBits(
+              other.getY()));
+      result = result && (getColor()
+          == other.getColor());
+      result = result && (getSize()
+          == other.getSize());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + X_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getX());
+      hash = (37 * hash) + Y_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getY());
+      hash = (37 * hash) + COLOR_FIELD_NUMBER;
+      hash = (53 * hash) + getColor();
+      hash = (37 * hash) + SIZE_FIELD_NUMBER;
+      hash = (53 * hash) + getSize();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.Dot parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.superbiz.game.proto.Msg.Dot prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Dot}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Dot)
+        org.superbiz.game.proto.Msg.DotOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.superbiz.game.proto.Msg.internal_static_Dot_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.superbiz.game.proto.Msg.internal_static_Dot_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.superbiz.game.proto.Msg.Dot.class, org.superbiz.game.proto.Msg.Dot.Builder.class);
+      }
+
+      // Construct using org.superbiz.game.proto.Msg.Dot.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        x_ = 0F;
+
+        y_ = 0F;
+
+        color_ = 0;
+
+        size_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.superbiz.game.proto.Msg.internal_static_Dot_descriptor;
+      }
+
+      public org.superbiz.game.proto.Msg.Dot getDefaultInstanceForType() {
+        return org.superbiz.game.proto.Msg.Dot.getDefaultInstance();
+      }
+
+      public org.superbiz.game.proto.Msg.Dot build() {
+        org.superbiz.game.proto.Msg.Dot result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.superbiz.game.proto.Msg.Dot buildPartial() {
+        org.superbiz.game.proto.Msg.Dot result = new org.superbiz.game.proto.Msg.Dot(this);
+        result.x_ = x_;
+        result.y_ = y_;
+        result.color_ = color_;
+        result.size_ = size_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.superbiz.game.proto.Msg.Dot) {
+          return mergeFrom((org.superbiz.game.proto.Msg.Dot)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.superbiz.game.proto.Msg.Dot other) {
+        if (other == org.superbiz.game.proto.Msg.Dot.getDefaultInstance()) return this;
+        if (other.getX() != 0F) {
+          setX(other.getX());
+        }
+        if (other.getY() != 0F) {
+          setY(other.getY());
+        }
+        if (other.getColor() != 0) {
+          setColor(other.getColor());
+        }
+        if (other.getSize() != 0) {
+          setSize(other.getSize());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.superbiz.game.proto.Msg.Dot parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.superbiz.game.proto.Msg.Dot) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private float x_ ;
+      /**
+       * <code>float x = 1;</code>
+       */
+      public float getX() {
+        return x_;
+      }
+      /**
+       * <code>float x = 1;</code>
+       */
+      public Builder setX(float value) {
+        
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float x = 1;</code>
+       */
+      public Builder clearX() {
+        
+        x_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float y_ ;
+      /**
+       * <code>float y = 2;</code>
+       */
+      public float getY() {
+        return y_;
+      }
+      /**
+       * <code>float y = 2;</code>
+       */
+      public Builder setY(float value) {
+        
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float y = 2;</code>
+       */
+      public Builder clearY() {
+        
+        y_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private int color_ ;
+      /**
+       * <code>int32 color = 3;</code>
+       */
+      public int getColor() {
+        return color_;
+      }
+      /**
+       * <code>int32 color = 3;</code>
+       */
+      public Builder setColor(int value) {
+        
+        color_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 color = 3;</code>
+       */
+      public Builder clearColor() {
+        
+        color_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int size_ ;
+      /**
+       * <code>int32 size = 4;</code>
+       */
+      public int getSize() {
+        return size_;
+      }
+      /**
+       * <code>int32 size = 4;</code>
+       */
+      public Builder setSize(int value) {
+        
+        size_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 size = 4;</code>
+       */
+      public Builder clearSize() {
+        
+        size_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Dot)
+    }
+
+    // @@protoc_insertion_point(class_scope:Dot)
+    private static final org.superbiz.game.proto.Msg.Dot DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.Dot();
+    }
+
+    public static org.superbiz.game.proto.Msg.Dot getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Dot>
+        PARSER = new com.google.protobuf.AbstractParser<Dot>() {
+      public Dot parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Dot(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Dot> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Dot> getParserForType() {
+      return PARSER;
+    }
+
+    public org.superbiz.game.proto.Msg.Dot getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DotsUpdateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DotsUpdate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    java.util.List<org.superbiz.game.proto.Msg.Dot> 
+        getDotsList();
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    org.superbiz.game.proto.Msg.Dot getDots(int index);
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    int getDotsCount();
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    java.util.List<? extends org.superbiz.game.proto.Msg.DotOrBuilder> 
+        getDotsOrBuilderList();
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    org.superbiz.game.proto.Msg.DotOrBuilder getDotsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code DotsUpdate}
+   */
+  public  static final class DotsUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:DotsUpdate)
+      DotsUpdateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DotsUpdate.newBuilder() to construct.
+    private DotsUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DotsUpdate() {
+      dots_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DotsUpdate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                dots_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Dot>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              dots_.add(
+                  input.readMessage(org.superbiz.game.proto.Msg.Dot.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          dots_ = java.util.Collections.unmodifiableList(dots_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.superbiz.game.proto.Msg.internal_static_DotsUpdate_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.superbiz.game.proto.Msg.internal_static_DotsUpdate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.superbiz.game.proto.Msg.DotsUpdate.class, org.superbiz.game.proto.Msg.DotsUpdate.Builder.class);
+    }
+
+    public static final int DOTS_FIELD_NUMBER = 1;
+    private java.util.List<org.superbiz.game.proto.Msg.Dot> dots_;
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    public java.util.List<org.superbiz.game.proto.Msg.Dot> getDotsList() {
+      return dots_;
+    }
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    public java.util.List<? extends org.superbiz.game.proto.Msg.DotOrBuilder> 
+        getDotsOrBuilderList() {
+      return dots_;
+    }
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    public int getDotsCount() {
+      return dots_.size();
+    }
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    public org.superbiz.game.proto.Msg.Dot getDots(int index) {
+      return dots_.get(index);
+    }
+    /**
+     * <code>repeated .Dot dots = 1;</code>
+     */
+    public org.superbiz.game.proto.Msg.DotOrBuilder getDotsOrBuilder(
+        int index) {
+      return dots_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < dots_.size(); i++) {
+        output.writeMessage(1, dots_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < dots_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, dots_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.superbiz.game.proto.Msg.DotsUpdate)) {
+        return super.equals(obj);
+      }
+      org.superbiz.game.proto.Msg.DotsUpdate other = (org.superbiz.game.proto.Msg.DotsUpdate) obj;
+
+      boolean result = true;
+      result = result && getDotsList()
+          .equals(other.getDotsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getDotsCount() > 0) {
+        hash = (37 * hash) + DOTS_FIELD_NUMBER;
+        hash = (53 * hash) + getDotsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.DotsUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.superbiz.game.proto.Msg.DotsUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code DotsUpdate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:DotsUpdate)
+        org.superbiz.game.proto.Msg.DotsUpdateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.superbiz.game.proto.Msg.internal_static_DotsUpdate_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.superbiz.game.proto.Msg.internal_static_DotsUpdate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.superbiz.game.proto.Msg.DotsUpdate.class, org.superbiz.game.proto.Msg.DotsUpdate.Builder.class);
+      }
+
+      // Construct using org.superbiz.game.proto.Msg.DotsUpdate.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDotsFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (dotsBuilder_ == null) {
+          dots_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          dotsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.superbiz.game.proto.Msg.internal_static_DotsUpdate_descriptor;
+      }
+
+      public org.superbiz.game.proto.Msg.DotsUpdate getDefaultInstanceForType() {
+        return org.superbiz.game.proto.Msg.DotsUpdate.getDefaultInstance();
+      }
+
+      public org.superbiz.game.proto.Msg.DotsUpdate build() {
+        org.superbiz.game.proto.Msg.DotsUpdate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.superbiz.game.proto.Msg.DotsUpdate buildPartial() {
+        org.superbiz.game.proto.Msg.DotsUpdate result = new org.superbiz.game.proto.Msg.DotsUpdate(this);
+        int from_bitField0_ = bitField0_;
+        if (dotsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            dots_ = java.util.Collections.unmodifiableList(dots_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.dots_ = dots_;
+        } else {
+          result.dots_ = dotsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.superbiz.game.proto.Msg.DotsUpdate) {
+          return mergeFrom((org.superbiz.game.proto.Msg.DotsUpdate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.superbiz.game.proto.Msg.DotsUpdate other) {
+        if (other == org.superbiz.game.proto.Msg.DotsUpdate.getDefaultInstance()) return this;
+        if (dotsBuilder_ == null) {
+          if (!other.dots_.isEmpty()) {
+            if (dots_.isEmpty()) {
+              dots_ = other.dots_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDotsIsMutable();
+              dots_.addAll(other.dots_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.dots_.isEmpty()) {
+            if (dotsBuilder_.isEmpty()) {
+              dotsBuilder_.dispose();
+              dotsBuilder_ = null;
+              dots_ = other.dots_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              dotsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDotsFieldBuilder() : null;
+            } else {
+              dotsBuilder_.addAllMessages(other.dots_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.superbiz.game.proto.Msg.DotsUpdate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.superbiz.game.proto.Msg.DotsUpdate) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<org.superbiz.game.proto.Msg.Dot> dots_ =
+        java.util.Collections.emptyList();
+      private void ensureDotsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          dots_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Dot>(dots_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.superbiz.game.proto.Msg.Dot, org.superbiz.game.proto.Msg.Dot.Builder, org.superbiz.game.proto.Msg.DotOrBuilder> dotsBuilder_;
+
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public java.util.List<org.superbiz.game.proto.Msg.Dot> getDotsList() {
+        if (dotsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(dots_);
+        } else {
+          return dotsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public int getDotsCount() {
+        if (dotsBuilder_ == null) {
+          return dots_.size();
+        } else {
+          return dotsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.Dot getDots(int index) {
+        if (dotsBuilder_ == null) {
+          return dots_.get(index);
+        } else {
+          return dotsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public Builder setDots(
+          int index, org.superbiz.game.proto.Msg.Dot value) {
+        if (dotsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDotsIsMutable();
+          dots_.set(index, value);
+          onChanged();
+        } else {
+          dotsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public Builder setDots(
+          int index, org.superbiz.game.proto.Msg.Dot.Builder builderForValue) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          dots_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dotsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public Builder addDots(org.superbiz.game.proto.Msg.Dot value) {
+        if (dotsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDotsIsMutable();
+          dots_.add(value);
+          onChanged();
+        } else {
+          dotsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public Builder addDots(
+          int index, org.superbiz.game.proto.Msg.Dot value) {
+        if (dotsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDotsIsMutable();
+          dots_.add(index, value);
+          onChanged();
+        } else {
+          dotsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public Builder addDots(
+          org.superbiz.game.proto.Msg.Dot.Builder builderForValue) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          dots_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dotsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public Builder addDots(
+          int index, org.superbiz.game.proto.Msg.Dot.Builder builderForValue) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          dots_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dotsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public Builder addAllDots(
+          java.lang.Iterable<? extends org.superbiz.game.proto.Msg.Dot> values) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, dots_);
+          onChanged();
+        } else {
+          dotsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public Builder clearDots() {
+        if (dotsBuilder_ == null) {
+          dots_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          dotsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public Builder removeDots(int index) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          dots_.remove(index);
+          onChanged();
+        } else {
+          dotsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.Dot.Builder getDotsBuilder(
+          int index) {
+        return getDotsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.DotOrBuilder getDotsOrBuilder(
+          int index) {
+        if (dotsBuilder_ == null) {
+          return dots_.get(index);  } else {
+          return dotsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public java.util.List<? extends org.superbiz.game.proto.Msg.DotOrBuilder> 
+           getDotsOrBuilderList() {
+        if (dotsBuilder_ != null) {
+          return dotsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(dots_);
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.Dot.Builder addDotsBuilder() {
+        return getDotsFieldBuilder().addBuilder(
+            org.superbiz.game.proto.Msg.Dot.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.Dot.Builder addDotsBuilder(
+          int index) {
+        return getDotsFieldBuilder().addBuilder(
+            index, org.superbiz.game.proto.Msg.Dot.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Dot dots = 1;</code>
+       */
+      public java.util.List<org.superbiz.game.proto.Msg.Dot.Builder> 
+           getDotsBuilderList() {
+        return getDotsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.superbiz.game.proto.Msg.Dot, org.superbiz.game.proto.Msg.Dot.Builder, org.superbiz.game.proto.Msg.DotOrBuilder> 
+          getDotsFieldBuilder() {
+        if (dotsBuilder_ == null) {
+          dotsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.superbiz.game.proto.Msg.Dot, org.superbiz.game.proto.Msg.Dot.Builder, org.superbiz.game.proto.Msg.DotOrBuilder>(
+                  dots_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          dots_ = null;
+        }
+        return dotsBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:DotsUpdate)
+    }
+
+    // @@protoc_insertion_point(class_scope:DotsUpdate)
+    private static final org.superbiz.game.proto.Msg.DotsUpdate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.DotsUpdate();
+    }
+
+    public static org.superbiz.game.proto.Msg.DotsUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DotsUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<DotsUpdate>() {
+      public DotsUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DotsUpdate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DotsUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DotsUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    public org.superbiz.game.proto.Msg.DotsUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SnakesUpdateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SnakesUpdate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    java.util.List<org.superbiz.game.proto.Msg.SnakeInfo> 
+        getSnakesList();
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    org.superbiz.game.proto.Msg.SnakeInfo getSnakes(int index);
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    int getSnakesCount();
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    java.util.List<? extends org.superbiz.game.proto.Msg.SnakeInfoOrBuilder> 
+        getSnakesOrBuilderList();
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    org.superbiz.game.proto.Msg.SnakeInfoOrBuilder getSnakesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code SnakesUpdate}
+   */
+  public  static final class SnakesUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SnakesUpdate)
+      SnakesUpdateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SnakesUpdate.newBuilder() to construct.
+    private SnakesUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SnakesUpdate() {
+      snakes_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SnakesUpdate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                snakes_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.SnakeInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              snakes_.add(
+                  input.readMessage(org.superbiz.game.proto.Msg.SnakeInfo.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          snakes_ = java.util.Collections.unmodifiableList(snakes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.superbiz.game.proto.Msg.internal_static_SnakesUpdate_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.superbiz.game.proto.Msg.internal_static_SnakesUpdate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.superbiz.game.proto.Msg.SnakesUpdate.class, org.superbiz.game.proto.Msg.SnakesUpdate.Builder.class);
+    }
+
+    public static final int SNAKES_FIELD_NUMBER = 1;
+    private java.util.List<org.superbiz.game.proto.Msg.SnakeInfo> snakes_;
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    public java.util.List<org.superbiz.game.proto.Msg.SnakeInfo> getSnakesList() {
+      return snakes_;
+    }
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    public java.util.List<? extends org.superbiz.game.proto.Msg.SnakeInfoOrBuilder> 
+        getSnakesOrBuilderList() {
+      return snakes_;
+    }
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    public int getSnakesCount() {
+      return snakes_.size();
+    }
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    public org.superbiz.game.proto.Msg.SnakeInfo getSnakes(int index) {
+      return snakes_.get(index);
+    }
+    /**
+     * <code>repeated .SnakeInfo snakes = 1;</code>
+     */
+    public org.superbiz.game.proto.Msg.SnakeInfoOrBuilder getSnakesOrBuilder(
+        int index) {
+      return snakes_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < snakes_.size(); i++) {
+        output.writeMessage(1, snakes_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < snakes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, snakes_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.superbiz.game.proto.Msg.SnakesUpdate)) {
+        return super.equals(obj);
+      }
+      org.superbiz.game.proto.Msg.SnakesUpdate other = (org.superbiz.game.proto.Msg.SnakesUpdate) obj;
+
+      boolean result = true;
+      result = result && getSnakesList()
+          .equals(other.getSnakesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getSnakesCount() > 0) {
+        hash = (37 * hash) + SNAKES_FIELD_NUMBER;
+        hash = (53 * hash) + getSnakesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.SnakesUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.superbiz.game.proto.Msg.SnakesUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SnakesUpdate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SnakesUpdate)
+        org.superbiz.game.proto.Msg.SnakesUpdateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.superbiz.game.proto.Msg.internal_static_SnakesUpdate_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.superbiz.game.proto.Msg.internal_static_SnakesUpdate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.superbiz.game.proto.Msg.SnakesUpdate.class, org.superbiz.game.proto.Msg.SnakesUpdate.Builder.class);
+      }
+
+      // Construct using org.superbiz.game.proto.Msg.SnakesUpdate.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSnakesFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (snakesBuilder_ == null) {
+          snakes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          snakesBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.superbiz.game.proto.Msg.internal_static_SnakesUpdate_descriptor;
+      }
+
+      public org.superbiz.game.proto.Msg.SnakesUpdate getDefaultInstanceForType() {
+        return org.superbiz.game.proto.Msg.SnakesUpdate.getDefaultInstance();
+      }
+
+      public org.superbiz.game.proto.Msg.SnakesUpdate build() {
+        org.superbiz.game.proto.Msg.SnakesUpdate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.superbiz.game.proto.Msg.SnakesUpdate buildPartial() {
+        org.superbiz.game.proto.Msg.SnakesUpdate result = new org.superbiz.game.proto.Msg.SnakesUpdate(this);
+        int from_bitField0_ = bitField0_;
+        if (snakesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            snakes_ = java.util.Collections.unmodifiableList(snakes_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.snakes_ = snakes_;
+        } else {
+          result.snakes_ = snakesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.superbiz.game.proto.Msg.SnakesUpdate) {
+          return mergeFrom((org.superbiz.game.proto.Msg.SnakesUpdate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.superbiz.game.proto.Msg.SnakesUpdate other) {
+        if (other == org.superbiz.game.proto.Msg.SnakesUpdate.getDefaultInstance()) return this;
+        if (snakesBuilder_ == null) {
+          if (!other.snakes_.isEmpty()) {
+            if (snakes_.isEmpty()) {
+              snakes_ = other.snakes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureSnakesIsMutable();
+              snakes_.addAll(other.snakes_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.snakes_.isEmpty()) {
+            if (snakesBuilder_.isEmpty()) {
+              snakesBuilder_.dispose();
+              snakesBuilder_ = null;
+              snakes_ = other.snakes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              snakesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getSnakesFieldBuilder() : null;
+            } else {
+              snakesBuilder_.addAllMessages(other.snakes_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.superbiz.game.proto.Msg.SnakesUpdate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.superbiz.game.proto.Msg.SnakesUpdate) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<org.superbiz.game.proto.Msg.SnakeInfo> snakes_ =
+        java.util.Collections.emptyList();
+      private void ensureSnakesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          snakes_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.SnakeInfo>(snakes_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.superbiz.game.proto.Msg.SnakeInfo, org.superbiz.game.proto.Msg.SnakeInfo.Builder, org.superbiz.game.proto.Msg.SnakeInfoOrBuilder> snakesBuilder_;
+
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public java.util.List<org.superbiz.game.proto.Msg.SnakeInfo> getSnakesList() {
+        if (snakesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(snakes_);
+        } else {
+          return snakesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public int getSnakesCount() {
+        if (snakesBuilder_ == null) {
+          return snakes_.size();
+        } else {
+          return snakesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.SnakeInfo getSnakes(int index) {
+        if (snakesBuilder_ == null) {
+          return snakes_.get(index);
+        } else {
+          return snakesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public Builder setSnakes(
+          int index, org.superbiz.game.proto.Msg.SnakeInfo value) {
+        if (snakesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSnakesIsMutable();
+          snakes_.set(index, value);
+          onChanged();
+        } else {
+          snakesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public Builder setSnakes(
+          int index, org.superbiz.game.proto.Msg.SnakeInfo.Builder builderForValue) {
+        if (snakesBuilder_ == null) {
+          ensureSnakesIsMutable();
+          snakes_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          snakesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public Builder addSnakes(org.superbiz.game.proto.Msg.SnakeInfo value) {
+        if (snakesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSnakesIsMutable();
+          snakes_.add(value);
+          onChanged();
+        } else {
+          snakesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public Builder addSnakes(
+          int index, org.superbiz.game.proto.Msg.SnakeInfo value) {
+        if (snakesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSnakesIsMutable();
+          snakes_.add(index, value);
+          onChanged();
+        } else {
+          snakesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public Builder addSnakes(
+          org.superbiz.game.proto.Msg.SnakeInfo.Builder builderForValue) {
+        if (snakesBuilder_ == null) {
+          ensureSnakesIsMutable();
+          snakes_.add(builderForValue.build());
+          onChanged();
+        } else {
+          snakesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public Builder addSnakes(
+          int index, org.superbiz.game.proto.Msg.SnakeInfo.Builder builderForValue) {
+        if (snakesBuilder_ == null) {
+          ensureSnakesIsMutable();
+          snakes_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          snakesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public Builder addAllSnakes(
+          java.lang.Iterable<? extends org.superbiz.game.proto.Msg.SnakeInfo> values) {
+        if (snakesBuilder_ == null) {
+          ensureSnakesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, snakes_);
+          onChanged();
+        } else {
+          snakesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public Builder clearSnakes() {
+        if (snakesBuilder_ == null) {
+          snakes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          snakesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public Builder removeSnakes(int index) {
+        if (snakesBuilder_ == null) {
+          ensureSnakesIsMutable();
+          snakes_.remove(index);
+          onChanged();
+        } else {
+          snakesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.SnakeInfo.Builder getSnakesBuilder(
+          int index) {
+        return getSnakesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.SnakeInfoOrBuilder getSnakesOrBuilder(
+          int index) {
+        if (snakesBuilder_ == null) {
+          return snakes_.get(index);  } else {
+          return snakesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public java.util.List<? extends org.superbiz.game.proto.Msg.SnakeInfoOrBuilder> 
+           getSnakesOrBuilderList() {
+        if (snakesBuilder_ != null) {
+          return snakesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(snakes_);
+        }
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.SnakeInfo.Builder addSnakesBuilder() {
+        return getSnakesFieldBuilder().addBuilder(
+            org.superbiz.game.proto.Msg.SnakeInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.SnakeInfo.Builder addSnakesBuilder(
+          int index) {
+        return getSnakesFieldBuilder().addBuilder(
+            index, org.superbiz.game.proto.Msg.SnakeInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .SnakeInfo snakes = 1;</code>
+       */
+      public java.util.List<org.superbiz.game.proto.Msg.SnakeInfo.Builder> 
+           getSnakesBuilderList() {
+        return getSnakesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.superbiz.game.proto.Msg.SnakeInfo, org.superbiz.game.proto.Msg.SnakeInfo.Builder, org.superbiz.game.proto.Msg.SnakeInfoOrBuilder> 
+          getSnakesFieldBuilder() {
+        if (snakesBuilder_ == null) {
+          snakesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.superbiz.game.proto.Msg.SnakeInfo, org.superbiz.game.proto.Msg.SnakeInfo.Builder, org.superbiz.game.proto.Msg.SnakeInfoOrBuilder>(
+                  snakes_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          snakes_ = null;
+        }
+        return snakesBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SnakesUpdate)
+    }
+
+    // @@protoc_insertion_point(class_scope:SnakesUpdate)
+    private static final org.superbiz.game.proto.Msg.SnakesUpdate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.SnakesUpdate();
+    }
+
+    public static org.superbiz.game.proto.Msg.SnakesUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SnakesUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<SnakesUpdate>() {
+      public SnakesUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SnakesUpdate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SnakesUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SnakesUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    public org.superbiz.game.proto.Msg.SnakesUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PlayerMovedOrBuilder extends
       // @@protoc_insertion_point(interface_extends:PlayerMoved)
       com.google.protobuf.MessageOrBuilder {
@@ -1276,33 +4406,33 @@ public final class Msg {
         getSkinBytes();
 
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
-    java.util.List<org.superbiz.game.proto.Msg.PlayerMoved.Part> 
+    java.util.List<org.superbiz.game.proto.Msg.Part> 
         getPartsList();
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
-    org.superbiz.game.proto.Msg.PlayerMoved.Part getParts(int index);
+    org.superbiz.game.proto.Msg.Part getParts(int index);
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
     int getPartsCount();
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
-    java.util.List<? extends org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder> 
+    java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
         getPartsOrBuilderList();
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
-    org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder getPartsOrBuilder(
+    org.superbiz.game.proto.Msg.PartOrBuilder getPartsOrBuilder(
         int index);
 
     /**
-     * <code>int64 sent = 7;</code>
+     * <code>int64 initiated = 7;</code>
      */
-    long getSent();
+    long getInitiated();
   }
   /**
    * Protobuf type {@code PlayerMoved}
@@ -1323,7 +4453,7 @@ public final class Msg {
       speed_ = 0F;
       skin_ = "";
       parts_ = java.util.Collections.emptyList();
-      sent_ = 0L;
+      initiated_ = 0L;
     }
 
     @java.lang.Override
@@ -1385,16 +4515,16 @@ public final class Msg {
             }
             case 50: {
               if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                parts_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.PlayerMoved.Part>();
+                parts_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Part>();
                 mutable_bitField0_ |= 0x00000020;
               }
               parts_.add(
-                  input.readMessage(org.superbiz.game.proto.Msg.PlayerMoved.Part.parser(), extensionRegistry));
+                  input.readMessage(org.superbiz.game.proto.Msg.Part.parser(), extensionRegistry));
               break;
             }
             case 56: {
 
-              sent_ = input.readInt64();
+              initiated_ = input.readInt64();
               break;
             }
           }
@@ -1422,592 +4552,6 @@ public final class Msg {
       return org.superbiz.game.proto.Msg.internal_static_PlayerMoved_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.superbiz.game.proto.Msg.PlayerMoved.class, org.superbiz.game.proto.Msg.PlayerMoved.Builder.class);
-    }
-
-    public interface PartOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:PlayerMoved.Part)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>float x = 1;</code>
-       */
-      float getX();
-
-      /**
-       * <code>float y = 2;</code>
-       */
-      float getY();
-
-      /**
-       * <code>float r = 3;</code>
-       */
-      float getR();
-    }
-    /**
-     * Protobuf type {@code PlayerMoved.Part}
-     */
-    public  static final class Part extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:PlayerMoved.Part)
-        PartOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use Part.newBuilder() to construct.
-      private Part(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private Part() {
-        x_ = 0F;
-        y_ = 0F;
-        r_ = 0F;
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private Part(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownFieldProto3(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 13: {
-
-                x_ = input.readFloat();
-                break;
-              }
-              case 21: {
-
-                y_ = input.readFloat();
-                break;
-              }
-              case 29: {
-
-                r_ = input.readFloat();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.superbiz.game.proto.Msg.internal_static_PlayerMoved_Part_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.superbiz.game.proto.Msg.internal_static_PlayerMoved_Part_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.superbiz.game.proto.Msg.PlayerMoved.Part.class, org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder.class);
-      }
-
-      public static final int X_FIELD_NUMBER = 1;
-      private float x_;
-      /**
-       * <code>float x = 1;</code>
-       */
-      public float getX() {
-        return x_;
-      }
-
-      public static final int Y_FIELD_NUMBER = 2;
-      private float y_;
-      /**
-       * <code>float y = 2;</code>
-       */
-      public float getY() {
-        return y_;
-      }
-
-      public static final int R_FIELD_NUMBER = 3;
-      private float r_;
-      /**
-       * <code>float r = 3;</code>
-       */
-      public float getR() {
-        return r_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (x_ != 0F) {
-          output.writeFloat(1, x_);
-        }
-        if (y_ != 0F) {
-          output.writeFloat(2, y_);
-        }
-        if (r_ != 0F) {
-          output.writeFloat(3, r_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (x_ != 0F) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeFloatSize(1, x_);
-        }
-        if (y_ != 0F) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeFloatSize(2, y_);
-        }
-        if (r_ != 0F) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeFloatSize(3, r_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof org.superbiz.game.proto.Msg.PlayerMoved.Part)) {
-          return super.equals(obj);
-        }
-        org.superbiz.game.proto.Msg.PlayerMoved.Part other = (org.superbiz.game.proto.Msg.PlayerMoved.Part) obj;
-
-        boolean result = true;
-        result = result && (
-            java.lang.Float.floatToIntBits(getX())
-            == java.lang.Float.floatToIntBits(
-                other.getX()));
-        result = result && (
-            java.lang.Float.floatToIntBits(getY())
-            == java.lang.Float.floatToIntBits(
-                other.getY()));
-        result = result && (
-            java.lang.Float.floatToIntBits(getR())
-            == java.lang.Float.floatToIntBits(
-                other.getR()));
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + X_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getX());
-        hash = (37 * hash) + Y_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getY());
-        hash = (37 * hash) + R_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getR());
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(org.superbiz.game.proto.Msg.PlayerMoved.Part prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code PlayerMoved.Part}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:PlayerMoved.Part)
-          org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return org.superbiz.game.proto.Msg.internal_static_PlayerMoved_Part_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return org.superbiz.game.proto.Msg.internal_static_PlayerMoved_Part_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  org.superbiz.game.proto.Msg.PlayerMoved.Part.class, org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder.class);
-        }
-
-        // Construct using org.superbiz.game.proto.Msg.PlayerMoved.Part.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        public Builder clear() {
-          super.clear();
-          x_ = 0F;
-
-          y_ = 0F;
-
-          r_ = 0F;
-
-          return this;
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return org.superbiz.game.proto.Msg.internal_static_PlayerMoved_Part_descriptor;
-        }
-
-        public org.superbiz.game.proto.Msg.PlayerMoved.Part getDefaultInstanceForType() {
-          return org.superbiz.game.proto.Msg.PlayerMoved.Part.getDefaultInstance();
-        }
-
-        public org.superbiz.game.proto.Msg.PlayerMoved.Part build() {
-          org.superbiz.game.proto.Msg.PlayerMoved.Part result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public org.superbiz.game.proto.Msg.PlayerMoved.Part buildPartial() {
-          org.superbiz.game.proto.Msg.PlayerMoved.Part result = new org.superbiz.game.proto.Msg.PlayerMoved.Part(this);
-          result.x_ = x_;
-          result.y_ = y_;
-          result.r_ = r_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder clone() {
-          return (Builder) super.clone();
-        }
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return (Builder) super.setField(field, value);
-        }
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
-        }
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
-        }
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
-        }
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
-        }
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.superbiz.game.proto.Msg.PlayerMoved.Part) {
-            return mergeFrom((org.superbiz.game.proto.Msg.PlayerMoved.Part)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(org.superbiz.game.proto.Msg.PlayerMoved.Part other) {
-          if (other == org.superbiz.game.proto.Msg.PlayerMoved.Part.getDefaultInstance()) return this;
-          if (other.getX() != 0F) {
-            setX(other.getX());
-          }
-          if (other.getY() != 0F) {
-            setY(other.getY());
-          }
-          if (other.getR() != 0F) {
-            setR(other.getR());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          org.superbiz.game.proto.Msg.PlayerMoved.Part parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.superbiz.game.proto.Msg.PlayerMoved.Part) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private float x_ ;
-        /**
-         * <code>float x = 1;</code>
-         */
-        public float getX() {
-          return x_;
-        }
-        /**
-         * <code>float x = 1;</code>
-         */
-        public Builder setX(float value) {
-          
-          x_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>float x = 1;</code>
-         */
-        public Builder clearX() {
-          
-          x_ = 0F;
-          onChanged();
-          return this;
-        }
-
-        private float y_ ;
-        /**
-         * <code>float y = 2;</code>
-         */
-        public float getY() {
-          return y_;
-        }
-        /**
-         * <code>float y = 2;</code>
-         */
-        public Builder setY(float value) {
-          
-          y_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>float y = 2;</code>
-         */
-        public Builder clearY() {
-          
-          y_ = 0F;
-          onChanged();
-          return this;
-        }
-
-        private float r_ ;
-        /**
-         * <code>float r = 3;</code>
-         */
-        public float getR() {
-          return r_;
-        }
-        /**
-         * <code>float r = 3;</code>
-         */
-        public Builder setR(float value) {
-          
-          r_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>float r = 3;</code>
-         */
-        public Builder clearR() {
-          
-          r_ = 0F;
-          onChanged();
-          return this;
-        }
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
-        }
-
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:PlayerMoved.Part)
-      }
-
-      // @@protoc_insertion_point(class_scope:PlayerMoved.Part)
-      private static final org.superbiz.game.proto.Msg.PlayerMoved.Part DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.PlayerMoved.Part();
-      }
-
-      public static org.superbiz.game.proto.Msg.PlayerMoved.Part getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<Part>
-          PARSER = new com.google.protobuf.AbstractParser<Part>() {
-        public Part parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Part(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<Part> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Part> getParserForType() {
-        return PARSER;
-      }
-
-      public org.superbiz.game.proto.Msg.PlayerMoved.Part getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
     }
 
     private int bitField0_;
@@ -2082,47 +4626,47 @@ public final class Msg {
     }
 
     public static final int PARTS_FIELD_NUMBER = 6;
-    private java.util.List<org.superbiz.game.proto.Msg.PlayerMoved.Part> parts_;
+    private java.util.List<org.superbiz.game.proto.Msg.Part> parts_;
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
-    public java.util.List<org.superbiz.game.proto.Msg.PlayerMoved.Part> getPartsList() {
+    public java.util.List<org.superbiz.game.proto.Msg.Part> getPartsList() {
       return parts_;
     }
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
-    public java.util.List<? extends org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder> 
+    public java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
         getPartsOrBuilderList() {
       return parts_;
     }
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
     public int getPartsCount() {
       return parts_.size();
     }
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
-    public org.superbiz.game.proto.Msg.PlayerMoved.Part getParts(int index) {
+    public org.superbiz.game.proto.Msg.Part getParts(int index) {
       return parts_.get(index);
     }
     /**
-     * <code>repeated .PlayerMoved.Part parts = 6;</code>
+     * <code>repeated .Part parts = 6;</code>
      */
-    public org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder getPartsOrBuilder(
+    public org.superbiz.game.proto.Msg.PartOrBuilder getPartsOrBuilder(
         int index) {
       return parts_.get(index);
     }
 
-    public static final int SENT_FIELD_NUMBER = 7;
-    private long sent_;
+    public static final int INITIATED_FIELD_NUMBER = 7;
+    private long initiated_;
     /**
-     * <code>int64 sent = 7;</code>
+     * <code>int64 initiated = 7;</code>
      */
-    public long getSent() {
-      return sent_;
+    public long getInitiated() {
+      return initiated_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2155,8 +4699,8 @@ public final class Msg {
       for (int i = 0; i < parts_.size(); i++) {
         output.writeMessage(6, parts_.get(i));
       }
-      if (sent_ != 0L) {
-        output.writeInt64(7, sent_);
+      if (initiated_ != 0L) {
+        output.writeInt64(7, initiated_);
       }
       unknownFields.writeTo(output);
     }
@@ -2189,9 +4733,9 @@ public final class Msg {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, parts_.get(i));
       }
-      if (sent_ != 0L) {
+      if (initiated_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(7, sent_);
+          .computeInt64Size(7, initiated_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2229,8 +4773,8 @@ public final class Msg {
           .equals(other.getSkin());
       result = result && getPartsList()
           .equals(other.getPartsList());
-      result = result && (getSent()
-          == other.getSent());
+      result = result && (getInitiated()
+          == other.getInitiated());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2260,9 +4804,9 @@ public final class Msg {
         hash = (37 * hash) + PARTS_FIELD_NUMBER;
         hash = (53 * hash) + getPartsList().hashCode();
       }
-      hash = (37 * hash) + SENT_FIELD_NUMBER;
+      hash = (37 * hash) + INITIATED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getSent());
+          getInitiated());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2409,7 +4953,7 @@ public final class Msg {
         } else {
           partsBuilder_.clear();
         }
-        sent_ = 0L;
+        initiated_ = 0L;
 
         return this;
       }
@@ -2449,7 +4993,7 @@ public final class Msg {
         } else {
           result.parts_ = partsBuilder_.build();
         }
-        result.sent_ = sent_;
+        result.initiated_ = initiated_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2534,8 +5078,8 @@ public final class Msg {
             }
           }
         }
-        if (other.getSent() != 0L) {
-          setSent(other.getSent());
+        if (other.getInitiated() != 0L) {
+          setInitiated(other.getInitiated());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2738,22 +5282,22 @@ public final class Msg {
         return this;
       }
 
-      private java.util.List<org.superbiz.game.proto.Msg.PlayerMoved.Part> parts_ =
+      private java.util.List<org.superbiz.game.proto.Msg.Part> parts_ =
         java.util.Collections.emptyList();
       private void ensurePartsIsMutable() {
         if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          parts_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.PlayerMoved.Part>(parts_);
+          parts_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Part>(parts_);
           bitField0_ |= 0x00000020;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.superbiz.game.proto.Msg.PlayerMoved.Part, org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder, org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder> partsBuilder_;
+          org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder> partsBuilder_;
 
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
-      public java.util.List<org.superbiz.game.proto.Msg.PlayerMoved.Part> getPartsList() {
+      public java.util.List<org.superbiz.game.proto.Msg.Part> getPartsList() {
         if (partsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(parts_);
         } else {
@@ -2761,7 +5305,7 @@ public final class Msg {
         }
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
       public int getPartsCount() {
         if (partsBuilder_ == null) {
@@ -2771,9 +5315,9 @@ public final class Msg {
         }
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
-      public org.superbiz.game.proto.Msg.PlayerMoved.Part getParts(int index) {
+      public org.superbiz.game.proto.Msg.Part getParts(int index) {
         if (partsBuilder_ == null) {
           return parts_.get(index);
         } else {
@@ -2781,10 +5325,10 @@ public final class Msg {
         }
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
       public Builder setParts(
-          int index, org.superbiz.game.proto.Msg.PlayerMoved.Part value) {
+          int index, org.superbiz.game.proto.Msg.Part value) {
         if (partsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2798,10 +5342,10 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
       public Builder setParts(
-          int index, org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder builderForValue) {
+          int index, org.superbiz.game.proto.Msg.Part.Builder builderForValue) {
         if (partsBuilder_ == null) {
           ensurePartsIsMutable();
           parts_.set(index, builderForValue.build());
@@ -2812,9 +5356,9 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
-      public Builder addParts(org.superbiz.game.proto.Msg.PlayerMoved.Part value) {
+      public Builder addParts(org.superbiz.game.proto.Msg.Part value) {
         if (partsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2828,10 +5372,10 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
       public Builder addParts(
-          int index, org.superbiz.game.proto.Msg.PlayerMoved.Part value) {
+          int index, org.superbiz.game.proto.Msg.Part value) {
         if (partsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2845,10 +5389,10 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
       public Builder addParts(
-          org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder builderForValue) {
+          org.superbiz.game.proto.Msg.Part.Builder builderForValue) {
         if (partsBuilder_ == null) {
           ensurePartsIsMutable();
           parts_.add(builderForValue.build());
@@ -2859,10 +5403,10 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
       public Builder addParts(
-          int index, org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder builderForValue) {
+          int index, org.superbiz.game.proto.Msg.Part.Builder builderForValue) {
         if (partsBuilder_ == null) {
           ensurePartsIsMutable();
           parts_.add(index, builderForValue.build());
@@ -2873,10 +5417,10 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
       public Builder addAllParts(
-          java.lang.Iterable<? extends org.superbiz.game.proto.Msg.PlayerMoved.Part> values) {
+          java.lang.Iterable<? extends org.superbiz.game.proto.Msg.Part> values) {
         if (partsBuilder_ == null) {
           ensurePartsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2888,7 +5432,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
       public Builder clearParts() {
         if (partsBuilder_ == null) {
@@ -2901,7 +5445,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
       public Builder removeParts(int index) {
         if (partsBuilder_ == null) {
@@ -2914,16 +5458,16 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
-      public org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder getPartsBuilder(
+      public org.superbiz.game.proto.Msg.Part.Builder getPartsBuilder(
           int index) {
         return getPartsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
-      public org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder getPartsOrBuilder(
+      public org.superbiz.game.proto.Msg.PartOrBuilder getPartsOrBuilder(
           int index) {
         if (partsBuilder_ == null) {
           return parts_.get(index);  } else {
@@ -2931,9 +5475,9 @@ public final class Msg {
         }
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
-      public java.util.List<? extends org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder> 
+      public java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
            getPartsOrBuilderList() {
         if (partsBuilder_ != null) {
           return partsBuilder_.getMessageOrBuilderList();
@@ -2942,33 +5486,33 @@ public final class Msg {
         }
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
-      public org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder addPartsBuilder() {
+      public org.superbiz.game.proto.Msg.Part.Builder addPartsBuilder() {
         return getPartsFieldBuilder().addBuilder(
-            org.superbiz.game.proto.Msg.PlayerMoved.Part.getDefaultInstance());
+            org.superbiz.game.proto.Msg.Part.getDefaultInstance());
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
-      public org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder addPartsBuilder(
+      public org.superbiz.game.proto.Msg.Part.Builder addPartsBuilder(
           int index) {
         return getPartsFieldBuilder().addBuilder(
-            index, org.superbiz.game.proto.Msg.PlayerMoved.Part.getDefaultInstance());
+            index, org.superbiz.game.proto.Msg.Part.getDefaultInstance());
       }
       /**
-       * <code>repeated .PlayerMoved.Part parts = 6;</code>
+       * <code>repeated .Part parts = 6;</code>
        */
-      public java.util.List<org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder> 
+      public java.util.List<org.superbiz.game.proto.Msg.Part.Builder> 
            getPartsBuilderList() {
         return getPartsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.superbiz.game.proto.Msg.PlayerMoved.Part, org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder, org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder> 
+          org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder> 
           getPartsFieldBuilder() {
         if (partsBuilder_ == null) {
           partsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.superbiz.game.proto.Msg.PlayerMoved.Part, org.superbiz.game.proto.Msg.PlayerMoved.Part.Builder, org.superbiz.game.proto.Msg.PlayerMoved.PartOrBuilder>(
+              org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder>(
                   parts_,
                   ((bitField0_ & 0x00000020) == 0x00000020),
                   getParentForChildren(),
@@ -2978,28 +5522,28 @@ public final class Msg {
         return partsBuilder_;
       }
 
-      private long sent_ ;
+      private long initiated_ ;
       /**
-       * <code>int64 sent = 7;</code>
+       * <code>int64 initiated = 7;</code>
        */
-      public long getSent() {
-        return sent_;
+      public long getInitiated() {
+        return initiated_;
       }
       /**
-       * <code>int64 sent = 7;</code>
+       * <code>int64 initiated = 7;</code>
        */
-      public Builder setSent(long value) {
+      public Builder setInitiated(long value) {
         
-        sent_ = value;
+        initiated_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 sent = 7;</code>
+       * <code>int64 initiated = 7;</code>
        */
-      public Builder clearSent() {
+      public Builder clearInitiated() {
         
-        sent_ = 0L;
+        initiated_ = 0L;
         onChanged();
         return this;
       }
@@ -3052,6 +5596,4267 @@ public final class Msg {
 
   }
 
+  public interface PartOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Part)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>float x = 1;</code>
+     */
+    float getX();
+
+    /**
+     * <code>float y = 2;</code>
+     */
+    float getY();
+
+    /**
+     * <code>float rotation = 3;</code>
+     */
+    float getRotation();
+  }
+  /**
+   * Protobuf type {@code Part}
+   */
+  public  static final class Part extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Part)
+      PartOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Part.newBuilder() to construct.
+    private Part(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Part() {
+      x_ = 0F;
+      y_ = 0F;
+      rotation_ = 0F;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Part(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 13: {
+
+              x_ = input.readFloat();
+              break;
+            }
+            case 21: {
+
+              y_ = input.readFloat();
+              break;
+            }
+            case 29: {
+
+              rotation_ = input.readFloat();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.superbiz.game.proto.Msg.internal_static_Part_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.superbiz.game.proto.Msg.internal_static_Part_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.superbiz.game.proto.Msg.Part.class, org.superbiz.game.proto.Msg.Part.Builder.class);
+    }
+
+    public static final int X_FIELD_NUMBER = 1;
+    private float x_;
+    /**
+     * <code>float x = 1;</code>
+     */
+    public float getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 2;
+    private float y_;
+    /**
+     * <code>float y = 2;</code>
+     */
+    public float getY() {
+      return y_;
+    }
+
+    public static final int ROTATION_FIELD_NUMBER = 3;
+    private float rotation_;
+    /**
+     * <code>float rotation = 3;</code>
+     */
+    public float getRotation() {
+      return rotation_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (x_ != 0F) {
+        output.writeFloat(1, x_);
+      }
+      if (y_ != 0F) {
+        output.writeFloat(2, y_);
+      }
+      if (rotation_ != 0F) {
+        output.writeFloat(3, rotation_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (x_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(1, x_);
+      }
+      if (y_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(2, y_);
+      }
+      if (rotation_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(3, rotation_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.superbiz.game.proto.Msg.Part)) {
+        return super.equals(obj);
+      }
+      org.superbiz.game.proto.Msg.Part other = (org.superbiz.game.proto.Msg.Part) obj;
+
+      boolean result = true;
+      result = result && (
+          java.lang.Float.floatToIntBits(getX())
+          == java.lang.Float.floatToIntBits(
+              other.getX()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getY())
+          == java.lang.Float.floatToIntBits(
+              other.getY()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getRotation())
+          == java.lang.Float.floatToIntBits(
+              other.getRotation()));
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + X_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getX());
+      hash = (37 * hash) + Y_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getY());
+      hash = (37 * hash) + ROTATION_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getRotation());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.superbiz.game.proto.Msg.Part parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.Part parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.superbiz.game.proto.Msg.Part prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Part}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Part)
+        org.superbiz.game.proto.Msg.PartOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.superbiz.game.proto.Msg.internal_static_Part_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.superbiz.game.proto.Msg.internal_static_Part_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.superbiz.game.proto.Msg.Part.class, org.superbiz.game.proto.Msg.Part.Builder.class);
+      }
+
+      // Construct using org.superbiz.game.proto.Msg.Part.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        x_ = 0F;
+
+        y_ = 0F;
+
+        rotation_ = 0F;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.superbiz.game.proto.Msg.internal_static_Part_descriptor;
+      }
+
+      public org.superbiz.game.proto.Msg.Part getDefaultInstanceForType() {
+        return org.superbiz.game.proto.Msg.Part.getDefaultInstance();
+      }
+
+      public org.superbiz.game.proto.Msg.Part build() {
+        org.superbiz.game.proto.Msg.Part result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.superbiz.game.proto.Msg.Part buildPartial() {
+        org.superbiz.game.proto.Msg.Part result = new org.superbiz.game.proto.Msg.Part(this);
+        result.x_ = x_;
+        result.y_ = y_;
+        result.rotation_ = rotation_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.superbiz.game.proto.Msg.Part) {
+          return mergeFrom((org.superbiz.game.proto.Msg.Part)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.superbiz.game.proto.Msg.Part other) {
+        if (other == org.superbiz.game.proto.Msg.Part.getDefaultInstance()) return this;
+        if (other.getX() != 0F) {
+          setX(other.getX());
+        }
+        if (other.getY() != 0F) {
+          setY(other.getY());
+        }
+        if (other.getRotation() != 0F) {
+          setRotation(other.getRotation());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.superbiz.game.proto.Msg.Part parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.superbiz.game.proto.Msg.Part) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private float x_ ;
+      /**
+       * <code>float x = 1;</code>
+       */
+      public float getX() {
+        return x_;
+      }
+      /**
+       * <code>float x = 1;</code>
+       */
+      public Builder setX(float value) {
+        
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float x = 1;</code>
+       */
+      public Builder clearX() {
+        
+        x_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float y_ ;
+      /**
+       * <code>float y = 2;</code>
+       */
+      public float getY() {
+        return y_;
+      }
+      /**
+       * <code>float y = 2;</code>
+       */
+      public Builder setY(float value) {
+        
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float y = 2;</code>
+       */
+      public Builder clearY() {
+        
+        y_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float rotation_ ;
+      /**
+       * <code>float rotation = 3;</code>
+       */
+      public float getRotation() {
+        return rotation_;
+      }
+      /**
+       * <code>float rotation = 3;</code>
+       */
+      public Builder setRotation(float value) {
+        
+        rotation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float rotation = 3;</code>
+       */
+      public Builder clearRotation() {
+        
+        rotation_ = 0F;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Part)
+    }
+
+    // @@protoc_insertion_point(class_scope:Part)
+    private static final org.superbiz.game.proto.Msg.Part DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.Part();
+    }
+
+    public static org.superbiz.game.proto.Msg.Part getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Part>
+        PARSER = new com.google.protobuf.AbstractParser<Part>() {
+      public Part parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Part(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Part> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Part> getParserForType() {
+      return PARSER;
+    }
+
+    public org.superbiz.game.proto.Msg.Part getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TimeInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TimeInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 initiated = 1;</code>
+     */
+    long getInitiated();
+
+    /**
+     * <code>int64 processing = 2;</code>
+     */
+    long getProcessing();
+  }
+  /**
+   * Protobuf type {@code TimeInfo}
+   */
+  public  static final class TimeInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:TimeInfo)
+      TimeInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TimeInfo.newBuilder() to construct.
+    private TimeInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TimeInfo() {
+      initiated_ = 0L;
+      processing_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TimeInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              initiated_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              processing_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.superbiz.game.proto.Msg.internal_static_TimeInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.superbiz.game.proto.Msg.internal_static_TimeInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.superbiz.game.proto.Msg.TimeInfo.class, org.superbiz.game.proto.Msg.TimeInfo.Builder.class);
+    }
+
+    public static final int INITIATED_FIELD_NUMBER = 1;
+    private long initiated_;
+    /**
+     * <code>int64 initiated = 1;</code>
+     */
+    public long getInitiated() {
+      return initiated_;
+    }
+
+    public static final int PROCESSING_FIELD_NUMBER = 2;
+    private long processing_;
+    /**
+     * <code>int64 processing = 2;</code>
+     */
+    public long getProcessing() {
+      return processing_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (initiated_ != 0L) {
+        output.writeInt64(1, initiated_);
+      }
+      if (processing_ != 0L) {
+        output.writeInt64(2, processing_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (initiated_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, initiated_);
+      }
+      if (processing_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, processing_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.superbiz.game.proto.Msg.TimeInfo)) {
+        return super.equals(obj);
+      }
+      org.superbiz.game.proto.Msg.TimeInfo other = (org.superbiz.game.proto.Msg.TimeInfo) obj;
+
+      boolean result = true;
+      result = result && (getInitiated()
+          == other.getInitiated());
+      result = result && (getProcessing()
+          == other.getProcessing());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + INITIATED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getInitiated());
+      hash = (37 * hash) + PROCESSING_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getProcessing());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.TimeInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.superbiz.game.proto.Msg.TimeInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code TimeInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TimeInfo)
+        org.superbiz.game.proto.Msg.TimeInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.superbiz.game.proto.Msg.internal_static_TimeInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.superbiz.game.proto.Msg.internal_static_TimeInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.superbiz.game.proto.Msg.TimeInfo.class, org.superbiz.game.proto.Msg.TimeInfo.Builder.class);
+      }
+
+      // Construct using org.superbiz.game.proto.Msg.TimeInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        initiated_ = 0L;
+
+        processing_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.superbiz.game.proto.Msg.internal_static_TimeInfo_descriptor;
+      }
+
+      public org.superbiz.game.proto.Msg.TimeInfo getDefaultInstanceForType() {
+        return org.superbiz.game.proto.Msg.TimeInfo.getDefaultInstance();
+      }
+
+      public org.superbiz.game.proto.Msg.TimeInfo build() {
+        org.superbiz.game.proto.Msg.TimeInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.superbiz.game.proto.Msg.TimeInfo buildPartial() {
+        org.superbiz.game.proto.Msg.TimeInfo result = new org.superbiz.game.proto.Msg.TimeInfo(this);
+        result.initiated_ = initiated_;
+        result.processing_ = processing_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.superbiz.game.proto.Msg.TimeInfo) {
+          return mergeFrom((org.superbiz.game.proto.Msg.TimeInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.superbiz.game.proto.Msg.TimeInfo other) {
+        if (other == org.superbiz.game.proto.Msg.TimeInfo.getDefaultInstance()) return this;
+        if (other.getInitiated() != 0L) {
+          setInitiated(other.getInitiated());
+        }
+        if (other.getProcessing() != 0L) {
+          setProcessing(other.getProcessing());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.superbiz.game.proto.Msg.TimeInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.superbiz.game.proto.Msg.TimeInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long initiated_ ;
+      /**
+       * <code>int64 initiated = 1;</code>
+       */
+      public long getInitiated() {
+        return initiated_;
+      }
+      /**
+       * <code>int64 initiated = 1;</code>
+       */
+      public Builder setInitiated(long value) {
+        
+        initiated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 initiated = 1;</code>
+       */
+      public Builder clearInitiated() {
+        
+        initiated_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long processing_ ;
+      /**
+       * <code>int64 processing = 2;</code>
+       */
+      public long getProcessing() {
+        return processing_;
+      }
+      /**
+       * <code>int64 processing = 2;</code>
+       */
+      public Builder setProcessing(long value) {
+        
+        processing_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 processing = 2;</code>
+       */
+      public Builder clearProcessing() {
+        
+        processing_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:TimeInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:TimeInfo)
+    private static final org.superbiz.game.proto.Msg.TimeInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.TimeInfo();
+    }
+
+    public static org.superbiz.game.proto.Msg.TimeInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TimeInfo>
+        PARSER = new com.google.protobuf.AbstractParser<TimeInfo>() {
+      public TimeInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TimeInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TimeInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TimeInfo> getParserForType() {
+      return PARSER;
+    }
+
+    public org.superbiz.game.proto.Msg.TimeInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface EatenFoodOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:EatenFood)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.TimeInfo timeInfo = 1;</code>
+     */
+    boolean hasTimeInfo();
+    /**
+     * <code>.TimeInfo timeInfo = 1;</code>
+     */
+    org.superbiz.game.proto.Msg.TimeInfo getTimeInfo();
+    /**
+     * <code>.TimeInfo timeInfo = 1;</code>
+     */
+    org.superbiz.game.proto.Msg.TimeInfoOrBuilder getTimeInfoOrBuilder();
+
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    java.util.List<org.superbiz.game.proto.Msg.Dot> 
+        getDotsList();
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    org.superbiz.game.proto.Msg.Dot getDots(int index);
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    int getDotsCount();
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    java.util.List<? extends org.superbiz.game.proto.Msg.DotOrBuilder> 
+        getDotsOrBuilderList();
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    org.superbiz.game.proto.Msg.DotOrBuilder getDotsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code EatenFood}
+   */
+  public  static final class EatenFood extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:EatenFood)
+      EatenFoodOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use EatenFood.newBuilder() to construct.
+    private EatenFood(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private EatenFood() {
+      dots_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EatenFood(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              org.superbiz.game.proto.Msg.TimeInfo.Builder subBuilder = null;
+              if (timeInfo_ != null) {
+                subBuilder = timeInfo_.toBuilder();
+              }
+              timeInfo_ = input.readMessage(org.superbiz.game.proto.Msg.TimeInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timeInfo_);
+                timeInfo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                dots_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Dot>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              dots_.add(
+                  input.readMessage(org.superbiz.game.proto.Msg.Dot.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          dots_ = java.util.Collections.unmodifiableList(dots_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.superbiz.game.proto.Msg.internal_static_EatenFood_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.superbiz.game.proto.Msg.internal_static_EatenFood_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.superbiz.game.proto.Msg.EatenFood.class, org.superbiz.game.proto.Msg.EatenFood.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TIMEINFO_FIELD_NUMBER = 1;
+    private org.superbiz.game.proto.Msg.TimeInfo timeInfo_;
+    /**
+     * <code>.TimeInfo timeInfo = 1;</code>
+     */
+    public boolean hasTimeInfo() {
+      return timeInfo_ != null;
+    }
+    /**
+     * <code>.TimeInfo timeInfo = 1;</code>
+     */
+    public org.superbiz.game.proto.Msg.TimeInfo getTimeInfo() {
+      return timeInfo_ == null ? org.superbiz.game.proto.Msg.TimeInfo.getDefaultInstance() : timeInfo_;
+    }
+    /**
+     * <code>.TimeInfo timeInfo = 1;</code>
+     */
+    public org.superbiz.game.proto.Msg.TimeInfoOrBuilder getTimeInfoOrBuilder() {
+      return getTimeInfo();
+    }
+
+    public static final int DOTS_FIELD_NUMBER = 2;
+    private java.util.List<org.superbiz.game.proto.Msg.Dot> dots_;
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    public java.util.List<org.superbiz.game.proto.Msg.Dot> getDotsList() {
+      return dots_;
+    }
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    public java.util.List<? extends org.superbiz.game.proto.Msg.DotOrBuilder> 
+        getDotsOrBuilderList() {
+      return dots_;
+    }
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    public int getDotsCount() {
+      return dots_.size();
+    }
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    public org.superbiz.game.proto.Msg.Dot getDots(int index) {
+      return dots_.get(index);
+    }
+    /**
+     * <code>repeated .Dot dots = 2;</code>
+     */
+    public org.superbiz.game.proto.Msg.DotOrBuilder getDotsOrBuilder(
+        int index) {
+      return dots_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (timeInfo_ != null) {
+        output.writeMessage(1, getTimeInfo());
+      }
+      for (int i = 0; i < dots_.size(); i++) {
+        output.writeMessage(2, dots_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (timeInfo_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getTimeInfo());
+      }
+      for (int i = 0; i < dots_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, dots_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.superbiz.game.proto.Msg.EatenFood)) {
+        return super.equals(obj);
+      }
+      org.superbiz.game.proto.Msg.EatenFood other = (org.superbiz.game.proto.Msg.EatenFood) obj;
+
+      boolean result = true;
+      result = result && (hasTimeInfo() == other.hasTimeInfo());
+      if (hasTimeInfo()) {
+        result = result && getTimeInfo()
+            .equals(other.getTimeInfo());
+      }
+      result = result && getDotsList()
+          .equals(other.getDotsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTimeInfo()) {
+        hash = (37 * hash) + TIMEINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getTimeInfo().hashCode();
+      }
+      if (getDotsCount() > 0) {
+        hash = (37 * hash) + DOTS_FIELD_NUMBER;
+        hash = (53 * hash) + getDotsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.EatenFood parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.superbiz.game.proto.Msg.EatenFood prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code EatenFood}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:EatenFood)
+        org.superbiz.game.proto.Msg.EatenFoodOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.superbiz.game.proto.Msg.internal_static_EatenFood_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.superbiz.game.proto.Msg.internal_static_EatenFood_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.superbiz.game.proto.Msg.EatenFood.class, org.superbiz.game.proto.Msg.EatenFood.Builder.class);
+      }
+
+      // Construct using org.superbiz.game.proto.Msg.EatenFood.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDotsFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (timeInfoBuilder_ == null) {
+          timeInfo_ = null;
+        } else {
+          timeInfo_ = null;
+          timeInfoBuilder_ = null;
+        }
+        if (dotsBuilder_ == null) {
+          dots_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          dotsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.superbiz.game.proto.Msg.internal_static_EatenFood_descriptor;
+      }
+
+      public org.superbiz.game.proto.Msg.EatenFood getDefaultInstanceForType() {
+        return org.superbiz.game.proto.Msg.EatenFood.getDefaultInstance();
+      }
+
+      public org.superbiz.game.proto.Msg.EatenFood build() {
+        org.superbiz.game.proto.Msg.EatenFood result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.superbiz.game.proto.Msg.EatenFood buildPartial() {
+        org.superbiz.game.proto.Msg.EatenFood result = new org.superbiz.game.proto.Msg.EatenFood(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (timeInfoBuilder_ == null) {
+          result.timeInfo_ = timeInfo_;
+        } else {
+          result.timeInfo_ = timeInfoBuilder_.build();
+        }
+        if (dotsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            dots_ = java.util.Collections.unmodifiableList(dots_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.dots_ = dots_;
+        } else {
+          result.dots_ = dotsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.superbiz.game.proto.Msg.EatenFood) {
+          return mergeFrom((org.superbiz.game.proto.Msg.EatenFood)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.superbiz.game.proto.Msg.EatenFood other) {
+        if (other == org.superbiz.game.proto.Msg.EatenFood.getDefaultInstance()) return this;
+        if (other.hasTimeInfo()) {
+          mergeTimeInfo(other.getTimeInfo());
+        }
+        if (dotsBuilder_ == null) {
+          if (!other.dots_.isEmpty()) {
+            if (dots_.isEmpty()) {
+              dots_ = other.dots_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureDotsIsMutable();
+              dots_.addAll(other.dots_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.dots_.isEmpty()) {
+            if (dotsBuilder_.isEmpty()) {
+              dotsBuilder_.dispose();
+              dotsBuilder_ = null;
+              dots_ = other.dots_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              dotsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDotsFieldBuilder() : null;
+            } else {
+              dotsBuilder_.addAllMessages(other.dots_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.superbiz.game.proto.Msg.EatenFood parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.superbiz.game.proto.Msg.EatenFood) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private org.superbiz.game.proto.Msg.TimeInfo timeInfo_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.TimeInfo, org.superbiz.game.proto.Msg.TimeInfo.Builder, org.superbiz.game.proto.Msg.TimeInfoOrBuilder> timeInfoBuilder_;
+      /**
+       * <code>.TimeInfo timeInfo = 1;</code>
+       */
+      public boolean hasTimeInfo() {
+        return timeInfoBuilder_ != null || timeInfo_ != null;
+      }
+      /**
+       * <code>.TimeInfo timeInfo = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.TimeInfo getTimeInfo() {
+        if (timeInfoBuilder_ == null) {
+          return timeInfo_ == null ? org.superbiz.game.proto.Msg.TimeInfo.getDefaultInstance() : timeInfo_;
+        } else {
+          return timeInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.TimeInfo timeInfo = 1;</code>
+       */
+      public Builder setTimeInfo(org.superbiz.game.proto.Msg.TimeInfo value) {
+        if (timeInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          timeInfo_ = value;
+          onChanged();
+        } else {
+          timeInfoBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.TimeInfo timeInfo = 1;</code>
+       */
+      public Builder setTimeInfo(
+          org.superbiz.game.proto.Msg.TimeInfo.Builder builderForValue) {
+        if (timeInfoBuilder_ == null) {
+          timeInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          timeInfoBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.TimeInfo timeInfo = 1;</code>
+       */
+      public Builder mergeTimeInfo(org.superbiz.game.proto.Msg.TimeInfo value) {
+        if (timeInfoBuilder_ == null) {
+          if (timeInfo_ != null) {
+            timeInfo_ =
+              org.superbiz.game.proto.Msg.TimeInfo.newBuilder(timeInfo_).mergeFrom(value).buildPartial();
+          } else {
+            timeInfo_ = value;
+          }
+          onChanged();
+        } else {
+          timeInfoBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.TimeInfo timeInfo = 1;</code>
+       */
+      public Builder clearTimeInfo() {
+        if (timeInfoBuilder_ == null) {
+          timeInfo_ = null;
+          onChanged();
+        } else {
+          timeInfo_ = null;
+          timeInfoBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.TimeInfo timeInfo = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.TimeInfo.Builder getTimeInfoBuilder() {
+        
+        onChanged();
+        return getTimeInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.TimeInfo timeInfo = 1;</code>
+       */
+      public org.superbiz.game.proto.Msg.TimeInfoOrBuilder getTimeInfoOrBuilder() {
+        if (timeInfoBuilder_ != null) {
+          return timeInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return timeInfo_ == null ?
+              org.superbiz.game.proto.Msg.TimeInfo.getDefaultInstance() : timeInfo_;
+        }
+      }
+      /**
+       * <code>.TimeInfo timeInfo = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.superbiz.game.proto.Msg.TimeInfo, org.superbiz.game.proto.Msg.TimeInfo.Builder, org.superbiz.game.proto.Msg.TimeInfoOrBuilder> 
+          getTimeInfoFieldBuilder() {
+        if (timeInfoBuilder_ == null) {
+          timeInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.superbiz.game.proto.Msg.TimeInfo, org.superbiz.game.proto.Msg.TimeInfo.Builder, org.superbiz.game.proto.Msg.TimeInfoOrBuilder>(
+                  getTimeInfo(),
+                  getParentForChildren(),
+                  isClean());
+          timeInfo_ = null;
+        }
+        return timeInfoBuilder_;
+      }
+
+      private java.util.List<org.superbiz.game.proto.Msg.Dot> dots_ =
+        java.util.Collections.emptyList();
+      private void ensureDotsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          dots_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Dot>(dots_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.superbiz.game.proto.Msg.Dot, org.superbiz.game.proto.Msg.Dot.Builder, org.superbiz.game.proto.Msg.DotOrBuilder> dotsBuilder_;
+
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public java.util.List<org.superbiz.game.proto.Msg.Dot> getDotsList() {
+        if (dotsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(dots_);
+        } else {
+          return dotsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public int getDotsCount() {
+        if (dotsBuilder_ == null) {
+          return dots_.size();
+        } else {
+          return dotsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.Dot getDots(int index) {
+        if (dotsBuilder_ == null) {
+          return dots_.get(index);
+        } else {
+          return dotsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public Builder setDots(
+          int index, org.superbiz.game.proto.Msg.Dot value) {
+        if (dotsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDotsIsMutable();
+          dots_.set(index, value);
+          onChanged();
+        } else {
+          dotsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public Builder setDots(
+          int index, org.superbiz.game.proto.Msg.Dot.Builder builderForValue) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          dots_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dotsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public Builder addDots(org.superbiz.game.proto.Msg.Dot value) {
+        if (dotsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDotsIsMutable();
+          dots_.add(value);
+          onChanged();
+        } else {
+          dotsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public Builder addDots(
+          int index, org.superbiz.game.proto.Msg.Dot value) {
+        if (dotsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDotsIsMutable();
+          dots_.add(index, value);
+          onChanged();
+        } else {
+          dotsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public Builder addDots(
+          org.superbiz.game.proto.Msg.Dot.Builder builderForValue) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          dots_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dotsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public Builder addDots(
+          int index, org.superbiz.game.proto.Msg.Dot.Builder builderForValue) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          dots_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dotsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public Builder addAllDots(
+          java.lang.Iterable<? extends org.superbiz.game.proto.Msg.Dot> values) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, dots_);
+          onChanged();
+        } else {
+          dotsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public Builder clearDots() {
+        if (dotsBuilder_ == null) {
+          dots_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          dotsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public Builder removeDots(int index) {
+        if (dotsBuilder_ == null) {
+          ensureDotsIsMutable();
+          dots_.remove(index);
+          onChanged();
+        } else {
+          dotsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.Dot.Builder getDotsBuilder(
+          int index) {
+        return getDotsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.DotOrBuilder getDotsOrBuilder(
+          int index) {
+        if (dotsBuilder_ == null) {
+          return dots_.get(index);  } else {
+          return dotsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public java.util.List<? extends org.superbiz.game.proto.Msg.DotOrBuilder> 
+           getDotsOrBuilderList() {
+        if (dotsBuilder_ != null) {
+          return dotsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(dots_);
+        }
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.Dot.Builder addDotsBuilder() {
+        return getDotsFieldBuilder().addBuilder(
+            org.superbiz.game.proto.Msg.Dot.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.Dot.Builder addDotsBuilder(
+          int index) {
+        return getDotsFieldBuilder().addBuilder(
+            index, org.superbiz.game.proto.Msg.Dot.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Dot dots = 2;</code>
+       */
+      public java.util.List<org.superbiz.game.proto.Msg.Dot.Builder> 
+           getDotsBuilderList() {
+        return getDotsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.superbiz.game.proto.Msg.Dot, org.superbiz.game.proto.Msg.Dot.Builder, org.superbiz.game.proto.Msg.DotOrBuilder> 
+          getDotsFieldBuilder() {
+        if (dotsBuilder_ == null) {
+          dotsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.superbiz.game.proto.Msg.Dot, org.superbiz.game.proto.Msg.Dot.Builder, org.superbiz.game.proto.Msg.DotOrBuilder>(
+                  dots_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          dots_ = null;
+        }
+        return dotsBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:EatenFood)
+    }
+
+    // @@protoc_insertion_point(class_scope:EatenFood)
+    private static final org.superbiz.game.proto.Msg.EatenFood DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.EatenFood();
+    }
+
+    public static org.superbiz.game.proto.Msg.EatenFood getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EatenFood>
+        PARSER = new com.google.protobuf.AbstractParser<EatenFood>() {
+      public EatenFood parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EatenFood(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<EatenFood> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EatenFood> getParserForType() {
+      return PARSER;
+    }
+
+    public org.superbiz.game.proto.Msg.EatenFood getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SnakeInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SnakeInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    java.util.List<org.superbiz.game.proto.Msg.Part> 
+        getPathList();
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    org.superbiz.game.proto.Msg.Part getPath(int index);
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    int getPathCount();
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
+        getPathOrBuilderList();
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    org.superbiz.game.proto.Msg.PartOrBuilder getPathOrBuilder(
+        int index);
+
+    /**
+     * <code>string skin = 3;</code>
+     */
+    java.lang.String getSkin();
+    /**
+     * <code>string skin = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getSkinBytes();
+
+    /**
+     * <code>float rotation = 4;</code>
+     */
+    float getRotation();
+
+    /**
+     * <code>float speed = 5;</code>
+     */
+    float getSpeed();
+  }
+  /**
+   * Protobuf type {@code SnakeInfo}
+   */
+  public  static final class SnakeInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SnakeInfo)
+      SnakeInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SnakeInfo.newBuilder() to construct.
+    private SnakeInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SnakeInfo() {
+      id_ = "";
+      path_ = java.util.Collections.emptyList();
+      skin_ = "";
+      rotation_ = 0F;
+      speed_ = 0F;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SnakeInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                path_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Part>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              path_.add(
+                  input.readMessage(org.superbiz.game.proto.Msg.Part.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              skin_ = s;
+              break;
+            }
+            case 37: {
+
+              rotation_ = input.readFloat();
+              break;
+            }
+            case 45: {
+
+              speed_ = input.readFloat();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          path_ = java.util.Collections.unmodifiableList(path_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.superbiz.game.proto.Msg.internal_static_SnakeInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.superbiz.game.proto.Msg.internal_static_SnakeInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.superbiz.game.proto.Msg.SnakeInfo.class, org.superbiz.game.proto.Msg.SnakeInfo.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PATH_FIELD_NUMBER = 2;
+    private java.util.List<org.superbiz.game.proto.Msg.Part> path_;
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    public java.util.List<org.superbiz.game.proto.Msg.Part> getPathList() {
+      return path_;
+    }
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    public java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
+        getPathOrBuilderList() {
+      return path_;
+    }
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    public int getPathCount() {
+      return path_.size();
+    }
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    public org.superbiz.game.proto.Msg.Part getPath(int index) {
+      return path_.get(index);
+    }
+    /**
+     * <code>repeated .Part path = 2;</code>
+     */
+    public org.superbiz.game.proto.Msg.PartOrBuilder getPathOrBuilder(
+        int index) {
+      return path_.get(index);
+    }
+
+    public static final int SKIN_FIELD_NUMBER = 3;
+    private volatile java.lang.Object skin_;
+    /**
+     * <code>string skin = 3;</code>
+     */
+    public java.lang.String getSkin() {
+      java.lang.Object ref = skin_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        skin_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string skin = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSkinBytes() {
+      java.lang.Object ref = skin_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        skin_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ROTATION_FIELD_NUMBER = 4;
+    private float rotation_;
+    /**
+     * <code>float rotation = 4;</code>
+     */
+    public float getRotation() {
+      return rotation_;
+    }
+
+    public static final int SPEED_FIELD_NUMBER = 5;
+    private float speed_;
+    /**
+     * <code>float speed = 5;</code>
+     */
+    public float getSpeed() {
+      return speed_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      for (int i = 0; i < path_.size(); i++) {
+        output.writeMessage(2, path_.get(i));
+      }
+      if (!getSkinBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, skin_);
+      }
+      if (rotation_ != 0F) {
+        output.writeFloat(4, rotation_);
+      }
+      if (speed_ != 0F) {
+        output.writeFloat(5, speed_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      for (int i = 0; i < path_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, path_.get(i));
+      }
+      if (!getSkinBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, skin_);
+      }
+      if (rotation_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(4, rotation_);
+      }
+      if (speed_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(5, speed_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.superbiz.game.proto.Msg.SnakeInfo)) {
+        return super.equals(obj);
+      }
+      org.superbiz.game.proto.Msg.SnakeInfo other = (org.superbiz.game.proto.Msg.SnakeInfo) obj;
+
+      boolean result = true;
+      result = result && getId()
+          .equals(other.getId());
+      result = result && getPathList()
+          .equals(other.getPathList());
+      result = result && getSkin()
+          .equals(other.getSkin());
+      result = result && (
+          java.lang.Float.floatToIntBits(getRotation())
+          == java.lang.Float.floatToIntBits(
+              other.getRotation()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getSpeed())
+          == java.lang.Float.floatToIntBits(
+              other.getSpeed()));
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      if (getPathCount() > 0) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPathList().hashCode();
+      }
+      hash = (37 * hash) + SKIN_FIELD_NUMBER;
+      hash = (53 * hash) + getSkin().hashCode();
+      hash = (37 * hash) + ROTATION_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getRotation());
+      hash = (37 * hash) + SPEED_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getSpeed());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.SnakeInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.superbiz.game.proto.Msg.SnakeInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SnakeInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SnakeInfo)
+        org.superbiz.game.proto.Msg.SnakeInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.superbiz.game.proto.Msg.internal_static_SnakeInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.superbiz.game.proto.Msg.internal_static_SnakeInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.superbiz.game.proto.Msg.SnakeInfo.class, org.superbiz.game.proto.Msg.SnakeInfo.Builder.class);
+      }
+
+      // Construct using org.superbiz.game.proto.Msg.SnakeInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getPathFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        if (pathBuilder_ == null) {
+          path_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          pathBuilder_.clear();
+        }
+        skin_ = "";
+
+        rotation_ = 0F;
+
+        speed_ = 0F;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.superbiz.game.proto.Msg.internal_static_SnakeInfo_descriptor;
+      }
+
+      public org.superbiz.game.proto.Msg.SnakeInfo getDefaultInstanceForType() {
+        return org.superbiz.game.proto.Msg.SnakeInfo.getDefaultInstance();
+      }
+
+      public org.superbiz.game.proto.Msg.SnakeInfo build() {
+        org.superbiz.game.proto.Msg.SnakeInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.superbiz.game.proto.Msg.SnakeInfo buildPartial() {
+        org.superbiz.game.proto.Msg.SnakeInfo result = new org.superbiz.game.proto.Msg.SnakeInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.id_ = id_;
+        if (pathBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            path_ = java.util.Collections.unmodifiableList(path_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.path_ = path_;
+        } else {
+          result.path_ = pathBuilder_.build();
+        }
+        result.skin_ = skin_;
+        result.rotation_ = rotation_;
+        result.speed_ = speed_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.superbiz.game.proto.Msg.SnakeInfo) {
+          return mergeFrom((org.superbiz.game.proto.Msg.SnakeInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.superbiz.game.proto.Msg.SnakeInfo other) {
+        if (other == org.superbiz.game.proto.Msg.SnakeInfo.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (pathBuilder_ == null) {
+          if (!other.path_.isEmpty()) {
+            if (path_.isEmpty()) {
+              path_ = other.path_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensurePathIsMutable();
+              path_.addAll(other.path_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.path_.isEmpty()) {
+            if (pathBuilder_.isEmpty()) {
+              pathBuilder_.dispose();
+              pathBuilder_ = null;
+              path_ = other.path_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              pathBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPathFieldBuilder() : null;
+            } else {
+              pathBuilder_.addAllMessages(other.path_);
+            }
+          }
+        }
+        if (!other.getSkin().isEmpty()) {
+          skin_ = other.skin_;
+          onChanged();
+        }
+        if (other.getRotation() != 0F) {
+          setRotation(other.getRotation());
+        }
+        if (other.getSpeed() != 0F) {
+          setSpeed(other.getSpeed());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.superbiz.game.proto.Msg.SnakeInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.superbiz.game.proto.Msg.SnakeInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<org.superbiz.game.proto.Msg.Part> path_ =
+        java.util.Collections.emptyList();
+      private void ensurePathIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          path_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Part>(path_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder> pathBuilder_;
+
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public java.util.List<org.superbiz.game.proto.Msg.Part> getPathList() {
+        if (pathBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(path_);
+        } else {
+          return pathBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public int getPathCount() {
+        if (pathBuilder_ == null) {
+          return path_.size();
+        } else {
+          return pathBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.Part getPath(int index) {
+        if (pathBuilder_ == null) {
+          return path_.get(index);
+        } else {
+          return pathBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public Builder setPath(
+          int index, org.superbiz.game.proto.Msg.Part value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePathIsMutable();
+          path_.set(index, value);
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public Builder setPath(
+          int index, org.superbiz.game.proto.Msg.Part.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public Builder addPath(org.superbiz.game.proto.Msg.Part value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePathIsMutable();
+          path_.add(value);
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public Builder addPath(
+          int index, org.superbiz.game.proto.Msg.Part value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePathIsMutable();
+          path_.add(index, value);
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public Builder addPath(
+          org.superbiz.game.proto.Msg.Part.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.add(builderForValue.build());
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public Builder addPath(
+          int index, org.superbiz.game.proto.Msg.Part.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public Builder addAllPath(
+          java.lang.Iterable<? extends org.superbiz.game.proto.Msg.Part> values) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, path_);
+          onChanged();
+        } else {
+          pathBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public Builder clearPath() {
+        if (pathBuilder_ == null) {
+          path_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          pathBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public Builder removePath(int index) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.remove(index);
+          onChanged();
+        } else {
+          pathBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.Part.Builder getPathBuilder(
+          int index) {
+        return getPathFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.PartOrBuilder getPathOrBuilder(
+          int index) {
+        if (pathBuilder_ == null) {
+          return path_.get(index);  } else {
+          return pathBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
+           getPathOrBuilderList() {
+        if (pathBuilder_ != null) {
+          return pathBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(path_);
+        }
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.Part.Builder addPathBuilder() {
+        return getPathFieldBuilder().addBuilder(
+            org.superbiz.game.proto.Msg.Part.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public org.superbiz.game.proto.Msg.Part.Builder addPathBuilder(
+          int index) {
+        return getPathFieldBuilder().addBuilder(
+            index, org.superbiz.game.proto.Msg.Part.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Part path = 2;</code>
+       */
+      public java.util.List<org.superbiz.game.proto.Msg.Part.Builder> 
+           getPathBuilderList() {
+        return getPathFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder> 
+          getPathFieldBuilder() {
+        if (pathBuilder_ == null) {
+          pathBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder>(
+                  path_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          path_ = null;
+        }
+        return pathBuilder_;
+      }
+
+      private java.lang.Object skin_ = "";
+      /**
+       * <code>string skin = 3;</code>
+       */
+      public java.lang.String getSkin() {
+        java.lang.Object ref = skin_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          skin_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string skin = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSkinBytes() {
+        java.lang.Object ref = skin_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          skin_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string skin = 3;</code>
+       */
+      public Builder setSkin(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        skin_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string skin = 3;</code>
+       */
+      public Builder clearSkin() {
+        
+        skin_ = getDefaultInstance().getSkin();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string skin = 3;</code>
+       */
+      public Builder setSkinBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        skin_ = value;
+        onChanged();
+        return this;
+      }
+
+      private float rotation_ ;
+      /**
+       * <code>float rotation = 4;</code>
+       */
+      public float getRotation() {
+        return rotation_;
+      }
+      /**
+       * <code>float rotation = 4;</code>
+       */
+      public Builder setRotation(float value) {
+        
+        rotation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float rotation = 4;</code>
+       */
+      public Builder clearRotation() {
+        
+        rotation_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float speed_ ;
+      /**
+       * <code>float speed = 5;</code>
+       */
+      public float getSpeed() {
+        return speed_;
+      }
+      /**
+       * <code>float speed = 5;</code>
+       */
+      public Builder setSpeed(float value) {
+        
+        speed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float speed = 5;</code>
+       */
+      public Builder clearSpeed() {
+        
+        speed_ = 0F;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SnakeInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:SnakeInfo)
+    private static final org.superbiz.game.proto.Msg.SnakeInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.SnakeInfo();
+    }
+
+    public static org.superbiz.game.proto.Msg.SnakeInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SnakeInfo>
+        PARSER = new com.google.protobuf.AbstractParser<SnakeInfo>() {
+      public SnakeInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SnakeInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SnakeInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SnakeInfo> getParserForType() {
+      return PARSER;
+    }
+
+    public org.superbiz.game.proto.Msg.SnakeInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ResizeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Resize)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 width = 1;</code>
+     */
+    int getWidth();
+
+    /**
+     * <code>int32 height = 2;</code>
+     */
+    int getHeight();
+  }
+  /**
+   * Protobuf type {@code Resize}
+   */
+  public  static final class Resize extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Resize)
+      ResizeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Resize.newBuilder() to construct.
+    private Resize(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Resize() {
+      width_ = 0;
+      height_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Resize(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              width_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              height_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.superbiz.game.proto.Msg.internal_static_Resize_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.superbiz.game.proto.Msg.internal_static_Resize_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.superbiz.game.proto.Msg.Resize.class, org.superbiz.game.proto.Msg.Resize.Builder.class);
+    }
+
+    public static final int WIDTH_FIELD_NUMBER = 1;
+    private int width_;
+    /**
+     * <code>int32 width = 1;</code>
+     */
+    public int getWidth() {
+      return width_;
+    }
+
+    public static final int HEIGHT_FIELD_NUMBER = 2;
+    private int height_;
+    /**
+     * <code>int32 height = 2;</code>
+     */
+    public int getHeight() {
+      return height_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (width_ != 0) {
+        output.writeInt32(1, width_);
+      }
+      if (height_ != 0) {
+        output.writeInt32(2, height_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (width_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, width_);
+      }
+      if (height_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, height_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.superbiz.game.proto.Msg.Resize)) {
+        return super.equals(obj);
+      }
+      org.superbiz.game.proto.Msg.Resize other = (org.superbiz.game.proto.Msg.Resize) obj;
+
+      boolean result = true;
+      result = result && (getWidth()
+          == other.getWidth());
+      result = result && (getHeight()
+          == other.getHeight());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + WIDTH_FIELD_NUMBER;
+      hash = (53 * hash) + getWidth();
+      hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
+      hash = (53 * hash) + getHeight();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.Resize parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.superbiz.game.proto.Msg.Resize prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Resize}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Resize)
+        org.superbiz.game.proto.Msg.ResizeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.superbiz.game.proto.Msg.internal_static_Resize_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.superbiz.game.proto.Msg.internal_static_Resize_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.superbiz.game.proto.Msg.Resize.class, org.superbiz.game.proto.Msg.Resize.Builder.class);
+      }
+
+      // Construct using org.superbiz.game.proto.Msg.Resize.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        width_ = 0;
+
+        height_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.superbiz.game.proto.Msg.internal_static_Resize_descriptor;
+      }
+
+      public org.superbiz.game.proto.Msg.Resize getDefaultInstanceForType() {
+        return org.superbiz.game.proto.Msg.Resize.getDefaultInstance();
+      }
+
+      public org.superbiz.game.proto.Msg.Resize build() {
+        org.superbiz.game.proto.Msg.Resize result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.superbiz.game.proto.Msg.Resize buildPartial() {
+        org.superbiz.game.proto.Msg.Resize result = new org.superbiz.game.proto.Msg.Resize(this);
+        result.width_ = width_;
+        result.height_ = height_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.superbiz.game.proto.Msg.Resize) {
+          return mergeFrom((org.superbiz.game.proto.Msg.Resize)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.superbiz.game.proto.Msg.Resize other) {
+        if (other == org.superbiz.game.proto.Msg.Resize.getDefaultInstance()) return this;
+        if (other.getWidth() != 0) {
+          setWidth(other.getWidth());
+        }
+        if (other.getHeight() != 0) {
+          setHeight(other.getHeight());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.superbiz.game.proto.Msg.Resize parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.superbiz.game.proto.Msg.Resize) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int width_ ;
+      /**
+       * <code>int32 width = 1;</code>
+       */
+      public int getWidth() {
+        return width_;
+      }
+      /**
+       * <code>int32 width = 1;</code>
+       */
+      public Builder setWidth(int value) {
+        
+        width_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 width = 1;</code>
+       */
+      public Builder clearWidth() {
+        
+        width_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int height_ ;
+      /**
+       * <code>int32 height = 2;</code>
+       */
+      public int getHeight() {
+        return height_;
+      }
+      /**
+       * <code>int32 height = 2;</code>
+       */
+      public Builder setHeight(int value) {
+        
+        height_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 height = 2;</code>
+       */
+      public Builder clearHeight() {
+        
+        height_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Resize)
+    }
+
+    // @@protoc_insertion_point(class_scope:Resize)
+    private static final org.superbiz.game.proto.Msg.Resize DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.Resize();
+    }
+
+    public static org.superbiz.game.proto.Msg.Resize getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Resize>
+        PARSER = new com.google.protobuf.AbstractParser<Resize>() {
+      public Resize parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Resize(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Resize> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Resize> getParserForType() {
+      return PARSER;
+    }
+
+    public org.superbiz.game.proto.Msg.Resize getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ClientDisconnectOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ClientDisconnect)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code ClientDisconnect}
+   */
+  public  static final class ClientDisconnect extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ClientDisconnect)
+      ClientDisconnectOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ClientDisconnect.newBuilder() to construct.
+    private ClientDisconnect(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ClientDisconnect() {
+      id_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ClientDisconnect(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.superbiz.game.proto.Msg.internal_static_ClientDisconnect_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.superbiz.game.proto.Msg.internal_static_ClientDisconnect_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.superbiz.game.proto.Msg.ClientDisconnect.class, org.superbiz.game.proto.Msg.ClientDisconnect.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.superbiz.game.proto.Msg.ClientDisconnect)) {
+        return super.equals(obj);
+      }
+      org.superbiz.game.proto.Msg.ClientDisconnect other = (org.superbiz.game.proto.Msg.ClientDisconnect) obj;
+
+      boolean result = true;
+      result = result && getId()
+          .equals(other.getId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.superbiz.game.proto.Msg.ClientDisconnect parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.superbiz.game.proto.Msg.ClientDisconnect prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ClientDisconnect}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ClientDisconnect)
+        org.superbiz.game.proto.Msg.ClientDisconnectOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.superbiz.game.proto.Msg.internal_static_ClientDisconnect_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.superbiz.game.proto.Msg.internal_static_ClientDisconnect_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.superbiz.game.proto.Msg.ClientDisconnect.class, org.superbiz.game.proto.Msg.ClientDisconnect.Builder.class);
+      }
+
+      // Construct using org.superbiz.game.proto.Msg.ClientDisconnect.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.superbiz.game.proto.Msg.internal_static_ClientDisconnect_descriptor;
+      }
+
+      public org.superbiz.game.proto.Msg.ClientDisconnect getDefaultInstanceForType() {
+        return org.superbiz.game.proto.Msg.ClientDisconnect.getDefaultInstance();
+      }
+
+      public org.superbiz.game.proto.Msg.ClientDisconnect build() {
+        org.superbiz.game.proto.Msg.ClientDisconnect result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.superbiz.game.proto.Msg.ClientDisconnect buildPartial() {
+        org.superbiz.game.proto.Msg.ClientDisconnect result = new org.superbiz.game.proto.Msg.ClientDisconnect(this);
+        result.id_ = id_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.superbiz.game.proto.Msg.ClientDisconnect) {
+          return mergeFrom((org.superbiz.game.proto.Msg.ClientDisconnect)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.superbiz.game.proto.Msg.ClientDisconnect other) {
+        if (other == org.superbiz.game.proto.Msg.ClientDisconnect.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.superbiz.game.proto.Msg.ClientDisconnect parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.superbiz.game.proto.Msg.ClientDisconnect) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ClientDisconnect)
+    }
+
+    // @@protoc_insertion_point(class_scope:ClientDisconnect)
+    private static final org.superbiz.game.proto.Msg.ClientDisconnect DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.superbiz.game.proto.Msg.ClientDisconnect();
+    }
+
+    public static org.superbiz.game.proto.Msg.ClientDisconnect getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ClientDisconnect>
+        PARSER = new com.google.protobuf.AbstractParser<ClientDisconnect>() {
+      public ClientDisconnect parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ClientDisconnect(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ClientDisconnect> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ClientDisconnect> getParserForType() {
+      return PARSER;
+    }
+
+    public org.superbiz.game.proto.Msg.ClientDisconnect getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Message_descriptor;
   private static final 
@@ -3063,15 +9868,55 @@ public final class Msg {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_WorldInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Dot_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Dot_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DotsUpdate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DotsUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SnakesUpdate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SnakesUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PlayerMoved_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PlayerMoved_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PlayerMoved_Part_descriptor;
+    internal_static_Part_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PlayerMoved_Part_fieldAccessorTable;
+      internal_static_Part_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TimeInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TimeInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_EatenFood_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_EatenFood_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SnakeInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SnakeInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Resize_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Resize_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ClientDisconnect_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ClientDisconnect_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3081,15 +9926,30 @@ public final class Msg {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016messages.proto\"K\n\007Message\022!\n\013playerMov" +
-      "ed\030\001 \001(\0132\014.PlayerMoved\022\035\n\tworldInfo\030\002 \001(" +
-      "\0132\n.WorldInfo\"\033\n\tWorldInfo\022\016\n\006radius\030\001 \001" +
-      "(\005\"\253\001\n\013PlayerMoved\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002" +
-      "\022\020\n\010rotation\030\003 \001(\002\022\r\n\005speed\030\004 \001(\002\022\014\n\004ski" +
-      "n\030\005 \001(\t\022 \n\005parts\030\006 \003(\0132\021.PlayerMoved.Par" +
-      "t\022\014\n\004sent\030\007 \001(\003\032\'\n\004Part\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030" +
-      "\002 \001(\002\022\t\n\001r\030\003 \001(\002B\036\n\027org.superbiz.game.pr" +
-      "otoB\003Msgb\006proto3"
+      "\n\016messages.proto\"\366\001\n\007Message\022!\n\013playerMo" +
+      "ved\030\001 \001(\0132\014.PlayerMoved\022\035\n\tworldInfo\030\002 \001" +
+      "(\0132\n.WorldInfo\022\027\n\006resize\030\003 \001(\0132\007.Resize\022" +
+      "\037\n\ndotsUpdate\030\004 \001(\0132\013.DotsUpdate\022\035\n\teate" +
+      "nFood\030\005 \001(\0132\n.EatenFood\022#\n\014snakesUpdate\030" +
+      "\006 \001(\0132\r.SnakesUpdate\022+\n\020clientDisconnect" +
+      "\030\007 \001(\0132\021.ClientDisconnect\"\033\n\tWorldInfo\022\016" +
+      "\n\006radius\030\001 \001(\005\"8\n\003Dot\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 " +
+      "\001(\002\022\r\n\005color\030\003 \001(\005\022\014\n\004size\030\004 \001(\005\" \n\nDots" +
+      "Update\022\022\n\004dots\030\001 \003(\0132\004.Dot\"*\n\014SnakesUpda" +
+      "te\022\032\n\006snakes\030\001 \003(\0132\n.SnakeInfo\"{\n\013Player" +
+      "Moved\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\020\n\010rotation\030" +
+      "\003 \001(\002\022\r\n\005speed\030\004 \001(\002\022\014\n\004skin\030\005 \001(\t\022\024\n\005pa" +
+      "rts\030\006 \003(\0132\005.Part\022\021\n\tinitiated\030\007 \001(\003\".\n\004P" +
+      "art\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\020\n\010rotation\030\003 " +
+      "\001(\002\"1\n\010TimeInfo\022\021\n\tinitiated\030\001 \001(\003\022\022\n\npr" +
+      "ocessing\030\002 \001(\003\"<\n\tEatenFood\022\033\n\010timeInfo\030" +
+      "\001 \001(\0132\t.TimeInfo\022\022\n\004dots\030\002 \003(\0132\004.Dot\"[\n\t" +
+      "SnakeInfo\022\n\n\002id\030\001 \001(\t\022\023\n\004path\030\002 \003(\0132\005.Pa" +
+      "rt\022\014\n\004skin\030\003 \001(\t\022\020\n\010rotation\030\004 \001(\002\022\r\n\005sp" +
+      "eed\030\005 \001(\002\"\'\n\006Resize\022\r\n\005width\030\001 \001(\005\022\016\n\006he" +
+      "ight\030\002 \001(\005\"\036\n\020ClientDisconnect\022\n\n\002id\030\001 \001" +
+      "(\tB\036\n\027org.superbiz.game.protoB\003Msgb\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3108,25 +9968,73 @@ public final class Msg {
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Message_descriptor,
-        new java.lang.String[] { "PlayerMoved", "WorldInfo", });
+        new java.lang.String[] { "PlayerMoved", "WorldInfo", "Resize", "DotsUpdate", "EatenFood", "SnakesUpdate", "ClientDisconnect", });
     internal_static_WorldInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_WorldInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldInfo_descriptor,
         new java.lang.String[] { "Radius", });
-    internal_static_PlayerMoved_descriptor =
+    internal_static_Dot_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_Dot_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Dot_descriptor,
+        new java.lang.String[] { "X", "Y", "Color", "Size", });
+    internal_static_DotsUpdate_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_DotsUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DotsUpdate_descriptor,
+        new java.lang.String[] { "Dots", });
+    internal_static_SnakesUpdate_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_SnakesUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SnakesUpdate_descriptor,
+        new java.lang.String[] { "Snakes", });
+    internal_static_PlayerMoved_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_PlayerMoved_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerMoved_descriptor,
-        new java.lang.String[] { "X", "Y", "Rotation", "Speed", "Skin", "Parts", "Sent", });
-    internal_static_PlayerMoved_Part_descriptor =
-      internal_static_PlayerMoved_descriptor.getNestedTypes().get(0);
-    internal_static_PlayerMoved_Part_fieldAccessorTable = new
+        new java.lang.String[] { "X", "Y", "Rotation", "Speed", "Skin", "Parts", "Initiated", });
+    internal_static_Part_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Part_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PlayerMoved_Part_descriptor,
-        new java.lang.String[] { "X", "Y", "R", });
+        internal_static_Part_descriptor,
+        new java.lang.String[] { "X", "Y", "Rotation", });
+    internal_static_TimeInfo_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_TimeInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TimeInfo_descriptor,
+        new java.lang.String[] { "Initiated", "Processing", });
+    internal_static_EatenFood_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_EatenFood_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_EatenFood_descriptor,
+        new java.lang.String[] { "TimeInfo", "Dots", });
+    internal_static_SnakeInfo_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_SnakeInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SnakeInfo_descriptor,
+        new java.lang.String[] { "Id", "Path", "Skin", "Rotation", "Speed", });
+    internal_static_Resize_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_Resize_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Resize_descriptor,
+        new java.lang.String[] { "Width", "Height", });
+    internal_static_ClientDisconnect_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_ClientDisconnect_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ClientDisconnect_descriptor,
+        new java.lang.String[] { "Id", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

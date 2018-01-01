@@ -1,7 +1,7 @@
 package org.superbiz.game;
 
 //import com.google.inject.Singleton;
-import org.superbiz.game.msg.*;
+import org.superbiz.game.proto.Msg;
 import rx.subjects.PublishSubject;
 
 import javax.inject.Inject;
@@ -10,12 +10,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import static org.superbiz.game.msg.JSONMapper.getJSONMapper;
-
 @Singleton
 public class SnakePositions {
     //private static final Logger logger = Logger.getLogger(SnakePositions.class.getName());
-    private final JSONMapper mapper = getJSONMapper();
+    //private final JSONMapper mapper = getJSONMapper();
 
     @Inject
     Logger logger;
@@ -41,18 +39,26 @@ public class SnakePositions {
 
     }
 
-    private final PublishSubject<SnakesUpdate> observableSnakes = PublishSubject.create();
+    private final PublishSubject<Msg.SnakesUpdate> observableSnakes = PublishSubject.create();
 
-    public PublishSubject<SnakesUpdate> getObservableSnakes() {
+    public PublishSubject<Msg.SnakesUpdate> getObservableSnakes() {
         return observableSnakes;
     }
 
-    private Map<String, SnakeInfo> map = new LinkedHashMap<>();
+    private Map<String, Msg.SnakeInfo> map = new LinkedHashMap<>();
 
-    public void update(Player player, PlayerMoved playerMoved) {
-        SnakeInfo snakeInfo = new SnakeInfo(playerMoved.getPath(), playerMoved.getSkin(), playerMoved.getRotation(), playerMoved.getSpeed());
+    public void update(Player player, Msg.PlayerMoved playerMoved) {
+        Msg.SnakeInfo snakeInfo = Msg.SnakeInfo.newBuilder()
+                .addAllPath(playerMoved.getPartsList())
+                .setSkin(playerMoved.getSkin())
+                .setRotation(playerMoved.getRotation())
+                .setSpeed(playerMoved.getSpeed())
+                .setId(player.getId())
+                .build();
+        //Msg.SnakeInfo snakeInfo = new SnakeInfo(playerMoved.getPath(), playerMoved.getSkin(), playerMoved.getRotation(), playerMoved.getSpeed());
         map.put(player.getId(), snakeInfo);
-        observableSnakes.onNext(new SnakesUpdate(map));
+        Msg.SnakesUpdate snakesUpdate = Msg.SnakesUpdate.newBuilder().addAllSnakes(map.values()).build();
+        observableSnakes.onNext(snakesUpdate);
     }
 
     public void remove(String playerId) {

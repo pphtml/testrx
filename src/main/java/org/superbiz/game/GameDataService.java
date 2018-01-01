@@ -6,13 +6,15 @@ import com.github.davidmoten.rtree.RTree;
 import com.github.davidmoten.rtree.geometry.Circle;
 import com.github.davidmoten.rtree.geometry.Point;
 import com.github.davidmoten.rtree.geometry.Rectangle;
-import org.superbiz.game.msg.*;
+import io.netty.buffer.Unpooled;
+import org.superbiz.game.proto.Msg;
 import ratpack.func.Pair;
 import rx.Observable;
 
 import javax.inject.Inject;
 import java.util.*;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import static com.github.davidmoten.rtree.geometry.Geometries.point;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
@@ -22,7 +24,7 @@ public class GameDataService {
     private final int powerRadius;
     private final SnakePositions snakePositions;
     private final Observable<String> snakesInterval;
-    private final Observable<SnakesUpdate> snakeUpdate;
+    private final Observable<Msg.SnakesUpdate> snakeUpdate;
     @Inject
     private Logger logger;
 
@@ -68,7 +70,7 @@ public class GameDataService {
 //        });
     }
 
-    public Observable<SnakesUpdate> getSnakeUpdate() {
+    public Observable<Msg.SnakesUpdate> getSnakeUpdate() {
         return snakeUpdate;
     }
 
@@ -104,65 +106,76 @@ public class GameDataService {
         System.out.println(all);
     }*/
 
-    public DotsUpdate getDotsUpdate(Player player, Point position) {
+    public Msg.DotsUpdate getDotsUpdate(Player player, Point position) {
         Rectangle viewport = player.getViewport(position);
         //logger.info(String.format("Viewport: %s", viewport));
         Observable<Entry<Dot, Point>> search = dotTree.search(viewport);
         Observable<List<Dot>> list = search.map(entry -> entry.value()).toList().single();
         List<Dot> values = list.toBlocking().first();
-        return new DotsUpdate(values);
+        List<Msg.Dot> dots = values.stream().map(dot -> Msg.Dot.newBuilder()
+                .setX(dot.getX())
+                .setY(dot.getY())
+                .setColor(dot.getC())
+                .setSize(dot.getL())
+                .build())
+                .collect(Collectors.toList());
+        Msg.DotsUpdate dotsUpdate = Msg.DotsUpdate.newBuilder().addAllDots(dots).build();
+        return dotsUpdate;
     }
 
-    public void processMessage(Message message, Player player) {
-        if (message.getPlayerMoved() != null) {
-            final long processingStart = System.nanoTime();
-            final Point position = point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY());
-            player.getObservablePosition().onNext(position);
+    public void processMessage(Msg.Message message, Player player) {
+        logger.info(String.format("TODO %s",  message));
 
-            snakePositions.update(player, message.getPlayerMoved());
-
-            EatenFood eatenFood = eatFood(player, position);
-            if (eatenFood.hasAnyFood()) {
-                //logger.info(String.format("TODO: %s", jsonMsg));
-                final long processingEnd = System.nanoTime();
-                eatenFood.setTimeInfo(new TimeInfo(message.getPlayerMoved().getSent(), processingEnd - processingStart));
-                String jsonMsg = MessageBuilder.create().setEatenFood(eatenFood).toJson();
-                player.getWebSocket().send(jsonMsg);
-            }
-        } else if (message.getResize() != null) {
-            //player.getObservablePosition().onNext(point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY()));
-            player.setViewSize(point(message.getResize().getWidth(), message.getResize().getHeight()));
-            DotsUpdate response = getDotsUpdate(player, null);
-            String jsonMsg = MessageBuilder.create().setDotsUpdate(response).toJson();
-            //logger.info(String.format("TODO: %s", jsonMsg));
-            player.getWebSocket().send(jsonMsg);
-
-        } else {
-            logger.info(String.format("%s",  message));
-        }
+//        if (message.getPlayerMoved() != null) {
+//            final long processingStart = System.nanoTime();
+//            final Point position = point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY());
+//            player.getObservablePosition().onNext(position);
+//
+//            snakePositions.update(player, message.getPlayerMoved());
+//
+//            EatenFood eatenFood = eatFood(player, position);
+//            if (eatenFood.hasAnyFood()) {
+//                //logger.info(String.format("TODO: %s", jsonMsg));
+//                final long processingEnd = System.nanoTime();
+//                eatenFood.setTimeInfo(new TimeInfo(message.getPlayerMoved().getSent(), processingEnd - processingStart));
+//                String jsonMsg = MessageBuilder.create().setEatenFood(eatenFood).toJson();
+//                player.getWebSocket().send(jsonMsg);
+//            }
+//        } else if (message.getResize() != null) {
+//            //player.getObservablePosition().onNext(point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY()));
+//            player.setViewSize(point(message.getResize().getWidth(), message.getResize().getHeight()));
+//            DotsUpdate response = getDotsUpdate(player, null);
+//            String jsonMsg = MessageBuilder.create().setDotsUpdate(response).toJson();
+//            //logger.info(String.format("TODO: %s", jsonMsg));
+//            player.getWebSocket().send(jsonMsg);
+//
+//        } else {
+//            logger.info(String.format("%s",  message));
+//        }
     }
 
-    private EatenFood eatFood(Player player, Point position) {
-        if (position != null) {
-            List<Dot> result = new ArrayList<>();
-            Circle foodCircle = player.getEatingCircle(position);
-            Observable<Entry<Dot, Point>> foodSearch = dotTree.search(foodCircle);
-            foodSearch.forEach(food -> {
-                //logger.info(String.format("Food is at: %s", food.value()));
-                dotTree = dotTree.delete(food.value(), food.geometry());
-                result.add(food.value());
-            });
-            return new EatenFood(result);
-        } else {
-            return EatenFood.empty();
-        }
-    }
+//    private EatenFood eatFood(Player player, Point position) {
+//        if (position != null) {
+//            List<Dot> result = new ArrayList<>();
+//            Circle foodCircle = player.getEatingCircle(position);
+//            Observable<Entry<Dot, Point>> foodSearch = dotTree.search(foodCircle);
+//            foodSearch.forEach(food -> {
+//                //logger.info(String.format("Food is at: %s", food.value()));
+//                dotTree = dotTree.delete(food.value(), food.geometry());
+//                result.add(food.value());
+//            });
+//            return new EatenFood(result);
+//        } else {
+//            return EatenFood.empty();
+//        }
+//    }
 
     public void processPeriodicUpdate(Player player, Point position) {
         //logger.info(String.format("Player %s, update at position %s",  player.getId(), position));
-        DotsUpdate response = getDotsUpdate(player, position);
-        String jsonMsg = MessageBuilder.create().setDotsUpdate(response).toJson();
+        Msg.DotsUpdate response = getDotsUpdate(player, position);
+        byte[] msg = Msg.Message.newBuilder().setDotsUpdate(response).build().toByteArray();
+        //String jsonMsg = MessageBuilder.create().setDotsUpdate(response).toJson();
         //logger.info(String.format("TODO: %s", jsonMsg));
-        player.getWebSocket().send(jsonMsg);
+        player.getWebSocket().send(Unpooled.wrappedBuffer(msg));
     }
 }

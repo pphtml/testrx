@@ -1,23 +1,19 @@
 package org.superbiz.ws;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufUtil;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelPipeline;
 import org.superbiz.game.GameDataService;
 import org.superbiz.game.Player;
 import org.superbiz.game.SnakePositions;
-import org.superbiz.game.msg.Message;
-import org.superbiz.game.msg.MessageBuilder;
-import org.superbiz.game.msg.WorldInfo;
 import org.superbiz.game.proto.Msg;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
 import ratpack.server.ServerConfig;
 import ratpack.websocket.*;
 import ratpack.websocket.internal.MyWebSocketEngine;
-import ratpack.websocket.internal.WebSocketEngine;
 import rx.Subscription;
 import rx.subjects.PublishSubject;
 
@@ -41,7 +37,8 @@ public class GameHandler implements Handler {
         this.snakePositions = snakePositions;
         logger.info(String.format("STREAM: %s", gameDataService.getSnakeUpdate()));
         gameDataService.getSnakeUpdate().subscribe(snakesUpdate -> {
-            events.onNext(MessageBuilder.create().setSnakesUpdate(snakesUpdate).toJson());
+            byte[] msg = Msg.Message.newBuilder().setSnakesUpdate(snakesUpdate).build().toByteArray();
+            events.onNext(Unpooled.wrappedBuffer(msg));
         });
     }
 
@@ -49,7 +46,7 @@ public class GameHandler implements Handler {
     private final Map<String, Player> players = new HashMap<>();
 
     // Subject that all clients subscribe to for events
-    private final PublishSubject<String> events = PublishSubject.create();
+    private final PublishSubject<ByteBuf> events = PublishSubject.create();
 
     // Mapping of client to subscription to the events subject
     private final Map<String, Subscription> subscriptions = new HashMap<>();
@@ -139,7 +136,8 @@ public class GameHandler implements Handler {
                 event.put("type", "clientdisconnect");
                 event.put("id", playerId);
 
-                events.onNext(mapper.writer().writeValueAsString(event));
+                byte[] msg = Msg.ClientDisconnect.newBuilder().setId(playerId).build().toByteArray();
+                events.onNext(Unpooled.wrappedBuffer(msg));
 
                 subscriptions.remove(playerId);
 
@@ -153,13 +151,19 @@ public class GameHandler implements Handler {
                 if (player == null) {
                     logger.warning(String.format("Player '%s' cannot be found.", playerId));
                 } else {
-                    //logger.info(String.format("Inc -->: %s", frame.getText()));
+                    logger.info(String.format("Incoming frame -->: %s", frame));
                     try {
-                        Message message = mapper.reader().forType(Message.class).readValue(frame.getText());
-                        gameDataService.processMessage(message, player);
-                    } catch (Exception e) {
-                        logger.log(Level.SEVERE, e.getMessage(), e);
+                        Msg.Message message = Msg.Message.parseFrom(frame.getOpenResult().array());
+                        logger.info(String.format("Incoming message -->: %s", message));
+                    } catch (InvalidProtocolBufferException e) {
+                        e.printStackTrace();
                     }
+//                    try {
+//                        Message message = mapper.reader().forType(Message.class).readValue(frame.getText());
+//                        gameDataService.processMessage(message, player);
+//                    } catch (Exception e) {
+//                        logger.log(Level.SEVERE, e.getMessage(), e);
+//                    }
                     //events.onNext("ble");
                     //events.onNext(frame.getText());
                 }
