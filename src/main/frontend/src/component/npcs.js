@@ -26,18 +26,19 @@ class NPCS {
         this.container = new Container();
         this.dots = {};
 
-        this.gameContext.communication.subject.filter(msg => msg.dotsUpdate).subscribe(
-            (msg) => this.addPositions(msg.dotsUpdate.dots),
+        this.gameContext.communication.subject.filter(msg => msg.hasDotsupdate()).subscribe(
+            (msg) => this.addPositions(msg.getDotsupdate().getDotsList()),
             (err) => console.log(err),
             () => console.log('complete')
         );
 
-        this.gameContext.communication.subject.filter(msg => msg.eatenFood).subscribe(
+        this.gameContext.communication.subject.filter(msg => msg.hasEatenfood()).subscribe(
             msg => {
-                const roundTrip = Date.now() - msg.eatenFood.timeInfo.initiated;
+                const eatenFood = msg.getEatenfood();
+                const roundTrip = Date.now() - eatenFood.getTimeinfo().getInitiated();
                 this.gameContext.gameInfo.roundTrip = roundTrip;
                 // console.info(`Eaten food, roundtrip: ${roundTrip}, processing: ${msg.eatenFood.timeInfo.processing}`);
-                this.eatPositions(msg.eatenFood.dots);
+                this.eatPositions(eatenFood.getDotsList());
             }
         );
     }
@@ -45,7 +46,7 @@ class NPCS {
     eatPositions(positions) {
         const removals = new Set();
         positions.forEach(position => {
-            const key = `${position.x},${position.y}`;
+            const key = `${position.getX()},${position.getY()}`;
             removals.add(key);
         });
 
@@ -62,9 +63,9 @@ class NPCS {
 
     addPositions(positions) {
         positions.forEach(position => {
-            let key = `${position.x},${position.y}`;
+            let key = `${position.getX()},${position.getY()}`;
             if (!(key in this.dots)) {
-                const color = this.translateColor(position.c);
+                const color = this.translateColor(position.getColor());
 
                 // const circle = new Graphics();
                 // circle.beginFill(color);
@@ -79,7 +80,7 @@ class NPCS {
                 const outer = new Sprite(resources['images/spritesheet.json'].textures['myfood-outer.png']);
                 outer._key = key;
                 outer._type = 'circle';
-                outer.position.set(position.x, position.y);
+                outer.position.set(position.getX(), position.getY());
                 outer.anchor.set(0.5, 0.5);
                 outer.scale.set(1.5, 1.5);
                 outer.tint = color;
@@ -93,7 +94,7 @@ class NPCS {
                 const dot = new Sprite(resources['images/spritesheet.json'].textures['myfood.png']);
                 dot._key = key;
                 dot._type = 'dot';
-                dot.position.set(position.x, position.y);
+                dot.position.set(position.getX(), position.getY());
                 dot.anchor.set(0.5, 0.5);
                 dot.scale.set(0.15, 0.15);
                 dot.baseColor = color;
@@ -110,7 +111,7 @@ class NPCS {
 
         const viewPortDots = new Set();
         positions.forEach(position => {
-            const key = `${position.x},${position.y}`;
+            const key = `${position.getX()},${position.getY()}`;
             viewPortDots.add(key);
         });
 

@@ -2,6 +2,7 @@ package org.superbiz.game;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.davidmoten.rtree.geometry.Point;
+import org.superbiz.game.proto.Msg;
 
 import static com.github.davidmoten.rtree.geometry.Geometries.point;
 
@@ -62,5 +63,12 @@ public class Dot {
         return point(x, y);
     }
 
-    //public enum Color { red, green, blue }
+    public Msg.Dot getProtoDot() {
+        return Msg.Dot.newBuilder()
+                .setX(x)
+                .setY(y)
+                .setColor(c)
+                .setSize(l)
+                .build();
+    }
 }

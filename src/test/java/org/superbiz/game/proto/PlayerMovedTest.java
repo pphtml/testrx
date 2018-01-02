@@ -10,9 +10,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class PlayerMovedTest {
-    public static final double ACCEPTABLE_DELTA = 0.000001;
-
+public class PlayerMovedTest extends BaseTest {
     @Test
     public void toProtobufAndBack() throws InvalidProtocolBufferException {
         List<Part> path = Arrays.asList(

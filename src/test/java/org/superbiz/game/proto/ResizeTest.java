@@ -1,27 +1,20 @@
 package org.superbiz.game.proto;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.junit.Test;
-
-import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class ResizeTest {
-//    @Test
-//    public void msgToJson() {
-//        Message message = new Message();
-//        message.setResize(new Resize(800, 600));
-//        String json = message.toJson();
-//        assertEquals("{\"resize\":{\"width\":800,\"height\":600}}", json);
-//    }
-//
-//    @Test
-//    public void jsonToMsg() throws IOException {
-//        String json = "{\"resize\":{\"width\":800,\"height\":600}}";
-//        Message message = mapper.reader().forType(Message.class).readValue(json);
-//        assertNotNull(message.getResize());
-//        assertEquals(800, message.getResize().getWidth());
-//        assertEquals(600, message.getResize().getHeight());
-//    }
+    @Test
+    public void toProtobufAndBack() throws InvalidProtocolBufferException {
+        Msg.Resize.Builder resize = Msg.Resize.newBuilder().setWidth(800).setHeight(600);
+        byte[] msgBytes = Msg.Message.newBuilder().setResize(resize).build().toByteArray();
+
+        Msg.Message message = Msg.Message.parseFrom(msgBytes);
+        assertNotNull(message.hasResize());
+        assertEquals(800, message.getResize().getWidth());
+        assertEquals(600, message.getResize().getHeight());
+    }
 }

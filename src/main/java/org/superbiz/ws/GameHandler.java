@@ -14,6 +14,7 @@ import ratpack.handling.Handler;
 import ratpack.server.ServerConfig;
 import ratpack.websocket.*;
 import ratpack.websocket.internal.MyWebSocketEngine;
+import ratpack.websocket.internal.WebSocketBinaryMessage;
 import rx.Subscription;
 import rx.subjects.PublishSubject;
 
@@ -146,17 +147,35 @@ public class GameHandler implements Handler {
 
             @Override
             public void onMessage(WebSocketMessage<ByteBuf> frame) {
+                WebSocketBinaryMessage binaryFrame = (WebSocketBinaryMessage)frame;
                 String playerId = ctx.getRequest().getQueryParams().get("id");
                 Player player = players.get(playerId);
                 if (player == null) {
                     logger.warning(String.format("Player '%s' cannot be found.", playerId));
                 } else {
-                    logger.info(String.format("Incoming frame -->: %s", frame));
+                    //logger.info(String.format("Incoming frame -->: %s", frame));
                     try {
-                        Msg.Message message = Msg.Message.parseFrom(frame.getOpenResult().array());
-                        logger.info(String.format("Incoming message -->: %s", message));
+                        ByteBuf buf = binaryFrame.getContent();
+                        byte[] bytes;
+                        int offset;
+                        int length = buf.readableBytes();
+
+                        if (buf.hasArray()) {
+                            bytes = buf.array();
+                            offset = buf.arrayOffset();
+                        } else {
+                            bytes = new byte[length];
+                            buf.getBytes(buf.readerIndex(), bytes);
+                            offset = 0;
+                        }
+                                
+                        Msg.Message message = Msg.Message.parseFrom(bytes);
+                        //logger.info(String.format("Incoming message -->: %s", bytes));
+                        gameDataService.processMessage(message, player);
                     } catch (InvalidProtocolBufferException e) {
-                        e.printStackTrace();
+                        logger.log(Level.SEVERE, e.getMessage(), e);
+//                    } catch (Exception e) {
+//                        logger.log(Level.SEVERE, e.getMessage(), e);
                     }
 //                    try {
 //                        Message message = mapper.reader().forType(Message.class).readValue(frame.getText());

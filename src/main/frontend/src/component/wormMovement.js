@@ -1,7 +1,7 @@
 let PI_HALF = Math.PI / 2;
 let PI_DOUBLE = Math.PI * 2;
 
-exports.moveSnake = function(snakePath, angle, distance, partDistance) {
+module.exports.moveSnake = function(snakePath, angle, distance, partDistance) {
     // returns path, xStep, yStep
     let path = JSON.parse(JSON.stringify(snakePath));
 

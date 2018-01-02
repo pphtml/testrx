@@ -9,10 +9,10 @@ class Player extends Worm {
         this.coordinates = {x: 0, y: 0};
         this.resize();
 
-        this.gameContext.communication.subject.filter(msg => msg.eatenFood).subscribe(
+        this.gameContext.communication.subject.filter(msg => msg.hasEatenfood()).subscribe(
             msg => {
-                for (const dot of msg.eatenFood.dots) {
-                    this.length += (dot.l + 1);
+                for (const dot of msg.getEatenfood().getDotsList()) {
+                    this.length += (dot.getSize() + 1);
                 }
 
                 this.gameContext.controls.scoreUpdateSubject.next({id: this.id, length: this.length, currentPlayer: true, type: 'update'});
@@ -38,6 +38,28 @@ class Player extends Worm {
         super.update(elapsedTime);
         this.coordinates = {x: this.path[0].x, y: this.path[0].y};
         this.updatePosition();
+
+        const path = this.path.map(p => {
+            const part = new proto.Part();
+            part.setX(p.x);
+            part.setY(p.y);
+            part.setRotation(p.r);
+            return part;
+        });
+        const playerMoved = new proto.PlayerMoved();
+        playerMoved.setX(this.coordinates.x);
+        playerMoved.setY(this.coordinates.y);
+        playerMoved.setPartsList(path);
+        playerMoved.setInitiated(Date.now());
+        playerMoved.setSkin(`${this.skin}`);
+        playerMoved.setSpeed(this.speed);
+        playerMoved.setRotation(this.angle);
+        const message = new proto.Message();
+        message.setPlayermoved(playerMoved);
+        const bytes = message.serializeBinary();
+        this.gameContext.communication.subject.next(bytes);
+        //this.gameContext.communication.subject.next('blebleble');
+
 
         // this.gameContext.communication.subject.next(
         //     JSON.stringify({

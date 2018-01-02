@@ -19,8 +19,8 @@ class Worms {
         // rectangle.alpha = 0.5;
         // this.container.addChild(rectangle);
 
-        this.gameContext.communication.subject.filter(msg => msg.snakesUpdate).subscribe(
-            msg => this.updateWorms(msg.snakesUpdate.snakes)
+        this.gameContext.communication.subject.filter(msg => msg.hasSnakesupdate()).subscribe(
+            msg => this.updateWorms(msg.getSnakesupdate().getSnakesList())
         );
     }
 
@@ -30,14 +30,16 @@ class Worms {
         //     this.container.removeChild(sprite);
         // }
 
-        //let that = this;
-        for (const [id, wormData] of Object.entries(worms)) {
+        for (const wormData of worms) {
+            const id = wormData.getId();
             if (this.gameContext.communication.commId != id) {
                 //console.info(`${id} -> ${JSON.stringify(wormData)}`);
-                let path = wormData.path;
-                let skin = wormData.skin;
-                let rotation = wormData.rotation;
-                let speed = wormData.speed;
+                const path = wormData.getPathList().map(part => {
+                    return { x: part.getX(), y: part.getY(), r: part.getRotation() };
+                });
+                const skin = wormData.getSkin();
+                const rotation = wormData.getRotation();
+                const speed = wormData.getSpeed();
 
                 let existingWorm = this.map[id];
                 if (!existingWorm) {

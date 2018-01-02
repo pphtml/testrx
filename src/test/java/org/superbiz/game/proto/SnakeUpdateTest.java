@@ -1,51 +1,54 @@
 package org.superbiz.game.proto;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.junit.Test;
+import org.superbiz.game.proto.Msg.Part;
 
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
-public class SnakeUpdateTest {
-//    @Test
-//    public void msgToJson() {
-//        Message message = new Message();
-//
-//        final List<Part> pathA = Arrays.asList(
-//                new Part(10.6f, 30.5f, 3.14f),
-//                new Part(10.8f, 30.4f, 1.67f),
-//                new Part(10.1f, 30.2f, -3.14f));
-//        final SnakeInfo snakeInfoA = new SnakeInfo(pathA, "blue", 0.0, 10.0);
-//
-//        final List<Part> pathB = Arrays.asList(
-//                new Part(10.7f, 30.6f, 4.14f),
-//                new Part(10.8f, 30.4f, 1.67f),
-//                new Part(10.1f, 30.2f, -3.14f));
-//        final SnakeInfo snakeInfoB = new SnakeInfo(pathB, "red", 3.14, 20.0);
-//
-//        final Map<String, SnakeInfo> snakes = new LinkedHashMap<>();
-//        snakes.put("snakeA", snakeInfoA);
-//        snakes.put("snakeB", snakeInfoB);
-//
-//        final SnakesUpdate snakesUpdate = new SnakesUpdate(snakes);
-//
-//        message.setSnakesUpdate(snakesUpdate);
-//        String json = message.toJson();
-//        assertEquals("{\"snakesUpdate\":{\"snakes\":{\"snakeA\":{\"path\":[{\"x\":10.6,\"y\":30.5,\"r\":3.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}],\"skin\":\"blue\",\"rotation\":0.0,\"speed\":10.0},\"snakeB\":{\"path\":[{\"x\":10.7,\"y\":30.6,\"r\":4.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}],\"skin\":\"red\",\"rotation\":3.14,\"speed\":20.0}}}}", json);
-//    }
-//
-//    @Test
-//    public void jsonToMsg() throws IOException {
-//        String json = "{\"snakesUpdate\":{\"snakes\":{\"snakeA\":{\"path\":[{\"x\":10.6,\"y\":30.5,\"r\":3.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}],\"skin\":\"blue\"},\"snakeB\":{\"path\":[{\"x\":10.7,\"y\":30.6,\"r\":4.14},{\"x\":10.8,\"y\":30.4,\"r\":1.67},{\"x\":10.1,\"y\":30.2,\"r\":-3.14}],\"skin\":\"red\"}}}}";
-//        Message message = mapper.reader().forType(Message.class).readValue(json);
-//        assertNotNull(message.getSnakesUpdate());
-//        Map<String, SnakeInfo> snakes = message.getSnakesUpdate().getSnakes();
-//        assertEquals(2, snakes.size());
-//        assertTrue(snakes.containsKey("snakeA"));
-//        assertTrue(snakes.containsKey("snakeB"));
-//    }
+public class SnakeUpdateTest extends BaseTest {
+    @Test
+    public void toProtobufAndBack() throws InvalidProtocolBufferException {
+        final List<Part> pathA = Arrays.asList(
+                Part.newBuilder().setX(10.6f).setY(30.5f).setRotation(3.14f).build(),
+                Part.newBuilder().setX(10.8f).setY(30.4f).setRotation(1.67f).build(),
+                Part.newBuilder().setX(10.1f).setY(30.2f).setRotation(-3.14f).build());
+        final Msg.SnakeInfo snakeInfoA = Msg.SnakeInfo.newBuilder()
+                .setId("snakeA").addAllPath(pathA).setSkin("blue").setRotation(0.0f).setSpeed(10.0f).build();
+
+        final List<Part> pathB = Arrays.asList(
+                Part.newBuilder().setX(10.7f).setY(30.9f).setRotation(3.15f).build(),
+                Part.newBuilder().setX(10.9f).setY(30.8f).setRotation(1.68f).build(),
+                Part.newBuilder().setX(10.2f).setY(30.7f).setRotation(-3.15f).build());
+        final Msg.SnakeInfo snakeInfoB = Msg.SnakeInfo.newBuilder()
+                .setId("snakeB").addAllPath(pathB).setSkin("red").setRotation(3.15f).setSpeed(20.0f).build();
+
+        final Msg.SnakesUpdate snakesUpdate = Msg.SnakesUpdate.newBuilder().addAllSnakes(Arrays.asList(snakeInfoA, snakeInfoB)).build();
+
+        byte[] bytesMessage = Msg.Message.newBuilder().setSnakesUpdate(snakesUpdate).build().toByteArray();
+
+        Msg.Message decodedMessage = Msg.Message.parseFrom(bytesMessage);
+        assertTrue(decodedMessage.hasSnakesUpdate());
+        Msg.SnakesUpdate snakesUpdateResult = decodedMessage.getSnakesUpdate();
+        assertNotNull(snakesUpdateResult);
+
+        final List<Msg.SnakeInfo> snakes = snakesUpdateResult.getSnakesList();
+        assertEquals(2, snakes.size());
+
+        Msg.SnakeInfo snakeA = snakes.get(0);
+        assertNotNull(snakeA);
+        assertEquals("snakeA", snakeA.getId());
+        assertEquals(3, snakeA.getPathList().size());
+        assertEquals(-3.14f, snakeA.getPathList().get(2).getRotation(), ACCEPTABLE_DELTA);
+        assertEquals("blue", snakeA.getSkin());
+        assertEquals(0.0, snakeA.getRotation(), ACCEPTABLE_DELTA);
+        assertEquals(10.0, snakeA.getSpeed(), ACCEPTABLE_DELTA);
+
+
+    }
 }

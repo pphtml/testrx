@@ -53,19 +53,7 @@ class ScoreInfo {
             this.messagesScore.push(messageScore);
         }
 
-
         this.gameContext.controls.scoreUpdateSubject.subscribe(event => this.handleScoreUpdate(event));
-
-        let message = new proto.Message();
-
-        let playerMoved = new proto.PlayerMoved();
-        playerMoved.setX(1.23);
-        playerMoved.setY(2.34);
-        playerMoved.setSkin('abcdef');
-        message.setPlayermoved(playerMoved);
-        var bytes = message.serializeBinary();
-        //var message2 = MyMessage.deserializeBinary(bytes);
-        console.info(bytes);
     }
 
     handleScoreUpdate(event) {

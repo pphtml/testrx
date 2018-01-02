@@ -1,5 +1,6 @@
 package ratpack.websocket.internal;
 
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -8,17 +9,20 @@ import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.HttpVersion;
 import io.netty.handler.codec.http.websocketx.*;
+import org.superbiz.ws.GameHandler;
 import ratpack.handling.Context;
 import ratpack.handling.direct.DirectChannelAccess;
 import ratpack.http.Request;
 import ratpack.server.PublicAddress;
 import ratpack.websocket.WebSocket;
 import ratpack.websocket.WebSocketHandler;
+import ratpack.websocket.WebSocketMessage;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.logging.Logger;
 
 import static io.netty.handler.codec.http.HttpHeaderNames.SEC_WEBSOCKET_KEY;
 import static io.netty.handler.codec.http.HttpHeaderNames.SEC_WEBSOCKET_VERSION;
@@ -27,6 +31,7 @@ import static ratpack.util.Exceptions.toException;
 import static ratpack.util.Exceptions.uncheck;
 
 public class MyWebSocketEngine {
+    private static final Logger logger = Logger.getLogger(MyWebSocketEngine.class.getName());
 
     @SuppressWarnings("deprecation")
     public static <T> void connect(final Context context, String path, int maxLength, final WebSocketHandler<T> handler) {
@@ -115,6 +120,11 @@ public class MyWebSocketEngine {
                             if (frame instanceof TextWebSocketFrame) {
                                 TextWebSocketFrame textWebSocketFrame = (TextWebSocketFrame) frame;
                                 handler.onMessage(new DefaultWebSocketMessage<>(webSocket, textWebSocketFrame.text(), openResult));
+                                frame.release();
+                            }
+                            if (frame instanceof BinaryWebSocketFrame) {
+                                BinaryWebSocketFrame textWebSocketFrame = (BinaryWebSocketFrame) frame;
+                                handler.onMessage(new WebSocketBinaryMessage(webSocket, textWebSocketFrame.content(), openResult));
                                 frame.release();
                             }
                         }
