@@ -32,7 +32,8 @@ class Worms {
 
         for (const wormData of worms) {
             const id = wormData.getId();
-            if (this.gameContext.communication.commId != id) {
+            // if (this.gameContext.featureMatrix.drawOwnSnakeFromServer)
+            if (this.gameContext.communication.commId != id || this.gameContext.featureMatrix.drawOwnSnakeFromServer) {
                 //console.info(`${id} -> ${JSON.stringify(wormData)}`);
                 const path = wormData.getPathList().map(part => {
                     return { x: part.getX(), y: part.getY(), r: part.getRotation() };
@@ -47,7 +48,7 @@ class Worms {
                     this.map[id] = worm;
                     this.container.addChild(worm.container);
                 } else {
-                    console.info(`updateFromServer ${path[0].x}, ${path[0].y}`);
+                    //console.info(`updateFromServer ${path[0].x}, ${path[0].y}`);
                     existingWorm.updateFromServer({speed: speed, rotation: rotation, path: path});
                 }
 

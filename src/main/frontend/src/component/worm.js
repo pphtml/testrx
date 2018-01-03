@@ -1,6 +1,6 @@
 import { Sprite, Container, loader } from 'pixi.js'
 import layers from './layers'
-let moveSnake = require('./wormMovement').moveSnake;
+const moveSnake = require('./wormMovement').moveSnake;
 
 
 let resources = loader.resources;
@@ -8,7 +8,7 @@ let resources = loader.resources;
 const LENGTH_PER_PART = 10;
 
 class Worm {
-    constructor({skin, speed = 1.0, rotation = 0.0, path = [], id = 'noname', gameContext, length = 150} = {}) {
+    constructor({skin, speed = 1.0, rotation = 0.0, path = [], id = 'noname', gameContext, length = 150, doNotDraw = false} = {}) {
         this.coordinates = path.length == 0 ? {x: undefined, y: undefined} : {x: path[0].x, y: path[0].y};
         this.skinColor = skin;
         this.angle = rotation;
@@ -23,35 +23,39 @@ class Worm {
                 this.path.push({x: -this.partDistance * index, y: 0.0, r: 0});
             }
         }
-        this.container = new Container();
-        for (let index = this.path.length-1; index >= 0; index--) {
-            const part = this.path[index];
-            //const sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
-            const sprite = this.sprite_factory();
-            sprite.pathIndex = index;
-            sprite.position.set(part.x, part.y);
-            sprite.rotation = part.r;
-            sprite.tint = this.skinColor;
-            //sprite.tint = 0x802020;
-            this.container.addChild(sprite);
-            //this.sprites.push(sprite);
+        if (!doNotDraw) {
+            this.container = new Container();
+            for (let index = this.path.length-1; index >= 0; index--) {
+                const part = this.path[index];
+                //const sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
+                const sprite = this.sprite_factory();
+                sprite.pathIndex = index;
+                sprite.position.set(part.x, part.y);
+                sprite.rotation = part.r;
+                sprite.tint = this.skinColor;
+                //sprite.tint = 0x802020;
+                this.container.addChild(sprite);
+                //this.sprites.push(sprite);
+            }
+
+            const eyeLeft = new Sprite(resources['images/spritesheet.json'].textures['eye.png']);
+            eyeLeft.metaInf = 'eye';
+            eyeLeft.scale.set(0.4, 0.4);
+            eyeLeft.pivot.set(-5, 47);
+            eyeLeft.displayGroup = layers.tailLayer;
+            // eyeLeft.position.set(0, 0);
+            this.container.addChild(eyeLeft);
+
+            const eyeRight = new Sprite(resources['images/spritesheet.json'].textures['eye.png']);
+            eyeRight.metaInf = 'eye';
+            eyeRight.scale.set(0.4, 0.4);
+            eyeRight.pivot.set(-5, -4);
+            eyeRight.displayGroup = layers.tailLayer;
+            //eyeRight.position.set(0, 0);
+            this.container.addChild(eyeRight);
+
+            this.gameContext.stage.addChild(this.container);
         }
-
-        const eyeLeft = new Sprite(resources['images/spritesheet.json'].textures['eye.png']);
-        eyeLeft.metaInf = 'eye';
-        eyeLeft.scale.set(0.4, 0.4);
-        eyeLeft.pivot.set(-5, 47);
-        eyeLeft.displayGroup = layers.tailLayer;
-        // eyeLeft.position.set(0, 0);
-        this.container.addChild(eyeLeft);
-
-        const eyeRight = new Sprite(resources['images/spritesheet.json'].textures['eye.png']);
-        eyeRight.metaInf = 'eye';
-        eyeRight.scale.set(0.4, 0.4);
-        eyeRight.pivot.set(-5, -4);
-        eyeRight.displayGroup = layers.tailLayer;
-        //eyeRight.position.set(0, 0);
-        this.container.addChild(eyeRight);
     }
     // spriteNameHead() {
     //     return `basic_head_${this.skin}.png`;

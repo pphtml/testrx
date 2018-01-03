@@ -1,14 +1,9 @@
 package org.superbiz.ws;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufAllocator;
-import io.netty.buffer.ByteBufAllocatorMetricProvider;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.buffer.Unpooled;
-import io.netty.buffer.UnpooledByteBufAllocator;
-import io.netty.channel.ChannelPipeline;
 import org.superbiz.game.GameDataService;
 import org.superbiz.game.Player;
 import org.superbiz.game.SnakePositions;
@@ -16,24 +11,24 @@ import org.superbiz.game.proto.Msg;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
 import ratpack.server.ServerConfig;
-import ratpack.websocket.*;
+import ratpack.websocket.WebSocket;
+import ratpack.websocket.WebSocketClose;
+import ratpack.websocket.WebSocketHandler;
+import ratpack.websocket.WebSocketMessage;
 import ratpack.websocket.internal.MyWebSocketEngine;
 import ratpack.websocket.internal.WebSocketBinaryMessage;
-import rx.Subscription;
-import rx.subjects.PublishSubject;
 
 import javax.inject.Inject;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class GameHandler implements Handler {
     private static final Logger logger = Logger.getLogger(GameHandler.class.getName());
 
-    private final ObjectMapper mapper = new ObjectMapper();
     private final SnakePositions snakePositions;
 
-    //@Inject
     private GameDataService gameDataService;
 
     @Inject
@@ -43,36 +38,18 @@ public class GameHandler implements Handler {
         logger.info(String.format("STREAM: %s", gameDataService.getSnakeUpdate()));
         gameDataService.getSnakeUpdate().subscribe(snakesUpdate -> {
             byte[] msg = Msg.Message.newBuilder().setSnakesUpdate(snakesUpdate).build().toByteArray();
-            //events.onNext(Unpooled.wrappedBuffer(msg));
-
-            /*ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(msg.length);
-            ByteBuf buf = PooledByteBufAllocator.DEFAULT.buffer();
-            buf.writeBytes(msg);
-            //buf.duplicate();
-            events.onNext(buf.retainedDuplicate());*/
-
             sendToAllPlayers(msg);
-        });
-    }
-
-    private void sendToAllPlayers(byte[] msg) {
-        players.values().forEach(player -> {
-            ByteBuf buf = PooledByteBufAllocator.DEFAULT.buffer(msg.length);
-            buf.writeBytes(msg);
-
-            player.getWebSocket().send(buf);
-            //player.getWebSocket().send(Unpooled.wrappedBuffer(msg));
         });
     }
 
     // List of all currently connected clients
     private final Map<String, Player> players = new HashMap<>();
 
-    // Subject that all clients subscribe to for events
-    private final PublishSubject<ByteBuf> events = PublishSubject.create();
+//    // Subject that all clients subscribe to for events
+//    private final PublishSubject<ByteBuf> events = PublishSubject.create();
 
     // Mapping of client to subscription to the events subject
-    private final Map<String, Subscription> subscriptions = new HashMap<>();
+    //private final Map<String, Subscription> subscriptions = new HashMap<>();
 
     @Override
     public void handle(Context ctx) {
@@ -84,9 +61,7 @@ public class GameHandler implements Handler {
         /*WebSockets.websocket(ctx,*/ new WebSocketHandler<ByteBuf>() {
 
             @Override
-            public ByteBuf onOpen(WebSocket webSocket) throws Exception {
-                ChannelPipeline pipeline = ctx.getDirectChannelAccess().getChannel().pipeline();
-
+            public ByteBuf onOpen(WebSocket webSocket) {
                 String playerId = ctx.getRequest().getQueryParams().get("id");
 
                 logger.info(String.format("Websocket opened for player: %s", playerId));
@@ -99,74 +74,42 @@ public class GameHandler implements Handler {
                     Player player = new Player(playerId, webSocket);
                     players.put(playerId, player);
 
+                    // dots update so far...
                     player.getPeriodicUpdate().subscribe(update -> {
                         gameDataService.processPeriodicUpdate(update.left, update.right);
                     });
-                    /*Map<String, Object> initEvent = new HashMap<>();
-                    initEvent.put("type", "init");
-                    initEvent.put("client", client);
-                    initEvent.put("success", true);
-                    initEvent.put("connectedClients", Collections.unmodifiableSet(clients));
-
-                    webSocket.send(mapper.writer().writeValueAsString(initEvent));*/
-
-//                    String data = gameDataService.getDotsUpdate(player);
-//                    logger.info(data);
-//                    webSocket.send(data);
 
                     Msg.WorldInfo.Builder worldInfo = Msg.WorldInfo.newBuilder().setRadius(3000);
                     byte[] msgBytes = Msg.Message.newBuilder().setWorldInfo(worldInfo).build().toByteArray();
                     webSocket.send(Unpooled.wrappedBuffer(msgBytes));
 
-//                    webSocket.send(new String(msgBytes, "ASCII"));
-                    //ByteBuf byteBuf = Unpooled.wrappedBuffer(msgBytes);
-
-//                    ByteBuf byteBuf = Unpooled.directBuffer(20);
-//                    byteBuf.writeLong(Long.MAX_VALUE);
-//                    webSocket.send(byteBuf);
-
-//                    String jsonMsg = MessageBuilder.create().setWorldInfo(new WorldInfo(3000)).toJson();
-//                    webSocket.send(jsonMsg);
-
-//                    ByteBuf byteBuf = Unpooled.directBuffer(5000);
-//                    ByteBufUtil.writeUtf8(byteBuf, jsonMsg);
-//                    webSocket.send(byteBuf);
-
-
-//                    Map<String, Object> clientConnectEvent = new HashMap<>();
-//                    clientConnectEvent.put("type", "clientconnect");
-//                    clientConnectEvent.put("client", playerId);
-//                    events.onNext(mapper.writer().writeValueAsString(clientConnectEvent));
-
-                    final Subscription subscription = events.subscribe(webSocket::send);
-                    subscriptions.put(playerId, subscription);
+//                    final Subscription subscription = events.subscribe(webSocket::send);
+//                    subscriptions.put(playerId, subscription);
 
                     logger.info(String.format("Client %s subscribed to event stream", playerId));
-                    logger.info(String.format("Subscription map: %s", subscriptions));
+                    //logger.info(String.format("Subscription map: %s", subscriptions));
                 }
 
-                return Unpooled.wrappedBuffer("abcdef".getBytes());
+                return null; //Unpooled.wrappedBuffer("abcdef".getBytes());
             }
 
             @Override
             public void onClose(WebSocketClose<ByteBuf> close) {
                 String playerId = ctx.getRequest().getQueryParams().get("id");
-//                Player player = players.get(playerId);
 
                 players.remove(playerId);
                 snakePositions.remove(playerId);
-                //gameDataService.remove(playerId);
 
+                // TODO posilat jenom jednou
                 byte[] msg = Msg.ClientDisconnect.newBuilder().setId(playerId).build().toByteArray();
-                //events.onNext(Unpooled.wrappedBuffer(msg));
                 sendToAllPlayers(msg);
 
-                final Subscription subscription = subscriptions.remove(playerId);
-                if (subscription != null) {
-                    subscription.unsubscribe();
-                } else {
-                    logger.warning(String.format("Missing subscription for player %s.", playerId));;
-                }
+//                final Subscription subscription = subscriptions.remove(playerId);
+//                if (subscription != null) {
+//                    subscription.unsubscribe();
+//                } else {
+//                    logger.info(String.format("Missing subscription for player %s.", playerId));;
+//                }
 
                 logger.info(String.format("Websocket closed for player: %s", playerId));
             }
@@ -197,19 +140,18 @@ public class GameHandler implements Handler {
                         gameDataService.processMessage(message, player);
                     } catch (InvalidProtocolBufferException e) {
                         logger.log(Level.SEVERE, e.getMessage(), e);
-//                    } catch (Exception e) {
-//                        logger.log(Level.SEVERE, e.getMessage(), e);
                     }
-//                    try {
-//                        Message message = mapper.reader().forType(Message.class).readValue(frame.getText());
-//                        gameDataService.processMessage(message, player);
-//                    } catch (Exception e) {
-//                        logger.log(Level.SEVERE, e.getMessage(), e);
-//                    }
-                    //events.onNext("ble");
-                    //events.onNext(frame.getText());
                 }
             }
+        });
+    }
+
+    private void sendToAllPlayers(byte[] msg) {
+        players.values().forEach(player -> {
+            ByteBuf buf = PooledByteBufAllocator.DEFAULT.buffer(msg.length);
+            buf.writeBytes(msg);
+
+            player.getWebSocket().send(buf);
         });
     }
 }

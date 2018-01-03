@@ -96,7 +96,7 @@ function setup() {
     let player = new Player(gameContext, color);
     gameContext.player = player;
 
-    stage.addChild(player.container);
+    //stage.addChild(player.container);
     let npcs = new NPCS(gameContext);
     stage.addChild(npcs.container);
     let worms = new Worms(gameContext);

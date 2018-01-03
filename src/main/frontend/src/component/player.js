@@ -1,9 +1,14 @@
 import Worm from './worm'
 import Controls from './controls'
+const moveSnake = require('./wormMovement').moveSnake;
 
 class Player extends Worm {
     constructor(gameContext, skin) {
-        super({skin: skin, id: gameContext.communication.commId, gameContext: gameContext});
+        if (gameContext.featureMatrix.drawOwnSnakeFromServer) {
+            super({doNotDraw: true});
+        } else {
+            super({skin: skin, id: gameContext.communication.commId, gameContext: gameContext});
+        }
         this.skin = skin;
         this.gameContext = gameContext;
         this.coordinates = {x: 0, y: 0};
@@ -21,7 +26,9 @@ class Player extends Worm {
     }
 
     updatePosition() {
-        this.container.position.set(this.gameContext.middle.x - this.coordinates.x, this.gameContext.middle.y - this.coordinates.y);
+        if (!this.gameContext.featureMatrix.drawOwnSnakeFromServer) {
+            this.container.position.set(this.gameContext.middle.x - this.coordinates.x, this.gameContext.middle.y - this.coordinates.y);
+        }
     }
 
     resize() {
@@ -32,10 +39,14 @@ class Player extends Worm {
         let baseSpeed = 1.0;
         this.speed = 5.0 * (this.gameContext.controls.isMouseDown() ? baseSpeed * 2 : baseSpeed); // * elapsedTime * 0.06;
         this.angle = Controls.computeAllowedAngle(askedAngle, this.angle, elapsedTime, this.gameContext, baseSpeed, this.speed);
-        //this.lastAngle = angle;
 
+        if (this.gameContext.featureMatrix.drawOwnSnakeFromServer) {
+            let newPath = moveSnake(this.path, this.angle, this.speed, this.partDistance);
+            this.path = newPath.path;
+        } else {
+            super.update(elapsedTime);
+        }
 
-        super.update(elapsedTime);
         this.coordinates = {x: this.path[0].x, y: this.path[0].y};
         this.updatePosition();
 
@@ -46,6 +57,7 @@ class Player extends Worm {
             part.setRotation(p.r);
             return part;
         });
+
         const playerMoved = new proto.PlayerMoved();
         playerMoved.setX(this.coordinates.x);
         playerMoved.setY(this.coordinates.y);
@@ -58,23 +70,6 @@ class Player extends Worm {
         message.setPlayermoved(playerMoved);
         const bytes = message.serializeBinary();
         this.gameContext.communication.subject.next(bytes);
-        //this.gameContext.communication.subject.next('blebleble');
-
-
-        // this.gameContext.communication.subject.next(
-        //     JSON.stringify({
-        //         playerMoved: {
-        //             x: this.coordinates.x.toFixed(2),
-        //             y: this.coordinates.y.toFixed(2),
-        //             path: this.path.map(p => {
-        //                 return {x: p.x.toFixed(2), y: p.y.toFixed(2), r: p.r.toFixed(2)}
-        //             }),
-        //             sent: Date.now(),
-        //             skin: `${this.skin}`,
-        //             speed: this.speed,
-        //             rotation: this.angle
-        //         }
-        //     }));
     }
 }
 

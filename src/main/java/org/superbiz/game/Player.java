@@ -35,7 +35,6 @@ public class Player {
         this.observablePosition.subscribe(this::onPositionChanged);
 
         this.periodicUpdate = this.playerInterval.withLatestFrom(this.observablePosition, (timer, position) -> Pair.of(this, position));
-
     }
 
     private void onPositionChanged(Point position) {
