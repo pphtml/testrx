@@ -3,7 +3,11 @@ package org.superbiz.ws;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufAllocator;
+import io.netty.buffer.ByteBufAllocatorMetricProvider;
+import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.buffer.Unpooled;
+import io.netty.buffer.UnpooledByteBufAllocator;
 import io.netty.channel.ChannelPipeline;
 import org.superbiz.game.GameDataService;
 import org.superbiz.game.Player;
@@ -39,7 +43,25 @@ public class GameHandler implements Handler {
         logger.info(String.format("STREAM: %s", gameDataService.getSnakeUpdate()));
         gameDataService.getSnakeUpdate().subscribe(snakesUpdate -> {
             byte[] msg = Msg.Message.newBuilder().setSnakesUpdate(snakesUpdate).build().toByteArray();
-            events.onNext(Unpooled.wrappedBuffer(msg));
+            //events.onNext(Unpooled.wrappedBuffer(msg));
+
+            /*ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(msg.length);
+            ByteBuf buf = PooledByteBufAllocator.DEFAULT.buffer();
+            buf.writeBytes(msg);
+            //buf.duplicate();
+            events.onNext(buf.retainedDuplicate());*/
+
+            sendToAllPlayers(msg);
+        });
+    }
+
+    private void sendToAllPlayers(byte[] msg) {
+        players.values().forEach(player -> {
+            ByteBuf buf = PooledByteBufAllocator.DEFAULT.buffer(msg.length);
+            buf.writeBytes(msg);
+
+            player.getWebSocket().send(buf);
+            //player.getWebSocket().send(Unpooled.wrappedBuffer(msg));
         });
     }
 
@@ -54,7 +76,7 @@ public class GameHandler implements Handler {
 
     @Override
     public void handle(Context ctx) {
-        ChannelPipeline pipeline = ctx.getDirectChannelAccess().getChannel().pipeline();
+        // ChannelPipeline pipeline = ctx.getDirectChannelAccess().getChannel().pipeline();
 
         MyWebSocketEngine.connect(ctx, "/", ctx.get(ServerConfig.class).getMaxContentLength(), //handler);
 
@@ -116,16 +138,18 @@ public class GameHandler implements Handler {
 //                    clientConnectEvent.put("client", playerId);
 //                    events.onNext(mapper.writer().writeValueAsString(clientConnectEvent));
 
-                    subscriptions.put(playerId, events.subscribe(webSocket::send));
+                    final Subscription subscription = events.subscribe(webSocket::send);
+                    subscriptions.put(playerId, subscription);
 
                     logger.info(String.format("Client %s subscribed to event stream", playerId));
+                    logger.info(String.format("Subscription map: %s", subscriptions));
                 }
 
                 return Unpooled.wrappedBuffer("abcdef".getBytes());
             }
 
             @Override
-            public void onClose(WebSocketClose<ByteBuf> close) throws Exception {
+            public void onClose(WebSocketClose<ByteBuf> close) {
                 String playerId = ctx.getRequest().getQueryParams().get("id");
 //                Player player = players.get(playerId);
 
@@ -133,14 +157,16 @@ public class GameHandler implements Handler {
                 snakePositions.remove(playerId);
                 //gameDataService.remove(playerId);
 
-                Map<String, Object> event = new HashMap<>();
-                event.put("type", "clientdisconnect");
-                event.put("id", playerId);
-
                 byte[] msg = Msg.ClientDisconnect.newBuilder().setId(playerId).build().toByteArray();
-                events.onNext(Unpooled.wrappedBuffer(msg));
+                //events.onNext(Unpooled.wrappedBuffer(msg));
+                sendToAllPlayers(msg);
 
-                subscriptions.remove(playerId);
+                final Subscription subscription = subscriptions.remove(playerId);
+                if (subscription != null) {
+                    subscription.unsubscribe();
+                } else {
+                    logger.warning(String.format("Missing subscription for player %s.", playerId));;
+                }
 
                 logger.info(String.format("Websocket closed for player: %s", playerId));
             }
@@ -157,16 +183,13 @@ public class GameHandler implements Handler {
                     try {
                         ByteBuf buf = binaryFrame.getContent();
                         byte[] bytes;
-                        int offset;
                         int length = buf.readableBytes();
 
                         if (buf.hasArray()) {
                             bytes = buf.array();
-                            offset = buf.arrayOffset();
                         } else {
                             bytes = new byte[length];
                             buf.getBytes(buf.readerIndex(), bytes);
-                            offset = 0;
                         }
                                 
                         Msg.Message message = Msg.Message.parseFrom(bytes);

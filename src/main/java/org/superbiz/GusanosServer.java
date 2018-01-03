@@ -58,6 +58,10 @@ public class GusanosServer {
 //                ))
                 .handlers(chain -> chain
                                 .get("dump", ThreadDumpHandler.class)
+                                .get("cores", ctx -> {
+                                    int cores = Runtime.getRuntime().availableProcessors();
+                                    ctx.render(String.format("cores: %d", cores));
+                                })
                                 .get("dot", GameHandler.class)
                                 .files(f -> f.dir("static"))
                                 .all(ctx -> ctx.render(ctx.file("static/index.html")))

@@ -22,6 +22,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static io.netty.handler.codec.http.HttpHeaderNames.SEC_WEBSOCKET_KEY;
@@ -53,7 +54,7 @@ public class MyWebSocketEngine {
         FullHttpRequest nettyRequest = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, method, request.getUri());
         nettyRequest.headers().add(SEC_WEBSOCKET_VERSION, request.getHeaders().get(SEC_WEBSOCKET_VERSION));
         nettyRequest.headers().add(SEC_WEBSOCKET_KEY, request.getHeaders().get(SEC_WEBSOCKET_KEY));
-        nettyRequest.headers().add("responseType", "arraybuffer");
+        //nettyRequest.headers().add("responseType", "arraybuffer");
 
         final WebSocketServerHandshaker handshaker = factory.newHandshaker(nettyRequest);
 
@@ -88,6 +89,7 @@ public class MyWebSocketEngine {
                     try {
                         handler.onClose(new DefaultWebSocketClose<>(false, openResult));
                     } catch (Exception e) {
+                        logger.log(Level.SEVERE, e.getMessage(), e);
                         throw uncheck(e);
                     }
                 });
@@ -99,6 +101,7 @@ public class MyWebSocketEngine {
                     try {
                         handler.onClose(new DefaultWebSocketClose<>(true, openResult));
                     } catch (Exception e) {
+                        logger.log(Level.SEVERE, e.getMessage(), e);
                         throw uncheck(e);
                     }
                 });
@@ -110,7 +113,10 @@ public class MyWebSocketEngine {
                             WebSocketFrame frame = (WebSocketFrame) msg;
                             if (frame instanceof CloseWebSocketFrame) {
                                 open.set(false);
-                                handshaker.close(channel, (CloseWebSocketFrame) frame).addListener(future1 -> handler.onClose(new DefaultWebSocketClose<>(true, openResult)));
+                                handshaker.close(channel, (CloseWebSocketFrame) frame).addListener(future1 ->
+                                {
+                                    handler.onClose(new DefaultWebSocketClose<>(true, openResult));
+                                });
                                 return;
                             }
                             if (frame instanceof PingWebSocketFrame) {
