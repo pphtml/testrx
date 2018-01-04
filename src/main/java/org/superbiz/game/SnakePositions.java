@@ -47,19 +47,19 @@ public class SnakePositions {
 
     private Map<String, Msg.SnakeInfo> map = new LinkedHashMap<>();
 
-    public void update(Player player, Msg.PlayerMoved playerMoved) {
-        Msg.SnakeInfo snakeInfo = Msg.SnakeInfo.newBuilder()
-                .addAllPath(playerMoved.getPartsList())
-                .setSkin(playerMoved.getSkin())
-                .setRotation(playerMoved.getRotation())
-                .setSpeed(playerMoved.getSpeed())
-                .setId(player.getId())
-                .build();
-        //Msg.SnakeInfo snakeInfo = new SnakeInfo(playerMoved.getPath(), playerMoved.getSkin(), playerMoved.getRotation(), playerMoved.getSpeed());
-        map.put(player.getId(), snakeInfo);
-        Msg.SnakesUpdate snakesUpdate = Msg.SnakesUpdate.newBuilder().addAllSnakes(map.values()).build();
-        observableSnakes.onNext(snakesUpdate);
-    }
+//    public void update(Player player, Msg.PlayerMoved playerMoved) {
+//        Msg.SnakeInfo snakeInfo = Msg.SnakeInfo.newBuilder()
+//                .addAllPath(playerMoved.getPartsList())
+//                .setSkin(playerMoved.getSkin())
+//                .setRotation(playerMoved.getRotation())
+//                .setSpeed(playerMoved.getSpeed())
+//                .setId(player.getId())
+//                .build();
+//        //Msg.SnakeInfo snakeInfo = new SnakeInfo(playerMoved.getPath(), playerMoved.getSkin(), playerMoved.getRotation(), playerMoved.getSpeed());
+//        map.put(player.getId(), snakeInfo);
+//        Msg.SnakesUpdate snakesUpdate = Msg.SnakesUpdate.newBuilder().addAllSnakes(map.values()).build();
+//        observableSnakes.onNext(snakesUpdate);
+//    }
 
     public void remove(String playerId) {
         logger.info(String.format("Removing player: %s", playerId));

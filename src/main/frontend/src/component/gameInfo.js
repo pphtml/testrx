@@ -161,9 +161,7 @@ class GameInfo {
     }
 
     update(angle) {
-        this.message.text = `FPS: ${this.fps}, angle: ${angle.toFixed(2)}, coords: {x: ${this.gameContext.player.coordinates.x.toFixed(2)}, y: ${this.gameContext.player.coordinates.y.toFixed(2)}, roundTrip: ${this.roundTrip}`;
-        //this.message.text = `coordinates: ${JSON.stringify(this.gameContext.player.coordinates)}, d: ${this.infoDisplayed}`;
-        //this.message.text = `coordinates: ${JSON.stringify(player.coordinates)}, md: ${mouseDown}, d: ${infoDisplayed}`;
+        this.message.text = `FPS: ${this.fps}, angle: ${angle.toFixed(2)}, coords: {x: ${this.gameContext.controls.coordinates.x.toFixed(2)}, y: ${this.gameContext.controls.coordinates.y.toFixed(2)}, roundTrip: ${this.roundTrip}`;
         this.message.visible = this.infoDisplayed;
 
         // if (this.intensity == 250) {

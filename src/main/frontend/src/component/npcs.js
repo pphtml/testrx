@@ -128,21 +128,6 @@ class NPCS {
     }
 
     translateColor(color) {
-        // var result;
-        // switch(color) {
-        //     case 'red':
-        //         result = 0xff0000;
-        //         break;
-        //     case 'green':
-        //         result = 0x00ff00;
-        //         break;
-        //     case 'blue':
-        //         result = 0x0000ff;
-        //         break;
-        //     default:
-        //         result = 0xffffff;
-        // }
-        // return result;
         return COLORS[color];
     }
 
@@ -162,59 +147,7 @@ class NPCS {
                 dot.tint = rgbDimmer(dot.baseColor, dot.intensity);
             }
         }
-
-
-        //console.info(this.gameContext.player.coordinates.x, this.gameContext.player.coordinates.y);
     }
 }
 
 export default NPCS;
-
-/*this.blurFilter = new filters.BlurFilter();
-this.blurFilter.blur = 20;*/
-//this.glowFilter = new filters.GlowFilter(15, 2, 1, 0x66FF66, 0.5);
-// this.glowFilter.quality = 0.1;
-// this.glowFilter.color = 0x66FF66;
-
-
-
-// let dot = new Sprite(resources["images/scene.json"].textures["dot.png"]);
-// dot.anchor.set(0.5, 0.5);
-// dot.scale.set(0.2, 0.2);
-//dot.tint = 0x66FF66;
-//dot.filters = [this.glowFilter];
-// this.container.filters = [this.glowFilter];
-//this.container.addChild(dot);
-
-
-// var mask = new Graphics();
-// mask.beginFill(0x000000);
-// mask.drawRect(256, 112, 100, 100);
-// mask.endFill();
-
-
-// let dot2 = graphics.beginFill(0xFF9900);
-// graphics.drawCircle(x-8, y-8, 16);
-// graphics.endFill();
-
-// let circle = new Graphics();
-// //circle.fillAlpha = 0.9;
-// circle.alpha = 0.3;
-// circle.beginFill(0x66FF66);
-// circle.drawCircle(0, 0, 8);
-// circle.endFill();
-// //circle.filters = [this.glowFilter];
-// circle.x = 0;
-// circle.y = 0;
-// //circle.mask = null;
-// this.container.addChild(circle);
-//
-// let circle2 = new Graphics();
-// circle2.alpha = 0.1;
-// circle2.beginFill(0x66FF66);
-// circle2.drawCircle(0, 0, 50);
-// circle2.endFill();
-// //circle.filters = [this.glowFilter];
-// circle2.x = 256;
-// circle2.y = 112;
-// this.container.addChild(circle2);

@@ -62,19 +62,15 @@ class Background {
     }
 
     update() {
-        var x = -this.gameContext.player.coordinates.x % 256;
+        var x = -this.gameContext.controls.coordinates.x % 256;
         x = x <= 0 ? x : x - 256;
-        var y = -this.gameContext.player.coordinates.y % 256;
+        var y = -this.gameContext.controls.coordinates.y % 256;
         y = y <= 0 ? y : y - 256;
 
         if (this.circle) {
-            this.circle.position.set(this.gameContext.middle.x - this.gameContext.player.coordinates.x,
-                this.gameContext.middle.y - this.gameContext.player.coordinates.y);
+            this.circle.position.set(this.gameContext.middle.x - this.gameContext.controls.coordinates.x,
+                this.gameContext.middle.y - this.gameContext.controls.coordinates.y);
         }
-        // this.outerCircle.position.set(this.gameContext.middle.x - this.gameContext.player.coordinates.x,
-        //     this.gameContext.middle.y - this.gameContext.player.coordinates.y);
-        // this.endOfWorldCircle.position.set(this.gameContext.middle.x - this.gameContext.player.coordinates.x,
-        //     this.gameContext.middle.y - this.gameContext.player.coordinates.y);
 
         this.sprite.position.set(x, y);
     }

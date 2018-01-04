@@ -6,6 +6,7 @@ class Controls {
         this.mouseDown = false;
         /*document.body.onmousedown = () => this.mouseDown++;
         document.body.onmouseup = () => this.mouseDown--;*/
+        this.coordinates = {x: 0.0, y: 0.0};
 
         let mouseDowns = rx.Observable.fromEvent(document, 'mousedown');
         let mouseUps = rx.Observable.fromEvent(document, 'mouseup');

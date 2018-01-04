@@ -93,7 +93,6 @@ class Worms {
     update(elapsedTime) {
         let middleCoordinates = this.gameContext.middleCoordinates();
         this.container.position.set(middleCoordinates.x, middleCoordinates.y);
-        //console.info(this.gameContext.player.coordinates.x, this.gameContext.player.coordinates.y);
         for (const [id, worm] of Object.entries(this.map)) {
             worm.update(elapsedTime);
         }

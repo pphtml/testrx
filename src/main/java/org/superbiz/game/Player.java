@@ -17,6 +17,7 @@ public class Player {
     private final String id;
     private final Observable<String> playerInterval;
     private final Observable<Pair<Player, Point>> periodicUpdate;
+    private String skin;
     private Point position;
     private Point viewSize;
 
@@ -76,5 +77,13 @@ public class Player {
 
     public Circle getEatingCircle(Point position) {
         return circle(position.x(), position.y(), 50);
+    }
+
+    public String getSkin() {
+        return skin;
+    }
+
+    public void setSkin(String skin) {
+        this.skin = skin;
     }
 }

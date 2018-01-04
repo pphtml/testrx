@@ -61,8 +61,8 @@ let gameContext = {
     stage: stage,
     renderer: renderer,
     middleCoordinates: function() {
-        let x = this.middle.x - this.player.coordinates.x;
-        let y = this.middle.y - this.player.coordinates.y;
+        let x = this.middle.x - this.controls.coordinates.x;
+        let y = this.middle.y - this.controls.coordinates.y;
         return {x: x, y: y};
     },
     featureMatrix

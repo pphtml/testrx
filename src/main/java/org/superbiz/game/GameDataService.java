@@ -119,38 +119,42 @@ public class GameDataService {
     }
 
     public void processMessage(Msg.Message message, Player player) {
-        //logger.info(String.format("TODO %s",  message));
+        if (message.hasPlayerUpdateReq()) {
 
-        if (message.hasPlayerMoved()) {
-            final long processingStart = System.nanoTime();
-            final Point position = point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY());
-            player.getObservablePosition().onNext(position);
-
-            snakePositions.update(player, message.getPlayerMoved());
-
-            Optional<Msg.EatenFood.Builder> eatenFood = eatFood(player, position);
-            if (eatenFood.isPresent()) {
-                //logger.info(String.format("TODO: %s", jsonMsg));
-                final long processingEnd = System.nanoTime();
-                final Msg.TimeInfo timeInfo = Msg.TimeInfo.newBuilder()
-                        .setInitiated(message.getPlayerMoved().getInitiated())
-                        .setProcessing(processingEnd - processingStart)
-                        .build();
-                eatenFood.get().setTimeInfo(timeInfo);
-                byte[] msgBytes = Msg.Message.newBuilder().setEatenFood(eatenFood.get().build()).build().toByteArray();
-                //String jsonMsg = MessageBuilder.create().setEatenFood(eatenFood).toJson();
-                player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
-            }
-        } else if (message.getResize() != null) {
+//        if (message.hasPlayerMoved()) {
+//            final long processingStart = System.nanoTime();
+//            final Point position = point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY());
+//            player.getObservablePosition().onNext(position);
+//
+//            snakePositions.update(player, message.getPlayerMoved());
+//
+//            Optional<Msg.EatenFood.Builder> eatenFood = eatFood(player, position);
+//            if (eatenFood.isPresent()) {
+//                //logger.info(String.format("TODO: %s", jsonMsg));
+//                final long processingEnd = System.nanoTime();
+//                final Msg.TimeInfo timeInfo = Msg.TimeInfo.newBuilder()
+//                        .setInitiated(message.getPlayerMoved().getInitiated())
+//                        .setProcessing(processingEnd - processingStart)
+//                        .build();
+//                eatenFood.get().setTimeInfo(timeInfo);
+//                byte[] msgBytes = Msg.Message.newBuilder().setEatenFood(eatenFood.get().build()).build().toByteArray();
+//                //String jsonMsg = MessageBuilder.create().setEatenFood(eatenFood).toJson();
+//                player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
+//            }
+        } else if (message.hasResize()) {
             player.setViewSize(point(message.getResize().getWidth(), message.getResize().getHeight()));
             Msg.DotsUpdate response = getDotsUpdate(player, null);
             //String jsonMsg = MessageBuilder.create().setDotsUpdate(response).toJson();
             byte[] msgBytes = Msg.Message.newBuilder().setDotsUpdate(response).build().toByteArray();
             //logger.info(String.format("TODO: %s", jsonMsg));
             player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
-
+        } else if (message.hasPlayerStartReq()) {
+            player.setSkin(message.getPlayerStartReq().getSkin());
+        } else if (message.hasPlayerUpdateReq()) {
+            Msg.PlayerUpdateReq updateReq = message.getPlayerUpdateReq();
+            //player.setSkin(message.getPlayerStartReq().getSkin());
         } else {
-            logger.info(String.format("%s",  message));
+            logger.info(String.format("UNIMPLEMENTED %s",  message));
         }
     }
 
