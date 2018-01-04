@@ -100,8 +100,9 @@ public class GameHandler implements Handler {
                 players.remove(playerId);
                 snakePositions.remove(playerId);
 
-                // TODO posilat jenom jednou
-                byte[] msg = Msg.ClientDisconnect.newBuilder().setId(playerId).build().toByteArray();
+                byte[] msg = Msg.Message.newBuilder().setClientDisconnect(
+                        Msg.ClientDisconnect.newBuilder().setId(playerId)).build().toByteArray();
+                //logger.info(String.format("Sending DisconnectClient: %s", Bytes.asList(msg)));
                 sendToAllPlayers(msg);
 
 //                final Subscription subscription = subscriptions.remove(playerId);

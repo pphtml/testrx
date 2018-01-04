@@ -97,14 +97,14 @@ public class MyWebSocketEngine {
                 final DirectChannelAccess directAccessChannel = context.getDirectChannelAccess();
                 final Channel channel = directAccessChannel.getChannel();
 
-                channel.closeFuture().addListener(fu -> {
-                    try {
-                        handler.onClose(new DefaultWebSocketClose<>(true, openResult));
-                    } catch (Exception e) {
-                        logger.log(Level.SEVERE, e.getMessage(), e);
-                        throw uncheck(e);
-                    }
-                });
+//                channel.closeFuture().addListener(fu -> {
+//                    try {
+//                        handler.onClose(new DefaultWebSocketClose<>(true, openResult));
+//                    } catch (Exception e) {
+//                        logger.log(Level.SEVERE, e.getMessage(), e);
+//                        throw uncheck(e);
+//                    }
+//                });
 
                 directAccessChannel.takeOwnership(msg -> {
                     openLatch.await();

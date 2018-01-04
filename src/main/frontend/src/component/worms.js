@@ -19,9 +19,15 @@ class Worms {
         // rectangle.alpha = 0.5;
         // this.container.addChild(rectangle);
 
-        this.gameContext.communication.subject.filter(msg => msg.hasSnakesupdate()).subscribe(
-            msg => this.updateWorms(msg.getSnakesupdate().getSnakesList())
-        );
+        this.gameContext.communication.subject.subscribe(msg => {
+            if (msg.hasSnakesupdate()) {
+                this.updateWorms(msg.getSnakesupdate().getSnakesList());
+            }
+            if (msg.hasClientdisconnect()) {
+                console.info('vyhodit hada z mapy');
+                console.info('vymazat sprity hada');
+            }
+        });
     }
 
     updateWorms(worms) {

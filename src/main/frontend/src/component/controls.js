@@ -24,6 +24,15 @@ class Controls {
         this.fpsSubject = new rx.Subject();
         this.scoreUpdateSubject = new rx.Subject();
 
+        // TODO mozna pridat filter
+        this.gameContext.communication.subject.subscribe(msg => {
+            if (msg.hasClientdisconnect()) {
+                console.info('vyhodit hada z top ten');
+
+                this.scoreUpdateSubject.next({id: msg.getClientdisconnect().getId(), type: 'remove'});
+            }
+        });
+
         this.mouseActions.subscribe(event => {
             //console.info(event);
             this.mouseDown = event.buttons > 0;
