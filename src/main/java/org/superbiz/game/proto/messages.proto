@@ -21,6 +21,7 @@ message Message {
 
 message PlayerStartReq {
     string skin = 1;
+    int64 initiated = 2;
 }
 
 message PlayerUpdateReq {
@@ -56,6 +57,7 @@ message DotsUpdate {
 
 message SnakesUpdate {
     repeated SnakeInfo snakes = 1;
+    uint64 serverTimestamp = 2;
 }
 
 //message PlayerMoved {
@@ -86,10 +88,15 @@ message EatenFood {
 
 message SnakeInfo {
     string id = 1;
-    repeated Part path = 2;
-    string skin = 3;
+    float x = 2;
+    float y = 3;
     float rotation = 4;
-    float speed = 5;
+    float rotationAsked = 5;
+    uint32 length = 6;
+    repeated Part parts = 7;
+    float speed = 8;
+    string skin = 9;
+    uint64 lastProcessedOnServer = 10;
 }
 
 message Resize {

@@ -150,6 +150,10 @@ public class GameDataService {
             player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
         } else if (message.hasPlayerStartReq()) {
             player.setSkin(message.getPlayerStartReq().getSkin());
+            snakePositions.createSnake(player);
+            Msg.PlayerResp response = makeCreationResponse(player);
+            byte[] msgBytes = Msg.Message.newBuilder().setPlayerResp(response).build().toByteArray();
+            player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
         } else if (message.hasPlayerUpdateReq()) {
             Msg.PlayerUpdateReq updateReq = message.getPlayerUpdateReq();
             //player.setSkin(message.getPlayerStartReq().getSkin());

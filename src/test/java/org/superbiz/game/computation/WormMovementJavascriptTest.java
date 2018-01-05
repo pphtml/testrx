@@ -2,6 +2,7 @@ package org.superbiz.game.computation;
 
 import org.junit.Test;
 import org.superbiz.game.BaseTest;
+import org.superbiz.game.model.Part;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,13 +15,13 @@ public class WormMovementJavascriptTest extends BaseTest {
 
     @Test
     public void moveSnake() {
-        List<WormMovementJavascript.Part> path = Arrays.asList(WormMovementJavascript.Part.create(20.0f, 10.0f, 0.0f), WormMovementJavascript.Part.create(30.0f, 10.0f, 0.0f));
+        List<Part> path = Arrays.asList(Part.create(20.0f, 10.0f, 0.0f), Part.create(30.0f, 10.0f, 0.0f));
         WormMovementJavascript.MoveSnakeResult result = wormMovement.moveSnake(path, 1.67f, 10.0f, 20.0f);
         assertNotNull(result);
         assertEquals(2, result.getPath().size());
         assertEquals(-0.99041f, result.getX(), ACCEPTABLE_DELTA_FLOATS);
         assertEquals(9.9508333f, result.getY(), ACCEPTABLE_DELTA_FLOATS);
-        final WormMovementJavascript.Part firstPart = result.getPath().get(0);
+        final Part firstPart = result.getPath().get(0);
         assertEquals(19.95083236694336f, firstPart.getY(), ACCEPTABLE_DELTA_FLOATS);
     }
 

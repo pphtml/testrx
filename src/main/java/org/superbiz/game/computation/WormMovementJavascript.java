@@ -1,6 +1,7 @@
 package org.superbiz.game.computation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.superbiz.game.model.Part;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
@@ -33,54 +34,6 @@ public class WormMovementJavascript implements WormMovement {
         } catch (IOException | ScriptException e) {
             logger.log(Level.SEVERE, e.getMessage(), e);
             throw new RuntimeException(e);
-        }
-    }
-
-    static class Part {
-        private float x;
-        private float y;
-        private float r;
-
-        public float getX() {
-            return x;
-        }
-
-        public void setX(float x) {
-            this.x = x;
-        }
-
-        public float getY() {
-            return y;
-        }
-
-        public void setY(float y) {
-            this.y = y;
-        }
-
-        public float getR() {
-            return r;
-        }
-
-        public void setR(float r) {
-            this.r = r;
-        }
-
-        public static Part create(float x, float y, float r) {
-            Part part = new Part();
-            part.x = x;
-            part.y = y;
-            part.r = r;
-            return part;
-        }
-
-        @Override
-        public String toString() {
-            final StringBuilder sb = new StringBuilder("Part{");
-            sb.append("x=").append(x);
-            sb.append(", y=").append(y);
-            sb.append(", r=").append(r);
-            sb.append('}');
-            return sb.toString();
         }
     }
 

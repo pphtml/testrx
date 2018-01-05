@@ -19,6 +19,7 @@ class Player {
 
         const playerStartReq = new proto.PlayerStartReq();
         playerStartReq.setSkin(`${this.skin}`);
+        playerStartReq.setInitiated(Date.now());
         const message = new proto.Message();
         message.setPlayerstartreq(playerStartReq);
         const msgBytes = message.serializeBinary();

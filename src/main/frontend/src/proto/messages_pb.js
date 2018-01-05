@@ -583,7 +583,8 @@ proto.PlayerStartReq.prototype.toObject = function(opt_includeInstance) {
  */
 proto.PlayerStartReq.toObject = function(includeInstance, msg) {
   var f, obj = {
-    skin: jspb.Message.getFieldWithDefault(msg, 1, "")
+    skin: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    initiated: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -624,6 +625,10 @@ proto.PlayerStartReq.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setSkin(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setInitiated(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -660,6 +665,13 @@ proto.PlayerStartReq.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getInitiated();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -675,6 +687,21 @@ proto.PlayerStartReq.prototype.getSkin = function() {
 /** @param {string} value */
 proto.PlayerStartReq.prototype.setSkin = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional int64 initiated = 2;
+ * @return {number}
+ */
+proto.PlayerStartReq.prototype.getInitiated = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.PlayerStartReq.prototype.setInitiated = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -1782,7 +1809,8 @@ proto.SnakesUpdate.prototype.toObject = function(opt_includeInstance) {
 proto.SnakesUpdate.toObject = function(includeInstance, msg) {
   var f, obj = {
     snakesList: jspb.Message.toObjectList(msg.getSnakesList(),
-    proto.SnakeInfo.toObject, includeInstance)
+    proto.SnakeInfo.toObject, includeInstance),
+    servertimestamp: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -1824,6 +1852,10 @@ proto.SnakesUpdate.deserializeBinaryFromReader = function(msg, reader) {
       reader.readMessage(value,proto.SnakeInfo.deserializeBinaryFromReader);
       msg.addSnakes(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setServertimestamp(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -1861,6 +1893,13 @@ proto.SnakesUpdate.serializeBinaryToWriter = function(message, writer) {
       proto.SnakeInfo.serializeBinaryToWriter
     );
   }
+  f = message.getServertimestamp();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -1892,6 +1931,21 @@ proto.SnakesUpdate.prototype.addSnakes = function(opt_value, opt_index) {
 
 proto.SnakesUpdate.prototype.clearSnakesList = function() {
   this.setSnakesList([]);
+};
+
+
+/**
+ * optional uint64 serverTimestamp = 2;
+ * @return {number}
+ */
+proto.SnakesUpdate.prototype.getServertimestamp = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.SnakesUpdate.prototype.setServertimestamp = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -2495,7 +2549,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.SnakeInfo.repeatedFields_ = [2];
+proto.SnakeInfo.repeatedFields_ = [7];
 
 
 
@@ -2527,11 +2581,16 @@ proto.SnakeInfo.prototype.toObject = function(opt_includeInstance) {
 proto.SnakeInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    pathList: jspb.Message.toObjectList(msg.getPathList(),
-    proto.Part.toObject, includeInstance),
-    skin: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    x: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
+    y: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
     rotation: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
-    speed: +jspb.Message.getFieldWithDefault(msg, 5, 0.0)
+    rotationasked: +jspb.Message.getFieldWithDefault(msg, 5, 0.0),
+    length: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    partsList: jspb.Message.toObjectList(msg.getPartsList(),
+    proto.Part.toObject, includeInstance),
+    speed: +jspb.Message.getFieldWithDefault(msg, 8, 0.0),
+    skin: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    lastprocessedonserver: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -2573,13 +2632,12 @@ proto.SnakeInfo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setId(value);
       break;
     case 2:
-      var value = new proto.Part;
-      reader.readMessage(value,proto.Part.deserializeBinaryFromReader);
-      msg.addPath(value);
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setX(value);
       break;
     case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setSkin(value);
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setY(value);
       break;
     case 4:
       var value = /** @type {number} */ (reader.readFloat());
@@ -2587,7 +2645,28 @@ proto.SnakeInfo.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 5:
       var value = /** @type {number} */ (reader.readFloat());
+      msg.setRotationasked(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setLength(value);
+      break;
+    case 7:
+      var value = new proto.Part;
+      reader.readMessage(value,proto.Part.deserializeBinaryFromReader);
+      msg.addParts(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readFloat());
       msg.setSpeed(value);
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSkin(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setLastprocessedonserver(value);
       break;
     default:
       reader.skipField();
@@ -2625,17 +2704,16 @@ proto.SnakeInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getPathList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
+  f = message.getX();
+  if (f !== 0.0) {
+    writer.writeFloat(
       2,
-      f,
-      proto.Part.serializeBinaryToWriter
+      f
     );
   }
-  f = message.getSkin();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getY();
+  if (f !== 0.0) {
+    writer.writeFloat(
       3,
       f
     );
@@ -2647,10 +2725,46 @@ proto.SnakeInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getSpeed();
+  f = message.getRotationasked();
   if (f !== 0.0) {
     writer.writeFloat(
       5,
+      f
+    );
+  }
+  f = message.getLength();
+  if (f !== 0) {
+    writer.writeUint32(
+      6,
+      f
+    );
+  }
+  f = message.getPartsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      7,
+      f,
+      proto.Part.serializeBinaryToWriter
+    );
+  }
+  f = message.getSpeed();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      8,
+      f
+    );
+  }
+  f = message.getSkin();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
+      f
+    );
+  }
+  f = message.getLastprocessedonserver();
+  if (f !== 0) {
+    writer.writeUint64(
+      10,
       f
     );
   }
@@ -2673,48 +2787,32 @@ proto.SnakeInfo.prototype.setId = function(value) {
 
 
 /**
- * repeated Part path = 2;
- * @return {!Array.<!proto.Part>}
+ * optional float x = 2;
+ * @return {number}
  */
-proto.SnakeInfo.prototype.getPathList = function() {
-  return /** @type{!Array.<!proto.Part>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.Part, 2));
+proto.SnakeInfo.prototype.getX = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
 };
 
 
-/** @param {!Array.<!proto.Part>} value */
-proto.SnakeInfo.prototype.setPathList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+/** @param {number} value */
+proto.SnakeInfo.prototype.setX = function(value) {
+  jspb.Message.setProto3FloatField(this, 2, value);
 };
 
 
 /**
- * @param {!proto.Part=} opt_value
- * @param {number=} opt_index
- * @return {!proto.Part}
+ * optional float y = 3;
+ * @return {number}
  */
-proto.SnakeInfo.prototype.addPath = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.Part, opt_index);
+proto.SnakeInfo.prototype.getY = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
-proto.SnakeInfo.prototype.clearPathList = function() {
-  this.setPathList([]);
-};
-
-
-/**
- * optional string skin = 3;
- * @return {string}
- */
-proto.SnakeInfo.prototype.getSkin = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/** @param {string} value */
-proto.SnakeInfo.prototype.setSkin = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+/** @param {number} value */
+proto.SnakeInfo.prototype.setY = function(value) {
+  jspb.Message.setProto3FloatField(this, 3, value);
 };
 
 
@@ -2734,17 +2832,108 @@ proto.SnakeInfo.prototype.setRotation = function(value) {
 
 
 /**
- * optional float speed = 5;
+ * optional float rotationAsked = 5;
  * @return {number}
  */
-proto.SnakeInfo.prototype.getSpeed = function() {
+proto.SnakeInfo.prototype.getRotationasked = function() {
   return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 5, 0.0));
 };
 
 
 /** @param {number} value */
-proto.SnakeInfo.prototype.setSpeed = function(value) {
+proto.SnakeInfo.prototype.setRotationasked = function(value) {
   jspb.Message.setProto3FloatField(this, 5, value);
+};
+
+
+/**
+ * optional uint32 length = 6;
+ * @return {number}
+ */
+proto.SnakeInfo.prototype.getLength = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.SnakeInfo.prototype.setLength = function(value) {
+  jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * repeated Part parts = 7;
+ * @return {!Array.<!proto.Part>}
+ */
+proto.SnakeInfo.prototype.getPartsList = function() {
+  return /** @type{!Array.<!proto.Part>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.Part, 7));
+};
+
+
+/** @param {!Array.<!proto.Part>} value */
+proto.SnakeInfo.prototype.setPartsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 7, value);
+};
+
+
+/**
+ * @param {!proto.Part=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.Part}
+ */
+proto.SnakeInfo.prototype.addParts = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 7, opt_value, proto.Part, opt_index);
+};
+
+
+proto.SnakeInfo.prototype.clearPartsList = function() {
+  this.setPartsList([]);
+};
+
+
+/**
+ * optional float speed = 8;
+ * @return {number}
+ */
+proto.SnakeInfo.prototype.getSpeed = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 8, 0.0));
+};
+
+
+/** @param {number} value */
+proto.SnakeInfo.prototype.setSpeed = function(value) {
+  jspb.Message.setProto3FloatField(this, 8, value);
+};
+
+
+/**
+ * optional string skin = 9;
+ * @return {string}
+ */
+proto.SnakeInfo.prototype.getSkin = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/** @param {string} value */
+proto.SnakeInfo.prototype.setSkin = function(value) {
+  jspb.Message.setProto3StringField(this, 9, value);
+};
+
+
+/**
+ * optional uint64 lastProcessedOnServer = 10;
+ * @return {number}
+ */
+proto.SnakeInfo.prototype.getLastprocessedonserver = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.SnakeInfo.prototype.setLastprocessedonserver = function(value) {
+  jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
