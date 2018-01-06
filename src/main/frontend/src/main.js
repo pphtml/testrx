@@ -106,8 +106,6 @@ function setup() {
     let gameInfo = new GameInfo(gameContext, 10, 10);
     stage.addChild(gameInfo.container);
 
-    gameContext.controls.scoreUpdateSubject.next({id: player.id, length: player.length, currentPlayer: true, type: 'new'});
-
     // var numFramesToAverage = 16;
     // var frameTimeHistory = [];
     // var frameTimeIndex = 0;

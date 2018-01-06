@@ -1,4 +1,18 @@
+- AI had co jezdi dokola
+- rust hada
+- zobrazeni male tabulky hracu
+  - update score jenom kdyz je zmena length
+  - zobrazeni poradoveho cisla
+  - trideni podle score
+  - zobrazovani do 10. mista
+  - zobrazovani currentPlayer
+- info - lepsi formatovani
+  - posledni stav zobrazeni v cookie
+
+
 - protobuf - nastudovat oneOf
+- TO DO appka
+
 https://www.google.de/search?q=most+popular+android+games
 https://www.androidauthority.com/best-android-games-316202/
 https://www.androidauthority.com/best-free-android-games-329736/
@@ -21,13 +35,6 @@ https://www.androidauthority.com/best-free-android-games-329736/
 - pohyb hada - bude skrtit min
   - overit rychlost u firefoxu
   - mezera taky zrychluje
-- zobrazeni male tabulky hracu
-  - zobrazeni poradoveho cisla
-  - trideni podle score
-  - zobrazovani do 10. mista
-  - zobrazovani currentPlayer
-- info - lepsi formatovani
-  - posledni stav zobrazeni v cookie
 - vyzkouset jak dlouho vydrzi sesna na heroku - heroku ps -a <app name> - https://devcenter.heroku.com/articles/free-dyno-hours
 - osetrit odpojeni od socketu (klient)
 - statistika pristupu (do DB)

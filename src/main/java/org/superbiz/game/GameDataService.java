@@ -63,7 +63,6 @@ public class GameDataService {
         this.snakesInterval = Observable.interval(100, MILLISECONDS).map(x -> "S" + x);
         //this.observablePosition.subscribe(this::onPositionChanged);
         this.snakeUpdate = this.snakesInterval.withLatestFrom(snakePositions.getObservableSnakes(),
-                //(timer, snakesUpdate) -> Pair.of(this, snakesUpdate));
                 (timer, snakesUpdate) -> snakesUpdate);
 //
 //        this.snakeUpdate.subscribe(update -> {
