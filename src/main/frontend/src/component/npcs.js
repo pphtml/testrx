@@ -32,13 +32,13 @@ class NPCS {
             () => console.log('complete')
         );
 
-        this.gameContext.communication.subject.filter(msg => msg.hasEatenfood()).subscribe(
+        this.gameContext.communication.subject.filter(msg => msg.hasPlayerresp()).subscribe(
             msg => {
-                const eatenFood = msg.getEatenfood();
-                const roundTrip = Date.now() - eatenFood.getTimeinfo().getInitiated();
-                this.gameContext.gameInfo.roundTrip = roundTrip;
-                // console.info(`Eaten food, roundtrip: ${roundTrip}, processing: ${msg.eatenFood.timeInfo.processing}`);
-                this.eatPositions(eatenFood.getDotsList());
+                const playerResp = msg.getPlayerresp();
+                if (playerResp.getEatenfoodList().length > 0) {
+                    //console.info(`Eaten food: ${playerResp.getEatenfoodList()}`);
+                    this.eatPositions(playerResp.getEatenfoodList());
+                }
             }
         );
     }

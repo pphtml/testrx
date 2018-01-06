@@ -1,6 +1,7 @@
 package org.superbiz.game.computation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.superbiz.game.model.MoveSnakeResult;
 import org.superbiz.game.model.Part;
 
 import javax.script.Invocable;
@@ -10,8 +11,8 @@ import javax.script.ScriptException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,48 +38,8 @@ public class WormMovementJavascript implements WormMovement {
         }
     }
 
-    static class MoveSnakeResult {
-        private List<Part> path;
-        private float x;
-        private float y;
-
-        public List<Part> getPath() {
-            return path;
-        }
-
-        public void setPath(List<Part> path) {
-            this.path = path;
-        }
-
-        public float getX() {
-            return x;
-        }
-
-        public void setX(float x) {
-            this.x = x;
-        }
-
-        public float getY() {
-            return y;
-        }
-
-        public void setY(float y) {
-            this.y = y;
-        }
-
-        @Override
-        public String toString() {
-            final StringBuilder sb = new StringBuilder("MoveSnakeResult{");
-            sb.append("path=").append(path);
-            sb.append(", x=").append(x);
-            sb.append(", y=").append(y);
-            sb.append('}');
-            return sb.toString();
-        }
-    }
-
     @Override
-    public MoveSnakeResult moveSnake(List<Part> snakePath, float angle, float distance, float partDistance) {
+    public MoveSnakeResult moveSnake(Collection<Part> snakePath, float angle, float distance, float partDistance) {
         final Map<String, Object> map = new HashMap<>();
         map.put("snakePath", snakePath);
         map.put("angle", angle);

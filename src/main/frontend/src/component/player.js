@@ -4,21 +4,36 @@
 
 class Player {
     constructor(gameContext, skin) {
-        this.skin = skin;
         this.gameContext = gameContext;
+        this.gameContext.controls.skin = skin;
 
-        this.gameContext.communication.subject.filter(msg => msg.hasEatenfood()).subscribe(
-            msg => {
-                for (const dot of msg.getEatenfood().getDotsList()) {
-                    this.length += (dot.getSize() + 1);
-                }
+        // this.gameContext.communication.subject.filter(msg => msg.hasEatenfood()).subscribe(
+        //     msg => {
+        //         for (const dot of msg.getEatenfood().getDotsList()) {
+        //             this.length += (dot.getSize() + 1);
+        //         }
+        //
+        //         this.gameContext.controls.scoreUpdateSubject.next({id: this.id, length: this.length, currentPlayer: true, type: 'update'});
+        //     }
+        // );
 
-                this.gameContext.controls.scoreUpdateSubject.next({id: this.id, length: this.length, currentPlayer: true, type: 'update'});
-            }
-        );
+        // this.gameContext.communication.subject.filter(msg => msg.hasPlayerresp()).subscribe(
+        //     msg => {
+        //         const playerResp = msg.getPlayerresp();
+        //         if (playerResp.getEatenfoodList().length > 0) {
+        //             for (const dot of playerResp.getEatenfoodList()) {
+        //                 this.length += (dot.getSize() + 1);
+        //             }
+        //
+        //             this.gameContext.controls.scoreUpdateSubject.next({id: this.id, length: this.length, currentPlayer: true, type: 'update'});
+        //
+        //         }
+        //     }
+        // );
+
 
         const playerStartReq = new proto.PlayerStartReq();
-        playerStartReq.setSkin(`${this.skin}`);
+        playerStartReq.setSkin(`${skin}`);
         playerStartReq.setInitiated(Date.now());
         const message = new proto.Message();
         message.setPlayerstartreq(playerStartReq);

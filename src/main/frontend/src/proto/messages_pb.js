@@ -14,7 +14,6 @@ var global = Function('return this')();
 goog.exportSymbol('proto.ClientDisconnect', null, global);
 goog.exportSymbol('proto.Dot', null, global);
 goog.exportSymbol('proto.DotsUpdate', null, global);
-goog.exportSymbol('proto.EatenFood', null, global);
 goog.exportSymbol('proto.Message', null, global);
 goog.exportSymbol('proto.Part', null, global);
 goog.exportSymbol('proto.PlayerResp', null, global);
@@ -78,7 +77,6 @@ proto.Message.toObject = function(includeInstance, msg) {
     worldinfo: (f = msg.getWorldinfo()) && proto.WorldInfo.toObject(includeInstance, f),
     resize: (f = msg.getResize()) && proto.Resize.toObject(includeInstance, f),
     dotsupdate: (f = msg.getDotsupdate()) && proto.DotsUpdate.toObject(includeInstance, f),
-    eatenfood: (f = msg.getEatenfood()) && proto.EatenFood.toObject(includeInstance, f),
     snakesupdate: (f = msg.getSnakesupdate()) && proto.SnakesUpdate.toObject(includeInstance, f),
     clientdisconnect: (f = msg.getClientdisconnect()) && proto.ClientDisconnect.toObject(includeInstance, f)
   };
@@ -146,11 +144,6 @@ proto.Message.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.DotsUpdate;
       reader.readMessage(value,proto.DotsUpdate.deserializeBinaryFromReader);
       msg.setDotsupdate(value);
-      break;
-    case 7:
-      var value = new proto.EatenFood;
-      reader.readMessage(value,proto.EatenFood.deserializeBinaryFromReader);
-      msg.setEatenfood(value);
       break;
     case 8:
       var value = new proto.SnakesUpdate;
@@ -237,14 +230,6 @@ proto.Message.serializeBinaryToWriter = function(message, writer) {
       6,
       f,
       proto.DotsUpdate.serializeBinaryToWriter
-    );
-  }
-  f = message.getEatenfood();
-  if (f != null) {
-    writer.writeMessage(
-      7,
-      f,
-      proto.EatenFood.serializeBinaryToWriter
     );
   }
   f = message.getSnakesupdate();
@@ -443,36 +428,6 @@ proto.Message.prototype.clearDotsupdate = function() {
  */
 proto.Message.prototype.hasDotsupdate = function() {
   return jspb.Message.getField(this, 6) != null;
-};
-
-
-/**
- * optional EatenFood eatenFood = 7;
- * @return {?proto.EatenFood}
- */
-proto.Message.prototype.getEatenfood = function() {
-  return /** @type{?proto.EatenFood} */ (
-    jspb.Message.getWrapperField(this, proto.EatenFood, 7));
-};
-
-
-/** @param {?proto.EatenFood|undefined} value */
-proto.Message.prototype.setEatenfood = function(value) {
-  jspb.Message.setWrapperField(this, 7, value);
-};
-
-
-proto.Message.prototype.clearEatenfood = function() {
-  this.setEatenfood(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.Message.prototype.hasEatenfood = function() {
-  return jspb.Message.getField(this, 7) != null;
 };
 
 
@@ -924,7 +879,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.PlayerResp.repeatedFields_ = [7];
+proto.PlayerResp.repeatedFields_ = [7,9];
 
 
 
@@ -961,7 +916,10 @@ proto.PlayerResp.toObject = function(includeInstance, msg) {
     rotation: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
     length: jspb.Message.getFieldWithDefault(msg, 6, 0),
     partsList: jspb.Message.toObjectList(msg.getPartsList(),
-    proto.Part.toObject, includeInstance)
+    proto.Part.toObject, includeInstance),
+    speed: +jspb.Message.getFieldWithDefault(msg, 8, 0.0),
+    eatenfoodList: jspb.Message.toObjectList(msg.getEatenfoodList(),
+    proto.Dot.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -1023,6 +981,15 @@ proto.PlayerResp.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.Part;
       reader.readMessage(value,proto.Part.deserializeBinaryFromReader);
       msg.addParts(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setSpeed(value);
+      break;
+    case 9:
+      var value = new proto.Dot;
+      reader.readMessage(value,proto.Dot.deserializeBinaryFromReader);
+      msg.addEatenfood(value);
       break;
     default:
       reader.skipField();
@@ -1095,6 +1062,21 @@ proto.PlayerResp.serializeBinaryToWriter = function(message, writer) {
       7,
       f,
       proto.Part.serializeBinaryToWriter
+    );
+  }
+  f = message.getSpeed();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      8,
+      f
+    );
+  }
+  f = message.getEatenfoodList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      9,
+      f,
+      proto.Dot.serializeBinaryToWriter
     );
   }
 };
@@ -1218,6 +1200,52 @@ proto.PlayerResp.prototype.addParts = function(opt_value, opt_index) {
 
 proto.PlayerResp.prototype.clearPartsList = function() {
   this.setPartsList([]);
+};
+
+
+/**
+ * optional float speed = 8;
+ * @return {number}
+ */
+proto.PlayerResp.prototype.getSpeed = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 8, 0.0));
+};
+
+
+/** @param {number} value */
+proto.PlayerResp.prototype.setSpeed = function(value) {
+  jspb.Message.setProto3FloatField(this, 8, value);
+};
+
+
+/**
+ * repeated Dot eatenFood = 9;
+ * @return {!Array.<!proto.Dot>}
+ */
+proto.PlayerResp.prototype.getEatenfoodList = function() {
+  return /** @type{!Array.<!proto.Dot>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.Dot, 9));
+};
+
+
+/** @param {!Array.<!proto.Dot>} value */
+proto.PlayerResp.prototype.setEatenfoodList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 9, value);
+};
+
+
+/**
+ * @param {!proto.Dot=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.Dot}
+ */
+proto.PlayerResp.prototype.addEatenfood = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 9, opt_value, proto.Dot, opt_index);
+};
+
+
+proto.PlayerResp.prototype.clearEatenfoodList = function() {
+  this.setEatenfoodList([]);
 };
 
 
@@ -2311,218 +2339,6 @@ proto.TimeInfo.prototype.getProcessing = function() {
 /** @param {number} value */
 proto.TimeInfo.prototype.setProcessing = function(value) {
   jspb.Message.setProto3IntField(this, 2, value);
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.EatenFood = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.EatenFood.repeatedFields_, null);
-};
-goog.inherits(proto.EatenFood, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.EatenFood.displayName = 'proto.EatenFood';
-}
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.EatenFood.repeatedFields_ = [2];
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.EatenFood.prototype.toObject = function(opt_includeInstance) {
-  return proto.EatenFood.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.EatenFood} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.EatenFood.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    timeinfo: (f = msg.getTimeinfo()) && proto.TimeInfo.toObject(includeInstance, f),
-    dotsList: jspb.Message.toObjectList(msg.getDotsList(),
-    proto.Dot.toObject, includeInstance)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.EatenFood}
- */
-proto.EatenFood.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.EatenFood;
-  return proto.EatenFood.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.EatenFood} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.EatenFood}
- */
-proto.EatenFood.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = new proto.TimeInfo;
-      reader.readMessage(value,proto.TimeInfo.deserializeBinaryFromReader);
-      msg.setTimeinfo(value);
-      break;
-    case 2:
-      var value = new proto.Dot;
-      reader.readMessage(value,proto.Dot.deserializeBinaryFromReader);
-      msg.addDots(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.EatenFood.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.EatenFood.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.EatenFood} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.EatenFood.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getTimeinfo();
-  if (f != null) {
-    writer.writeMessage(
-      1,
-      f,
-      proto.TimeInfo.serializeBinaryToWriter
-    );
-  }
-  f = message.getDotsList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      2,
-      f,
-      proto.Dot.serializeBinaryToWriter
-    );
-  }
-};
-
-
-/**
- * optional TimeInfo timeInfo = 1;
- * @return {?proto.TimeInfo}
- */
-proto.EatenFood.prototype.getTimeinfo = function() {
-  return /** @type{?proto.TimeInfo} */ (
-    jspb.Message.getWrapperField(this, proto.TimeInfo, 1));
-};
-
-
-/** @param {?proto.TimeInfo|undefined} value */
-proto.EatenFood.prototype.setTimeinfo = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
-};
-
-
-proto.EatenFood.prototype.clearTimeinfo = function() {
-  this.setTimeinfo(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.EatenFood.prototype.hasTimeinfo = function() {
-  return jspb.Message.getField(this, 1) != null;
-};
-
-
-/**
- * repeated Dot dots = 2;
- * @return {!Array.<!proto.Dot>}
- */
-proto.EatenFood.prototype.getDotsList = function() {
-  return /** @type{!Array.<!proto.Dot>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.Dot, 2));
-};
-
-
-/** @param {!Array.<!proto.Dot>} value */
-proto.EatenFood.prototype.setDotsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
-};
-
-
-/**
- * @param {!proto.Dot=} opt_value
- * @param {number=} opt_index
- * @return {!proto.Dot}
- */
-proto.EatenFood.prototype.addDots = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.Dot, opt_index);
-};
-
-
-proto.EatenFood.prototype.clearDotsList = function() {
-  this.setDotsList([]);
 };
 
 

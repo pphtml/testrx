@@ -1,6 +1,9 @@
 package org.superbiz.game.model;
 
+import org.superbiz.game.proto.Msg;
+
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class SnakeData {
 //    string id = 1;
@@ -25,76 +28,95 @@ public class SnakeData {
     //private float speedMultiplier;
     private String skin;
     private long lastProcessed;
+    private Iterable<? extends Msg.Part> pathAsProtobuf;
 
     public float getX() {
         return x;
     }
 
-    public void setX(float x) {
+    public SnakeData setX(float x) {
         this.x = x;
+        return this;
     }
 
     public float getY() {
         return y;
     }
 
-    public void setY(float y) {
+    public SnakeData setY(float y) {
         this.y = y;
+        return this;
     }
 
     public float getSpeed() {
         return speed;
     }
 
-    public void setSpeed(float speed) {
+    public SnakeData setSpeed(float speed) {
         this.speed = speed;
+        return this;
     }
 
     public float getRotation() {
         return rotation;
     }
 
-    public void setRotation(float rotation) {
+    public SnakeData setRotation(float rotation) {
         this.rotation = rotation;
+        return this;
     }
 
     public float getRotationAsked() {
         return rotationAsked;
     }
 
-    public void setRotationAsked(float rotationAsked) {
+    public SnakeData setRotationAsked(float rotationAsked) {
         this.rotationAsked = rotationAsked;
+        return this;
     }
 
     public int getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public SnakeData setLength(int length) {
         this.length = length;
+        return this;
     }
 
     public Collection<Part> getPath() {
         return path;
     }
 
-    public void setPath(Collection<Part> path) {
+    public Collection<Msg.Part> getPathAsProtobuf() {
+        return this.path.stream()
+                .map(part -> Msg.Part.newBuilder()
+                        .setX(part.getX())
+                        .setY(part.getY())
+                        .setRotation(part.getR()).build())
+                .collect(Collectors.toList());
+    }
+
+    public SnakeData setPath(Collection<Part> path) {
         this.path = path;
+        return this;
     }
 
     public String getSkin() {
         return skin;
     }
 
-    public void setSkin(String skin) {
+    public SnakeData setSkin(String skin) {
         this.skin = skin;
+        return this;
     }
 
     public long getLastProcessed() {
         return lastProcessed;
     }
 
-    public void setLastProcessed(long lastProcessed) {
+    public SnakeData setLastProcessed(long lastProcessed) {
         this.lastProcessed = lastProcessed;
+        return this;
     }
 }

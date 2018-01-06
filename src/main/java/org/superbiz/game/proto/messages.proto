@@ -14,7 +14,7 @@ message Message {
     WorldInfo worldInfo = 4;
     Resize resize = 5;
     DotsUpdate dotsUpdate = 6;
-    EatenFood eatenFood = 7;
+    //EatenFood eatenFood = 7;
     SnakesUpdate snakesUpdate = 8;
     ClientDisconnect clientDisconnect = 9;
 }
@@ -38,6 +38,8 @@ message PlayerResp {
     //float rotationAsked = 5;
     uint32 length = 6;
     repeated Part parts = 7;
+    float speed = 8;
+    repeated Dot eatenFood = 9;
 }
 
 message WorldInfo {
@@ -81,10 +83,10 @@ message TimeInfo {
     int64 processing = 2;
 }
 
-message EatenFood {
-    TimeInfo timeInfo = 1;
-    repeated Dot dots = 2;
-}
+//message EatenFood {
+//    TimeInfo timeInfo = 1;
+//    repeated Dot dots = 2;
+//}
 
 message SnakeInfo {
     string id = 1;

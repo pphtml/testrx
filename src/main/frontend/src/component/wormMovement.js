@@ -10,6 +10,8 @@ function withinPiBounds(angle) {
         angle >= PI_DOUBLE ? angle - PI_DOUBLE : angle;
 }
 
+module.exports.withinPiBounds = withinPiBounds;
+
 module.exports.moveSnake = function(snakePath, angle, distance, partDistance) {
     // returns path, xStep, yStep
     const path = JSON.parse(JSON.stringify(snakePath));
@@ -38,7 +40,8 @@ module.exports.moveSnake = function(snakePath, angle, distance, partDistance) {
         current.r = angleDiff;
     }
 
-    return {path: path, x: xStep, y: yStep};
+    return {path: path, x: path[0].x, y: path[0].y};
+    //return {path: path, x: xStep, y: yStep};
 };
 
 module.exports.computeAllowedAngle = function(askedAngle, lastAngle, time, baseSpeed, speed) {

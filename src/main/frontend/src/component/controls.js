@@ -1,4 +1,5 @@
 import rx from 'rxjs'
+const withinPiBounds = require('./wormMovement').withinPiBounds;
 
 class Controls {
     constructor(gameContext) {
@@ -7,6 +8,7 @@ class Controls {
         /*document.body.onmousedown = () => this.mouseDown++;
         document.body.onmouseup = () => this.mouseDown--;*/
         this.coordinates = {x: 0.0, y: 0.0};
+        this.skin = 'SET ME UP!';
 
         let mouseDowns = rx.Observable.fromEvent(document, 'mousedown');
         let mouseUps = rx.Observable.fromEvent(document, 'mouseup');
@@ -32,6 +34,9 @@ class Controls {
 
                 this.scoreUpdateSubject.next({id: msg.getClientdisconnect().getId(), type: 'remove'});
             }
+            if (msg.hasPlayerresp()) {
+                this.handlePlayerResp(msg.getPlayerresp());
+            }
         });
 
         this.mouseActions.subscribe(event => {
@@ -50,8 +55,8 @@ class Controls {
             this.gameContext.background.initSprite(this.gameContext.width, this.gameContext.height);
         }
 
-        if (this.gameContext.player) {
-            this.gameContext.player.resize();
+        if (this.gameContext.worms) {
+            this.gameContext.worms.resize();
         }
 
         if (this.gameContext.gameInfo) {
@@ -85,50 +90,57 @@ class Controls {
         if (angle < 0) {
             angle += this.piDouble;
         }
-        return Controls.withinPiBounds(angle);
+        return withinPiBounds(angle);
     }
 
-    static computeAllowedAngle(askedAngle, lastAngle, time, gameContext, baseSpeed, speed) {
-        let allowedDiff = Math.PI / 4200 * time * speed / baseSpeed;
-        let lower = lastAngle - allowedDiff;
-        let upper = lastAngle + allowedDiff;
-        //console.info(lower, upper, askedAngle);
-        let asked2 = askedAngle - Math.PI * 2;
-        let asked3 = askedAngle + Math.PI * 2;
-        //gameContext.gameInfo.message.text = `lower: ${lower.toFixed(2)}, upper: ${upper.toFixed(2)}, asked: ${askedAngle.toFixed(2)}, a2: ${asked2.toFixed(2)}, a3: ${asked3.toFixed(2)}`;
-        if ((lower <= askedAngle && upper >= askedAngle) || (lower <= asked2 && upper >= asked2) || (lower <= asked3 && upper >= asked3)) {
-            return askedAngle;
-        } else {
-            let fromLower = Math.min(Math.abs(lower - askedAngle), Math.abs(lower - asked2), Math.abs(lower - asked3));
-            let fromUpper = Math.min(Math.abs(upper - askedAngle), Math.abs(upper - asked2), Math.abs(upper - asked3))
-            //gameContext.gameInfo.message.text = `fromLower: ${fromLower.toFixed(2)}, fromUpper: ${fromUpper.toFixed(2)}`;
-            if (fromLower < fromUpper) {
-                return Controls.withinPiBounds(lower);
-            } else {
-                return Controls.withinPiBounds(upper);
-            }
-        }
-        // let lower = Controls.withinPiBounds(lastAngle - allowedDiff);
-        // let upper = Controls.withinPiBounds(lastAngle + allowedDiff);
-        // if (lower < upper) {
-        //     if (lower <= askedAngle && upper >= askedAngle) {
-        //         return askedAngle;
-        //     } else {
-        //
-        //     }
-        // } else {
-        //
-        // }
-    }
+    // static computeAllowedAngle(askedAngle, lastAngle, time, gameContext, baseSpeed, speed) {
+    //     let allowedDiff = Math.PI / 4200 * time * speed / baseSpeed;
+    //     let lower = lastAngle - allowedDiff;
+    //     let upper = lastAngle + allowedDiff;
+    //     //console.info(lower, upper, askedAngle);
+    //     let asked2 = askedAngle - Math.PI * 2;
+    //     let asked3 = askedAngle + Math.PI * 2;
+    //     //gameContext.gameInfo.message.text = `lower: ${lower.toFixed(2)}, upper: ${upper.toFixed(2)}, asked: ${askedAngle.toFixed(2)}, a2: ${asked2.toFixed(2)}, a3: ${asked3.toFixed(2)}`;
+    //     if ((lower <= askedAngle && upper >= askedAngle) || (lower <= asked2 && upper >= asked2) || (lower <= asked3 && upper >= asked3)) {
+    //         return askedAngle;
+    //     } else {
+    //         let fromLower = Math.min(Math.abs(lower - askedAngle), Math.abs(lower - asked2), Math.abs(lower - asked3));
+    //         let fromUpper = Math.min(Math.abs(upper - askedAngle), Math.abs(upper - asked2), Math.abs(upper - asked3))
+    //         //gameContext.gameInfo.message.text = `fromLower: ${fromLower.toFixed(2)}, fromUpper: ${fromUpper.toFixed(2)}`;
+    //         if (fromLower < fromUpper) {
+    //             return Controls.withinPiBounds(lower);
+    //         } else {
+    //             return Controls.withinPiBounds(upper);
+    //         }
+    //     }
+    //     // let lower = Controls.withinPiBounds(lastAngle - allowedDiff);
+    //     // let upper = Controls.withinPiBounds(lastAngle + allowedDiff);
+    //     // if (lower < upper) {
+    //     //     if (lower <= askedAngle && upper >= askedAngle) {
+    //     //         return askedAngle;
+    //     //     } else {
+    //     //
+    //     //     }
+    //     // } else {
+    //     //
+    //     // }
+    // }
+    //
+    // static withinPiBounds(angle) {
+    //     // while (angle < 0.0) {
+    //     //     angle += Math.PI * 2;
+    //     // }
+    //     // return angle % Math.PI * 2;
+    //     return angle < 0.0 ? angle + Math.PI * 2 :   // TODO pouzij konstantu
+    //         angle >= Math.PI * 2 ? angle - Math.PI * 2 : angle;
+    //
+    // }
 
-    static withinPiBounds(angle) {
-        // while (angle < 0.0) {
-        //     angle += Math.PI * 2;
-        // }
-        // return angle % Math.PI * 2;
-        return angle < 0.0 ? angle + Math.PI * 2 :   // TODO pouzij konstantu
-            angle >= Math.PI * 2 ? angle - Math.PI * 2 : angle;
+    handlePlayerResp(playerResp) {
+        this.coordinates = {x: playerResp.getX(), y: playerResp.getY()};
 
+        const roundTrip = Date.now() - playerResp.getTimeinfo().getInitiated();
+        this.gameContext.gameInfo.roundTrip = roundTrip;
     }
 }
 

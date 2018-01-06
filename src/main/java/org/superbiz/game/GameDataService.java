@@ -7,8 +7,9 @@ import com.github.davidmoten.rtree.geometry.Circle;
 import com.github.davidmoten.rtree.geometry.Point;
 import com.github.davidmoten.rtree.geometry.Rectangle;
 import io.netty.buffer.Unpooled;
+import org.superbiz.game.model.Part;
+import org.superbiz.game.model.SnakeData;
 import org.superbiz.game.proto.Msg;
-import ratpack.func.Pair;
 import rx.Observable;
 
 import javax.inject.Inject;
@@ -119,8 +120,7 @@ public class GameDataService {
     }
 
     public void processMessage(Msg.Message message, Player player) {
-        if (message.hasPlayerUpdateReq()) {
-
+//        if (message.hasPlayerUpdateReq()) {
 //        if (message.hasPlayerMoved()) {
 //            final long processingStart = System.nanoTime();
 //            final Point position = point(message.getPlayerMoved().getX(), message.getPlayerMoved().getY());
@@ -141,7 +141,7 @@ public class GameDataService {
 //                //String jsonMsg = MessageBuilder.create().setEatenFood(eatenFood).toJson();
 //                player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
 //            }
-        } else if (message.hasResize()) {
+        if (message.hasResize()) {
             player.setViewSize(point(message.getResize().getWidth(), message.getResize().getHeight()));
             Msg.DotsUpdate response = getDotsUpdate(player, null);
             //String jsonMsg = MessageBuilder.create().setDotsUpdate(response).toJson();
@@ -149,22 +149,36 @@ public class GameDataService {
             //logger.info(String.format("TODO: %s", jsonMsg));
             player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
         } else if (message.hasPlayerStartReq()) {
-            player.setSkin(message.getPlayerStartReq().getSkin());
-            snakePositions.createSnake(player);
-            Msg.PlayerResp response = makeCreationResponse(player);
+            final Msg.PlayerStartReq playerStartReq = message.getPlayerStartReq();
+            player.setSkin(playerStartReq.getSkin());
+            final SnakeData snakeData = snakePositions.createAndRegisterSnake(player);
+            Msg.PlayerResp response = makeCreationResponse(snakeData, playerStartReq);
             byte[] msgBytes = Msg.Message.newBuilder().setPlayerResp(response).build().toByteArray();
             player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
         } else if (message.hasPlayerUpdateReq()) {
             Msg.PlayerUpdateReq updateReq = message.getPlayerUpdateReq();
-            //player.setSkin(message.getPlayerStartReq().getSkin());
+            Optional<SnakeData> snakeData = snakePositions.moveSnake(player.getId(), updateReq);
+            if (snakeData.isPresent()) {
+                Part head = snakeData.get().getPath().iterator().next();
+                Point position = point(head.getX(), head.getY()); // mozna nekam zpropagovat
+                Msg.PlayerResp.Builder response = makePlayerUpdateResponse(snakeData.get(), updateReq);
+                Collection<Msg.Dot> eatenFood = eatFood(player, position);
+                if (!eatenFood.isEmpty()) {
+                    logger.info(String.format("Je tu zradlo @%s", position));
+                    response.addAllEatenFood(eatenFood);
+                }
+
+                byte[] msgBytes = Msg.Message.newBuilder().setPlayerResp(response).build().toByteArray();
+                player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
+            }
         } else {
             logger.info(String.format("UNIMPLEMENTED %s",  message));
         }
     }
 
-    private Optional<Msg.EatenFood.Builder> eatFood(Player player, Point position) {
+    private Collection<Msg.Dot> eatFood(Player player, Point position) {
         if (position != null) {
-            List<Msg.Dot> matchingDots = new ArrayList<>();
+            Collection<Msg.Dot> matchingDots = new ArrayList<>();
             Circle foodCircle = player.getEatingCircle(position);
             Observable<Entry<Dot, Point>> foodSearch = dotTree.search(foodCircle);
             foodSearch.forEach(food -> {
@@ -172,9 +186,9 @@ public class GameDataService {
                 dotTree = dotTree.delete(food.value(), food.geometry());
                 matchingDots.add(food.value().getProtoDot());
             });
-            return Optional.of(Msg.EatenFood.newBuilder().addAllDots(matchingDots));
+            return matchingDots;
         } else {
-            return Optional.empty();
+            return Collections.emptyList();
         }
     }
 
@@ -185,5 +199,49 @@ public class GameDataService {
         //String jsonMsg = MessageBuilder.create().setDotsUpdate(response).toJson();
         //logger.info(String.format("TODO: %s", jsonMsg));
         player.getWebSocket().send(Unpooled.wrappedBuffer(msg));
+    }
+
+    private Msg.PlayerResp makeCreationResponse(SnakeData snakeData, Msg.PlayerStartReq request) {
+        // string id = 1;
+        // float x = 2;
+        // float y = 3;
+        // float rotation = 4;
+        // float rotationAsked = 5;
+        // uint32 length = 6;
+        // repeated Part parts = 7;
+        // float speed = 8;
+        // string skin = 9;
+        // uint64 lastProcessedOnServer = 10;
+
+        // TimeInfo timeInfo = 1;
+        // float x = 2;
+        // float y = 3;
+        // float rotation = 4;
+        // //float rotationAsked = 5;
+        // uint32 length = 6;
+        // repeated Part parts = 7;
+
+        Msg.PlayerResp response = Msg.PlayerResp.newBuilder()
+                .setX(snakeData.getX())
+                .setY(snakeData.getY())
+                .setRotation(snakeData.getRotation())
+                // asked rotation ???
+                .setLength(snakeData.getLength())
+                .addAllParts(snakeData.getPathAsProtobuf())
+                .setTimeInfo(Msg.TimeInfo.newBuilder().setInitiated(request.getInitiated()).setProcessing(0L))
+                .build();
+        return response;
+    }
+
+    private Msg.PlayerResp.Builder makePlayerUpdateResponse(SnakeData snakeData, Msg.PlayerUpdateReq updateReq) {
+        Msg.PlayerResp.Builder response = Msg.PlayerResp.newBuilder()
+                .setX(snakeData.getX())
+                .setY(snakeData.getY())
+                .setRotation(snakeData.getRotation())
+                // asked rotation ???
+                .setLength(snakeData.getLength())
+                .addAllParts(snakeData.getPathAsProtobuf()) // TODO nechat pocitat klienta
+                .setTimeInfo(Msg.TimeInfo.newBuilder().setInitiated(updateReq.getInitiated()).setProcessing(0L));
+        return response;
     }
 }
