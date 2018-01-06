@@ -107,8 +107,8 @@ public class GameDataService {
         System.out.println(all);
     }*/
 
-    public Msg.DotsUpdate getDotsUpdate(Player player, Point position) {
-        Rectangle viewport = player.getViewport(position);
+    public Msg.DotsUpdate getDotsUpdate(Player player/*, Point position*/) {
+        Rectangle viewport = player.getViewport(/*position*/);
         //logger.info(String.format("Viewport: %s", viewport));
         Observable<Entry<Dot, Point>> search = dotTree.search(viewport);
         Observable<List<Dot>> list = search.map(entry -> entry.value()).toList().single();
@@ -143,7 +143,7 @@ public class GameDataService {
 //            }
         if (message.hasResize()) {
             player.setViewSize(point(message.getResize().getWidth(), message.getResize().getHeight()));
-            Msg.DotsUpdate response = getDotsUpdate(player, null);
+            Msg.DotsUpdate response = getDotsUpdate(player);
             //String jsonMsg = MessageBuilder.create().setDotsUpdate(response).toJson();
             byte[] msgBytes = Msg.Message.newBuilder().setDotsUpdate(response).build().toByteArray();
             //logger.info(String.format("TODO: %s", jsonMsg));
@@ -160,11 +160,12 @@ public class GameDataService {
             Optional<SnakeData> snakeData = snakePositions.moveSnake(player.getId(), updateReq);
             if (snakeData.isPresent()) {
                 Part head = snakeData.get().getPath().iterator().next();
-                Point position = point(head.getX(), head.getY()); // mozna nekam zpropagovat
+                Point position = point(head.getX(), head.getY());
+                player.setPosition(position);
                 Msg.PlayerResp.Builder response = makePlayerUpdateResponse(snakeData.get(), updateReq);
                 Collection<Msg.Dot> eatenFood = eatFood(player, position);
                 if (!eatenFood.isEmpty()) {
-                    logger.info(String.format("Je tu zradlo @%s", position));
+                    //logger.info(String.format("Je tu zradlo @%s", position));
                     response.addAllEatenFood(eatenFood);
                 }
 
@@ -192,9 +193,9 @@ public class GameDataService {
         }
     }
 
-    public void processPeriodicUpdate(Player player, Point position) {
+    public void processPeriodicUpdate(Player player) {
         //logger.info(String.format("Player %s, update at position %s",  player.getId(), position));
-        Msg.DotsUpdate response = getDotsUpdate(player, position);
+        Msg.DotsUpdate response = getDotsUpdate(player);
         byte[] msg = Msg.Message.newBuilder().setDotsUpdate(response).build().toByteArray();
         //String jsonMsg = MessageBuilder.create().setDotsUpdate(response).toJson();
         //logger.info(String.format("TODO: %s", jsonMsg));

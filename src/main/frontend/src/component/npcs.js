@@ -27,7 +27,10 @@ class NPCS {
         this.dots = {};
 
         this.gameContext.communication.subject.filter(msg => msg.hasDotsupdate()).subscribe(
-            (msg) => this.addPositions(msg.getDotsupdate().getDotsList()),
+            (msg) => {
+                //console.info(`velikost update: ${msg.getDotsupdate().getDotsList().length}`);
+                this.addPositions(msg.getDotsupdate().getDotsList());
+            },
             (err) => console.log(err),
             () => console.log('complete')
         );

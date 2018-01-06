@@ -75,8 +75,8 @@ public class GameHandler implements Handler {
                     players.put(playerId, player);
 
                     // dots update so far...
-                    player.getPeriodicUpdate().subscribe(update -> {
-                        gameDataService.processPeriodicUpdate(update.left, update.right);
+                    player.getPeriodicUpdate().subscribe(player1 -> { // TODO mozna zjednodusit
+                        gameDataService.processPeriodicUpdate(player1);
                     });
 
                     Msg.WorldInfo.Builder worldInfo = Msg.WorldInfo.newBuilder().setRadius(3000);
