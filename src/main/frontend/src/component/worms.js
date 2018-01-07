@@ -35,19 +35,13 @@ class Worms {
     }
 
     updateWorms(worms) {
-        // for (let i = this.container.children.length - 1; i >= 0; i--) {
-        //     let sprite = this.container.children[i];
-        //     this.container.removeChild(sprite);
-        // }
-
         for (const wormData of worms) {
             const id = wormData.getId();
-            // if (this.gameContext.featureMatrix.drawOwnSnakeFromServer)
-            if (this.gameContext.communication.commId != id || this.gameContext.featureMatrix.drawOwnSnakeFromServer) {
-                //console.info(`${id} -> ${JSON.stringify(wormData)}`);
+            if (this.gameContext.communication.commId != id) {
                 const path = wormData.getPathList().map(part => {
                     return { x: part.getX(), y: part.getY(), r: part.getRotation() };
                 });
+                //console.info(`${id} -> ${JSON.stringify(path)}`);
                 const skin = wormData.getSkin();
                 const rotation = wormData.getRotation();
                 const speed = wormData.getSpeed();
@@ -61,35 +55,6 @@ class Worms {
                     //console.info(`updateFromServer ${path[0].x}, ${path[0].y}`);
                     existingWorm.updateFromServer({speed: speed, rotation: rotation, path: path});
                 }
-
-                //console.info(worm);
-
-
-                // for (let index = path.length - 1; index >= 0; index--) {
-                //     let part = path[index];
-                //     let sprite = index == 0 ? this.head_sprite_factory() : this.tail_sprite_factory();
-                //     console.info(sprite);
-                //     // sprite.x = part.x;
-                //     // sprite.y = part.y;
-                //     sprite.position.set(part.x, part.y);
-                //     sprite.rotation = part.r;
-                //     this.container.addChild(sprite);
-                //
-
-                // let rectangle = new Graphics();
-                // rectangle.beginFill(0x0033CC);
-                // rectangle.lineStyle(4, 0xFF0000, 1);
-                // rectangle.drawRect(0, 0, 96, 96);
-                // rectangle.endFill();
-                // rectangle.x = 0;
-                // rectangle.y = 0;
-                // rectangle.alpha = 0.5;
-                // this.container.addChild(rectangle);
-
-
-                //worm.container.addChild(sprite);
-                //
-                // }
             }
         }
     }
@@ -108,7 +73,9 @@ class Worms {
     update(elapsedTime) {
         this.updatePosition();
         for (const [id, worm] of Object.entries(this.map)) {
-            worm.update(elapsedTime);
+            if (this.gameContext.communication.commId == id) {
+                worm.update(elapsedTime);
+            }
         }
     }
 

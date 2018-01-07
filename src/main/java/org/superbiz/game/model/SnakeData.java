@@ -29,6 +29,7 @@ public class SnakeData {
     private String skin;
     private long lastProcessed;
     private Iterable<? extends Msg.Part> pathAsProtobuf;
+    private boolean aiDriven = false;
 
     public float getX() {
         return x;
@@ -118,5 +119,13 @@ public class SnakeData {
     public SnakeData setLastProcessed(long lastProcessed) {
         this.lastProcessed = lastProcessed;
         return this;
+    }
+
+    public boolean isAiDriven() {
+        return aiDriven;
+    }
+
+    public void setAiDriven(boolean aiDriven) {
+        this.aiDriven = aiDriven;
     }
 }

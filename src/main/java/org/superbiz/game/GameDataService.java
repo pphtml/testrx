@@ -1,6 +1,5 @@
 package org.superbiz.game;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.davidmoten.rtree.Entry;
 import com.github.davidmoten.rtree.RTree;
 import com.github.davidmoten.rtree.geometry.Circle;
@@ -37,7 +36,6 @@ public class GameDataService {
     private final int colorCount;
     private final int levelCount;
 
-    private final ObjectMapper mapper = new ObjectMapper();
     private final WorldGeometry worldGeometry;
 
     private RTree<Dot, Point> dotTree;
@@ -62,8 +60,7 @@ public class GameDataService {
 
         this.snakesInterval = Observable.interval(100, MILLISECONDS).map(x -> "S" + x);
         //this.observablePosition.subscribe(this::onPositionChanged);
-        this.snakeUpdate = this.snakesInterval.withLatestFrom(snakePositions.getObservableSnakes(),
-                (timer, snakesUpdate) -> snakesUpdate);
+        this.snakeUpdate = this.snakesInterval.map(timer -> snakePositions.getUpdateMessage());
 //
 //        this.snakeUpdate.subscribe(update -> {
 //            logger.info(String.format("%s", update));
@@ -156,7 +153,7 @@ public class GameDataService {
             player.getWebSocket().send(Unpooled.wrappedBuffer(msgBytes));
         } else if (message.hasPlayerUpdateReq()) {
             Msg.PlayerUpdateReq updateReq = message.getPlayerUpdateReq();
-            Optional<SnakeData> snakeData = snakePositions.moveSnake(player.getId(), updateReq);
+            Optional<SnakeData> snakeData = snakePositions.moveSnakeByPlayerUpdate(player.getId(), updateReq);
             if (snakeData.isPresent()) {
                 Part head = snakeData.get().getPath().iterator().next();
                 Point position = point(head.getX(), head.getY());

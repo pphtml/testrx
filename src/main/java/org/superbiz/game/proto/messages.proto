@@ -37,7 +37,7 @@ message PlayerResp {
     float rotation = 4;
     //float rotationAsked = 5;
     uint32 length = 6;
-    repeated Part parts = 7;
+    repeated Part parts = 7; // prejmenovat na path
     float speed = 8;
     repeated Dot eatenFood = 9;
 }
@@ -95,7 +95,7 @@ message SnakeInfo {
     float rotation = 4;
     float rotationAsked = 5;
     uint32 length = 6;
-    repeated Part parts = 7;
+    repeated Part path = 7;
     float speed = 8;
     string skin = 9;
     uint64 lastProcessedOnServer = 10;

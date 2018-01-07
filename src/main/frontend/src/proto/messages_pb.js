@@ -2402,7 +2402,7 @@ proto.SnakeInfo.toObject = function(includeInstance, msg) {
     rotation: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
     rotationasked: +jspb.Message.getFieldWithDefault(msg, 5, 0.0),
     length: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    partsList: jspb.Message.toObjectList(msg.getPartsList(),
+    pathList: jspb.Message.toObjectList(msg.getPathList(),
     proto.Part.toObject, includeInstance),
     speed: +jspb.Message.getFieldWithDefault(msg, 8, 0.0),
     skin: jspb.Message.getFieldWithDefault(msg, 9, ""),
@@ -2470,7 +2470,7 @@ proto.SnakeInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 7:
       var value = new proto.Part;
       reader.readMessage(value,proto.Part.deserializeBinaryFromReader);
-      msg.addParts(value);
+      msg.addPath(value);
       break;
     case 8:
       var value = /** @type {number} */ (reader.readFloat());
@@ -2555,7 +2555,7 @@ proto.SnakeInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getPartsList();
+  f = message.getPathList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       7,
@@ -2678,17 +2678,17 @@ proto.SnakeInfo.prototype.setLength = function(value) {
 
 
 /**
- * repeated Part parts = 7;
+ * repeated Part path = 7;
  * @return {!Array.<!proto.Part>}
  */
-proto.SnakeInfo.prototype.getPartsList = function() {
+proto.SnakeInfo.prototype.getPathList = function() {
   return /** @type{!Array.<!proto.Part>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.Part, 7));
 };
 
 
 /** @param {!Array.<!proto.Part>} value */
-proto.SnakeInfo.prototype.setPartsList = function(value) {
+proto.SnakeInfo.prototype.setPathList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 7, value);
 };
 
@@ -2698,13 +2698,13 @@ proto.SnakeInfo.prototype.setPartsList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.Part}
  */
-proto.SnakeInfo.prototype.addParts = function(opt_value, opt_index) {
+proto.SnakeInfo.prototype.addPath = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 7, opt_value, proto.Part, opt_index);
 };
 
 
-proto.SnakeInfo.prototype.clearPartsList = function() {
-  this.setPartsList([]);
+proto.SnakeInfo.prototype.clearPathList = function() {
+  this.setPathList([]);
 };
 
 

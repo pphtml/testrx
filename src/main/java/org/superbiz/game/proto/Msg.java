@@ -3289,24 +3289,44 @@ public final class Msg {
     int getLength();
 
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     java.util.List<org.superbiz.game.proto.Msg.Part> 
         getPartsList();
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     org.superbiz.game.proto.Msg.Part getParts(int index);
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     int getPartsCount();
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
         getPartsOrBuilderList();
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     org.superbiz.game.proto.Msg.PartOrBuilder getPartsOrBuilder(
@@ -3545,12 +3565,20 @@ public final class Msg {
     public static final int PARTS_FIELD_NUMBER = 7;
     private java.util.List<org.superbiz.game.proto.Msg.Part> parts_;
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     public java.util.List<org.superbiz.game.proto.Msg.Part> getPartsList() {
       return parts_;
     }
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     public java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
@@ -3558,18 +3586,30 @@ public final class Msg {
       return parts_;
     }
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     public int getPartsCount() {
       return parts_.size();
     }
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     public org.superbiz.game.proto.Msg.Part getParts(int index) {
       return parts_.get(index);
     }
     /**
+     * <pre>
+     * prejmenovat na path
+     * </pre>
+     *
      * <code>repeated .Part parts = 7;</code>
      */
     public org.superbiz.game.proto.Msg.PartOrBuilder getPartsOrBuilder(
@@ -4374,6 +4414,10 @@ public final class Msg {
           org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder> partsBuilder_;
 
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public java.util.List<org.superbiz.game.proto.Msg.Part> getPartsList() {
@@ -4384,6 +4428,10 @@ public final class Msg {
         }
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public int getPartsCount() {
@@ -4394,6 +4442,10 @@ public final class Msg {
         }
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public org.superbiz.game.proto.Msg.Part getParts(int index) {
@@ -4404,6 +4456,10 @@ public final class Msg {
         }
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public Builder setParts(
@@ -4421,6 +4477,10 @@ public final class Msg {
         return this;
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public Builder setParts(
@@ -4435,6 +4495,10 @@ public final class Msg {
         return this;
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public Builder addParts(org.superbiz.game.proto.Msg.Part value) {
@@ -4451,6 +4515,10 @@ public final class Msg {
         return this;
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public Builder addParts(
@@ -4468,6 +4536,10 @@ public final class Msg {
         return this;
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public Builder addParts(
@@ -4482,6 +4554,10 @@ public final class Msg {
         return this;
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public Builder addParts(
@@ -4496,6 +4572,10 @@ public final class Msg {
         return this;
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public Builder addAllParts(
@@ -4511,6 +4591,10 @@ public final class Msg {
         return this;
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public Builder clearParts() {
@@ -4524,6 +4608,10 @@ public final class Msg {
         return this;
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public Builder removeParts(int index) {
@@ -4537,6 +4625,10 @@ public final class Msg {
         return this;
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public org.superbiz.game.proto.Msg.Part.Builder getPartsBuilder(
@@ -4544,6 +4636,10 @@ public final class Msg {
         return getPartsFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public org.superbiz.game.proto.Msg.PartOrBuilder getPartsOrBuilder(
@@ -4554,6 +4650,10 @@ public final class Msg {
         }
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
@@ -4565,6 +4665,10 @@ public final class Msg {
         }
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public org.superbiz.game.proto.Msg.Part.Builder addPartsBuilder() {
@@ -4572,6 +4676,10 @@ public final class Msg {
             org.superbiz.game.proto.Msg.Part.getDefaultInstance());
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public org.superbiz.game.proto.Msg.Part.Builder addPartsBuilder(
@@ -4580,6 +4688,10 @@ public final class Msg {
             index, org.superbiz.game.proto.Msg.Part.getDefaultInstance());
       }
       /**
+       * <pre>
+       * prejmenovat na path
+       * </pre>
+       *
        * <code>repeated .Part parts = 7;</code>
        */
       public java.util.List<org.superbiz.game.proto.Msg.Part.Builder> 
@@ -8735,27 +8847,27 @@ public final class Msg {
     int getLength();
 
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
     java.util.List<org.superbiz.game.proto.Msg.Part> 
-        getPartsList();
+        getPathList();
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
-    org.superbiz.game.proto.Msg.Part getParts(int index);
+    org.superbiz.game.proto.Msg.Part getPath(int index);
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
-    int getPartsCount();
+    int getPathCount();
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
     java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
-        getPartsOrBuilderList();
+        getPathOrBuilderList();
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
-    org.superbiz.game.proto.Msg.PartOrBuilder getPartsOrBuilder(
+    org.superbiz.game.proto.Msg.PartOrBuilder getPathOrBuilder(
         int index);
 
     /**
@@ -8797,7 +8909,7 @@ public final class Msg {
       rotation_ = 0F;
       rotationAsked_ = 0F;
       length_ = 0;
-      parts_ = java.util.Collections.emptyList();
+      path_ = java.util.Collections.emptyList();
       speed_ = 0F;
       skin_ = "";
       lastProcessedOnServer_ = 0L;
@@ -8867,10 +8979,10 @@ public final class Msg {
             }
             case 58: {
               if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-                parts_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Part>();
+                path_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Part>();
                 mutable_bitField0_ |= 0x00000040;
               }
-              parts_.add(
+              path_.add(
                   input.readMessage(org.superbiz.game.proto.Msg.Part.parser(), extensionRegistry));
               break;
             }
@@ -8899,7 +9011,7 @@ public final class Msg {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-          parts_ = java.util.Collections.unmodifiableList(parts_);
+          path_ = java.util.Collections.unmodifiableList(path_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -8997,39 +9109,39 @@ public final class Msg {
       return length_;
     }
 
-    public static final int PARTS_FIELD_NUMBER = 7;
-    private java.util.List<org.superbiz.game.proto.Msg.Part> parts_;
+    public static final int PATH_FIELD_NUMBER = 7;
+    private java.util.List<org.superbiz.game.proto.Msg.Part> path_;
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
-    public java.util.List<org.superbiz.game.proto.Msg.Part> getPartsList() {
-      return parts_;
+    public java.util.List<org.superbiz.game.proto.Msg.Part> getPathList() {
+      return path_;
     }
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
     public java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
-        getPartsOrBuilderList() {
-      return parts_;
+        getPathOrBuilderList() {
+      return path_;
     }
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
-    public int getPartsCount() {
-      return parts_.size();
+    public int getPathCount() {
+      return path_.size();
     }
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
-    public org.superbiz.game.proto.Msg.Part getParts(int index) {
-      return parts_.get(index);
+    public org.superbiz.game.proto.Msg.Part getPath(int index) {
+      return path_.get(index);
     }
     /**
-     * <code>repeated .Part parts = 7;</code>
+     * <code>repeated .Part path = 7;</code>
      */
-    public org.superbiz.game.proto.Msg.PartOrBuilder getPartsOrBuilder(
+    public org.superbiz.game.proto.Msg.PartOrBuilder getPathOrBuilder(
         int index) {
-      return parts_.get(index);
+      return path_.get(index);
     }
 
     public static final int SPEED_FIELD_NUMBER = 8;
@@ -9114,8 +9226,8 @@ public final class Msg {
       if (length_ != 0) {
         output.writeUInt32(6, length_);
       }
-      for (int i = 0; i < parts_.size(); i++) {
-        output.writeMessage(7, parts_.get(i));
+      for (int i = 0; i < path_.size(); i++) {
+        output.writeMessage(7, path_.get(i));
       }
       if (speed_ != 0F) {
         output.writeFloat(8, speed_);
@@ -9157,9 +9269,9 @@ public final class Msg {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, length_);
       }
-      for (int i = 0; i < parts_.size(); i++) {
+      for (int i = 0; i < path_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, parts_.get(i));
+          .computeMessageSize(7, path_.get(i));
       }
       if (speed_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
@@ -9208,8 +9320,8 @@ public final class Msg {
               other.getRotationAsked()));
       result = result && (getLength()
           == other.getLength());
-      result = result && getPartsList()
-          .equals(other.getPartsList());
+      result = result && getPathList()
+          .equals(other.getPathList());
       result = result && (
           java.lang.Float.floatToIntBits(getSpeed())
           == java.lang.Float.floatToIntBits(
@@ -9245,9 +9357,9 @@ public final class Msg {
           getRotationAsked());
       hash = (37 * hash) + LENGTH_FIELD_NUMBER;
       hash = (53 * hash) + getLength();
-      if (getPartsCount() > 0) {
-        hash = (37 * hash) + PARTS_FIELD_NUMBER;
-        hash = (53 * hash) + getPartsList().hashCode();
+      if (getPathCount() > 0) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPathList().hashCode();
       }
       hash = (37 * hash) + SPEED_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
@@ -9382,7 +9494,7 @@ public final class Msg {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getPartsFieldBuilder();
+          getPathFieldBuilder();
         }
       }
       public Builder clear() {
@@ -9399,11 +9511,11 @@ public final class Msg {
 
         length_ = 0;
 
-        if (partsBuilder_ == null) {
-          parts_ = java.util.Collections.emptyList();
+        if (pathBuilder_ == null) {
+          path_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000040);
         } else {
-          partsBuilder_.clear();
+          pathBuilder_.clear();
         }
         speed_ = 0F;
 
@@ -9441,14 +9553,14 @@ public final class Msg {
         result.rotation_ = rotation_;
         result.rotationAsked_ = rotationAsked_;
         result.length_ = length_;
-        if (partsBuilder_ == null) {
+        if (pathBuilder_ == null) {
           if (((bitField0_ & 0x00000040) == 0x00000040)) {
-            parts_ = java.util.Collections.unmodifiableList(parts_);
+            path_ = java.util.Collections.unmodifiableList(path_);
             bitField0_ = (bitField0_ & ~0x00000040);
           }
-          result.parts_ = parts_;
+          result.path_ = path_;
         } else {
-          result.parts_ = partsBuilder_.build();
+          result.path_ = pathBuilder_.build();
         }
         result.speed_ = speed_;
         result.skin_ = skin_;
@@ -9514,29 +9626,29 @@ public final class Msg {
         if (other.getLength() != 0) {
           setLength(other.getLength());
         }
-        if (partsBuilder_ == null) {
-          if (!other.parts_.isEmpty()) {
-            if (parts_.isEmpty()) {
-              parts_ = other.parts_;
+        if (pathBuilder_ == null) {
+          if (!other.path_.isEmpty()) {
+            if (path_.isEmpty()) {
+              path_ = other.path_;
               bitField0_ = (bitField0_ & ~0x00000040);
             } else {
-              ensurePartsIsMutable();
-              parts_.addAll(other.parts_);
+              ensurePathIsMutable();
+              path_.addAll(other.path_);
             }
             onChanged();
           }
         } else {
-          if (!other.parts_.isEmpty()) {
-            if (partsBuilder_.isEmpty()) {
-              partsBuilder_.dispose();
-              partsBuilder_ = null;
-              parts_ = other.parts_;
+          if (!other.path_.isEmpty()) {
+            if (pathBuilder_.isEmpty()) {
+              pathBuilder_.dispose();
+              pathBuilder_ = null;
+              path_ = other.path_;
               bitField0_ = (bitField0_ & ~0x00000040);
-              partsBuilder_ = 
+              pathBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getPartsFieldBuilder() : null;
+                   getPathFieldBuilder() : null;
             } else {
-              partsBuilder_.addAllMessages(other.parts_);
+              pathBuilder_.addAllMessages(other.path_);
             }
           }
         }
@@ -9777,244 +9889,244 @@ public final class Msg {
         return this;
       }
 
-      private java.util.List<org.superbiz.game.proto.Msg.Part> parts_ =
+      private java.util.List<org.superbiz.game.proto.Msg.Part> path_ =
         java.util.Collections.emptyList();
-      private void ensurePartsIsMutable() {
+      private void ensurePathIsMutable() {
         if (!((bitField0_ & 0x00000040) == 0x00000040)) {
-          parts_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Part>(parts_);
+          path_ = new java.util.ArrayList<org.superbiz.game.proto.Msg.Part>(path_);
           bitField0_ |= 0x00000040;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder> partsBuilder_;
+          org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder> pathBuilder_;
 
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public java.util.List<org.superbiz.game.proto.Msg.Part> getPartsList() {
-        if (partsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(parts_);
+      public java.util.List<org.superbiz.game.proto.Msg.Part> getPathList() {
+        if (pathBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(path_);
         } else {
-          return partsBuilder_.getMessageList();
+          return pathBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public int getPartsCount() {
-        if (partsBuilder_ == null) {
-          return parts_.size();
+      public int getPathCount() {
+        if (pathBuilder_ == null) {
+          return path_.size();
         } else {
-          return partsBuilder_.getCount();
+          return pathBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public org.superbiz.game.proto.Msg.Part getParts(int index) {
-        if (partsBuilder_ == null) {
-          return parts_.get(index);
+      public org.superbiz.game.proto.Msg.Part getPath(int index) {
+        if (pathBuilder_ == null) {
+          return path_.get(index);
         } else {
-          return partsBuilder_.getMessage(index);
+          return pathBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public Builder setParts(
+      public Builder setPath(
           int index, org.superbiz.game.proto.Msg.Part value) {
-        if (partsBuilder_ == null) {
+        if (pathBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensurePartsIsMutable();
-          parts_.set(index, value);
+          ensurePathIsMutable();
+          path_.set(index, value);
           onChanged();
         } else {
-          partsBuilder_.setMessage(index, value);
+          pathBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public Builder setParts(
+      public Builder setPath(
           int index, org.superbiz.game.proto.Msg.Part.Builder builderForValue) {
-        if (partsBuilder_ == null) {
-          ensurePartsIsMutable();
-          parts_.set(index, builderForValue.build());
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.set(index, builderForValue.build());
           onChanged();
         } else {
-          partsBuilder_.setMessage(index, builderForValue.build());
+          pathBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public Builder addParts(org.superbiz.game.proto.Msg.Part value) {
-        if (partsBuilder_ == null) {
+      public Builder addPath(org.superbiz.game.proto.Msg.Part value) {
+        if (pathBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensurePartsIsMutable();
-          parts_.add(value);
+          ensurePathIsMutable();
+          path_.add(value);
           onChanged();
         } else {
-          partsBuilder_.addMessage(value);
+          pathBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public Builder addParts(
+      public Builder addPath(
           int index, org.superbiz.game.proto.Msg.Part value) {
-        if (partsBuilder_ == null) {
+        if (pathBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensurePartsIsMutable();
-          parts_.add(index, value);
+          ensurePathIsMutable();
+          path_.add(index, value);
           onChanged();
         } else {
-          partsBuilder_.addMessage(index, value);
+          pathBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public Builder addParts(
+      public Builder addPath(
           org.superbiz.game.proto.Msg.Part.Builder builderForValue) {
-        if (partsBuilder_ == null) {
-          ensurePartsIsMutable();
-          parts_.add(builderForValue.build());
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.add(builderForValue.build());
           onChanged();
         } else {
-          partsBuilder_.addMessage(builderForValue.build());
+          pathBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public Builder addParts(
+      public Builder addPath(
           int index, org.superbiz.game.proto.Msg.Part.Builder builderForValue) {
-        if (partsBuilder_ == null) {
-          ensurePartsIsMutable();
-          parts_.add(index, builderForValue.build());
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.add(index, builderForValue.build());
           onChanged();
         } else {
-          partsBuilder_.addMessage(index, builderForValue.build());
+          pathBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public Builder addAllParts(
+      public Builder addAllPath(
           java.lang.Iterable<? extends org.superbiz.game.proto.Msg.Part> values) {
-        if (partsBuilder_ == null) {
-          ensurePartsIsMutable();
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, parts_);
+              values, path_);
           onChanged();
         } else {
-          partsBuilder_.addAllMessages(values);
+          pathBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public Builder clearParts() {
-        if (partsBuilder_ == null) {
-          parts_ = java.util.Collections.emptyList();
+      public Builder clearPath() {
+        if (pathBuilder_ == null) {
+          path_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000040);
           onChanged();
         } else {
-          partsBuilder_.clear();
+          pathBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public Builder removeParts(int index) {
-        if (partsBuilder_ == null) {
-          ensurePartsIsMutable();
-          parts_.remove(index);
+      public Builder removePath(int index) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.remove(index);
           onChanged();
         } else {
-          partsBuilder_.remove(index);
+          pathBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public org.superbiz.game.proto.Msg.Part.Builder getPartsBuilder(
+      public org.superbiz.game.proto.Msg.Part.Builder getPathBuilder(
           int index) {
-        return getPartsFieldBuilder().getBuilder(index);
+        return getPathFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public org.superbiz.game.proto.Msg.PartOrBuilder getPartsOrBuilder(
+      public org.superbiz.game.proto.Msg.PartOrBuilder getPathOrBuilder(
           int index) {
-        if (partsBuilder_ == null) {
-          return parts_.get(index);  } else {
-          return partsBuilder_.getMessageOrBuilder(index);
+        if (pathBuilder_ == null) {
+          return path_.get(index);  } else {
+          return pathBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
       public java.util.List<? extends org.superbiz.game.proto.Msg.PartOrBuilder> 
-           getPartsOrBuilderList() {
-        if (partsBuilder_ != null) {
-          return partsBuilder_.getMessageOrBuilderList();
+           getPathOrBuilderList() {
+        if (pathBuilder_ != null) {
+          return pathBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(parts_);
+          return java.util.Collections.unmodifiableList(path_);
         }
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public org.superbiz.game.proto.Msg.Part.Builder addPartsBuilder() {
-        return getPartsFieldBuilder().addBuilder(
+      public org.superbiz.game.proto.Msg.Part.Builder addPathBuilder() {
+        return getPathFieldBuilder().addBuilder(
             org.superbiz.game.proto.Msg.Part.getDefaultInstance());
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
-      public org.superbiz.game.proto.Msg.Part.Builder addPartsBuilder(
+      public org.superbiz.game.proto.Msg.Part.Builder addPathBuilder(
           int index) {
-        return getPartsFieldBuilder().addBuilder(
+        return getPathFieldBuilder().addBuilder(
             index, org.superbiz.game.proto.Msg.Part.getDefaultInstance());
       }
       /**
-       * <code>repeated .Part parts = 7;</code>
+       * <code>repeated .Part path = 7;</code>
        */
       public java.util.List<org.superbiz.game.proto.Msg.Part.Builder> 
-           getPartsBuilderList() {
-        return getPartsFieldBuilder().getBuilderList();
+           getPathBuilderList() {
+        return getPathFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
           org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder> 
-          getPartsFieldBuilder() {
-        if (partsBuilder_ == null) {
-          partsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          getPathFieldBuilder() {
+        if (pathBuilder_ == null) {
+          pathBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               org.superbiz.game.proto.Msg.Part, org.superbiz.game.proto.Msg.Part.Builder, org.superbiz.game.proto.Msg.PartOrBuilder>(
-                  parts_,
+                  path_,
                   ((bitField0_ & 0x00000040) == 0x00000040),
                   getParentForChildren(),
                   isClean());
-          parts_ = null;
+          path_ = null;
         }
-        return partsBuilder_;
+        return pathBuilder_;
       }
 
       private float speed_ ;
@@ -11321,15 +11433,15 @@ public final class Msg {
       "es\030\001 \003(\0132\n.SnakeInfo\022\027\n\017serverTimestamp\030" +
       "\002 \001(\004\".\n\004Part\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\020\n\010r" +
       "otation\030\003 \001(\002\"1\n\010TimeInfo\022\021\n\tinitiated\030\001" +
-      " \001(\003\022\022\n\nprocessing\030\002 \001(\003\"\270\001\n\tSnakeInfo\022\n" +
+      " \001(\003\022\022\n\nprocessing\030\002 \001(\003\"\267\001\n\tSnakeInfo\022\n" +
       "\n\002id\030\001 \001(\t\022\t\n\001x\030\002 \001(\002\022\t\n\001y\030\003 \001(\002\022\020\n\010rota" +
       "tion\030\004 \001(\002\022\025\n\rrotationAsked\030\005 \001(\002\022\016\n\006len" +
-      "gth\030\006 \001(\r\022\024\n\005parts\030\007 \003(\0132\005.Part\022\r\n\005speed" +
-      "\030\010 \001(\002\022\014\n\004skin\030\t \001(\t\022\035\n\025lastProcessedOnS" +
-      "erver\030\n \001(\004\"\'\n\006Resize\022\r\n\005width\030\001 \001(\005\022\016\n\006" +
-      "height\030\002 \001(\005\"\036\n\020ClientDisconnect\022\n\n\002id\030\001" +
-      " \001(\tB\036\n\027org.superbiz.game.protoB\003Msgb\006pr" +
-      "oto3"
+      "gth\030\006 \001(\r\022\023\n\004path\030\007 \003(\0132\005.Part\022\r\n\005speed\030" +
+      "\010 \001(\002\022\014\n\004skin\030\t \001(\t\022\035\n\025lastProcessedOnSe" +
+      "rver\030\n \001(\004\"\'\n\006Resize\022\r\n\005width\030\001 \001(\005\022\016\n\006h" +
+      "eight\030\002 \001(\005\"\036\n\020ClientDisconnect\022\n\n\002id\030\001 " +
+      "\001(\tB\036\n\027org.superbiz.game.protoB\003Msgb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11408,7 +11520,7 @@ public final class Msg {
     internal_static_SnakeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SnakeInfo_descriptor,
-        new java.lang.String[] { "Id", "X", "Y", "Rotation", "RotationAsked", "Length", "Parts", "Speed", "Skin", "LastProcessedOnServer", });
+        new java.lang.String[] { "Id", "X", "Y", "Rotation", "RotationAsked", "Length", "Path", "Speed", "Skin", "LastProcessedOnServer", });
     internal_static_Resize_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_Resize_fieldAccessorTable = new

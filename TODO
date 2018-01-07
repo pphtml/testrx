@@ -1,4 +1,8 @@
 - AI had co jezdi dokola
+- stopka pro hada - zatim prepinac
+- poslani inicialnich cest jenom jednou - po prihlaseni
+- znovupouzit kod z org.superbiz.game.SnakePositions.moveSnakeByServer
+- vyhodit baseSpeed
 - rust hada
 - zobrazeni male tabulky hracu
   - update score jenom kdyz je zmena length

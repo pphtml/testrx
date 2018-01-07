@@ -36,12 +36,14 @@ class Worm {
             //this.sprites.push(sprite);
         }
 
+        const head = this.path[0];
+
         const eyeLeft = new Sprite(resources['images/spritesheet.json'].textures['eye.png']);
         eyeLeft.metaInf = 'eye';
         eyeLeft.scale.set(0.4, 0.4);
         eyeLeft.pivot.set(-5, 47);
         eyeLeft.displayGroup = layers.tailLayer;
-        // eyeLeft.position.set(0, 0);
+        eyeLeft.position.set(head.x, head.y);
         this.container.addChild(eyeLeft);
 
         const eyeRight = new Sprite(resources['images/spritesheet.json'].textures['eye.png']);
@@ -49,7 +51,7 @@ class Worm {
         eyeRight.scale.set(0.4, 0.4);
         eyeRight.pivot.set(-5, -4);
         eyeRight.displayGroup = layers.tailLayer;
-        //eyeRight.position.set(0, 0);
+        eyeRight.position.set(head.x, head.y);
         this.container.addChild(eyeRight);
 
         //this.gameContext.stage.addChild(this.container);
@@ -116,6 +118,10 @@ class Worm {
         let newPath = moveSnake(this.path, this.angle, this.speed, this.partDistance);
         this.path = newPath.path;
 
+        this.applyPathToSpriteCoordinates();
+    }
+
+    applyPathToSpriteCoordinates() {
         for (let indexSprite=this.container.children.length-1; indexSprite>=0; indexSprite--) {
             //console.info(indexSprite, indexPath);
             const sprite = this.container.children[indexSprite];
@@ -134,11 +140,19 @@ class Worm {
     }
 
     updateFromServer({speed = 1.0, rotation = 0.0, path = []} = {}) {
+        // if (this.gameContext.communication.commId != this.id) {
+        //     //console.info(`updateFromServer for ${this.id}, ${JSON.stringify(path)}`);
+        //     //debugger;
+        // }
         this.coordinates = {x: path[0].x, y: path[0].y};
         this.angle = rotation;
         //this.partDistance = 20.0;
         this.path = path;
         this.speed = speed;
+
+        if (this.gameContext.communication.commId != this.id) {
+            this.applyPathToSpriteCoordinates(); // TODO vyhodit - update() by mel byt normalne volany
+        }
     }
 }
 
