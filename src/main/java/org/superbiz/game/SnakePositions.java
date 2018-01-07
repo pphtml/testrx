@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 
 @Singleton
 public class SnakePositions {
-    public static final float SPEED_CONSTANT = 5.0f;
     @Inject
     Logger logger;
 
@@ -29,6 +28,7 @@ public class SnakePositions {
     private static final int LENGTH_PER_PART = 10;
     private static final int INITIAL_DEFAULT_LENGTH = 150;
     private static final float INITIAL_PART_DISTANCE = 20.0f;
+    private static final float SPEED_CONSTANT = 5.0f;
 
     private long snakeUpdateTimestamp = System.currentTimeMillis();
 
@@ -76,7 +76,7 @@ public class SnakePositions {
         return snakeData
                 .setX(0.0f)
                 .setY(0.0f)
-                .setSpeed(10.0f)
+                .setSpeed(SPEED_CONSTANT)
                 .setRotation(0.0f)
                 .setRotationAsked(0.0f)
                 .setLength(150)

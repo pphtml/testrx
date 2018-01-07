@@ -73,15 +73,16 @@ class Worms {
     update(elapsedTime) {
         this.updatePosition();
         for (const [id, worm] of Object.entries(this.map)) {
-            if (this.gameContext.communication.commId == id) {
+            //if (this.gameContext.communication.commId == id) {
                 worm.update(elapsedTime);
-            }
+            //}
         }
     }
 
     handlePlayerResp(response) {
         const id = this.gameContext.communication.commId;
 
+        //debugger;
         this.updateWorm({
             id,
             path: response.getPartsList(),
@@ -104,12 +105,18 @@ class Worms {
     }
 
     updateWorm({id, path = [], skin, rotation, speed, length} = {}) {
+        // if (id == this.gameContext.communication.commId) {
+        // }
+
+
         const translatedPath = path.map(part => {
             return { x: part.getX(), y: part.getY(), r: part.getRotation() };
         });
         // const skin = wormData.getSkin();
-        // const rotation = wormData.getRotation();
-        // const speed = wormData.getSpeed();
+        //this.angle = rotation;
+        //debugger;
+        //this.speed = speed;
+        // TODO prenes length
 
         const existingWorm = this.map[id];
         if (!existingWorm) {

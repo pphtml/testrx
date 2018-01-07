@@ -222,6 +222,7 @@ public class GameDataService {
                 .setX(snakeData.getX())
                 .setY(snakeData.getY())
                 .setRotation(snakeData.getRotation())
+                .setSpeed(snakeData.getSpeed())
                 // asked rotation ???
                 .setLength(snakeData.getLength())
                 .addAllParts(snakeData.getPathAsProtobuf())
@@ -235,6 +236,7 @@ public class GameDataService {
                 .setX(snakeData.getX())
                 .setY(snakeData.getY())
                 .setRotation(snakeData.getRotation())
+                .setSpeed(snakeData.getSpeed())
                 // asked rotation ???
                 .setLength(snakeData.getLength())
                 .addAllParts(snakeData.getPathAsProtobuf()) // TODO nechat pocitat klienta

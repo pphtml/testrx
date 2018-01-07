@@ -1,5 +1,6 @@
 - AI had co jezdi dokola
 - stopka pro hada - zatim prepinac
+- kontrola jestli se korektne nastavuje askedRotation + mezi updatama menit
 - poslani inicialnich cest jenom jednou - po prihlaseni
 - znovupouzit kod z org.superbiz.game.SnakePositions.moveSnakeByServer
 - vyhodit baseSpeed

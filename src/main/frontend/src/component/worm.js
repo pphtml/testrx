@@ -9,6 +9,7 @@ const LENGTH_PER_PART = 10;
 
 class Worm {
     constructor({skin, speed = 1.0, rotation = 0.0, path = [], id = 'noname', gameContext, length} = {}) {
+        this.frameUpdatedFromServer = true;
         this.coordinates = path.length == 0 ? {x: undefined, y: undefined} : {x: path[0].x, y: path[0].y};
         this.skinColor = skin;
         this.angle = rotation;
@@ -93,32 +94,42 @@ class Worm {
     };
 
     update(elapsedTime) {
-        // if (this.gameContext.communication.commId != this.id) {
+        // if (this.gameContext.communication.commId == this.id) {
         //     this.path[0].x = 0.0, this.path[0].y = 0.0;
-        //     //debugger;
+        //     debugger;
+        //}
+        // const missingParts = Math.floor(this.length / LENGTH_PER_PART) - this.path.length;
+        // if (missingParts > 0) {
+        //     //console.info(`nesedi delka -> musi se pridat ${missingParts}`);
+        //     const originalLength = this.path.length;
+        //     for (let index = 0; index < missingParts; index++) {
+        //         const endPart = this.path[this.path.length-1];
+        //         const part = JSON.parse(JSON.stringify(endPart));
+        //         this.path.push(part);
+        //
+        //         const sprite = this.sprite_factory();
+        //         sprite.pathIndex = index + originalLength;
+        //         sprite.position.set(part.x, part.y);
+        //         sprite.rotation = part.r;
+        //         sprite.tint = this.skinColor;
+        //         this.container.addChildAt(sprite, 0);
+        //     }
         // }
-        const missingParts = Math.floor(this.length / LENGTH_PER_PART) - this.path.length;
-        if (missingParts > 0) {
-            //console.info(`nesedi delka -> musi se pridat ${missingParts}`);
-            const originalLength = this.path.length;
-            for (let index = 0; index < missingParts; index++) {
-                const endPart = this.path[this.path.length-1];
-                const part = JSON.parse(JSON.stringify(endPart));
-                this.path.push(part);
 
-                const sprite = this.sprite_factory();
-                sprite.pathIndex = index + originalLength;
-                sprite.position.set(part.x, part.y);
-                sprite.rotation = part.r;
-                sprite.tint = this.skinColor;
-                this.container.addChildAt(sprite, 0);
-            }
+        if (!this.frameUpdatedFromServer) {
+            let distance = this.speed * 0.06 * elapsedTime;
+            //if (this.gameContext.communication.commId != this.id) {
+                //distance = distance * 0.5;
+                //console.info(this.speed);
+            //}
+            const newPath = moveSnake(this.path, this.angle, distance, this.partDistance);
+            this.path = newPath.path;
+
+            this.coordinates = {x: this.path[0].x, y: this.path[0].y};
+            this.applyPathToSpriteCoordinates();
         }
 
-        let newPath = moveSnake(this.path, this.angle, this.speed, this.partDistance);
-        this.path = newPath.path;
-
-        this.applyPathToSpriteCoordinates();
+        this.frameUpdatedFromServer = false;
     }
 
     applyPathToSpriteCoordinates() {
@@ -139,20 +150,21 @@ class Worm {
         }
     }
 
-    updateFromServer({speed = 1.0, rotation = 0.0, path = []} = {}) {
+    updateFromServer({speed, rotation, path = []} = {}) {
         // if (this.gameContext.communication.commId != this.id) {
         //     //console.info(`updateFromServer for ${this.id}, ${JSON.stringify(path)}`);
         //     //debugger;
         // }
-        this.coordinates = {x: path[0].x, y: path[0].y};
-        this.angle = rotation;
-        //this.partDistance = 20.0;
-        this.path = path;
-        this.speed = speed;
+        //if (this.gameContext.communication.commId != this.id) {
+            this.coordinates = {x: path[0].x, y: path[0].y};
+            this.angle = rotation;
+            //this.partDistance = 20.0;
+            this.path = path;
+            this.speed = speed;
 
-        if (this.gameContext.communication.commId != this.id) {
             this.applyPathToSpriteCoordinates(); // TODO vyhodit - update() by mel byt normalne volany
-        }
+            this.frameUpdatedFromServer = true;
+        //}
     }
 }
 
